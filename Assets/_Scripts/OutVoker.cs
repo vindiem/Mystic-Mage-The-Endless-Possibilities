@@ -34,7 +34,6 @@ public class OutVoker : MonoBehaviour
         {
             transform.position = targetPosition;
             
-            
         }
         
         // look to the mouse position
