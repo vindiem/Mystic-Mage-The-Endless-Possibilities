@@ -32,8 +32,8 @@ public class OutVoker : MonoBehaviour
         
         if (Input.GetMouseButton(1))
         {
-            transform.position = targetPosition;
-            
+            //transform.position = Vector3.MoveForwards();
+            transform.position = mousePosition.position;
         }
         
         // look to the mouse position
@@ -43,4 +43,5 @@ public class OutVoker : MonoBehaviour
         }
 
     }
+
 }
