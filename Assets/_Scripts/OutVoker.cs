@@ -15,6 +15,12 @@ public class OutVoker : MonoBehaviour
     // character variables
     private int movementSpeed = 6;
     private int rotationSpeed = 10;
+    private Animator animator;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void Update()
     {
@@ -59,6 +65,16 @@ public class OutVoker : MonoBehaviour
             // Moving to target position
             targetPositionXZ.y = transform.position.y;
             transform.position = Vector3.MoveTowards(transform.position, targetPositionXZ, movementSpeed * Time.deltaTime);
+
+            // Animations
+            animator.SetBool("isRunning", true);
+
+        }
+        else
+        {
+            // Animations
+            animator.SetBool("isRunning", false);
+
         }
 
         #endregion
@@ -75,28 +91,6 @@ public class OutVoker : MonoBehaviour
             // In 2D (x, z) = (x, y)
         }
     }
-
-}
-
-public class Skills : OutVoker
-{
-    private OutVoker outVoker;
-
-    private void rotateToMouse()
-    {
-        // look to mouse position
-        if (Input.GetKey(KeyCode.F) == true)
-        {
-            //transform.LookAt(new Vector3(currentMousePosition.x, transform.position.y, currentMousePosition.z));
-            transform.LookAt(new Vector3(outVoker.currentMousePosition.x,
-                                        transform.position.y,
-                                        outVoker.currentMousePosition.z));
-            // Look At transform main character with his own axis (y) and target position (x, z)
-            // In 2D (x, z) = (x, y)
-        }
-    }
-
-
 
 }
 
