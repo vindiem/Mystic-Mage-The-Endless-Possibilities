@@ -86,9 +86,13 @@ public class OutVoker : MonoBehaviour
         // look to mouse position
         if (Input.GetKey(KeyCode.F) == true)
         {
-            transform.LookAt(new Vector3(currentMousePosition.x, transform.position.y, currentMousePosition.z));
             // Look At transform main character with his own axis (y) and target position (x, z)
             // In 2D (x, z) = (x, y)
+            transform.LookAt(new Vector3(currentMousePosition.x, transform.position.y, currentMousePosition.z));
+
+            // Set target position to player position to stop caracter
+            targetPosition = transform.position;
+
         }
     }
 
