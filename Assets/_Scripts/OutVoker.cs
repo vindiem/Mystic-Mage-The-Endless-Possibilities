@@ -81,6 +81,11 @@ public class OutVoker : MonoBehaviour
 
     }
 
+    // Q, W, E, R, T, Y
+    // A, S, D, [F], G, H
+    // Z, X, C, V, B, N
+
+    // [F]
     private void RotateToMouse()
     {
         // look to mouse position
@@ -95,6 +100,9 @@ public class OutVoker : MonoBehaviour
 
         }
     }
+
+    // [S]
+
 
 }
 
