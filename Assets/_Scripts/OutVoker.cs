@@ -3,12 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class OutVoker : MonoBehaviour
 {
     public LayerMask CastLayer;
-    //private Rigidbody rigidbody;
 
     // Vectors
     private Vector3 currentMousePosition = new Vector3();
@@ -23,11 +23,20 @@ public class OutVoker : MonoBehaviour
 
     [Header("Items")]
     public GameObject mouseEffect;
+    
     public GameObject meteor;
-    public GameObject arrows;
+    private float meteorLevel = 4.5f;
+
+    public GameObject arrow;
+    private int minArrowRange = 10;
+    private int maxArrowRange = 15;
+
+    [Header("SkillsButtons")]
+    public Image[] iconButtons;
 
     // Skills k/d's
-    private List<float> KDs = new List<float>();
+    private List<float> kds = new List<float>();
+    private float[] ckds;
 
     // TAB - 0
 
@@ -52,15 +61,16 @@ public class OutVoker : MonoBehaviour
     // B - 17
     // N - 18
 
+    // 19
+
     private void Start()
     {
         // Make KDs array full
         for (int i = 0; i <= 18; i++)
         {
-            KDs.Add(0);
+            kds.Add(0);
         }
 
-        //rigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
     }
 
@@ -129,13 +139,15 @@ public class OutVoker : MonoBehaviour
 
         #endregion
 
-        #region KD
-        
-        for (int i = 0; i < KDs.Count; i++)
+        #region KD & Buttons images fill
+
+        for (int i = 0; i < kds.Count; i++)
         {
-            if (KDs[i] > 0)
+            if (kds[i] > 0)
             {
-                KDs[i] -= Time.deltaTime;
+                float fill = kds[i] * 100 / ckds[i] / 100;
+                iconButtons[i].fillAmount = 1 - fill;
+                kds[i] -= Time.deltaTime;
             }
         }
         
@@ -148,34 +160,43 @@ public class OutVoker : MonoBehaviour
     // Z, X, C, V, B, N
     // TAB
 
-    // [Q]
+    // [Q] Overwhelming Odds / Legion Commander
     private void Arrows()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && KDs[1] <= 0)
+        if (Input.GetKeyDown(KeyCode.Q) && kds[1] <= 0)
         {
-            int rand = Random.Range(7, 10);
+            int rand = Random.Range(minArrowRange, maxArrowRange);
+
             for (int i = 0; i <= rand; i++)
             {
-                
+                float randomXposition = Random.Range(currentMousePosition.x - 3f, currentMousePosition.x + 3f);
+                float randomZposition = Random.Range(currentMousePosition.z - 3f, currentMousePosition.z + 3f);
+
+                GameObject arrowI = Instantiate(arrow, new Vector3(randomXposition, transform.position.y + 7f, 
+                    randomZposition), Quaternion.identity);
+
+                Destroy(arrowI, 2.25f);
             }
 
-            KDs[1] = 0;
+            kds[1] = 12.5f;
+            SetCkds();
         }
     }
 
-    // [A]
+    // [A] Force staff, Blink Dagger
     private void Dash()
     {
-        if (Input.GetKeyDown(KeyCode.A) && KDs[7] <= 0)
+        if (Input.GetKeyDown(KeyCode.A) && kds[7] <= 0)
         {
             transform.Translate(Vector3.forward * force);
             targetPosition = transform.position;
 
-            KDs[7] = 10;
+            kds[7] = 10;
+            SetCkds();
         }
     }
 
-    // [F]
+    // [F] 
     private void RotateToMouse()
     {
         // look to mouse position
@@ -191,23 +212,25 @@ public class OutVoker : MonoBehaviour
         }
     }
 
-    // [G]
+    // [G] Chaos Meteor / Invoker
     private void Meteor()
     {
-        if (Input.GetKeyDown(KeyCode.G) && KDs[11] <= 0)
+        if (Input.GetKeyDown(KeyCode.G) && kds[11] <= 0)
         {
             GameObject m = Instantiate(meteor, new Vector3(currentMousePosition.x, 
                 transform.position.y + 9f, currentMousePosition.z), Quaternion.identity);
 
-            KDs[11] = 20;
+            Destroy(m, meteorLevel);
+
+            kds[11] = 20;
+            SetCkds();
         }
     }
 
-    // [letter]
-    private void SS()
+
+    private void SetCkds()
     {
-
+        ckds = kds.ToArray();
     }
-
 }
 
