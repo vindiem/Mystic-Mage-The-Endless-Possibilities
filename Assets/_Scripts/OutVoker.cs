@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class OutVoker : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class OutVoker : MonoBehaviour
     [Header("Items")]
     public GameObject mouseEffect;
     public GameObject meteor;
-    public GameObject[] arrows;
+    public GameObject arrows;
 
     // Skills k/d's
     private List<float> KDs = new List<float>();
@@ -152,7 +153,13 @@ public class OutVoker : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q) && KDs[1] <= 0)
         {
+            int rand = Random.Range(7, 10);
+            for (int i = 0; i <= rand; i++)
+            {
+                
+            }
 
+            KDs[1] = 0;
         }
     }
 
@@ -197,7 +204,7 @@ public class OutVoker : MonoBehaviour
     }
 
     // [letter]
-    private void Skill()
+    private void SS()
     {
 
     }
