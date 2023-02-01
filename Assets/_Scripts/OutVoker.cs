@@ -23,6 +23,7 @@ public class OutVoker : MonoBehaviour
     [Header("Items")]
     public GameObject mouseEffect;
     public GameObject meteor;
+    public GameObject[] arrows;
 
     // Skills k/d's
     private List<float> KDs = new List<float>();
@@ -193,6 +194,12 @@ public class OutVoker : MonoBehaviour
 
             KDs[11] = 20;
         }
+    }
+
+    // [letter]
+    private void Skill()
+    {
+
     }
 
 }
