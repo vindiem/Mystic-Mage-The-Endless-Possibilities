@@ -13,13 +13,24 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
+    UnityEngine.UI.dll:
+    - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.Button
+    - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.Image
+    - UnityEngine.UI.RawImage
+    - UnityEngine.UI.Text
   sceneClasses:
     Assets/Scenes/mechanic.unity:
     - Class: 1
@@ -61,18 +72,38 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
+      Script: {instanceID: 1486}
+    - Class: 114
+      Script: {instanceID: 2060}
+    - Class: 114
+      Script: {instanceID: 2190}
+    - Class: 114
       Script: {instanceID: 2312}
     - Class: 114
       Script: {instanceID: 2350}
     - Class: 114
+      Script: {instanceID: 2384}
+    - Class: 114
       Script: {instanceID: 2450}
+    - Class: 114
+      Script: {instanceID: 2516}
     - Class: 114
       Script: {instanceID: 2584}
     - Class: 114
       Script: {instanceID: 2618}
     - Class: 114
+      Script: {instanceID: 2694}
+    - Class: 114
+      Script: {instanceID: 2894}
+    - Class: 114
+      Script: {instanceID: 2994}
+    - Class: 114
       Script: {instanceID: 3522}
     - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 135
       Script: {instanceID: 0}
     - Class: 136
       Script: {instanceID: 0}
@@ -85,6 +116,14 @@ ScriptsOnlyBuild:
     - Class: 198
       Script: {instanceID: 0}
     - Class: 199
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -251,7 +290,7 @@ ScriptsOnlyBuild:
     className: CinemachineOrbitalTransposer
   - hash:
       serializedVersion: 2
-      Hash: 359a0a2d4c4da2cd59c1422ef4e1db6b
+      Hash: 24cd91b989c98172a3348cfd8f69fdae
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: OutVoker
@@ -804,4 +843,5 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/mechanic.unity
-  playerPath: D:/Work()/.projects/git_OutVoker/OutVokerBuild/OutVoker.exe
+  playerPath: D:/Work()/.projects/git_OutVoker/b - build/Mystic Mage The Endless
+    Possibilities.exe
