@@ -10,71 +10,57 @@ using Random = UnityEngine.Random;
 public class OutVoker : MonoBehaviour
 {
     public LayerMask CastLayer;
+    private Rigidbody rb;
 
     // Vectors
     private Vector3 currentMousePosition = new Vector3();
     private Vector3 targetPosition = new Vector3();
     private Quaternion lookRotation;
 
-    [Header("Charavter variabels")]
+    [Header("Charavter variables")]
     private int movementSpeed = 6;
     private int rotationSpeed = 10;
     private Animator animator;
     public int force = 0;
+    
+    // Jump variables
+    private bool onGround = false;
+    private float distanceToGround = 0.5f;
+    private float jumpForce = 7.6f;
 
     [Header("Items")]
     public GameObject mouseEffect;
     
     public GameObject meteor;
-    private float meteorLevel = 4.5f;
-
-    public GameObject arrow;
-    private int minArrowRange = 10;
-    private int maxArrowRange = 15;
-
-    public CinemachineVirtualCamera cinemachineCamera;
+    // Seconds meteor live
+    private int meteorLevel = 4;
 
     [Header("SkillsButtons")]
     public Image[] iconButtons;
 
     // Skills k/d's
     private List<float> kds = new List<float>();
-    private float[] ckds = new float[18];
+    private float[] ckds = new float[5];
 
-    // TAB - 0
+    // Z - 0 [Fire]
+    // X - 1 [Wave]
+    // C - 2 [Tornado]
+    // V - 3 [Meteor]
+    // SPACE - 4 [Ultimate]
 
-    // Q - 1++
-    // W - 2
-    // E - 3
-    // R - 4
-    // T - 5
-    // Y - 6
-
-    // A - 7++
-    // S - 8
-    // D - 9
-    // F - 10--
-    // G - 11++
-    // H - 12
-
-    // Z - 13
-    // X - 14
-    // C - 15++
-    // V - 16
-    // B - 17
-    // N - 18
-
-    // 19
+    // 5 elements
 
     private void Start()
     {
+        rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
+
         // Make KDs array full
-        for (int i = 0; i <= 18; i++)
+        for (int i = 0; i <= 4; i++)
         {
             kds.Add(0);
         }
 
-        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -111,10 +97,11 @@ public class OutVoker : MonoBehaviour
 
         RotateToMouse();
 
-        Dash();
+        Fire();
+        Wave();
+        Tornado();
         Meteor();
-        Arrows();
-        Recon();
+        Ultimate();
 
         #region Movement relatively target position
 
@@ -154,53 +141,26 @@ public class OutVoker : MonoBehaviour
                 kds[i] -= Time.deltaTime;
             }
         }
+
+        #endregion
+
+        #region Jump
+
+        onGround = Physics.Raycast(transform.position, Vector3.down, distanceToGround);
         
+        if (Input.GetKeyDown(KeyCode.LeftShift) && onGround == true)
+        {
+            rb.velocity = Vector3.up * jumpForce;
+        }
+
         #endregion
 
     }
 
-    // [Q], W, E, R, T, Y
-    // [A], S, D, {F}, [G], H
-    // Z, X, C, V, B, N
-    // TAB
+    // Z, X, C, V, SPACE
+    // Jump [SHIFT]
 
-    // [Q] Overwhelming Odds / Legion Commander
-    private void Arrows()
-    {
-        if (Input.GetKeyDown(KeyCode.Q) && kds[1] <= 0)
-        {
-            int rand = Random.Range(minArrowRange, maxArrowRange);
-
-            for (int i = 0; i <= rand; i++)
-            {
-                float randomXposition = Random.Range(currentMousePosition.x - 3f, currentMousePosition.x + 3f);
-                float randomZposition = Random.Range(currentMousePosition.z - 3f, currentMousePosition.z + 3f);
-
-                GameObject arrowI = Instantiate(arrow, new Vector3(randomXposition, transform.position.y + 7f, 
-                    randomZposition), Quaternion.identity);
-
-                Destroy(arrowI, 2.25f);
-            }
-
-            kds[1] = 12.5f;
-            SetCkds();
-        }
-    }
-
-    // [A] Force staff, Blink Dagger
-    private void Dash()
-    {
-        if (Input.GetKeyDown(KeyCode.A) && kds[7] <= 0)
-        {
-            transform.Translate(Vector3.forward * force);
-            targetPosition = transform.position;
-
-            kds[7] = 10;
-            SetCkds();
-        }
-    }
-
-    // {F} 
+    // {F}
     private void RotateToMouse()
     {
         // look to mouse position
@@ -216,38 +176,76 @@ public class OutVoker : MonoBehaviour
         }
     }
 
-    // [G] Chaos Meteor / Invoker
+    // [Z] Fire / Dragon Knight
+    private void Fire()
+    {
+        if (Input.GetKeyDown(KeyCode.Z) && kds[0] <= 0)
+        {
+            Debug.Log("Tornado");
+
+            kds[0] = 25;
+            SetCkds(kds[0], 0);
+        }
+    }
+
+    // [X] Wave / Tide
+    private void Wave()
+    {
+        if (Input.GetKeyDown(KeyCode.X) && kds[1] <= 0)
+        {
+            Debug.Log("Tornado");
+
+            kds[1] = 17.5f;
+            SetCkds(kds[1], 1);
+        }
+    }
+
+    // [C] Tornato / Invoker
+    private void Tornado()
+    {
+        if (Input.GetKeyDown(KeyCode.C) && kds[2] <= 0)
+        {
+            Debug.Log("Tornado");
+
+            kds[2] = 15;
+            SetCkds(kds[2], 2);
+        }
+    }
+
+    // [V] Chaos Meteor / Invoker
     private void Meteor()
     {
-        if (Input.GetKeyDown(KeyCode.G) && kds[11] <= 0)
+        if (Input.GetKeyDown(KeyCode.V) && kds[3] <= 0)
         {
+            Debug.Log("Meteor");
+
             GameObject m = Instantiate(meteor, new Vector3(currentMousePosition.x, 
                 transform.position.y + 9f, currentMousePosition.z), Quaternion.identity);
 
             Destroy(m, meteorLevel);
 
-            kds[11] = 20;
-            SetCkds();
+            kds[3] = 20;
+            SetCkds(kds[3], 3);
         }
     }
 
-    // [C] Recon
-    private void Recon()
+    // [SPACE]
+    private void Ultimate()
     {
-        if (Input.GetKeyDown(KeyCode.C) && kds[15] <= 0)
+        if (Input.GetKeyDown(KeyCode.Space) && kds[4] <= 0)
         {
-            cinemachineCamera.m_Lens.OrthographicSize = 15;
+            Debug.Log("ULTIMATE");
 
-            kds[15] = 10;
-            SetCkds();
+            kds[4] = 30;
+            SetCkds(kds[4], 4);
         }
     }
 
 
     // const kds
-    private void SetCkds()
+    private void SetCkds(float kdi, int i)
     {
-        ckds = kds.ToArray();
+        ckds[i] = kdi;
     }
-}
 
+}
