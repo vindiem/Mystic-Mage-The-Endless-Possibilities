@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using Cinemachine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -31,12 +32,14 @@ public class OutVoker : MonoBehaviour
     private int minArrowRange = 10;
     private int maxArrowRange = 15;
 
+    public CinemachineVirtualCamera cinemachineCamera;
+
     [Header("SkillsButtons")]
     public Image[] iconButtons;
 
     // Skills k/d's
     private List<float> kds = new List<float>();
-    private float[] ckds;
+    private float[] ckds = new float[18];
 
     // TAB - 0
 
@@ -56,7 +59,7 @@ public class OutVoker : MonoBehaviour
 
     // Z - 13
     // X - 14
-    // C - 15
+    // C - 15++
     // V - 16
     // B - 17
     // N - 18
@@ -111,6 +114,7 @@ public class OutVoker : MonoBehaviour
         Dash();
         Meteor();
         Arrows();
+        Recon();
 
         #region Movement relatively target position
 
@@ -196,7 +200,7 @@ public class OutVoker : MonoBehaviour
         }
     }
 
-    // [F] 
+    // {F} 
     private void RotateToMouse()
     {
         // look to mouse position
@@ -227,7 +231,20 @@ public class OutVoker : MonoBehaviour
         }
     }
 
+    // [C] Recon
+    private void Recon()
+    {
+        if (Input.GetKeyDown(KeyCode.C) && kds[15] <= 0)
+        {
+            cinemachineCamera.m_Lens.OrthographicSize = 15;
 
+            kds[15] = 10;
+            SetCkds();
+        }
+    }
+
+
+    // const kds
     private void SetCkds()
     {
         ckds = kds.ToArray();
