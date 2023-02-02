@@ -150,6 +150,7 @@ public class OutVoker : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.LeftShift) && onGround == true)
         {
+            animator.SetTrigger("Jump");
             rb.velocity = Vector3.up * jumpForce;
         }
 
