@@ -30,10 +30,19 @@ public class OutVoker : MonoBehaviour
 
     [Header("Items")]
     public GameObject mouseEffect;
-    
+
+    public GameObject fire;
+    private int fireLevel = 2;
+
+    public GameObject wave;
+    private int waveLevel = 3;
+
+    public GameObject tornado;
+    private int tornadoLevel = 5;
+
     public GameObject meteor;
-    // Seconds meteor live
     private int meteorLevel = 4;
+
 
     [Header("SkillsButtons")]
     public Image[] iconButtons;
@@ -95,14 +104,6 @@ public class OutVoker : MonoBehaviour
 
         #endregion
 
-        RotateToMouse();
-
-        Fire();
-        Wave();
-        Tornado();
-        Meteor();
-        Ultimate();
-
         #region Movement relatively target position
 
         Vector3 transformPositionXZ = new Vector3(transform.position.x, 0f, transform.position.z);
@@ -147,11 +148,45 @@ public class OutVoker : MonoBehaviour
         #region Jump
 
         onGround = Physics.Raycast(transform.position, Vector3.down, distanceToGround);
-        
+
         if (Input.GetKeyDown(KeyCode.LeftShift) && onGround == true)
         {
-            animator.SetTrigger("Jump");
             rb.velocity = Vector3.up * jumpForce;
+        }
+
+        #endregion
+
+        #region Skills using
+
+        // look to mouse position
+        if (Input.GetKey(KeyCode.F) == true)
+        {
+            RotateToMouse();
+        }
+
+        else if (Input.GetKeyDown(KeyCode.Z) && kds[0] <= 0)
+        {
+            Fire();
+        }
+
+        else if (Input.GetKeyDown(KeyCode.X) && kds[1] <= 0)
+        {
+            Wave();
+        }
+
+        else if (Input.GetKeyDown(KeyCode.C) && kds[2] <= 0)
+        {
+            Tornado();
+        }
+
+        else if (Input.GetKeyDown(KeyCode.V) && kds[3] <= 0)
+        {
+            Meteor();
+        }
+
+        else if (Input.GetKeyDown(KeyCode.Space) && kds[4] <= 0)
+        {
+            Ultimate();
         }
 
         #endregion
@@ -162,84 +197,64 @@ public class OutVoker : MonoBehaviour
     // Jump [SHIFT]
 
     // {F}
-    private void RotateToMouse()
+    public void RotateToMouse()
     {
-        // look to mouse position
-        if (Input.GetKey(KeyCode.F) == true)
-        {
-            // Look At transform main character with his own axis (y) and target position (x, z)
-            // In 2D (x, z) = (x, y)
-            transform.LookAt(new Vector3(currentMousePosition.x, transform.position.y, currentMousePosition.z));
+        // Look At transform main character with his own axis (y) and target position (x, z)
+        // In 2D (x, z) = (x, y)
+        transform.LookAt(new Vector3(currentMousePosition.x, transform.position.y, currentMousePosition.z));
 
-            // Set target position to player position to stop character
-            targetPosition = transform.position;
-
-        }
+        // Set target position to player position to stop character
+        targetPosition = transform.position;
     }
 
     // [Z] Fire / Dragon Knight
-    private void Fire()
+    public void Fire()
     {
-        if (Input.GetKeyDown(KeyCode.Z) && kds[0] <= 0)
-        {
-            Debug.Log("Tornado");
+        Debug.Log("Tornado");
 
-            kds[0] = 25;
-            SetCkds(kds[0], 0);
-        }
+        kds[0] = 25;
+        SetCkds(kds[0], 0);
     }
 
     // [X] Wave / Tide
-    private void Wave()
+    public void Wave()
     {
-        if (Input.GetKeyDown(KeyCode.X) && kds[1] <= 0)
-        {
-            Debug.Log("Tornado");
+        Debug.Log("Tornado");
 
-            kds[1] = 17.5f;
-            SetCkds(kds[1], 1);
-        }
+        kds[1] = 17.5f;
+        SetCkds(kds[1], 1);
     }
 
     // [C] Tornato / Invoker
-    private void Tornado()
+    public void Tornado()
     {
-        if (Input.GetKeyDown(KeyCode.C) && kds[2] <= 0)
-        {
-            Debug.Log("Tornado");
+        Debug.Log("Tornado");
 
-            kds[2] = 15;
-            SetCkds(kds[2], 2);
-        }
+        kds[2] = 15;
+        SetCkds(kds[2], 2);
     }
 
     // [V] Chaos Meteor / Invoker
-    private void Meteor()
+    public void Meteor()
     {
-        if (Input.GetKeyDown(KeyCode.V) && kds[3] <= 0)
-        {
-            Debug.Log("Meteor");
+        Debug.Log("Meteor");
 
-            GameObject m = Instantiate(meteor, new Vector3(currentMousePosition.x, 
-                transform.position.y + 9f, currentMousePosition.z), Quaternion.identity);
+        GameObject m = Instantiate(meteor, new Vector3(currentMousePosition.x,
+            transform.position.y + 9f, currentMousePosition.z), Quaternion.identity);
 
-            Destroy(m, meteorLevel);
+        Destroy(m, meteorLevel);
 
-            kds[3] = 20;
-            SetCkds(kds[3], 3);
-        }
+        kds[3] = 20;
+        SetCkds(kds[3], 3);
     }
 
     // [SPACE]
-    private void Ultimate()
+    public void Ultimate()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && kds[4] <= 0)
-        {
-            Debug.Log("ULTIMATE");
+        Debug.Log("ULTIMATE");
 
-            kds[4] = 30;
-            SetCkds(kds[4], 4);
-        }
+        kds[4] = 30;
+        SetCkds(kds[4], 4);
     }
 
 
