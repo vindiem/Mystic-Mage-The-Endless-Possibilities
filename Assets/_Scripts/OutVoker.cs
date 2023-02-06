@@ -18,6 +18,7 @@ public class OutVoker : MonoBehaviour
     private Quaternion lookRotation;
 
     [Header("Charavter variables")]
+    [SerializeField] private int health = 100;
     private int movementSpeed = 6;
     private int rotationSpeed = 10;
     private Animator animator;
@@ -262,6 +263,11 @@ public class OutVoker : MonoBehaviour
     private void SetCkds(float kdi, int i)
     {
         ckds[i] = kdi;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
     }
 
 }
