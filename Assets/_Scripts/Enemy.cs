@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     private float attackRange = 3f;
     private float seeRange = 10f;
 
-    private float attackRate = 3.5f;
+    private float attackRate = 4.25f;
     private float nextAttackTime;
 
     private float distance;
@@ -66,6 +66,7 @@ public class Enemy : MonoBehaviour
     {
         if (player == null)
         {
+            animator.SetBool("isAttacking", false);
             return;
         }
 
