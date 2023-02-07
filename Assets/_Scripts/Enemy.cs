@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
     private NavMeshAgent navMeshAgent;
     private Animator animator;
     private Transform player;
+    private OutVoker playerScript;
 
     public enum Element
     {
@@ -28,11 +29,37 @@ public class Enemy : MonoBehaviour
         Water
     };
 
+    private Element element;
+    public Material material;
+
     private void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         player = GameObject.FindWithTag("Player").transform;
+        playerScript = player.GetComponent<OutVoker>();
+
+        int randomElement = Random.Range(0, 4);
+        switch (randomElement)
+        {
+            case 0:
+                element = Element.Air;
+                material.SetColor("_EmissionColor", new Color(32, 0, 27) * 0.01f);
+                break;
+            case 1:
+                element = Element.Earth;
+                material.SetColor("_EmissionColor", new Color(32, 27, 11) * 0.01f);
+                break;
+            case 2:
+                element = Element.Fire;
+                material.SetColor("_EmissionColor", new Color(32, 13, 11) * 0.01f);
+                break;
+            case 3:
+                element = Element.Water;
+                material.SetColor("_EmissionColor", new Color(11, 30, 32) * 0.01f);
+                break;
+        }
+
     }
 
     private void Update()
@@ -61,7 +88,7 @@ public class Enemy : MonoBehaviour
                 animator.SetInteger("AttackInt", rand);
 
                 nextAttackTime = Time.time + attackRate;
-                // Take damage
+                // Take damage to hero
             }
             else if (distance >= attackRange)
             {
@@ -70,6 +97,7 @@ public class Enemy : MonoBehaviour
             }
         }
 
+        transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
 
         // Death
         if (health <= 0)
@@ -81,9 +109,23 @@ public class Enemy : MonoBehaviour
 
     }
 
-    public void TakeDamage()
+    public void TakeDamageToHero()
     {
         player.GetComponent<OutVoker>().TakeDamage(damage);
+    }
+
+    private void TakeDamage(int damage)
+    {
+        health -= damage;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Meteor") == true)
+        {
+            TakeDamage(playerScript.meteorLevel * 2);
+        }
+
     }
 
 }

@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - Enemy
     - OutVoker
     Cinemachine.dll:
     - Cinemachine.CinemachineBrain
@@ -21,8 +22,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -78,33 +81,35 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1488}
+      Script: {instanceID: 1490}
     - Class: 114
-      Script: {instanceID: 2062}
+      Script: {instanceID: 2082}
     - Class: 114
-      Script: {instanceID: 2192}
+      Script: {instanceID: 2218}
     - Class: 114
-      Script: {instanceID: 2314}
+      Script: {instanceID: 2350}
     - Class: 114
-      Script: {instanceID: 2352}
+      Script: {instanceID: 2388}
     - Class: 114
-      Script: {instanceID: 2386}
+      Script: {instanceID: 2424}
     - Class: 114
-      Script: {instanceID: 2452}
+      Script: {instanceID: 2492}
     - Class: 114
-      Script: {instanceID: 2518}
+      Script: {instanceID: 2558}
     - Class: 114
-      Script: {instanceID: 2586}
+      Script: {instanceID: 2630}
     - Class: 114
-      Script: {instanceID: 2620}
+      Script: {instanceID: 2666}
     - Class: 114
-      Script: {instanceID: 2696}
+      Script: {instanceID: 2748}
     - Class: 114
-      Script: {instanceID: 2896}
+      Script: {instanceID: 2952}
     - Class: 114
-      Script: {instanceID: 2996}
+      Script: {instanceID: 3054}
     - Class: 114
-      Script: {instanceID: 3524}
+      Script: {instanceID: 3606}
+    - Class: 114
+      Script: {instanceID: 4106}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -116,6 +121,8 @@ ScriptsOnlyBuild:
     - Class: 137
       Script: {instanceID: 0}
     - Class: 157
+      Script: {instanceID: 0}
+    - Class: 195
       Script: {instanceID: 0}
     - Class: 196
       Script: {instanceID: 0}
@@ -130,6 +137,8 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 238
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -296,7 +305,7 @@ ScriptsOnlyBuild:
     className: CinemachineOrbitalTransposer
   - hash:
       serializedVersion: 2
-      Hash: ff327f74e07f615febbded4a00bab87b
+      Hash: 09bff57178217894b11462346bea8cf7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: OutVoker
@@ -722,6 +731,12 @@ ScriptsOnlyBuild:
     className: CinemachineStoryboard
   - hash:
       serializedVersion: 2
+      Hash: 6139c76af357fd77d0ff4e11fc99ca64
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Enemy
+  - hash:
+      serializedVersion: 2
       Hash: ffd3ed4fcd23b3e7745287c99a637247
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
@@ -849,4 +864,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/mechanic.unity
-  playerPath: D:/Work()/.projects/git_Mystic_Mage/Build/Mystic Mage The Endless Possibilities.exe
+  playerPath: D:/Work()/.projects/git_Mystic_Mage/s/Mystic Mage The Endless Possibilities.exe

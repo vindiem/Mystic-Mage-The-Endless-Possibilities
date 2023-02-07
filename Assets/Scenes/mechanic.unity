@@ -32641,12 +32641,15 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   health: 100
-  force: 10
   mouseEffect: {fileID: 8460667080445658512, guid: a3e2c3406e02f2c4ba86cfb1604277bd, type: 3}
   fire: {fileID: 0}
+  fireLevel: 2
   wave: {fileID: 0}
+  waveLevel: 3
   tornado: {fileID: 0}
+  tornadoLevel: 5
   meteor: {fileID: 3022427677212493206, guid: b5e76533d8b972e4988bb762ac724f82, type: 3}
+  meteorLevel: 4
   iconButtons:
   - {fileID: 26395174}
   - {fileID: 917964150}
@@ -32704,7 +32707,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -32759,6 +32762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  material: {fileID: 2100000, guid: 500753d5e6a4d9240bbcca7bad0e5c6b, type: 2}
 --- !u!4 &1031632035775242365
 Transform:
   m_ObjectHideFlags: 0
@@ -44750,7 +44754,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9ce7e1b126335a74c95a8dfbdb213942, type: 2}
+  - {fileID: 2100000, guid: 500753d5e6a4d9240bbcca7bad0e5c6b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -22,7 +22,6 @@ public class OutVoker : MonoBehaviour
     private int movementSpeed = 6;
     private int rotationSpeed = 10;
     private Animator animator;
-    public int force = 0;
     
     // Jump variables
     private bool onGround = false;
@@ -33,17 +32,16 @@ public class OutVoker : MonoBehaviour
     public GameObject mouseEffect;
 
     public GameObject fire;
-    private int fireLevel = 2;
+    public int fireLevel = 2;
 
     public GameObject wave;
-    private int waveLevel = 3;
+    public int waveLevel = 3;
 
     public GameObject tornado;
-    private int tornadoLevel = 5;
+    public int tornadoLevel = 5;
 
     public GameObject meteor;
-    private int meteorLevel = 4;
-
+    public int meteorLevel = 4;
 
     [Header("SkillsButtons")]
     public Image[] iconButtons;
@@ -52,10 +50,10 @@ public class OutVoker : MonoBehaviour
     private List<float> kds = new List<float>();
     private float[] ckds = new float[5];
 
-    // Z - 0 [Fire]
-    // X - 1 [Wave]
-    // C - 2 [Tornado]
-    // V - 3 [Meteor]
+    // Z - 0 [Fire] - Fire
+    // X - 1 [Wave] - Water
+    // C - 2 [Tornado] - Air
+    // V - 3 [Meteor] - Earth
     // SPACE - 4 [Ultimate]
 
     // 5 elements
@@ -225,8 +223,6 @@ public class OutVoker : MonoBehaviour
     // [Z] Fire / Dragon Knight
     public void Fire()
     {
-        Debug.Log("Tornado");
-
         kds[0] = 25;
         SetCkds(kds[0], 0);
     }
@@ -234,8 +230,6 @@ public class OutVoker : MonoBehaviour
     // [X] Wave / Tide
     public void Wave()
     {
-        Debug.Log("Tornado");
-
         kds[1] = 17.5f;
         SetCkds(kds[1], 1);
     }
@@ -243,8 +237,6 @@ public class OutVoker : MonoBehaviour
     // [C] Tornato / Invoker
     public void Tornado()
     {
-        Debug.Log("Tornado");
-
         kds[2] = 15;
         SetCkds(kds[2], 2);
     }
@@ -252,10 +244,14 @@ public class OutVoker : MonoBehaviour
     // [V] Chaos Meteor / Invoker
     public void Meteor()
     {
-        Debug.Log("Meteor");
+        GameObject m = Instantiate(meteor, new Vector3(transform.position.x,
+            transform.position.y + 9f, transform.position.z), Quaternion.identity);
 
-        GameObject m = Instantiate(meteor, new Vector3(currentMousePosition.x,
-            transform.position.y + 9f, currentMousePosition.z), Quaternion.identity);
+        float distance = Vector3.Distance(transform.position, currentMousePosition);
+        float modifiedForce = meteorLevel * 32 * distance;
+
+        Vector3 direction = (transform.position - currentMousePosition).normalized;
+        m.GetComponent<Rigidbody>().AddForce(-direction * modifiedForce);
 
         Destroy(m, meteorLevel);
 
@@ -266,7 +262,6 @@ public class OutVoker : MonoBehaviour
     // [SPACE]
     public void Ultimate()
     {
-        Debug.Log("ULTIMATE");
 
         kds[4] = 30;
         SetCkds(kds[4], 4);
