@@ -18,7 +18,7 @@ public class OutVoker : MonoBehaviour
     private Quaternion lookRotation;
 
     [Header("Charavter variables")]
-    [SerializeField] private int health = 100;
+    [SerializeField] private float health = 100;
     private int movementSpeed = 6;
     private int rotationSpeed = 10;
     private Animator animator;
@@ -59,6 +59,9 @@ public class OutVoker : MonoBehaviour
     // SPACE - 4 [Ultimate]
 
     // 5 elements
+
+    // UI Elements
+    public Image healthImage;
 
     private void Start()
     {
@@ -188,6 +191,17 @@ public class OutVoker : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Space) && kds[4] <= 0)
         {
             Ultimate();
+        }
+
+        #endregion
+
+        #region UI
+
+        healthImage.fillAmount = health / 100;
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
         }
 
         #endregion

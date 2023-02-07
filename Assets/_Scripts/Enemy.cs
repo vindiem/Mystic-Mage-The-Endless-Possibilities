@@ -5,26 +5,37 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    public int damage = 10;
-    public float attackRange = 3f;
-    public float seeRange = 5f;
-    public float attackRate = 1f;
+    public int health = 100;
+    private int damage = 10;
 
+    private float attackRange = 3f;
+    private float seeRange = 10f;
+
+    private float attackRate = 3.5f;
     private float nextAttackTime;
-    [SerializeField] private float distance;
+
+    private float distance;
 
     private NavMeshAgent navMeshAgent;
     private Animator animator;
     private Transform player;
 
-    void Start()
+    public enum Element
+    {
+        Earth,
+        Air,
+        Fire,
+        Water
+    };
+
+    private void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         player = GameObject.FindWithTag("Player").transform;
     }
 
-    void Update()
+    private void Update()
     {
         if (player == null)
         {
@@ -42,17 +53,37 @@ public class Enemy : MonoBehaviour
 
             if (Time.time >= nextAttackTime && distance <= attackRange)
             {
+                animator.SetBool("isAttacking", true);
                 navMeshAgent.isStopped = true;
-                animator.SetTrigger("Attack");
+
+                // Difference attack animations
+                int rand = Random.Range(1, 5);
+                animator.SetInteger("AttackInt", rand);
 
                 nextAttackTime = Time.time + attackRate;
-                player.GetComponent<OutVoker>().TakeDamage(damage);
+                // Take damage
             }
             else if (distance >= attackRange)
             {
                 navMeshAgent.isStopped = false;
+                animator.SetBool("isAttacking", false);
             }
         }
 
+
+        // Death
+        if (health <= 0)
+        {
+            animator.SetTrigger("Death");
+            navMeshAgent.isStopped = true;
+            Destroy(gameObject, 4f);
+        }
+
     }
+
+    public void TakeDamage()
+    {
+        player.GetComponent<OutVoker>().TakeDamage(damage);
+    }
+
 }
