@@ -43,6 +43,9 @@ public class OutVoker : MonoBehaviour
     public GameObject meteor;
     public int meteorLevel = 4;
 
+    public GameObject ultimate;
+    public int ultimateLevel = 4;
+
     [Header("SkillsButtons")]
     public Image[] iconButtons;
 
@@ -166,27 +169,27 @@ public class OutVoker : MonoBehaviour
             RotateToMouse();
         }
 
-        else if (Input.GetKeyDown(KeyCode.Z) && kds[0] <= 0)
+        else if (Input.GetKeyDown(KeyCode.Z))
         {
             Fire();
         }
 
-        else if (Input.GetKeyDown(KeyCode.X) && kds[1] <= 0)
+        else if (Input.GetKeyDown(KeyCode.X))
         {
             Wave();
         }
 
-        else if (Input.GetKeyDown(KeyCode.C) && kds[2] <= 0)
+        else if (Input.GetKeyDown(KeyCode.C))
         {
             Tornado();
         }
 
-        else if (Input.GetKeyDown(KeyCode.V) && kds[3] <= 0)
+        else if (Input.GetKeyDown(KeyCode.V))
         {
             Meteor();
         }
 
-        else if (Input.GetKeyDown(KeyCode.Space) && kds[4] <= 0)
+        else if (Input.GetKeyDown(KeyCode.Space))
         {
             Ultimate();
         }
@@ -223,48 +226,62 @@ public class OutVoker : MonoBehaviour
     // [Z] Fire / Dragon Knight
     public void Fire()
     {
-        kds[0] = 25;
-        SetCkds(kds[0], 0);
+        if (kds[0] <= 0)
+        {
+            kds[0] = 25;
+            SetCkds(kds[0], 0);
+        }
     }
 
     // [X] Wave / Tide
     public void Wave()
     {
-        kds[1] = 17.5f;
-        SetCkds(kds[1], 1);
+        if (kds[1] <= 0)
+        {
+            kds[1] = 17.5f;
+            SetCkds(kds[1], 1);
+        }
     }
 
     // [C] Tornato / Invoker
     public void Tornado()
     {
-        kds[2] = 15;
-        SetCkds(kds[2], 2);
+        if (kds[2] <= 0)
+        {
+            kds[2] = 15;
+            SetCkds(kds[2], 2);
+        }
     }
 
     // [V] Chaos Meteor / Invoker
     public void Meteor()
     {
-        GameObject m = Instantiate(meteor, new Vector3(transform.position.x,
-            transform.position.y + 9f, transform.position.z), Quaternion.identity);
+        if (kds[3] <= 0)
+        {
+            GameObject m = Instantiate(meteor, new Vector3(transform.position.x,
+                transform.position.y + 6f, transform.position.z), Quaternion.identity);
 
-        float distance = Vector3.Distance(transform.position, currentMousePosition);
-        float modifiedForce = meteorLevel * 32 * distance;
+            float distance = Vector3.Distance(transform.position, currentMousePosition);
+            float modifiedForce = meteorLevel * 32 * distance;
 
-        Vector3 direction = (transform.position - currentMousePosition).normalized;
-        m.GetComponent<Rigidbody>().AddForce(-direction * modifiedForce);
+            Vector3 direction = (transform.position - currentMousePosition).normalized;
+            m.GetComponent<Rigidbody>().AddForce(-direction * modifiedForce);
 
-        Destroy(m, meteorLevel);
+            Destroy(m, meteorLevel);
 
-        kds[3] = 20;
-        SetCkds(kds[3], 3);
+            kds[3] = 20;
+            SetCkds(kds[3], 3);
+        }
     }
 
-    // [SPACE]
+    // [SPACE] Ultimate / Invoker
     public void Ultimate()
     {
-
-        kds[4] = 30;
-        SetCkds(kds[4], 4);
+        if (kds[4] <= 0)
+        {
+            kds[4] = 30;
+            SetCkds(kds[4], 4);
+        }
     }
 
 

@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
     };
 
     private Element element;
-    public Material material;
+    private Material material;
 
     private void Start()
     {
@@ -40,6 +40,7 @@ public class Enemy : MonoBehaviour
         player = GameObject.FindWithTag("Player").transform;
         playerScript = player.GetComponent<OutVoker>();
 
+        material = GetComponentInChildren<Renderer>().material;
         int randomElement = Random.Range(0, 4);
         switch (randomElement)
         {
@@ -104,7 +105,7 @@ public class Enemy : MonoBehaviour
             }
         }
 
-        transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
+        transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
 
         // Death
         if (health <= 0)
@@ -128,9 +129,27 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Meteor") == true)
+        // ; element - zombie
+        if (other.CompareTag("Meteor") == true && element == Element.Water)
         {
             TakeDamage(playerScript.meteorLevel * 2);
+        }
+        else if (other.CompareTag("Tornado") == true && element == Element.Fire)
+        {
+            TakeDamage(playerScript.tornadoLevel * 2);
+        }
+        else if (other.CompareTag("Wave") == true && element == Element.Earth)
+        {
+            TakeDamage(playerScript.waveLevel * 2);
+        }
+        else if (other.CompareTag("Fire") == true && element == Element.Air)
+        {
+            TakeDamage(playerScript.fireLevel * 2);
+        }
+
+        else if (other.CompareTag("Ultimate") == true)
+        {
+            TakeDamage(playerScript.ultimateLevel * 2);
         }
 
     }
