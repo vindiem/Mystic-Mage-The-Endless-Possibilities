@@ -46,7 +46,7 @@ public class Enemy : MonoBehaviour
         {
             case 0:
                 element = Element.Air;
-                material.SetColor("_EmissionColor", new Color(32, 0, 27) * 0.01f);
+                material.SetColor("_EmissionColor", new Color(32, 32, 32) * 0.01f);
                 break;
             case 1:
                 element = Element.Earth;
