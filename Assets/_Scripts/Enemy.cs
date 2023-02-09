@@ -96,8 +96,6 @@ public class Enemy : MonoBehaviour
 
                 nextAttackTime = Time.time + attackRate;
                 // Take damage to hero
-
-                LookAtPlayer();
             }
             else if (distance >= maxAttackRange)
             {
@@ -108,9 +106,10 @@ public class Enemy : MonoBehaviour
             {
                 navMeshAgent.isStopped = true;
                 animator.SetBool("isAttacking", true);
-                LookAtPlayer();
             }
         }
+
+        LookAtPlayer();
 
         // Death
         if (health <= 0)
@@ -120,8 +119,9 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject, 4f);
         }
 
-        healthBackground.transform.LookAt(Camera.main.transform.position);
-        healthImage.transform.LookAt(Camera.main.transform.position);
+        Vector3 cameraPosition = Camera.main.transform.position;
+        healthBackground.transform.LookAt(cameraPosition);
+        healthImage.transform.LookAt(cameraPosition);
         healthImage.fillAmount = health / 100;
     }
 
@@ -182,6 +182,14 @@ public class Enemy : MonoBehaviour
         else if (other.CompareTag("Ultimate") == true)
         {
             TakeDamage(playerScript.ultimateLevel * 2);
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Meteor") == true)
+        {
+            //TakeDamage(playerScript.meteorLevel / 10);
         }
     }
 
