@@ -18,7 +18,7 @@ public class OutVoker : MonoBehaviour
     private Quaternion lookRotation;
 
     [Header("Charavter variables")]
-    [SerializeField] private float health = 100;
+    private float health = 100;
     private int movementSpeed = 6;
     private int rotationSpeed = 10;
     private Animator animator;
@@ -159,7 +159,7 @@ public class OutVoker : MonoBehaviour
             rb.velocity = Vector3.up * jumpForce;
         }
 
-        if (transform.position.y >= 4.0f)
+        if (transform.position.y >= 3.0f)
         {
             animator.SetBool("isRunning", false);
         }
