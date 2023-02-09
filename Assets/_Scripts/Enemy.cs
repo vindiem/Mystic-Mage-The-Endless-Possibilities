@@ -8,10 +8,11 @@ public class Enemy : MonoBehaviour
     public int health = 100;
     private int damage = 10;
 
-    private float attackRange = 3f;
+    private float minAttackRange = 3.75f;
+    private float maxAttackRange = 4.25f;
     private float seeRange = 10f;
 
-    private float attackRate = 4.25f;
+    private float attackRate = 3.5f;
     private float nextAttackTime;
 
     private float distance;
@@ -79,7 +80,7 @@ public class Enemy : MonoBehaviour
         {
             navMeshAgent.SetDestination(player.position);
 
-            if (Time.time >= nextAttackTime && distance <= attackRange)
+            if (Time.time >= nextAttackTime && distance >= minAttackRange && distance <= maxAttackRange)
             {
                 animator.SetBool("isAttacking", true);
                 navMeshAgent.isStopped = true;
@@ -91,10 +92,15 @@ public class Enemy : MonoBehaviour
                 nextAttackTime = Time.time + attackRate;
                 // Take damage to hero
             }
-            else if (distance >= attackRange)
+            else if (distance >= maxAttackRange)
             {
                 navMeshAgent.isStopped = false;
                 animator.SetBool("isAttacking", false);
+            }
+            else if (distance <= minAttackRange)
+            {
+                navMeshAgent.isStopped = true;
+                animator.SetBool("isAttacking", true);
             }
         }
 
