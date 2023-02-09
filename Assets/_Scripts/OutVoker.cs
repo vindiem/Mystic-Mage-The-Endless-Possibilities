@@ -159,6 +159,11 @@ public class OutVoker : MonoBehaviour
             rb.velocity = Vector3.up * jumpForce;
         }
 
+        if (transform.position.y >= 4.0f)
+        {
+            animator.SetBool("isRunning", false);
+        }
+
         #endregion
 
         #region Skills using

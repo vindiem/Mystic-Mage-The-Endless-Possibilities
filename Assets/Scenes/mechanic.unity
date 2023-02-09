@@ -421,7 +421,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  distance: 0
 --- !u!54 &37851502
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11048,8 +11047,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 12.5}
+  m_SizeDelta: {x: 0, y: -25.000002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &285354368
 MonoBehaviour:
@@ -11301,6 +11300,7 @@ GameObject:
   - component: {fileID: 330723789}
   - component: {fileID: 330723788}
   - component: {fileID: 330723787}
+  - component: {fileID: 330723790}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -11384,6 +11384,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330723785}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!208 &330723790
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330723785}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &331258496
 GameObject:
   m_ObjectHideFlags: 0
@@ -23185,7 +23201,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  distance: 0
 --- !u!54 &1014359628
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24879,6 +24894,7 @@ GameObject:
   - component: {fileID: 1750655569}
   - component: {fileID: 1750655568}
   - component: {fileID: 1750655567}
+  - component: {fileID: 1750655570}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Untagged
@@ -24962,6 +24978,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1750655565}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!208 &1750655570
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750655565}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1757767071
 GameObject:
   m_ObjectHideFlags: 0
@@ -35355,7 +35387,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  distance: 0
 --- !u!54 &1927407577
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -36977,7 +37008,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  distance: 0
 --- !u!4 &1031632035775242365
 Transform:
   m_ObjectHideFlags: 0

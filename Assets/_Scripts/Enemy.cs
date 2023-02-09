@@ -92,6 +92,8 @@ public class Enemy : MonoBehaviour
 
                 nextAttackTime = Time.time + attackRate;
                 // Take damage to hero
+
+                LookAtPlayer();
             }
             else if (distance >= maxAttackRange)
             {
@@ -102,10 +104,9 @@ public class Enemy : MonoBehaviour
             {
                 navMeshAgent.isStopped = true;
                 animator.SetBool("isAttacking", true);
+                LookAtPlayer();
             }
         }
-
-        transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
 
         // Death
         if (health <= 0)
@@ -120,6 +121,11 @@ public class Enemy : MonoBehaviour
     public void TakeDamageToHero()
     {
         player.GetComponent<OutVoker>().TakeDamage(damage);
+    }
+
+    private void LookAtPlayer()
+    {
+        transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
     }
 
     private void TakeDamage(int damage)
@@ -146,7 +152,6 @@ public class Enemy : MonoBehaviour
         {
             TakeDamage(playerScript.fireLevel * 2);
         }
-
         else if (other.CompareTag("Ultimate") == true)
         {
             TakeDamage(playerScript.ultimateLevel * 2);
