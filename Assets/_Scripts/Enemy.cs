@@ -154,6 +154,7 @@ public class Enemy : MonoBehaviour
             {
                 TakeDamage(playerScript.meteorLevel / 3 * 2);
             }
+            
         }
 
         else if (other.CompareTag("Tornado") == true)
@@ -205,6 +206,11 @@ public class Enemy : MonoBehaviour
         {
             //TakeDamage(playerScript.meteorLevel / 10);
         }
+    }
+
+    private IEnumerator TornadoFeature()
+    {
+        yield return new WaitForSeconds(1f);
     }
 
 }
