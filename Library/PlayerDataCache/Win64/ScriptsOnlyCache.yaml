@@ -22,8 +22,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -60,8 +62,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 54
       Script: {instanceID: 0}
-    - Class: 65
-      Script: {instanceID: 0}
     - Class: 74
       Script: {instanceID: 0}
     - Class: 81
@@ -79,35 +79,35 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1640}
+      Script: {instanceID: 1636}
     - Class: 114
-      Script: {instanceID: 2232}
+      Script: {instanceID: 2228}
     - Class: 114
-      Script: {instanceID: 2368}
+      Script: {instanceID: 2364}
     - Class: 114
-      Script: {instanceID: 2500}
+      Script: {instanceID: 2496}
     - Class: 114
-      Script: {instanceID: 2538}
+      Script: {instanceID: 2534}
     - Class: 114
-      Script: {instanceID: 2574}
+      Script: {instanceID: 2570}
     - Class: 114
-      Script: {instanceID: 2642}
+      Script: {instanceID: 2638}
     - Class: 114
-      Script: {instanceID: 2708}
+      Script: {instanceID: 2704}
     - Class: 114
-      Script: {instanceID: 2780}
+      Script: {instanceID: 2776}
     - Class: 114
-      Script: {instanceID: 2816}
+      Script: {instanceID: 2812}
     - Class: 114
-      Script: {instanceID: 2898}
+      Script: {instanceID: 2894}
     - Class: 114
-      Script: {instanceID: 3102}
+      Script: {instanceID: 3098}
     - Class: 114
-      Script: {instanceID: 3204}
+      Script: {instanceID: 3200}
     - Class: 114
-      Script: {instanceID: 3756}
+      Script: {instanceID: 3752}
     - Class: 114
-      Script: {instanceID: 4256}
+      Script: {instanceID: 4252}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -118,7 +118,13 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 137
       Script: {instanceID: 0}
+    - Class: 154
+      Script: {instanceID: 0}
+    - Class: 156
+      Script: {instanceID: 0}
     - Class: 157
+      Script: {instanceID: 0}
+    - Class: 193
       Script: {instanceID: 0}
     - Class: 195
       Script: {instanceID: 0}
@@ -128,9 +134,9 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 199
       Script: {instanceID: 0}
-    - Class: 208
-      Script: {instanceID: 0}
     - Class: 213
+      Script: {instanceID: 0}
+    - Class: 218
       Script: {instanceID: 0}
     - Class: 222
       Script: {instanceID: 0}
@@ -139,6 +145,8 @@ ScriptsOnlyBuild:
     - Class: 224
       Script: {instanceID: 0}
     - Class: 238
+      Script: {instanceID: 0}
+    - Class: 1953259897
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -861,6 +869,216 @@ ScriptsOnlyBuild:
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachineBlendListCamera
+  - hash:
+      serializedVersion: 2
+      Hash: b2119094b0083707a0b6ff356d4a1f66
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: VignetteAndChromaticAberration
+  - hash:
+      serializedVersion: 2
+      Hash: 86cfcd24b9fc59be9240f6811ea3b2b2
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: ScreenOverlay
+  - hash:
+      serializedVersion: 2
+      Hash: 3bd301965190e77c3822602bd15d95bb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: Twirl
+  - hash:
+      serializedVersion: 2
+      Hash: 230f7b5038f49d457dbcc3c455c71d9a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: ScreenSpaceAmbientObscurance
+  - hash:
+      serializedVersion: 2
+      Hash: c5bbb5c4b020d95f6395b3448c0eddcc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: CameraMotionBlur
+  - hash:
+      serializedVersion: 2
+      Hash: 8ccce45a027cfbb02441998345f2c121
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: EdgeDetection
+  - hash:
+      serializedVersion: 2
+      Hash: 172cfdd977ca8a6f32932932c2f0d2ee
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: ImageEffectBase
+  - hash:
+      serializedVersion: 2
+      Hash: 755aa9308df9cb5ec0a491ba4f5f09a5
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: Bloom
+  - hash:
+      serializedVersion: 2
+      Hash: 47f7902f8963babdce608bf76d778b9c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: Antialiasing
+  - hash:
+      serializedVersion: 2
+      Hash: a5e44188ccd983bb228b74d4b7419ecf
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: ContrastStretch
+  - hash:
+      serializedVersion: 2
+      Hash: c8533c9804499b27f7c31b277d275f91
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: Fisheye
+  - hash:
+      serializedVersion: 2
+      Hash: c150d9404e6b53770dd5f5e91004bccd
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: BlurOptimized
+  - hash:
+      serializedVersion: 2
+      Hash: a4f53786c5e89397b7d34957535b29a9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: NoiseAndScratches
+  - hash:
+      serializedVersion: 2
+      Hash: f0adccffaa460cb5c8914229276bfa0d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: ColorCorrectionCurves
+  - hash:
+      serializedVersion: 2
+      Hash: b6abddfe81ce7709fd679f1ea0433cf7
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: BloomAndFlares
+  - hash:
+      serializedVersion: 2
+      Hash: cefc42c2cb25819ed10824bfe940c3dc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: GlobalFog
+  - hash:
+      serializedVersion: 2
+      Hash: 1a9e52e2ff472238deaebe06595ba637
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: ScreenSpaceAmbientOcclusion
+  - hash:
+      serializedVersion: 2
+      Hash: 96539fd6feebcbc9da75ce005fd446a9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: NoiseAndGrain
+  - hash:
+      serializedVersion: 2
+      Hash: 3bd301965190e77c3822602bd15d95bb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: Vortex
+  - hash:
+      serializedVersion: 2
+      Hash: 8792e8356998aff9da84718837517b33
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: Blur
+  - hash:
+      serializedVersion: 2
+      Hash: 28d790d202beb300ec2ffc6265160c26
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: ContrastEnhance
+  - hash:
+      serializedVersion: 2
+      Hash: 34665528cf8da97e082a230c8afb96c6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: DepthOfFieldDeprecated
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: PostEffectsBase
+  - hash:
+      serializedVersion: 2
+      Hash: 172cfdd977ca8a6f32932932c2f0d2ee
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: SepiaTone
+  - hash:
+      serializedVersion: 2
+      Hash: f080a86a4a939dd08c0cc4f4f05e1e4e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: Grayscale
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: PostEffectsHelper
+  - hash:
+      serializedVersion: 2
+      Hash: 122d7ffab68b4eedc72a1fce03e63c2f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: BloomOptimized
+  - hash:
+      serializedVersion: 2
+      Hash: a8c33406fd5a44e89bd47fea3b45028f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: ColorCorrectionRamp
+  - hash:
+      serializedVersion: 2
+      Hash: af78f221a76b31179241c75f785d3894
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: MotionBlur
+  - hash:
+      serializedVersion: 2
+      Hash: 9cc3904a86f5a119184da7351cdb4e65
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: DepthOfField
+  - hash:
+      serializedVersion: 2
+      Hash: d7f470660e8e5bf322a5c170b752eff8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: CreaseShading
+  - hash:
+      serializedVersion: 2
+      Hash: 83dffc789cd416ac4ef1fc44f3423e35
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: Tonemapping
+  - hash:
+      serializedVersion: 2
+      Hash: 10d40c4c007ed0fe1a397ef11ee530fa
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: ColorCorrectionLookup
+  - hash:
+      serializedVersion: 2
+      Hash: 3a3324b73792dde0ff97dae69b3a3dfb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: SunShafts
+  - hash:
+      serializedVersion: 2
+      Hash: 21be25811ed80c852a29100601d1a8b8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: TiltShift
   platform: 19
   scenePathNames:
   - Assets/Scenes/mechanic.unity

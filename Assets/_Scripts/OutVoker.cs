@@ -87,7 +87,6 @@ public class OutVoker : MonoBehaviour
         {
             currentMousePosition = raycastHit.point;
         }
-        currentMousePosition.y = 0;
 
         #endregion
 
@@ -103,7 +102,7 @@ public class OutVoker : MonoBehaviour
             targetPosition = currentMousePosition;
 
             // Instantiate mouse effect
-            GameObject effect = Instantiate(mouseEffect, new Vector3(currentMousePosition.x, currentMousePosition.y + 0.51f, 
+            GameObject effect = Instantiate(mouseEffect, new Vector3(currentMousePosition.x, currentMousePosition.y + 0.1f,
                 currentMousePosition.z), Quaternion.LookRotation(Vector3.up));
         }
 
@@ -157,11 +156,6 @@ public class OutVoker : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift) && onGround == true)
         {
             rb.velocity = Vector3.up * jumpForce;
-        }
-
-        if (transform.position.y >= 3.0f)
-        {
-            animator.SetBool("isRunning", false);
         }
 
         #endregion
