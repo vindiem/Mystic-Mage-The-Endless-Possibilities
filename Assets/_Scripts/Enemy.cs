@@ -163,19 +163,19 @@ public class Enemy : MonoBehaviour
         // elements that don't match
         if (other.CompareTag("Meteor") == true && element != Element.Water)
         {
-            TakeDamage(playerScript.meteorLevel / 1.5f);
+            TakeDamage(playerScript.meteorLevel / 3 * 2);
         }
         else if (other.CompareTag("Tornado") == true && element != Element.Fire)
         {
-            TakeDamage(playerScript.tornadoLevel / 1.5f);
+            TakeDamage(playerScript.tornadoLevel / 3 * 2);
         }
         else if (other.CompareTag("Wave") == true && element != Element.Earth)
         {
-            TakeDamage(playerScript.waveLevel / 1.5f);
+            TakeDamage(playerScript.waveLevel / 3 * 2);
         }
         else if (other.CompareTag("Fire") == true && element != Element.Air)
         {
-            TakeDamage(playerScript.fireLevel / 1.5f);
+            TakeDamage(playerScript.fireLevel / 3 * 2);
         }
 
         // Ultimate damage

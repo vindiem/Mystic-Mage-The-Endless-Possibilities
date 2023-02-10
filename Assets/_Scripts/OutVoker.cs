@@ -247,6 +247,14 @@ public class OutVoker : MonoBehaviour
     {
         if (kds[2] <= 0)
         {
+            GameObject t = Instantiate(tornado, new Vector3(transform.position.x, transform.position.y, transform.position.z), 
+                Quaternion.LookRotation(Vector3.up));
+
+            Vector3 direction = (t.transform.position - currentMousePosition).normalized;
+            t.GetComponent<Rigidbody>().AddForce(-direction * tornadoLevel * 32);
+
+            Destroy(t, 5f);
+
             kds[2] = 15;
             SetCkds(kds[2], 2);
         }
