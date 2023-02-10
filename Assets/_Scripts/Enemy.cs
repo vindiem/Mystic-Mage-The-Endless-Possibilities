@@ -143,39 +143,53 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // ; element - zombie >> elements that match
-        if (other.CompareTag("Meteor") == true && element == Element.Water)
+
+        if (other.CompareTag("Meteor") == true)
         {
-            TakeDamage(playerScript.meteorLevel * 2);
-        }
-        else if (other.CompareTag("Tornado") == true && element == Element.Fire)
-        {
-            TakeDamage(playerScript.tornadoLevel * 2);
-        }
-        else if (other.CompareTag("Wave") == true && element == Element.Earth)
-        {
-            TakeDamage(playerScript.waveLevel * 2);
-        }
-        else if (other.CompareTag("Fire") == true && element == Element.Air)
-        {
-            TakeDamage(playerScript.fireLevel * 2);
+            if (element == Element.Water)
+            {
+                TakeDamage(playerScript.meteorLevel * 2);
+            }
+            else if (element != Element.Water)
+            {
+                TakeDamage(playerScript.meteorLevel / 3 * 2);
+            }
         }
 
-        // elements that don't match
-        if (other.CompareTag("Meteor") == true && element != Element.Water)
+        else if (other.CompareTag("Tornado") == true)
         {
-            TakeDamage(playerScript.meteorLevel / 3 * 2);
+            if (element == Element.Fire)
+            {
+                TakeDamage(playerScript.tornadoLevel * 2);
+            }
+            else if (element != Element.Fire)
+            {
+                TakeDamage(playerScript.tornadoLevel / 3 * 2);
+            }
         }
-        else if (other.CompareTag("Tornado") == true && element != Element.Fire)
+
+        else if (other.CompareTag("Wave") == true)
         {
-            TakeDamage(playerScript.tornadoLevel / 3 * 2);
+            if (element == Element.Earth)
+            {
+                TakeDamage(playerScript.waveLevel * 2);
+            }
+            else if (element != Element.Earth)
+            {
+                TakeDamage(playerScript.waveLevel / 3 * 2);
+            }
         }
-        else if (other.CompareTag("Wave") == true && element != Element.Earth)
+
+        else if (other.CompareTag("Fire") == true)
         {
-            TakeDamage(playerScript.waveLevel / 3 * 2);
-        }
-        else if (other.CompareTag("Fire") == true && element != Element.Air)
-        {
-            TakeDamage(playerScript.fireLevel / 3 * 2);
+            if (element == Element.Air)
+            {
+                TakeDamage(playerScript.fireLevel * 2);
+            }
+            else if (element != Element.Air)
+            {
+                TakeDamage(playerScript.fireLevel / 3 * 2);
+            }
         }
 
         // Ultimate damage
