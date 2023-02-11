@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - CameraMouseControl
     - Enemy
     - OutVoker
     Cinemachine.dll:
@@ -26,7 +27,6 @@ ScriptsOnlyBuild:
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
     - UnityEditor.Graphs.AnimationStateMachine.StateNode
-    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -85,35 +85,37 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1638}
+      Script: {instanceID: 1636}
     - Class: 114
-      Script: {instanceID: 2230}
+      Script: {instanceID: 2228}
     - Class: 114
-      Script: {instanceID: 2366}
+      Script: {instanceID: 2364}
     - Class: 114
-      Script: {instanceID: 2498}
+      Script: {instanceID: 2496}
     - Class: 114
-      Script: {instanceID: 2536}
+      Script: {instanceID: 2534}
     - Class: 114
-      Script: {instanceID: 2574}
+      Script: {instanceID: 2572}
     - Class: 114
-      Script: {instanceID: 2642}
+      Script: {instanceID: 2640}
     - Class: 114
-      Script: {instanceID: 2708}
+      Script: {instanceID: 2706}
     - Class: 114
-      Script: {instanceID: 2780}
+      Script: {instanceID: 2778}
     - Class: 114
-      Script: {instanceID: 2816}
+      Script: {instanceID: 2814}
     - Class: 114
-      Script: {instanceID: 2898}
+      Script: {instanceID: 2896}
     - Class: 114
-      Script: {instanceID: 3102}
+      Script: {instanceID: 3100}
     - Class: 114
-      Script: {instanceID: 3204}
+      Script: {instanceID: 3202}
     - Class: 114
-      Script: {instanceID: 3756}
+      Script: {instanceID: 3754}
     - Class: 114
-      Script: {instanceID: 4256}
+      Script: {instanceID: 4254}
+    - Class: 114
+      Script: {instanceID: 22750}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -873,6 +875,12 @@ ScriptsOnlyBuild:
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachineBlendListCamera
+  - hash:
+      serializedVersion: 2
+      Hash: fd4699605876651c1f14d5a42c262dcd
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CameraMouseControl
   platform: 19
   scenePathNames:
   - Assets/Scenes/mechanic.unity

@@ -243,7 +243,7 @@ public class OutVoker : MonoBehaviour
         }
     }
 
-    // [C] Tornato / Invoker
+    // [C] Tornato / Invoker ;
     public void Tornado()
     {
         if (kds[2] <= 0)
@@ -261,7 +261,7 @@ public class OutVoker : MonoBehaviour
         }
     }
 
-    // [V] Chaos Meteor / Invoker
+    // [V] Chaos Meteor / Invoker ;
     public void Meteor()
     {
         if (kds[3] <= 0)

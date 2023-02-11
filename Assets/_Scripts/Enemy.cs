@@ -177,9 +177,9 @@ public class Enemy : MonoBehaviour
             GameObject t = Instantiate(playerScript.visualTornado, transform.position, 
                 Quaternion.LookRotation(Vector3.up));
 
-            Destroy(t, playerScript.tornadoLevel / 5);
+            Destroy(t, 1.5f);
 
-            StartCoroutine(RaiseAndHold());
+            StartCoroutine(Raise());
         }
 
         else if (other.CompareTag("Wave") == true)
@@ -221,7 +221,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private IEnumerator RaiseAndHold()
+    private IEnumerator Raise()
     {
         animator.SetFloat("Speed", 0);
         animator.SetBool("isAttacking", false);
@@ -230,6 +230,9 @@ public class Enemy : MonoBehaviour
         animator.enabled = false;
         navMeshAgent.enabled = false;
 
+        rb.AddForce(Vector3.up * playerScript.tornadoLevel * 35);
+
+        /*
         float holdTime = playerScript.tornadoLevel / 5;
         float time = 0f;
 
@@ -242,9 +245,9 @@ public class Enemy : MonoBehaviour
 
             yield return null;
         }
+        */
 
-        yield return new WaitForSeconds(0.75f);
-
+        yield return new WaitForSeconds(2.5f);
         animator.enabled = true;
         navMeshAgent.enabled = true;
     }
