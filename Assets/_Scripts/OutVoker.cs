@@ -254,7 +254,7 @@ public class OutVoker : MonoBehaviour
             Vector3 direction = (t.transform.position - currentMousePosition).normalized;
             t.GetComponent<Rigidbody>().AddForce(-direction * tornadoLevel * 32);
 
-            Destroy(t, 5f);
+            Destroy(t, tornadoLevel / 7.5f);
 
             kds[2] = 15;
             SetCkds(kds[2], 2);
@@ -275,7 +275,7 @@ public class OutVoker : MonoBehaviour
             Vector3 direction = (transform.position - currentMousePosition).normalized;
             m.GetComponent<Rigidbody>().AddForce(-direction * modifiedForce);
 
-            Destroy(m, meteorLevel);
+            Destroy(m, meteorLevel / 2);
 
             kds[3] = 20;
             SetCkds(kds[3], 3);
