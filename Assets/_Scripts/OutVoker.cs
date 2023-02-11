@@ -30,6 +30,7 @@ public class OutVoker : MonoBehaviour
 
     [Header("Items")]
     public GameObject mouseEffect;
+    public Transform landmark;
 
     public GameObject fire;
     public int fireLevel = 2;
@@ -223,12 +224,20 @@ public class OutVoker : MonoBehaviour
         targetPosition = transform.position;
     }
 
-    // [Z] Fire / Dragon Knight
+    // [Z] Fire / Dragon Knight ;
     public void Fire()
     {
         if (kds[0] <= 0)
         {
-            kds[0] = 25;
+            Vector3 direction = (landmark.position - transform.position).normalized;
+            RotateToMouse();
+
+            GameObject f = Instantiate(fire, new Vector3(transform.position.x, transform.position.y + 4f, 
+                transform.position.z), Quaternion.LookRotation(direction));
+
+            Destroy(f, fireLevel / 3);
+
+            kds[0] = 4;
             SetCkds(kds[0], 0);
         }
     }
@@ -238,7 +247,7 @@ public class OutVoker : MonoBehaviour
     {
         if (kds[1] <= 0)
         {
-            kds[1] = 17.5f;
+            kds[1] = 6f;
             SetCkds(kds[1], 1);
         }
     }
@@ -256,7 +265,7 @@ public class OutVoker : MonoBehaviour
 
             Destroy(t, tornadoLevel / 7.5f);
 
-            kds[2] = 15;
+            kds[2] = 7;
             SetCkds(kds[2], 2);
         }
     }
@@ -267,17 +276,17 @@ public class OutVoker : MonoBehaviour
         if (kds[3] <= 0)
         {
             GameObject m = Instantiate(meteor, new Vector3(transform.position.x,
-                transform.position.y + 6f, transform.position.z), Quaternion.identity);
+                transform.position.y + 8f, transform.position.z), Quaternion.identity);
 
             float distance = Vector3.Distance(transform.position, currentMousePosition);
-            float modifiedForce = meteorLevel * 32 * distance;
+            float modifiedForce = meteorLevel / 2 * distance;
 
             Vector3 direction = (transform.position - currentMousePosition).normalized;
-            m.GetComponent<Rigidbody>().AddForce(-direction * modifiedForce);
+            m.GetComponent<Rigidbody>().AddForce(-direction * modifiedForce, ForceMode.Impulse);
 
             Destroy(m, meteorLevel / 2);
 
-            kds[3] = 20;
+            kds[3] = 3.5f;
             SetCkds(kds[3], 3);
         }
     }
@@ -287,7 +296,7 @@ public class OutVoker : MonoBehaviour
     {
         if (kds[4] <= 0)
         {
-            kds[4] = 30;
+            kds[4] = 4;
             SetCkds(kds[4], 4);
         }
     }

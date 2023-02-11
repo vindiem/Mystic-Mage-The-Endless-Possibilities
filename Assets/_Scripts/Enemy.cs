@@ -52,19 +52,19 @@ public class Enemy : MonoBehaviour
         {
             case 0:
                 element = Element.Air;
-                material.SetColor("_EmissionColor", new Color(32, 32, 32) * 0.01f);
+                material.SetColor("_EmissionColor", new Color(32, 32, 32) * 0.014f);
                 break;
             case 1:
                 element = Element.Earth;
-                material.SetColor("_EmissionColor", new Color(32, 27, 11) * 0.01f);
+                material.SetColor("_EmissionColor", new Color(32, 27, 11) * 0.014f);
                 break;
             case 2:
                 element = Element.Fire;
-                material.SetColor("_EmissionColor", new Color(32, 13, 11) * 0.01f);
+                material.SetColor("_EmissionColor", new Color(32, 13, 11) * 0.014f);
                 break;
             case 3:
                 element = Element.Water;
-                material.SetColor("_EmissionColor", new Color(11, 30, 32) * 0.01f);
+                material.SetColor("_EmissionColor", new Color(11, 30, 32) * 0.014f);
                 break;
         }
 
@@ -115,8 +115,6 @@ public class Enemy : MonoBehaviour
             }
         }
 
-        LookAtPlayer();
-
         // Death
         if (health <= 0 || transform.position.y <= -10f)
         {
@@ -124,6 +122,10 @@ public class Enemy : MonoBehaviour
             animator.SetTrigger("Death");
             navMeshAgent.isStopped = true;
             Destroy(gameObject, 4f);
+        }
+        else
+        {
+            LookAtPlayer();
         }
 
         Vector3 cameraPosition = Camera.main.transform.position;
@@ -204,6 +206,7 @@ public class Enemy : MonoBehaviour
             {
                 TakeDamage(playerScript.fireLevel / 3 * 2);
             }
+            StartCoroutine(AfterFireDamage());
         }
 
         // Ultimate damage
@@ -250,6 +253,15 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
         animator.enabled = true;
         navMeshAgent.enabled = true;
+    }
+
+    private IEnumerator AfterFireDamage()
+    {
+        for (int i = 0; i < playerScript.fireLevel / 5; i++)
+        {
+            yield return new WaitForSeconds(.5f);
+            TakeDamage(3);
+        }
     }
 
 }
