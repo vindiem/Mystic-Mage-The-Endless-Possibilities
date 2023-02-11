@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
     private Animator animator;
     private Transform player;
     private OutVoker playerScript;
+    private Rigidbody rb;
 
     public enum Element
     {
@@ -39,6 +40,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
+        rb = GetComponent<Rigidbody>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         player = GameObject.FindWithTag("Player").transform;
@@ -73,6 +75,10 @@ public class Enemy : MonoBehaviour
         if (player == null)
         {
             animator.SetBool("isAttacking", false);
+            return;
+        }
+        if (navMeshAgent.enabled == false)
+        {
             return;
         }
 
@@ -112,8 +118,9 @@ public class Enemy : MonoBehaviour
         LookAtPlayer();
 
         // Death
-        if (health <= 0)
+        if (health <= 0 || transform.position.y <= -10f)
         {
+            transform.GetComponent<Collider>().enabled = false;
             animator.SetTrigger("Death");
             navMeshAgent.isStopped = true;
             Destroy(gameObject, 4f);
@@ -135,7 +142,7 @@ public class Enemy : MonoBehaviour
         transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
     }
 
-    private void TakeDamage(float damage)
+    private void TakeDamage(int damage)
     {
         health -= damage;
     }
@@ -154,19 +161,25 @@ public class Enemy : MonoBehaviour
             {
                 TakeDamage(playerScript.meteorLevel / 3 * 2);
             }
-            
         }
 
         else if (other.CompareTag("Tornado") == true)
         {
             if (element == Element.Fire)
             {
-                TakeDamage(playerScript.tornadoLevel * 2);
+                TakeDamage(playerScript.tornadoLevel);
             }
             else if (element != Element.Fire)
             {
                 TakeDamage(playerScript.tornadoLevel / 3 * 2);
             }
+
+            GameObject t = Instantiate(playerScript.visualTornado, transform.position, 
+                Quaternion.LookRotation(Vector3.up));
+
+            Destroy(t, 5f);
+
+            StartCoroutine(TornadoFeature());
         }
 
         else if (other.CompareTag("Wave") == true)
@@ -210,7 +223,25 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator TornadoFeature()
     {
+        animator.SetFloat("Speed", 0);
+        animator.SetBool("isAttacking", false);
+        animator.SetInteger("AttackInt", 0);
+
+        animator.enabled = false;
+        navMeshAgent.enabled = false;
+
+        rb.AddForce(Vector3.up * 500);
         yield return new WaitForSeconds(1f);
+
+        for (int i = 0; i < 7; i++)
+        {
+            rb.AddForce(Vector3.up * 250);
+            yield return new WaitForSeconds(0.6f);
+        }
+
+        yield return new WaitForSeconds(0.35f);
+        animator.enabled = true;
+        navMeshAgent.enabled = true;
     }
 
 }

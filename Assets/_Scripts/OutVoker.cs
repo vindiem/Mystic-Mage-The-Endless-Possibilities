@@ -38,6 +38,7 @@ public class OutVoker : MonoBehaviour
     public int waveLevel = 3;
 
     public GameObject tornado;
+    public GameObject visualTornado;
     public int tornadoLevel = 5;
 
     public GameObject meteor;
