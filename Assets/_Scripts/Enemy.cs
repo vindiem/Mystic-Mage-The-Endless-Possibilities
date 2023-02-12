@@ -24,6 +24,8 @@ public class Enemy : MonoBehaviour
     private OutVoker playerScript;
     private Rigidbody rb;
 
+    public Transform backLandmark;
+
     public enum Element
     {
         Earth,
@@ -194,6 +196,9 @@ public class Enemy : MonoBehaviour
             {
                 TakeDamage(playerScript.waveLevel / 3 * 2);
             }
+
+            Vector3 backDirection = (transform.position - backLandmark.position).normalized;
+            rb.AddForce(-backDirection * playerScript.waveLevel * 16);
         }
 
         else if (other.CompareTag("Fire") == true)
@@ -213,6 +218,9 @@ public class Enemy : MonoBehaviour
         else if (other.CompareTag("Ultimate") == true)
         {
             TakeDamage(playerScript.ultimateLevel * 2);
+
+            Vector3 backDirection = (transform.position - backLandmark.position).normalized;
+            rb.AddForce(-backDirection * playerScript.waveLevel * 24);
         }
     }
 

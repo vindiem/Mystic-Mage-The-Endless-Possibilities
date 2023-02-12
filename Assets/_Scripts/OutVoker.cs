@@ -32,6 +32,7 @@ public class OutVoker : MonoBehaviour
     public GameObject mouseEffect;
     public Transform fireLandmark;
     public Transform meteorLandmark;
+    public Transform waveLandmark;
 
     public GameObject fire;
     public int fireLevel = 2;
@@ -48,6 +49,7 @@ public class OutVoker : MonoBehaviour
 
     public GameObject ultimate;
     public int ultimateLevel = 4;
+    public Transform[] directions;
 
     [Header("SkillsButtons")]
     public Image[] iconButtons;
@@ -247,11 +249,21 @@ public class OutVoker : MonoBehaviour
         }
     }
 
-    // [X] Wave / Tide
+    // [X] Wave / Tide ;
     public void Wave()
     {
         if (kds[1] <= 0)
         {
+            Vector3 direction = (waveLandmark.position - transform.position).normalized;
+
+            GameObject w = Instantiate(wave, new Vector3(transform.position.x,
+                transform.position.y + 1.5f, transform.position.z), Quaternion.LookRotation(direction));
+
+            Rigidbody wrb = w.GetComponent<Rigidbody>();
+            wrb.AddForce(direction * waveLevel * 16);
+
+            Destroy(w, waveLevel / 8);
+
             kds[1] = 6f;
             SetCkds(kds[1], 1);
         }
@@ -262,8 +274,7 @@ public class OutVoker : MonoBehaviour
     {
         if (kds[2] <= 0)
         {
-            GameObject t = Instantiate(tornado, new Vector3(transform.position.x, transform.position.y, transform.position.z), 
-                Quaternion.LookRotation(Vector3.up));
+            GameObject t = Instantiate(tornado, transform.position, Quaternion.LookRotation(Vector3.up));
 
             Vector3 direction = (t.transform.position - currentMousePosition).normalized;
             t.GetComponent<Rigidbody>().AddForce(-direction * tornadoLevel * 32);
@@ -282,6 +293,7 @@ public class OutVoker : MonoBehaviour
         {
             /*GameObject m = Instantiate(meteor, new Vector3(transform.position.x,
                 transform.position.y + 8f, transform.position.z), Quaternion.identity);*/
+
             RotateToMouse();
             GameObject m = Instantiate(meteor, meteorLandmark.position, Quaternion.identity);
 
@@ -298,11 +310,24 @@ public class OutVoker : MonoBehaviour
         }
     }
 
-    // [SPACE] Ultimate / Invoker
+    // [SPACE] Ultimate / Invoker ;
     public void Ultimate()
     {
         if (kds[4] <= 0)
         {
+            for (int i = 0; i < directions.Length; i++)
+            {
+                Vector3 direction = (directions[i].position - transform.position).normalized;
+
+                GameObject u = Instantiate(ultimate, new Vector3(transform.position.x,
+                    transform.position.y + 1.5f, transform.position.z), Quaternion.LookRotation(direction));
+
+                Rigidbody urb = u.GetComponent<Rigidbody>();
+                urb.AddForce(direction * ultimateLevel * 32);
+
+                Destroy(u, ultimateLevel / 8);
+            }
+
             kds[4] = 4;
             SetCkds(kds[4], 4);
         }

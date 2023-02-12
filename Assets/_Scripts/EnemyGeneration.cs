@@ -26,8 +26,8 @@ public class EnemyGeneration : MonoBehaviour
     {
         while (true)
         {
-            float randomX = Random.Range(-20f, 20f);
-            float randomZ = Random.Range(-20f, 20f);
+            float randomX = Random.Range(-28f, 28f);
+            float randomZ = Random.Range(-28f, 28f);
             Vector3 spawnPos = new Vector3(randomX, 0.55f, randomZ);
 
             Instantiate(zombiePrefab, spawnPos, Quaternion.identity);
