@@ -136,7 +136,6 @@ public class OutVoker : MonoBehaviour
         {
             // Animations
             animator.SetBool("isRunning", false);
-
         }
 
         #endregion
@@ -277,7 +276,7 @@ public class OutVoker : MonoBehaviour
             GameObject t = Instantiate(tornado, transform.position, Quaternion.LookRotation(Vector3.up));
 
             Vector3 direction = (t.transform.position - currentMousePosition).normalized;
-            t.GetComponent<Rigidbody>().AddForce(-direction * tornadoLevel * 32);
+            t.GetComponent<Rigidbody>().AddForce(-direction * tornadoLevel * 16);
 
             Destroy(t, tornadoLevel / 7.5f);
 
@@ -298,7 +297,7 @@ public class OutVoker : MonoBehaviour
             GameObject m = Instantiate(meteor, meteorLandmark.position, Quaternion.identity);
 
             float distance = Vector3.Distance(transform.position, currentMousePosition);
-            float modifiedForce = meteorLevel / 2 * distance;
+            float modifiedForce = meteorLevel / 8 * distance;
 
             Vector3 direction = (transform.position - currentMousePosition).normalized;
             m.GetComponent<Rigidbody>().AddForce(-direction * modifiedForce, ForceMode.Impulse);

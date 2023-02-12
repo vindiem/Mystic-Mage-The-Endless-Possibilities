@@ -6,10 +6,13 @@ using UnityEngine.UI;
 public class EnemyGeneration : MonoBehaviour
 {
     public GameObject zombiePrefab;
-    public float spawnInterval = 2f;
+    public float spawnInterval = 10f;
+    [SerializeField] private float heightAboveGround;
 
     public float time;
     public Text timerText;
+
+    public GameObject Cross;
 
     void Start()
     {
@@ -24,15 +27,25 @@ public class EnemyGeneration : MonoBehaviour
 
     IEnumerator SpawnZombies()
     {
+        // Generate loop
         while (true)
         {
-            float randomX = Random.Range(-28f, 28f);
-            float randomZ = Random.Range(-28f, 28f);
-            Vector3 spawnPos = new Vector3(randomX, 0.55f, randomZ);
+            float randomX = Random.Range(-50 / 2, 50 / 2);
+            float randomZ = Random.Range(-50 / 2, 50 / 2);
 
-            Instantiate(zombiePrefab, spawnPos, Quaternion.identity);
+            RaycastHit hit;
+            if (Physics.Raycast(new Vector3(randomX, 64f, randomZ), Vector3.down, out hit))
+            {
+                heightAboveGround = hit.distance;
+            }
 
-            yield return new WaitForSeconds(spawnInterval);
+            Vector3 spawnPos = new Vector3(randomX, 64 - heightAboveGround, randomZ);
+
+            GameObject cross = Instantiate(Cross, spawnPos, Quaternion.identity, transform);
+            yield return new WaitForSeconds(spawnInterval / 2);
+            Destroy(cross);
+            Instantiate(zombiePrefab, spawnPos, Quaternion.identity, transform);
+            yield return new WaitForSeconds(spawnInterval / 2);
         }
     }
 

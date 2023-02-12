@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
 
     private float minAttackRange = 3.75f;
     private float maxAttackRange = 4.25f;
-    private float seeRange = 10f;
+    private float seeRange = 14.5f;
 
     private float attackRate = 3.5f;
     private float nextAttackTime;
@@ -199,6 +199,7 @@ public class Enemy : MonoBehaviour
 
             Vector3 backDirection = (transform.position - backLandmark.position).normalized;
             rb.AddForce(-backDirection * playerScript.waveLevel * 16);
+            StartCoroutine(Freez(playerScript.waveLevel / 12));
         }
 
         else if (other.CompareTag("Fire") == true)
@@ -259,6 +260,20 @@ public class Enemy : MonoBehaviour
         */
 
         yield return new WaitForSeconds(2.5f);
+        animator.enabled = true;
+        navMeshAgent.enabled = true;
+    }
+
+    private IEnumerator Freez(float seconds)
+    {
+        animator.SetFloat("Speed", 0);
+        animator.SetBool("isAttacking", false);
+        animator.SetInteger("AttackInt", 0);
+
+        animator.enabled = false;
+        navMeshAgent.enabled = false;
+
+        yield return new WaitForSeconds(seconds);
         animator.enabled = true;
         navMeshAgent.enabled = true;
     }
