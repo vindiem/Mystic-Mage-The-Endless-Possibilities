@@ -30,7 +30,8 @@ public class OutVoker : MonoBehaviour
 
     [Header("Items")]
     public GameObject mouseEffect;
-    public Transform landmark;
+    public Transform fireLandmark;
+    public Transform meteorLandmark;
 
     public GameObject fire;
     public int fireLevel = 2;
@@ -77,6 +78,7 @@ public class OutVoker : MonoBehaviour
             kds.Add(0);
         }
 
+        //Time.timeScale = 1.2f;
     }
 
     private void Update()
@@ -229,11 +231,14 @@ public class OutVoker : MonoBehaviour
     {
         if (kds[0] <= 0)
         {
-            Vector3 direction = (landmark.position - transform.position).normalized;
-            RotateToMouse();
+            Vector3 direction = (fireLandmark.position - transform.position).normalized;
 
-            GameObject f = Instantiate(fire, new Vector3(transform.position.x, transform.position.y + 4f, 
+            GameObject f = Instantiate(fire, new Vector3(transform.position.x, transform.position.y + 3.5f, 
                 transform.position.z), Quaternion.LookRotation(direction));
+
+            ParticleSystem.MainModule fireParticleSystem = f.GetComponent<ParticleSystem>().main;
+            float lifetime = fireLevel / 10;
+            fireParticleSystem.startLifetime = (float)lifetime;
 
             Destroy(f, fireLevel / 3);
 
@@ -275,8 +280,10 @@ public class OutVoker : MonoBehaviour
     {
         if (kds[3] <= 0)
         {
-            GameObject m = Instantiate(meteor, new Vector3(transform.position.x,
-                transform.position.y + 8f, transform.position.z), Quaternion.identity);
+            /*GameObject m = Instantiate(meteor, new Vector3(transform.position.x,
+                transform.position.y + 8f, transform.position.z), Quaternion.identity);*/
+            RotateToMouse();
+            GameObject m = Instantiate(meteor, meteorLandmark.position, Quaternion.identity);
 
             float distance = Vector3.Distance(transform.position, currentMousePosition);
             float modifiedForce = meteorLevel / 2 * distance;

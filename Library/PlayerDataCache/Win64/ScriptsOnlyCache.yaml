@@ -4,6 +4,7 @@ ScriptsOnlyBuild:
     - CFX_AutoDestructShuriken
     - CameraMouseControl
     - Enemy
+    - EnemyGeneration
     - OutVoker
     Cinemachine.dll:
     - Cinemachine.CinemachineBrain
@@ -79,39 +80,41 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1636}
+      Script: {instanceID: 1664}
     - Class: 114
-      Script: {instanceID: 2228}
+      Script: {instanceID: 2264}
     - Class: 114
-      Script: {instanceID: 2364}
+      Script: {instanceID: 2406}
     - Class: 114
-      Script: {instanceID: 2496}
+      Script: {instanceID: 2540}
     - Class: 114
-      Script: {instanceID: 2534}
+      Script: {instanceID: 2578}
     - Class: 114
-      Script: {instanceID: 2572}
+      Script: {instanceID: 2616}
     - Class: 114
-      Script: {instanceID: 2640}
+      Script: {instanceID: 2684}
     - Class: 114
-      Script: {instanceID: 2706}
+      Script: {instanceID: 2752}
     - Class: 114
-      Script: {instanceID: 2778}
+      Script: {instanceID: 2824}
     - Class: 114
-      Script: {instanceID: 2814}
+      Script: {instanceID: 2860}
     - Class: 114
-      Script: {instanceID: 2896}
+      Script: {instanceID: 2942}
     - Class: 114
-      Script: {instanceID: 3100}
+      Script: {instanceID: 3148}
     - Class: 114
-      Script: {instanceID: 3202}
+      Script: {instanceID: 3250}
     - Class: 114
-      Script: {instanceID: 3388}
+      Script: {instanceID: 3436}
     - Class: 114
-      Script: {instanceID: 3756}
+      Script: {instanceID: 3808}
     - Class: 114
-      Script: {instanceID: 4256}
+      Script: {instanceID: 4312}
     - Class: 114
-      Script: {instanceID: 21102}
+      Script: {instanceID: 4666}
+    - Class: 114
+      Script: {instanceID: 91220}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -177,6 +180,12 @@ ScriptsOnlyBuild:
     className: TMP_InputField
   - hash:
       serializedVersion: 2
+      Hash: 20c9a74d659b6895cfdb5f4624ba8daa
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: WFX_Demo_DeleteAfterDelay
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -237,6 +246,24 @@ ScriptsOnlyBuild:
     className: Shadow
   - hash:
       serializedVersion: 2
+      Hash: 3f5031037e63abe5dcf87c278e01a4de
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CFX_Demo_RotateCamera
+  - hash:
+      serializedVersion: 2
+      Hash: 4aac268d7e435f7a65add91aaba819a4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: WFX_Demo_RandomDir
+  - hash:
+      serializedVersion: 2
+      Hash: 660deb0ce569359218f0ba85b7ce0e3a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CFX_LightIntensityFade
+  - hash:
+      serializedVersion: 2
       Hash: 300fd99066f8c288e85f5e81ce65fe34
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -291,10 +318,22 @@ ScriptsOnlyBuild:
     className: PlaymodeTestsController
   - hash:
       serializedVersion: 2
+      Hash: 8b2d4e06e046ec1dc0a99d91bec0c17a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: WFX_Demo
+  - hash:
+      serializedVersion: 2
       Hash: c1d728126ff1918728036c59106d32b2
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: RawImage
+  - hash:
+      serializedVersion: 2
+      Hash: 79f1e4d923cfc803b34c05ae2cb73dac
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: WFX_LightFlicker
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -309,7 +348,7 @@ ScriptsOnlyBuild:
     className: CinemachineOrbitalTransposer
   - hash:
       serializedVersion: 2
-      Hash: b5752f8dad456c880baf8f5421b08e78
+      Hash: 50f4ce6107e877fcb21340c5c57c80a6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: OutVoker
@@ -361,6 +400,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: AspectRatioFitter
+  - hash:
+      serializedVersion: 2
+      Hash: 263025083d0a7e8d3b9c0c9ab88a743d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CFX_SpawnSystem
   - hash:
       serializedVersion: 2
       Hash: cc4274b586df3c02688bac01b88bd16c
@@ -433,6 +478,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SpriteAnimator
+  - hash:
+      serializedVersion: 2
+      Hash: 1d0beb1a2d4edee4c06b6835632e83a3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CFX_AutoStopLoopedEffect
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -555,6 +606,12 @@ ScriptsOnlyBuild:
     className: CinemachinePixelPerfect
   - hash:
       serializedVersion: 2
+      Hash: f1b1d314ca3b7b03e29e12762db58162
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: WFX_BulletHoleDecal
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -583,6 +640,12 @@ ScriptsOnlyBuild:
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachineFixedSignal
+  - hash:
+      serializedVersion: 2
+      Hash: 4aac268d7e435f7a65add91aaba819a4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CFX_Demo_RandomDir
   - hash:
       serializedVersion: 2
       Hash: 611bc970ee9dc090779a3fac6a18fac6
@@ -657,6 +720,12 @@ ScriptsOnlyBuild:
     className: CinemachineShot
   - hash:
       serializedVersion: 2
+      Hash: 671420ad2c33f1ddaf6d076461adf15a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CFX_Demo_Translate
+  - hash:
+      serializedVersion: 2
       Hash: a81d4c2c1cf3ad164d277d927a193679
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -685,6 +754,12 @@ ScriptsOnlyBuild:
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachineTrackedDolly
+  - hash:
+      serializedVersion: 2
+      Hash: dd7780efe480b95c7be3094f9d1d4270
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: WFX_Demo_Wall
   - hash:
       serializedVersion: 2
       Hash: aba7b2852ef61d175dd9602e7723d5e5
@@ -807,6 +882,12 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAsset
   - hash:
       serializedVersion: 2
+      Hash: 5d27c6e85ec89cfab8577e9e26695e88
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CFX_AutoDestructShuriken
+  - hash:
+      serializedVersion: 2
       Hash: e7a73f5f78ba6445195ec23b74a1ce2d
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -841,6 +922,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: SignalEmitter
+  - hash:
+      serializedVersion: 2
+      Hash: 7d37d09af363b70d55d9408e5fb34050
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: WFX_Demo_New
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -879,89 +966,11 @@ ScriptsOnlyBuild:
     className: CinemachineBlendListCamera
   - hash:
       serializedVersion: 2
-      Hash: 1d0beb1a2d4edee4c06b6835632e83a3
+      Hash: d5d0129e3b41ae7817961e45a1195fb2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: CFX_AutoStopLoopedEffect
-  - hash:
-      serializedVersion: 2
-      Hash: 8b2d4e06e046ec1dc0a99d91bec0c17a
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: WFX_Demo
-  - hash:
-      serializedVersion: 2
-      Hash: 3f5031037e63abe5dcf87c278e01a4de
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CFX_Demo_RotateCamera
-  - hash:
-      serializedVersion: 2
-      Hash: 4aac268d7e435f7a65add91aaba819a4
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CFX_Demo_RandomDir
-  - hash:
-      serializedVersion: 2
-      Hash: dd7780efe480b95c7be3094f9d1d4270
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: WFX_Demo_Wall
-  - hash:
-      serializedVersion: 2
-      Hash: 7d37d09af363b70d55d9408e5fb34050
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: WFX_Demo_New
-  - hash:
-      serializedVersion: 2
-      Hash: 4aac268d7e435f7a65add91aaba819a4
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: WFX_Demo_RandomDir
-  - hash:
-      serializedVersion: 2
-      Hash: 660deb0ce569359218f0ba85b7ce0e3a
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CFX_LightIntensityFade
-  - hash:
-      serializedVersion: 2
-      Hash: 671420ad2c33f1ddaf6d076461adf15a
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CFX_Demo_Translate
-  - hash:
-      serializedVersion: 2
-      Hash: 20c9a74d659b6895cfdb5f4624ba8daa
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: WFX_Demo_DeleteAfterDelay
-  - hash:
-      serializedVersion: 2
-      Hash: 79f1e4d923cfc803b34c05ae2cb73dac
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: WFX_LightFlicker
-  - hash:
-      serializedVersion: 2
-      Hash: f1b1d314ca3b7b03e29e12762db58162
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: WFX_BulletHoleDecal
-  - hash:
-      serializedVersion: 2
-      Hash: 5d27c6e85ec89cfab8577e9e26695e88
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CFX_AutoDestructShuriken
-  - hash:
-      serializedVersion: 2
-      Hash: 263025083d0a7e8d3b9c0c9ab88a743d
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CFX_SpawnSystem
+    className: EnemyGeneration
   platform: 19
   scenePathNames:
   - Assets/Scenes/mechanic.unity
-  playerPath: D:/Work()/.projects/git_Mystic_Mage/s/Mystic Mage The Endless Possibilities.exe
+  playerPath: D:/Work()/.projects/git_Mystic_Mage/sss/Mystic Mage The Endless Possibilities.exe
