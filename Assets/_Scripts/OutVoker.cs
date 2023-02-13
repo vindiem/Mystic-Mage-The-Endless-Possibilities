@@ -11,6 +11,7 @@ public class OutVoker : MonoBehaviour
 {
     public LayerMask CastLayer;
     private Rigidbody rb;
+    public Enemy enemy;
 
     // Vectors
     private Vector3 currentMousePosition = new Vector3();
@@ -342,6 +343,14 @@ public class OutVoker : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("ZombieHit") == true)
+        {
+            TakeDamage(enemy.damage);
+        }
     }
 
 }

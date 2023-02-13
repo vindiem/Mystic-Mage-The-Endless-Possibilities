@@ -193,11 +193,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 2d436441635cf384d973e76c727b3f73, type: 3}
-    m_FontSize: 88
+    m_FontSize: 168
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 167
+    m_MaxSize: 168
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -958,9 +958,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  damage: 10
   backLandmark: {fileID: 4732511799285105608}
-  zombieTargetHit: {fileID: 2784083634920069913, guid: d5f1aba7b87852c4b987f1f86178ca9d, type: 3}
   elementText: {fileID: 5331797435954408868}
+  markerPlacementRadius: 3
+  markerPrefab: {fileID: 2784083634920069912, guid: d5f1aba7b87852c4b987f1f86178ca9d, type: 3}
+  damageColliderPrefab: {fileID: 5548915278149576784, guid: f11a26f43d58fee4f999211b4cc315cb, type: 3}
   healthBackground: {fileID: 4958341402107048808}
   healthImage: {fileID: 4958341402265286216}
 --- !u!195 &5192361120707221053

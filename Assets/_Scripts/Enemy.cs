@@ -7,13 +7,13 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
     public float health = 100;
-    private int damage = 10;
+    public int damage = 10;
 
     private float minAttackRange = 3.75f;
     private float maxAttackRange = 4.25f;
     private float seeRange = 14.5f;
 
-    private float attackRate = 3.5f;
+    private float attackRate = 2.75f;
     private float nextAttackTime;
 
     private float distance;
@@ -25,8 +25,14 @@ public class Enemy : MonoBehaviour
     private Rigidbody rb;
 
     public Transform backLandmark;
-    public Transform zombieTargetHit;
     public Text elementText;
+
+    public float markerPlacementRadius = 5f;
+    private GameObject marker;
+    public GameObject markerPrefab;
+    private bool isAttacking = false;
+    public GameObject damageColliderPrefab;
+    private GameObject damageCollider;
 
     public enum Element
     {
@@ -97,34 +103,66 @@ public class Enemy : MonoBehaviour
         float speed = navMeshAgent.velocity.magnitude;
         animator.SetFloat("Speed", speed);
 
-        distance = Vector3.Distance(transform.position, player.position);
+        #region Set float distance
+
+        // if marker is instantiate -> target - marker
+        // if marker isn't instantiate -> target - player
+        if (marker == null)
+        {
+            distance = Vector3.Distance(transform.position, player.position);
+        }
+        else if (marker != null)
+        {
+            distance = Vector3.Distance(transform.position, marker.transform.position);
+
+            LookAtTarget(marker);
+        }
+
+        #endregion
 
         if (distance <= seeRange)
         {
-            navMeshAgent.SetDestination(player.position);
-
-            if (Time.time >= nextAttackTime && distance >= minAttackRange && distance <= maxAttackRange)
+            if (marker == null)
             {
-                animator.SetBool("isAttacking", true);
+                navMeshAgent.SetDestination(player.position);
+
+                Destroy(damageCollider, 0.15f);
+            }
+
+            if (Time.time >= nextAttackTime /*&& distance >= minAttackRange*/ && distance <= maxAttackRange)
+            {
+                PlaceMarker();
+
+                // Set target position to marker
+                navMeshAgent.SetDestination(marker.transform.position);
+
+                #region Difference attack animations
+
+                isAttacking = true;
+
+                animator.SetBool("isAttacking", isAttacking);
                 navMeshAgent.isStopped = true;
 
-                // Difference attack animations
                 int rand = Random.Range(1, 5);
                 animator.SetInteger("AttackInt", rand);
 
+                #endregion
+
                 nextAttackTime = Time.time + attackRate;
-                // Take damage to hero
             }
-            else if (distance >= maxAttackRange)
-            {
-                navMeshAgent.isStopped = false;
-                animator.SetBool("isAttacking", false);
-            }
+
             else if (distance <= minAttackRange)
             {
                 navMeshAgent.isStopped = true;
-                animator.SetBool("isAttacking", true);
+                isAttacking = true;
             }
+
+            else if (distance >= maxAttackRange)
+            {
+                navMeshAgent.isStopped = false;
+                isAttacking = false;
+            }
+
         }
 
         // Death
@@ -135,16 +173,14 @@ public class Enemy : MonoBehaviour
             navMeshAgent.isStopped = true;
             Destroy(gameObject, 4f);
         }
-        else
-        {
-
-        }
 
         Vector3 cameraPosition = Camera.main.transform.position;
         healthBackground.transform.LookAt(cameraPosition);
         healthImage.transform.LookAt(cameraPosition);
         elementText.transform.LookAt(cameraPosition);
         healthImage.fillAmount = health / 100;
+
+        animator.SetBool("isAttacking", isAttacking);
     }
 
     public void TakeDamageToHero()
@@ -152,9 +188,9 @@ public class Enemy : MonoBehaviour
         player.GetComponent<OutVoker>().TakeDamage(damage);
     }
 
-    private void LookAtPlayer()
+    private void LookAtTarget(GameObject target)
     {
-        transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
+        transform.LookAt(new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z));
     }
 
     private void TakeDamage(int damage)
@@ -236,14 +272,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Meteor") == true)
-        {
-            //TakeDamage(playerScript.meteorLevel / 10);
-        }
-    }
-
     private IEnumerator Raise()
     {
         animator.SetFloat("Speed", 0);
@@ -295,6 +323,29 @@ public class Enemy : MonoBehaviour
         {
             yield return new WaitForSeconds(.5f);
             TakeDamage(3);
+        }
+    }
+
+    private void PlaceMarker()
+    {
+        // Instantiate marker on random position near by player radius (markerPlacementRadius)
+        Vector3 randomDirection = Random.insideUnitSphere * markerPlacementRadius;
+        Vector3 markerPosition = player.position + randomDirection;
+
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(markerPosition, out hit, markerPlacementRadius, NavMesh.AllAreas))
+        {
+            marker = Instantiate(markerPrefab, hit.position, Quaternion.identity);
+        }
+
+    }
+
+    private void AttackMarker()
+    {
+        if (marker != null)
+        {
+            damageCollider = Instantiate(damageColliderPrefab, marker.transform.position, Quaternion.identity);
+            Destroy(marker, 0.1f);
         }
     }
 
