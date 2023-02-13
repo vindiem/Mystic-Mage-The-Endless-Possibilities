@@ -25,6 +25,7 @@ public class Enemy : MonoBehaviour
     private Rigidbody rb;
 
     public Transform backLandmark;
+    public Transform zombieTargetHit;
 
     public enum Element
     {
@@ -221,7 +222,7 @@ public class Enemy : MonoBehaviour
             TakeDamage(playerScript.ultimateLevel * 2);
 
             Vector3 backDirection = (transform.position - backLandmark.position).normalized;
-            rb.AddForce(-backDirection * playerScript.waveLevel * 24);
+            rb.AddForce(-backDirection * playerScript.waveLevel * 4);
         }
     }
 
