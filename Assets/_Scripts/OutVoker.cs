@@ -11,6 +11,8 @@ public class OutVoker : MonoBehaviour
 {
     public LayerMask CastLayer;
     private Rigidbody rb;
+    public Text killsCounter;
+    public int killsCounterInt;
     public Enemy enemy;
 
     // Vectors
@@ -81,7 +83,7 @@ public class OutVoker : MonoBehaviour
             kds.Add(0);
         }
 
-        //Time.timeScale = 1.2f;
+        Time.timeScale = 1f;
     }
 
     private void Update()
@@ -204,6 +206,7 @@ public class OutVoker : MonoBehaviour
         #region UI
 
         healthImage.fillAmount = health / 100;
+        killsCounter.text = killsCounterInt.ToString();
 
         if (health <= 0)
         {
@@ -328,7 +331,7 @@ public class OutVoker : MonoBehaviour
                 Destroy(u, ultimateLevel / 8);
             }
 
-            kds[4] = 4;
+            kds[4] = 7;
             SetCkds(kds[4], 4);
         }
     }

@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     private float maxAttackRange = 4.25f;
     private float seeRange = 14.5f;
 
-    private float attackRate = 2.75f;
+    private float attackRate = 2.85f;
     private float nextAttackTime;
 
     private float distance;
@@ -65,24 +65,28 @@ public class Enemy : MonoBehaviour
                 material.SetColor("_EmissionColor", new Color(32, 32, 32) * 0.014f);
                 elementText.text = "Air".ToString();
                 elementText.color = Color.white;
+                healthImage.color = Color.white;
                 break;
             case 1:
                 element = Element.Earth;
                 material.SetColor("_EmissionColor", new Color(32, 27, 11) * 0.014f);
                 elementText.text = "Earth".ToString();
                 elementText.color = Color.gray;
+                healthImage.color = Color.gray;
                 break;
             case 2:
                 element = Element.Fire;
                 material.SetColor("_EmissionColor", new Color(32, 13, 11) * 0.014f);
                 elementText.text = "Fire".ToString();
                 elementText.color = Color.red;
+                healthImage.color = Color.red;
                 break;
             case 3:
                 element = Element.Water;
                 material.SetColor("_EmissionColor", new Color(11, 30, 32) * 0.014f);
                 elementText.text = "Water".ToString();
                 elementText.color = Color.cyan;
+                healthImage.color = Color.cyan;
                 break;
         }
 
@@ -129,13 +133,8 @@ public class Enemy : MonoBehaviour
                 Destroy(damageCollider, 0.15f);
             }
 
-            if (Time.time >= nextAttackTime /*&& distance >= minAttackRange*/ && distance <= maxAttackRange)
+            if (Time.time >= nextAttackTime && distance <= maxAttackRange)
             {
-                PlaceMarker();
-
-                // Set target position to marker
-                navMeshAgent.SetDestination(marker.transform.position);
-
                 #region Difference attack animations
 
                 isAttacking = true;
@@ -147,6 +146,11 @@ public class Enemy : MonoBehaviour
                 animator.SetInteger("AttackInt", rand);
 
                 #endregion
+
+                PlaceMarker();
+
+                // Set target position to marker
+                navMeshAgent.SetDestination(marker.transform.position);
 
                 nextAttackTime = Time.time + attackRate;
             }
@@ -165,15 +169,6 @@ public class Enemy : MonoBehaviour
 
         }
 
-        // Death
-        if (health <= 0 || transform.position.y <= -10f)
-        {
-            transform.GetComponent<Collider>().enabled = false;
-            animator.SetTrigger("Death");
-            navMeshAgent.isStopped = true;
-            Destroy(gameObject, 4f);
-        }
-
         Vector3 cameraPosition = Camera.main.transform.position;
         healthBackground.transform.LookAt(cameraPosition);
         healthImage.transform.LookAt(cameraPosition);
@@ -181,6 +176,17 @@ public class Enemy : MonoBehaviour
         healthImage.fillAmount = health / 100;
 
         animator.SetBool("isAttacking", isAttacking);
+
+        // Death
+        if (health <= 0 || transform.position.y <= -10f)
+        {
+            playerScript.killsCounterInt++;
+            animator.SetTrigger("Death");
+            transform.GetComponent<Collider>().enabled = false;
+            navMeshAgent.isStopped = true;
+            Destroy(gameObject, 4f);
+            GetComponent<Enemy>().enabled = false;
+        }
     }
 
     public void TakeDamageToHero()
@@ -283,22 +289,7 @@ public class Enemy : MonoBehaviour
 
         rb.AddForce(Vector3.up * playerScript.tornadoLevel * 35);
 
-        /*
-        float holdTime = playerScript.tornadoLevel / 5;
-        float time = 0f;
-
-        while (time < holdTime)
-        {
-            transform.position = Vector3.Lerp(transform.position,
-                new Vector3(transform.position.x, 7.5f, transform.position.z), time / holdTime);
-
-            time += Time.deltaTime;
-
-            yield return null;
-        }
-        */
-
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(playerScript.tornadoLevel / 7.5f);
         animator.enabled = true;
         navMeshAgent.enabled = true;
     }
@@ -336,6 +327,7 @@ public class Enemy : MonoBehaviour
         if (NavMesh.SamplePosition(markerPosition, out hit, markerPlacementRadius, NavMesh.AllAreas))
         {
             marker = Instantiate(markerPrefab, hit.position, Quaternion.identity);
+            Destroy(marker, 2f);
         }
 
     }
@@ -346,6 +338,7 @@ public class Enemy : MonoBehaviour
         {
             damageCollider = Instantiate(damageColliderPrefab, marker.transform.position, Quaternion.identity);
             Destroy(marker, 0.1f);
+            animator.SetBool("isAttacking", false);
         }
     }
 
