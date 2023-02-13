@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
 
     public Transform backLandmark;
     public Transform zombieTargetHit;
+    public Text elementText;
 
     public enum Element
     {
@@ -56,18 +57,26 @@ public class Enemy : MonoBehaviour
             case 0:
                 element = Element.Air;
                 material.SetColor("_EmissionColor", new Color(32, 32, 32) * 0.014f);
+                elementText.text = "Air".ToString();
+                elementText.color = Color.white;
                 break;
             case 1:
                 element = Element.Earth;
                 material.SetColor("_EmissionColor", new Color(32, 27, 11) * 0.014f);
+                elementText.text = "Earth".ToString();
+                elementText.color = Color.gray;
                 break;
             case 2:
                 element = Element.Fire;
                 material.SetColor("_EmissionColor", new Color(32, 13, 11) * 0.014f);
+                elementText.text = "Fire".ToString();
+                elementText.color = Color.red;
                 break;
             case 3:
                 element = Element.Water;
                 material.SetColor("_EmissionColor", new Color(11, 30, 32) * 0.014f);
+                elementText.text = "Water".ToString();
+                elementText.color = Color.cyan;
                 break;
         }
 
@@ -128,12 +137,13 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            LookAtPlayer();
+
         }
 
         Vector3 cameraPosition = Camera.main.transform.position;
         healthBackground.transform.LookAt(cameraPosition);
         healthImage.transform.LookAt(cameraPosition);
+        elementText.transform.LookAt(cameraPosition);
         healthImage.fillAmount = health / 100;
     }
 
