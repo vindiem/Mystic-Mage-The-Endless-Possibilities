@@ -15,11 +15,11 @@ D:/Work()/.projects/git_Mystic_Mage/Mystic Mage The Endless Possibilities
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-49355
+49938
 Successfully changed project path to: D:/Work()/.projects/git_Mystic_Mage/Mystic Mage The Endless Possibilities
 D:/Work()/.projects/git_Mystic_Mage/Mystic Mage The Endless Possibilities
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 93.06 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 385.60 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.40f1 (ba48d4efcef1)
 [Subsystems] Discovering subsystems at path D:/Unity/Hub/Editor/2020.3.40f1/Editor/Data/Resources/UnitySubsystems
@@ -37,94 +37,650 @@ Initialize mono
 Mono path[0] = 'D:/Unity/Hub/Editor/2020.3.40f1/Editor/Data/Managed'
 Mono path[1] = 'D:/Unity/Hub/Editor/2020.3.40f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'D:/Unity/Hub/Editor/2020.3.40f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56096
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56148
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: D:/Unity/Hub/Editor/2020.3.40f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: D:/Unity/Hub/Editor/2020.3.40f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.004316 seconds.
+Registered in 0.003104 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 104.15 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 92.20 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.457 seconds
+- Completed reload, in  1.587 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1458ms)
-		BeginReloadAssembly (175ms)
+	ReloadAssembly (1588ms)
+		BeginReloadAssembly (209ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (2ms)
-		EndReloadAssembly (1130ms)
-			LoadAssemblies (176ms)
+		EndReloadAssembly (1192ms)
+			LoadAssemblies (209ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (373ms)
+			SetupTypeCache (376ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (90ms)
-			SetupLoadedEditorAssemblies (425ms)
+			RebuildScriptCaches (82ms)
+			SetupLoadedEditorAssemblies (471ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (13ms)
+				InitializePlatformSupportModulesInManaged (11ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (104ms)
-				BeforeProcessingInitializeOnLoad (43ms)
-				ProcessInitializeOnLoadAttributes (193ms)
-				ProcessInitializeOnLoadMethodAttributes (71ms)
+				RefreshPlugins (92ms)
+				BeforeProcessingInitializeOnLoad (41ms)
+				ProcessInitializeOnLoadAttributes (251ms)
+				ProcessInitializeOnLoadMethodAttributes (74ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (1ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.005687 seconds.
+Registered in 0.005413 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.77 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.583 seconds
+Domain Reload Profiling:
+	ReloadAssembly (3592ms)
+		BeginReloadAssembly (572ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (18ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (75ms)
+		EndReloadAssembly (2854ms)
+			LoadAssemblies (359ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (900ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (184ms)
+			SetupLoadedEditorAssemblies (1211ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (14ms)
+				SetLoadedEditorAssemblies (2ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (318ms)
+				ProcessInitializeOnLoadAttributes (803ms)
+				ProcessInitializeOnLoadMethodAttributes (65ms)
+				AfterProcessingInitializeOnLoad (7ms)
+				EditorAssembliesLoaded (2ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.28 seconds
+Refreshing native plugins compatible for Editor in 1.02 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1793 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 224.0 MB.
+System memory in use after: 224.1 MB.
+
+Unloading 22 unused Assets to reduce memory usage. Loaded Objects now: 2269.
+Total: 7.258100 ms (FindLiveObjects: 0.245600 ms CreateObjectMapping: 0.133400 ms MarkObjects: 6.642000 ms  DeleteObjects: 0.234500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  path: Assets/Terrain/Polytope Studio/Lowpoly Medieval Demos/Environment_Free/FENCE.prefab
+  artifactKey: Guid(f16f39bd1be9d4140ad0cd32366b3c89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Polytope Studio/Lowpoly Medieval Demos/Environment_Free/FENCE.prefab using Guid(f16f39bd1be9d4140ad0cd32366b3c89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b5f1e9f6e336be0a7fd4872385f0f6df') in 0.503198 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000910 seconds.
+  path: Assets/Terrain/Polytope Studio/Lowpoly Medieval Demos/Environment_Free/PT_Generic_Tree_Leaves_mat 1.mat
+  artifactKey: Guid(e58dbc3582eb6ff41b1bbd8a11960175) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Polytope Studio/Lowpoly Medieval Demos/Environment_Free/PT_Generic_Tree_Leaves_mat 1.mat using Guid(e58dbc3582eb6ff41b1bbd8a11960175) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '98b073e7c72e9c5361b41eceaf121dec') in 1.289852 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.001505 seconds.
+  path: Assets/Terrain/Polytope Studio/Lowpoly Medieval Demos/Environment_Free/Ground_Layer_02.terrainlayer
+  artifactKey: Guid(f7ce30ec9b280b34cacb1a1005349890) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Polytope Studio/Lowpoly Medieval Demos/Environment_Free/Ground_Layer_02.terrainlayer using Guid(f7ce30ec9b280b34cacb1a1005349890) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5baac0c62cec6d7a604ffc39a501d53b') in 0.091867 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000714 seconds.
+  path: Assets/Terrain/Polytope Studio/Lowpoly Medieval Environments
+  artifactKey: Guid(be41ee6ac43e67344981ef736f6e5ca2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Polytope Studio/Lowpoly Medieval Environments using Guid(be41ee6ac43e67344981ef736f6e5ca2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '027e759098654b0bd1daa4f4501ff8bf') in 0.009446 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000666 seconds.
+  path: Assets/Terrain/Polytope Studio/Lowpoly Medieval Demos/Environment_Free/PostProcessing.asset
+  artifactKey: Guid(af22d70a6c38a4b40b45fe694bf97376) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Polytope Studio/Lowpoly Medieval Demos/Environment_Free/PostProcessing.asset using Guid(af22d70a6c38a4b40b45fe694bf97376) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bedb52a85d1fafe3d4eba2ec6de4ada5') in 0.016176 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000810 seconds.
+  path: Assets/Terrain/Polytope Studio/Lowpoly Medieval Demos/Environment_Free/Plane mat.mat
+  artifactKey: Guid(4c216a70af6ef22419431af877580ddb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Polytope Studio/Lowpoly Medieval Demos/Environment_Free/Plane mat.mat using Guid(4c216a70af6ef22419431af877580ddb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '22115d5f6c440a683821d614d5f85e56') in 0.031209 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000699 seconds.
+  path: Assets/Terrain/Polytope Studio/Lowpoly Medieval Village
+  artifactKey: Guid(9c4cb87f53ebd5c468c413df16c5ea33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Polytope Studio/Lowpoly Medieval Village using Guid(9c4cb87f53ebd5c468c413df16c5ea33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc35906ef7eb0530dd31908bb4862a3a') in 0.010770 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000731 seconds.
+  path: Assets/Terrain/Polytope Studio/Lowpoly Medieval Demos
+  artifactKey: Guid(bc5ef1be23842da4b8d6dd32a96055f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Polytope Studio/Lowpoly Medieval Demos using Guid(bc5ef1be23842da4b8d6dd32a96055f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea7c7c1f86036e5e19900fe3e24020f8') in 0.007522 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000802 seconds.
+  path: Assets/Terrain/Polytope Studio/Lowpoly Medieval Demos/Environment_Free/Ground_Layer_01.terrainlayer
+  artifactKey: Guid(52ac57c2c14c60b4d88913beb57dce00) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Polytope Studio/Lowpoly Medieval Demos/Environment_Free/Ground_Layer_01.terrainlayer using Guid(52ac57c2c14c60b4d88913beb57dce00) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce8774ae5b6695280ca8858de4d356b0') in 0.067612 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000614 seconds.
+  path: Assets/Terrain/Polytope Studio/Lowpoly Medieval Demos/Environment_Free
+  artifactKey: Guid(5c2928345bc8a9f4793d01e4fcd0b64d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Polytope Studio/Lowpoly Medieval Demos/Environment_Free using Guid(5c2928345bc8a9f4793d01e4fcd0b64d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1ae55009de82354c201cec8b0fd56ae') in 0.008892 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000995 seconds.
+  path: Assets/Terrain/Polytope Studio/Lowpoly Medieval Demos/Environment_Free/Environment_Free.unity
+  artifactKey: Guid(c732593fe76e5a84197f9cd13963f706) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Polytope Studio/Lowpoly Medieval Demos/Environment_Free/Environment_Free.unity using Guid(c732593fe76e5a84197f9cd13963f706) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '640738b473e6b07977acfc825843ef9a') in 0.009486 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000785 seconds.
+  path: Assets/Terrain/Polytope Studio/Lowpoly Medieval Demos/Environment_Free/Display.unity
+  artifactKey: Guid(609a9dec2c5b5cf4a8c1929202710647) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Polytope Studio/Lowpoly Medieval Demos/Environment_Free/Display.unity using Guid(609a9dec2c5b5cf4a8c1929202710647) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f233d8a188e4ae1cf144bdea2feea0e3') in 0.007220 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.732855 seconds.
+  path: Assets/Terrain/Polytope Studio/Lowpoly Medieval Environments/Prefabs
+  artifactKey: Guid(3ba94cc50bb068c4bb427a52fdcb0038) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Polytope Studio/Lowpoly Medieval Environments/Prefabs using Guid(3ba94cc50bb068c4bb427a52fdcb0038) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77f53071828ae83ac9343f5a08e05ce4') in 0.092397 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 231.225637 seconds.
+  path: Assets/Scenes/mechanic.unity
+  artifactKey: Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/mechanic.unity using Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a341e45df9dfd2279574e4a8b4bd0f9d') in 0.007667 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005307 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.72 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.486 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2487ms)
+		BeginReloadAssembly (293ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (17ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (79ms)
+		EndReloadAssembly (2041ms)
+			LoadAssemblies (256ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (675ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (118ms)
+			SetupLoadedEditorAssemblies (797ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (13ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (187ms)
+				ProcessInitializeOnLoadAttributes (539ms)
+				ProcessInitializeOnLoadMethodAttributes (44ms)
+				AfterProcessingInitializeOnLoad (10ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Platform modules already initialized, skipping
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Refreshing native plugins compatible for Editor in 0.84 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1763 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 224.9 MB.
+System memory in use after: 225.0 MB.
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 2317.
+Total: 6.195300 ms (FindLiveObjects: 0.290300 ms CreateObjectMapping: 0.211900 ms MarkObjects: 5.497400 ms  DeleteObjects: 0.192900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 199.123941 seconds.
+  path: Assets/Terrain/Poly/Village
+  artifactKey: Guid(9c4cb87f53ebd5c468c413df16c5ea33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Village using Guid(9c4cb87f53ebd5c468c413df16c5ea33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1d802bacedcdd40af68ead9620e59b1') in 0.013734 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 128.260545 seconds.
+  path: Assets/Terrain/Poly/Environments
+  artifactKey: Guid(be41ee6ac43e67344981ef736f6e5ca2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments using Guid(be41ee6ac43e67344981ef736f6e5ca2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af5ada7ca4a0ded2082b0af1559da0e1') in 0.010072 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 12.437863 seconds.
+  path: Assets/Terrain/Poly/Demos
+  artifactKey: Guid(bc5ef1be23842da4b8d6dd32a96055f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Demos using Guid(bc5ef1be23842da4b8d6dd32a96055f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ccf11da492731f194b9e0556bc655908') in 0.007453 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007848 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
 Refreshing native plugins compatible for Editor in 0.73 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.632 seconds
+- Completed reload, in  2.437 seconds
 Domain Reload Profiling:
-	ReloadAssembly (2638ms)
-		BeginReloadAssembly (410ms)
+	ReloadAssembly (2437ms)
+		BeginReloadAssembly (287ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (12ms)
+			DisableScriptedObjects (15ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (45ms)
-		EndReloadAssembly (2085ms)
-			LoadAssemblies (278ms)
+			CreateAndSetChildDomain (66ms)
+		EndReloadAssembly (2016ms)
+			LoadAssemblies (275ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (632ms)
+			SetupTypeCache (637ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (116ms)
+			SetupLoadedEditorAssemblies (847ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (13ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (206ms)
+				ProcessInitializeOnLoadAttributes (577ms)
+				ProcessInitializeOnLoadMethodAttributes (44ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
+Platform modules already initialized, skipping
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Refreshing native plugins compatible for Editor in 1.06 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1763 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 224.9 MB.
+System memory in use after: 225.0 MB.
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 2320.
+Total: 5.809900 ms (FindLiveObjects: 0.263200 ms CreateObjectMapping: 0.241000 ms MarkObjects: 5.143900 ms  DeleteObjects: 0.159700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 15.140960 seconds.
+  path: Assets/Terrain/Poly/Village/Prefabs
+  artifactKey: Guid(46df1f2d8eb22a64fb03812d24ea1ffd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Village/Prefabs using Guid(46df1f2d8eb22a64fb03812d24ea1ffd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '138d858782fd720ca9e2eeafbdf06671') in 0.012299 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000590 seconds.
+  path: Assets/Terrain/Poly/Village/Prefabs/PT_Medieval_Village_Fence_01.prefab
+  artifactKey: Guid(2d6aaf9ece74c8e4a9fe0dc776b4334c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Village/Prefabs/PT_Medieval_Village_Fence_01.prefab using Guid(2d6aaf9ece74c8e4a9fe0dc776b4334c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '726eb4e0f90a2d2704432914b76ac6c2') in 0.186272 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000665 seconds.
+  path: Assets/Terrain/Poly/Village/Prefabs/PT_Medieval_Village_Fence_05.prefab
+  artifactKey: Guid(24ea7397f418a8140982da151fee5829) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Village/Prefabs/PT_Medieval_Village_Fence_05.prefab using Guid(24ea7397f418a8140982da151fee5829) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31883f6c326fb0d630ac2ad3a3b96982') in 0.041641 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000596 seconds.
+  path: Assets/Terrain/Poly/Village/Prefabs/PT_Medieval_Village_Gate_01.prefab
+  artifactKey: Guid(5950102fd8f330c498c62f0e9e22bc1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Village/Prefabs/PT_Medieval_Village_Gate_01.prefab using Guid(5950102fd8f330c498c62f0e9e22bc1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e0e6f366c6a89eb7716b515b7d445a07') in 0.027964 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000604 seconds.
+  path: Assets/Terrain/Poly/Village/Prefabs/PT_Medieval_Village_Fence_03.prefab
+  artifactKey: Guid(4bc0b8b152bdcf441a118343c02d5d81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Village/Prefabs/PT_Medieval_Village_Fence_03.prefab using Guid(4bc0b8b152bdcf441a118343c02d5d81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ae72d292d7ae37fb5c3e874810fc57f') in 0.024853 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000678 seconds.
+  path: Assets/Terrain/Poly/Village/Prefabs/PT_Wooden_Bridge_02.prefab
+  artifactKey: Guid(29c774dacdcc73240b0c71228fdc6f2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Village/Prefabs/PT_Wooden_Bridge_02.prefab using Guid(29c774dacdcc73240b0c71228fdc6f2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1459b14d6f3abedbe51ee5afbc5e8160') in 0.044207 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000652 seconds.
+  path: Assets/Terrain/Poly/Village/Prefabs/PT_Medieval_Village_Fence_02.prefab
+  artifactKey: Guid(0f3413d69b4e3a048869018aed66e3d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Village/Prefabs/PT_Medieval_Village_Fence_02.prefab using Guid(0f3413d69b4e3a048869018aed66e3d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '303be648eff0a601c025774afe04c60a') in 0.027638 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000732 seconds.
+  path: Assets/Terrain/Poly/Village/Prefabs/PT_Medieval_Village_Fence_04.prefab
+  artifactKey: Guid(652f7014d6c823644ad1c083dab25274) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Village/Prefabs/PT_Medieval_Village_Fence_04.prefab using Guid(652f7014d6c823644ad1c083dab25274) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc054869aa82d04ceaa0a33696005e37') in 0.027540 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.847398 seconds.
+  path: Assets/Terrain/Poly/Environments/Sources/Materials
+  artifactKey: Guid(c79904a7cd1e74c488b60bd79b66ed54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Sources/Materials using Guid(c79904a7cd1e74c488b60bd79b66ed54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '898a31acbbefa60cab2be5612f8a2286') in 0.112153 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000674 seconds.
+  path: Assets/Terrain/Poly/Environments/Sources/Materials/PT_Fruit_Tree_Opaque_mat.mat
+  artifactKey: Guid(3922c043c1c52cb47a7b1bfed562a4b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Sources/Materials/PT_Fruit_Tree_Opaque_mat.mat using Guid(3922c043c1c52cb47a7b1bfed562a4b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d8ccfc19ffa3ac01c3c7375edbc9cc0') in 0.879896 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000606 seconds.
+  path: Assets/Terrain/Poly/Environments/Sources/Materials/PT_Pine_Tree_Trunk_Mat.mat
+  artifactKey: Guid(f43a7dc4f39c5654a8211b83259e32a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Sources/Materials/PT_Pine_Tree_Trunk_Mat.mat using Guid(f43a7dc4f39c5654a8211b83259e32a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca14d0e5d7eebef9057386a21a9a51ed') in 0.029015 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000575 seconds.
+  path: Assets/Terrain/Poly/Environments/Sources/Materials/PT_Grass_Mat.mat
+  artifactKey: Guid(09473d06882d1414b84b1fdb7a095516) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Sources/Materials/PT_Grass_Mat.mat using Guid(09473d06882d1414b84b1fdb7a095516) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a2de57955aca44f4fe14ca87511d5575') in 0.869444 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000704 seconds.
+  path: Assets/Terrain/Poly/Environments/Sources/Materials/PT_Mushrooms_mat.mat
+  artifactKey: Guid(c522ec7c62be0c145bc320ad11705a67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Sources/Materials/PT_Mushrooms_mat.mat using Guid(c522ec7c62be0c145bc320ad11705a67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef5191bdb552e41f7c595eaed1f971e6') in 0.104689 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000770 seconds.
+  path: Assets/Terrain/Poly/Environments/Sources/Materials/PT_Fruit_Tree_Foliage_Mat.mat
+  artifactKey: Guid(0a1f44318dd467a45bfef81ad0e8855a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Sources/Materials/PT_Fruit_Tree_Foliage_Mat.mat using Guid(0a1f44318dd467a45bfef81ad0e8855a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '28bc24021320c15b7c950efc95d0572a') in 0.202128 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000829 seconds.
+  path: Assets/Terrain/Poly/Environments/Sources/Materials/PT_Generic_Tree_Leaves_mat.mat
+  artifactKey: Guid(066ded06e6a8eb240893ea7b8efb66b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Sources/Materials/PT_Generic_Tree_Leaves_mat.mat using Guid(066ded06e6a8eb240893ea7b8efb66b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bb65788a3ea1dc63ec5761cde85f9779') in 0.151572 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000597 seconds.
+  path: Assets/Terrain/Poly/Environments/Sources/Materials/PT_Poppy_mat.mat
+  artifactKey: Guid(67c85a5a0248e2a4a98e653c8e7eeb9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Sources/Materials/PT_Poppy_mat.mat using Guid(67c85a5a0248e2a4a98e653c8e7eeb9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a8a5632d8032a9ccf07cd061730426aa') in 1.000320 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000670 seconds.
+  path: Assets/Terrain/Poly/Environments/Sources/Materials/PT_Rocks_mat.mat
+  artifactKey: Guid(93415edde47040648869ae6638d33ced) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Sources/Materials/PT_Rocks_mat.mat using Guid(93415edde47040648869ae6638d33ced) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0f463124e72fb93126d82c453d574de') in 1.429535 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000692 seconds.
+  path: Assets/Terrain/Poly/Environments/Sources/Materials/PT_Pine_Tree_Leaves_Mat.mat
+  artifactKey: Guid(823cb446423dd7747b7454d5cf133e75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Sources/Materials/PT_Pine_Tree_Leaves_Mat.mat using Guid(823cb446423dd7747b7454d5cf133e75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af3d65961e2df9e5ce57261673b326f1') in 0.960943 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000579 seconds.
+  path: Assets/Terrain/Poly/Environments/Sources/Materials/PT_Generic_Leaf_mat.mat
+  artifactKey: Guid(aac20e0005fef5248bc0774a19a05e87) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Sources/Materials/PT_Generic_Leaf_mat.mat using Guid(aac20e0005fef5248bc0774a19a05e87) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c15a643d09069309ae6de8eb92fc039') in 0.483909 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000563 seconds.
+  path: Assets/Terrain/Poly/Environments/Sources/Materials/PT_Generic_Tree_Trunk_mat.mat
+  artifactKey: Guid(e6ce4253a748b0849a04b87f33cc539d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Sources/Materials/PT_Generic_Tree_Trunk_mat.mat using Guid(e6ce4253a748b0849a04b87f33cc539d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '691d34406f1fc3cd3811a72c0af510d8') in 0.025009 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 15.426476 seconds.
+  path: Assets/Terrain/Poly/Environments/Sources/Materials/PT_Skybox_mat.mat
+  artifactKey: Guid(59573b088aaea0442bf29e0a0e9d1339) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Sources/Materials/PT_Skybox_mat.mat using Guid(59573b088aaea0442bf29e0a0e9d1339) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e6ea0105a1a329b10dc6b0f1abce4853') in 0.393137 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000655 seconds.
+  path: Assets/Terrain/Poly/Environments/Sources/Materials/PT_Terrain_mat.mat
+  artifactKey: Guid(48c26796e9175d14a9b2eccded92bb92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Sources/Materials/PT_Terrain_mat.mat using Guid(48c26796e9175d14a9b2eccded92bb92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cb4b79890852c6808a13cc4af6c03e57') in 0.552257 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000597 seconds.
+  path: Assets/Terrain/Poly/Environments/Sources/Materials/PT_Water_mat.mat
+  artifactKey: Guid(3e36df56c6fa5f64085c14d9d4f6f8d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Sources/Materials/PT_Water_mat.mat using Guid(3e36df56c6fa5f64085c14d9d4f6f8d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '35779d18a1bfbdcf65cbc3f57ce03b23') in 1.647810 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 69.526984 seconds.
+  path: Assets/New Terrain 2.asset
+  artifactKey: Guid(5a0f1f0c028f6d44c8e63a59bf69d9c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/New Terrain 2.asset using Guid(5a0f1f0c028f6d44c8e63a59bf69d9c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '22b1434d58d25e65dfb8dc57637a344d') in 0.016870 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 52.440378 seconds.
+  path: Assets/Terrain/Poly/Demos/Environment_Free/Terrain/New Terrain.asset
+  artifactKey: Guid(e0829138c40f356458f259edb063d67a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Demos/Environment_Free/Terrain/New Terrain.asset using Guid(e0829138c40f356458f259edb063d67a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The tree PT_Pine_Tree_03_stump must use the Nature/Soft Occlusion shader. Otherwise billboarding/lighting will not work correctly.
+The tree PT_Fruit_Tree_01_logs must use the Nature/Soft Occlusion shader. Otherwise billboarding/lighting will not work correctly.
+ -> (artifact id: '4e41e414dad0198ccc5287951281641b') in 0.734556 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000526 seconds.
+  path: Assets/Terrain/Poly/Demos/Environment_Free/Terrain/TerrainData_d3c37e8d-6092-48f4-b81e-93b97326e4d2.asset
+  artifactKey: Guid(dbe8ee5abb1344a4e8a8b80348f13db8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Demos/Environment_Free/Terrain/TerrainData_d3c37e8d-6092-48f4-b81e-93b97326e4d2.asset using Guid(dbe8ee5abb1344a4e8a8b80348f13db8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '72df9a7e0dd26c058ebb7c00b4540369') in 0.056229 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000561 seconds.
+  path: Assets/Terrain/Poly/Demos/Environment_Free/Terrain/TerrainData_88efe361-6f68-4188-bcd0-e9554ca440b9.asset
+  artifactKey: Guid(f2e008cefb3ff674e8c681a3f961fb80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Demos/Environment_Free/Terrain/TerrainData_88efe361-6f68-4188-bcd0-e9554ca440b9.asset using Guid(f2e008cefb3ff674e8c681a3f961fb80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ece82b01c938e826db2e4f8153efda6a') in 0.066012 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000658 seconds.
+  path: Assets/Terrain/Poly/Demos/Environment_Free/Terrain/TerrainData_832163fb-b19c-4118-97c2-cf0a3b224fca.asset
+  artifactKey: Guid(b273ce15435a60644bcd2c174476a708) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Demos/Environment_Free/Terrain/TerrainData_832163fb-b19c-4118-97c2-cf0a3b224fca.asset using Guid(b273ce15435a60644bcd2c174476a708) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The tree PT_Pine_Tree_03_stump must use the Nature/Soft Occlusion shader. Otherwise billboarding/lighting will not work correctly.
+The tree PT_Fruit_Tree_01_logs must use the Nature/Soft Occlusion shader. Otherwise billboarding/lighting will not work correctly.
+ -> (artifact id: 'a3f5fac229f5a843edc196195df82b3c') in 0.093675 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000578 seconds.
+  path: Assets/Terrain/Poly/Demos/Environment_Free/Terrain/TerrainData_6dc76592-a48a-4163-91df-c29ec1a99c66.asset
+  artifactKey: Guid(c40d5572f8d7d6843bd8d20c21f1c0be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Demos/Environment_Free/Terrain/TerrainData_6dc76592-a48a-4163-91df-c29ec1a99c66.asset using Guid(c40d5572f8d7d6843bd8d20c21f1c0be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e57aef7d8d67ae53ddced7b2d9098c88') in 0.079584 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000662 seconds.
+  path: Assets/Terrain/Poly/Demos/Environment_Free/Terrain/TerrainData_984456c3-d32f-475f-a118-27bb19f92a65.asset
+  artifactKey: Guid(abd9fc8a29ea3f549bf82c3d3b8c843f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Demos/Environment_Free/Terrain/TerrainData_984456c3-d32f-475f-a118-27bb19f92a65.asset using Guid(abd9fc8a29ea3f549bf82c3d3b8c843f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The tree PT_Pine_Tree_03_stump must use the Nature/Soft Occlusion shader. Otherwise billboarding/lighting will not work correctly.
+The tree PT_Fruit_Tree_01_logs must use the Nature/Soft Occlusion shader. Otherwise billboarding/lighting will not work correctly.
+ -> (artifact id: '52cf781637eb2fbf5d524cc9f4cf7c4d') in 0.081606 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000516 seconds.
+  path: Assets/Terrain/Poly/Demos/Environment_Free/Terrain/TerrainData_c82c1fc5-a7ad-4f88-a7ff-c071a4dae8e5.asset
+  artifactKey: Guid(d9f3564d21751d046890366f3fc55400) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Demos/Environment_Free/Terrain/TerrainData_c82c1fc5-a7ad-4f88-a7ff-c071a4dae8e5.asset using Guid(d9f3564d21751d046890366f3fc55400) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a3135515002d5cc1507f51e7f4a1a982') in 0.061417 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000547 seconds.
+  path: Assets/Terrain/Poly/Demos/Environment_Free/Terrain/TerrainData_ff4b5190-b520-4d46-b960-ee1d0967df26.asset
+  artifactKey: Guid(3349f3f4495a62f40895e095545b535e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Demos/Environment_Free/Terrain/TerrainData_ff4b5190-b520-4d46-b960-ee1d0967df26.asset using Guid(3349f3f4495a62f40895e095545b535e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The tree PT_Pine_Tree_03_stump must use the Nature/Soft Occlusion shader. Otherwise billboarding/lighting will not work correctly.
+The tree PT_Fruit_Tree_01_logs must use the Nature/Soft Occlusion shader. Otherwise billboarding/lighting will not work correctly.
+ -> (artifact id: '91ebf9a5b24dcc093f474e4d9c85f8d4') in 0.091220 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000560 seconds.
+  path: Assets/Terrain/Poly/Demos/Environment_Free/Terrain/TerrainData_445999c2-5240-4b5c-9394-4cacb62d7eec.asset
+  artifactKey: Guid(1587ce82db2499e4185b7701bf0d532b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Demos/Environment_Free/Terrain/TerrainData_445999c2-5240-4b5c-9394-4cacb62d7eec.asset using Guid(1587ce82db2499e4185b7701bf0d532b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '86e50d0d3210b4b3aa4ef937fc348af1') in 0.059207 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.122340 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Trees/PT_Fruit_Tree_01_apples.prefab
+  artifactKey: Guid(fe0c38f5305f2e14ca7e033eed8192aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Trees/PT_Fruit_Tree_01_apples.prefab using Guid(fe0c38f5305f2e14ca7e033eed8192aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc5855dd3a0c08ef6c25bdb0b7dc0d14') in 0.039185 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000628 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Trees/PT_Fruit_Tree_01_pears.prefab
+  artifactKey: Guid(a2e14d87834a62041a457f0dcc62b265) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Trees/PT_Fruit_Tree_01_pears.prefab using Guid(a2e14d87834a62041a457f0dcc62b265) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9a90109dfbf5f4228d02db7a31fa411') in 0.038357 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000580 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Trees/PT_Pine_Tree_03_dead_cut.prefab
+  artifactKey: Guid(7bbef63b5bd52bc4bb03cdc6cbb94a6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Trees/PT_Pine_Tree_03_dead_cut.prefab using Guid(7bbef63b5bd52bc4bb03cdc6cbb94a6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ae077fb8ef3bf0bfee7ed093f5971f30') in 0.200860 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000577 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Trees/PT_Fruit_Tree_01_green_cut.prefab
+  artifactKey: Guid(021bfbcf15abb7543a51a487fa1c05ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Trees/PT_Fruit_Tree_01_green_cut.prefab using Guid(021bfbcf15abb7543a51a487fa1c05ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '796d7d618d570d29918de2db3634a546') in 0.223482 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000569 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Trees/PT_Fruit_Tree_01_plums.prefab
+  artifactKey: Guid(c80fbf850ad97a34694544deb65b7fa2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Trees/PT_Fruit_Tree_01_plums.prefab using Guid(c80fbf850ad97a34694544deb65b7fa2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '583cf9e8b88ff372896fb67111d3fdc1') in 0.038073 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000561 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Trees/PT_Fruit_Tree_01_dead.prefab
+  artifactKey: Guid(3ad58da949d5de343b7c21cee04361ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Trees/PT_Fruit_Tree_01_dead.prefab using Guid(3ad58da949d5de343b7c21cee04361ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a85de7049e7512bf8a5f8e17177abb54') in 0.033804 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000806 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Trees/PT_Fruit_Tree_01_stump.prefab
+  artifactKey: Guid(a917f6843cc222145828cefe2f799e67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Trees/PT_Fruit_Tree_01_stump.prefab using Guid(a917f6843cc222145828cefe2f799e67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9c5c8789eeee2a102c1365bf92a73e9e') in 0.051224 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000588 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Trees/PT_Pine_Tree_03_dead.prefab
+  artifactKey: Guid(787d900468610e0488384494dc77d1b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Trees/PT_Pine_Tree_03_dead.prefab using Guid(787d900468610e0488384494dc77d1b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd757d9c33f8593e14e1f33896fe3fe68') in 0.031556 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000643 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Trees/PT_Fruit_Tree_01_dead_cut.prefab
+  artifactKey: Guid(d9ec8d9e687cf0648b90ca1157463338) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Trees/PT_Fruit_Tree_01_dead_cut.prefab using Guid(d9ec8d9e687cf0648b90ca1157463338) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e38e3f42cd7719e773527b890ed15c25') in 0.040404 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000649 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Trees/PT_Fruit_Tree_01_green.prefab
+  artifactKey: Guid(d90c349721b4e694fad80a76d87b2578) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Trees/PT_Fruit_Tree_01_green.prefab using Guid(d90c349721b4e694fad80a76d87b2578) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '674f3f2fdc3091208fd9dd9fd70e4cf1') in 0.074876 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000738 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Trees/PT_Fruit_Tree_01_logs.prefab
+  artifactKey: Guid(3148b0057757c5e49a1d7284d605de90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Trees/PT_Fruit_Tree_01_logs.prefab using Guid(3148b0057757c5e49a1d7284d605de90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '09fd74d66cb35940995264fa9c69a977') in 0.028719 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 18.858638 seconds.
+  path: Assets/Terrain/Poly/Demos/Environment
+  artifactKey: Guid(5c2928345bc8a9f4793d01e4fcd0b64d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Demos/Environment using Guid(5c2928345bc8a9f4793d01e4fcd0b64d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba8a714f344e3337703c9bef81c9350e') in 0.014021 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007344 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.71 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.524 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2525ms)
+		BeginReloadAssembly (326ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (17ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (89ms)
+		EndReloadAssembly (2046ms)
+			LoadAssemblies (310ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (680ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (137ms)
-			SetupLoadedEditorAssemblies (849ms)
+			RebuildScriptCaches (120ms)
+			SetupLoadedEditorAssemblies (780ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (14ms)
 				SetLoadedEditorAssemblies (1ms)
 				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (209ms)
-				ProcessInitializeOnLoadAttributes (563ms)
-				ProcessInitializeOnLoadMethodAttributes (53ms)
-				AfterProcessingInitializeOnLoad (7ms)
+				BeforeProcessingInitializeOnLoad (184ms)
+				ProcessInitializeOnLoadAttributes (533ms)
+				ProcessInitializeOnLoadMethodAttributes (42ms)
+				AfterProcessingInitializeOnLoad (5ms)
 				EditorAssembliesLoaded (1ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (4ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
 Platform modules already initialized, skipping
-========================================================================
-Worker process is ready to serve import requests
 Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
 Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.17 seconds
-Refreshing native plugins compatible for Editor in 0.98 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 1.15 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1779 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 168.0 MB.
-System memory in use after: 168.1 MB.
+Unloading 1763 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 225.6 MB.
+System memory in use after: 225.7 MB.
 
-Unloading 22 unused Assets to reduce memory usage. Loaded Objects now: 2255.
-Total: 6.719100 ms (FindLiveObjects: 0.275500 ms CreateObjectMapping: 0.152000 ms MarkObjects: 6.019700 ms  DeleteObjects: 0.269900 ms)
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 2325.
+Total: 5.747800 ms (FindLiveObjects: 0.262900 ms CreateObjectMapping: 0.119000 ms MarkObjects: 5.164900 ms  DeleteObjects: 0.199300 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -138,51 +694,181 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: Assets/Terrain/Low Poly
-  artifactKey: Guid(38fadafe2da4b0042a4434a7a2c8b6cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Terrain/Low Poly using Guid(38fadafe2da4b0042a4434a7a2c8b6cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a82bc169b1509239c5e21b793bf67f4c') in 0.011720 seconds 
+  Time since last request: 185.905560 seconds.
+  path: Assets/Terrain/Poly/Demos/Environment/PT_Generic_Tree_Leaves_mat 2.mat
+  artifactKey: Guid(40e61747f5ab72d409498dd1603b8289) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Demos/Environment/PT_Generic_Tree_Leaves_mat 2.mat using Guid(40e61747f5ab72d409498dd1603b8289) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed121858bac755761800742d3f32efbc') in 0.379927 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 19.228713 seconds.
-  path: Assets/Tree_Textures/diffuse.png
-  artifactKey: Guid(c17bb0dface20c94aad4e1dcc07e4199) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Tree_Textures/diffuse.png using Guid(c17bb0dface20c94aad4e1dcc07e4199) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'babab487679274cf7e80b2045e1d1319') in 0.217472 seconds 
+  Time since last request: 0.996564 seconds.
+  path: Assets/Terrain/Poly/Demos/Environment/Terrain
+  artifactKey: Guid(64b75df8359bb5441b4442d30015f8b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Demos/Environment/Terrain using Guid(64b75df8359bb5441b4442d30015f8b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '945eaa00e09a5abbfe2813807aaecc0a') in 0.019232 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 34.717327 seconds.
+  path: Assets/Terrain/Poly/Demos/Environment/Terrain/New Terrain.asset
+  artifactKey: Guid(e0829138c40f356458f259edb063d67a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Demos/Environment/Terrain/New Terrain.asset using Guid(e0829138c40f356458f259edb063d67a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The tree PT_Pine_Tree_03_stump must use the Nature/Soft Occlusion shader. Otherwise billboarding/lighting will not work correctly.
+The tree PT_Fruit_Tree_01_logs must use the Nature/Soft Occlusion shader. Otherwise billboarding/lighting will not work correctly.
+ -> (artifact id: '91ff10420cb0581775600205f7fd21b1') in 0.305095 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 10.151555 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_02.prefab
+  artifactKey: Guid(82b2c64f4e2d5264bbf0f909cadda2fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_02.prefab using Guid(82b2c64f4e2d5264bbf0f909cadda2fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aa45a937db855d7d3ed94e36b364e62c') in 0.059398 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000590 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Flowers/PT_Poppy_02.prefab
+  artifactKey: Guid(2b66385ecc3e6b34e82ee78058e90aea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Flowers/PT_Poppy_02.prefab using Guid(2b66385ecc3e6b34e82ee78058e90aea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5a02cc7de50f6249784f939f4903a826') in 0.100723 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000819 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Shrubs/PT_Generic_Shrub_01_dead.prefab
+  artifactKey: Guid(06d032abe82fad741b5025b9013bb63a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Shrubs/PT_Generic_Shrub_01_dead.prefab using Guid(06d032abe82fad741b5025b9013bb63a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '055647ef6aea2e5e9426b50856358ed6') in 0.042285 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000551 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Rocks/PT_Generic_Rock_01.prefab
+  artifactKey: Guid(16cfe0f76e1afc24ca16a7080d66f082) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Rocks/PT_Generic_Rock_01.prefab using Guid(16cfe0f76e1afc24ca16a7080d66f082) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36991e020fc78baa4ee8d54387f437ac') in 0.370236 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000635 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Rocks/PT_River_Rock_Pile_02.prefab
+  artifactKey: Guid(877b08f512178384dadca8cf28e31a7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Rocks/PT_River_Rock_Pile_02.prefab using Guid(877b08f512178384dadca8cf28e31a7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ffb54fac7f3b656ca4c62d70fdabe1c4') in 0.039731 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000619 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Trees/PT_Pine_Tree_03_green.prefab
+  artifactKey: Guid(ceda9be89f930ac42b32ff5ae10598cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Trees/PT_Pine_Tree_03_green.prefab using Guid(ceda9be89f930ac42b32ff5ae10598cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3868cbd9ba48f909bbef939b8a8f0b8f') in 0.084254 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000644 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Rocks/PT_Ore_Rock_01_split.prefab
+  artifactKey: Guid(08dc6dea988fc6d4db0c50c111bd77dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Rocks/PT_Ore_Rock_01_split.prefab using Guid(08dc6dea988fc6d4db0c50c111bd77dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b36ed9fe20048450990b457d32b59f2') in 0.045453 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000680 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Rocks/PT_Menhir_Rock_02.prefab
+  artifactKey: Guid(335946c4528dd1e4cb26cd4893d8ac70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Rocks/PT_Menhir_Rock_02.prefab using Guid(335946c4528dd1e4cb26cd4893d8ac70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74bbad559ef5132d9a2b2ef677559d66') in 0.040109 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000874 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Rocks/PT_Ore_Rock_01.prefab
+  artifactKey: Guid(675e0383b4293ad40b957d549c5db668) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Rocks/PT_Ore_Rock_01.prefab using Guid(675e0383b4293ad40b957d549c5db668) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '824aef7531d9e5d744d3713f94acd8f5') in 0.038643 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000644 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Trees/PT_Pine_Tree_03_stump.prefab
+  artifactKey: Guid(7d2041206c208f54991b199315b8f7a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Trees/PT_Pine_Tree_03_stump.prefab using Guid(7d2041206c208f54991b199315b8f7a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf8d59e4b8382d53fa1b87da36093d51') in 0.043211 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000606 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Shrubs/PT_Generic_Shrub_01_green.prefab
+  artifactKey: Guid(ee612942e9d74fe4baea785dfe2eaa52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Shrubs/PT_Generic_Shrub_01_green.prefab using Guid(ee612942e9d74fe4baea785dfe2eaa52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a439edeb3de4aa6eb2646ee3e81b01b') in 0.039523 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.008034 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.06 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.337 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2338ms)
+		BeginReloadAssembly (264ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (14ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (66ms)
+		EndReloadAssembly (1955ms)
+			LoadAssemblies (240ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (644ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (115ms)
+			SetupLoadedEditorAssemblies (775ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (13ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (191ms)
+				ProcessInitializeOnLoadAttributes (509ms)
+				ProcessInitializeOnLoadMethodAttributes (53ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
+Platform modules already initialized, skipping
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Refreshing native plugins compatible for Editor in 1.17 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1763 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 225.8 MB.
+System memory in use after: 225.8 MB.
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 2329.
+Total: 7.962200 ms (FindLiveObjects: 0.278500 ms CreateObjectMapping: 0.155700 ms MarkObjects: 7.318600 ms  DeleteObjects: 0.206600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 322.695624 seconds.
+  path: Assets/Terrain/Poly/Environments/Sources/Textures/PT_Ground_Grass_Green_01.png
+  artifactKey: Guid(8c75ba30e5f76df4fb30725e4c9bf38a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Sources/Textures/PT_Ground_Grass_Green_01.png using Guid(8c75ba30e5f76df4fb30725e4c9bf38a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe8da79c6fd2e283a4e258ebf68d4a95') in 0.281315 seconds 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000736 seconds.
-  path: Assets/Tree_Textures/normal_specular.png
-  artifactKey: Guid(07402a513cd193e49a06c9fc8b112c26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Tree_Textures/normal_specular.png using Guid(07402a513cd193e49a06c9fc8b112c26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f08762351b8fc2b40fe8166f22be1c28') in 0.024057 seconds 
+  path: Assets/Terrain/Poly/Environments/Sources/Textures/PT_Ground_Generic_03.png
+  artifactKey: Guid(e0b09c625cee17a48b22b2cf949cd320) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Sources/Textures/PT_Ground_Generic_03.png using Guid(e0b09c625cee17a48b22b2cf949cd320) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '93c98147cd008d954e686333babdf2ef') in 0.020810 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000774 seconds.
-  path: Assets/Tree_Textures/shadow.png
-  artifactKey: Guid(d1ac63c30cf915e4a8380c776b1aaf63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Tree_Textures/shadow.png using Guid(d1ac63c30cf915e4a8380c776b1aaf63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a3c3d6e5102fe906e79a171f3a653dc5') in 0.020370 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000654 seconds.
-  path: Assets/Tree_Textures/translucency_gloss.png
-  artifactKey: Guid(9a7d33e80d5a1ac42b7f7031f61f8665) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Tree_Textures/translucency_gloss.png using Guid(9a7d33e80d5a1ac42b7f7031f61f8665) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '855cfc2a631d7bbe84620c546e5d9de6') in 0.018249 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 6.825096 seconds.
-  path: Assets/Terrain/Textures/Textures
-  artifactKey: Guid(ca1f8d339ae0b2d47b3506b624542845) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Terrain/Textures/Textures using Guid(ca1f8d339ae0b2d47b3506b624542845) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f3c42bca0810584ad9fdd921ee8a317') in 0.005295 seconds 
+  Time since last request: 47.262416 seconds.
+  path: Assets/Terrain/Poly/Demos/Environment/Terrain/New Terrain.asset
+  artifactKey: Guid(e0829138c40f356458f259edb063d67a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Demos/Environment/Terrain/New Terrain.asset using Guid(e0829138c40f356458f259edb063d67a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The tree PT_Pine_Tree_03_stump must use the Nature/Soft Occlusion shader. Otherwise billboarding/lighting will not work correctly.
+The tree PT_Fruit_Tree_01_logs must use the Nature/Soft Occlusion shader. Otherwise billboarding/lighting will not work correctly.
+ -> (artifact id: '84f79fcfb41b89c0dd872a99afa9879b') in 0.117008 seconds 
 ========================================================================
 Received Prepare
 Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
 Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
-Refreshing native plugins compatible for Editor in 5.58 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 5.49 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 10 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 131.7 MB.
-System memory in use after: 131.8 MB.
+System memory in use before: 191.0 MB.
+System memory in use after: 191.1 MB.
 
-Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 2259.
-Total: 6.735400 ms (FindLiveObjects: 0.266800 ms CreateObjectMapping: 0.127400 ms MarkObjects: 6.172300 ms  DeleteObjects: 0.167500 ms)
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 2329.
+Total: 7.409100 ms (FindLiveObjects: 0.258900 ms CreateObjectMapping: 0.116100 ms MarkObjects: 6.843700 ms  DeleteObjects: 0.188000 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -198,14 +884,468 @@ AssetImportParameters requested are different than current active one (requested
 Received Prepare
 Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
 Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
-Refreshing native plugins compatible for Editor in 5.44 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 6.56 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 10 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 131.7 MB.
-System memory in use after: 131.8 MB.
+System memory in use before: 191.4 MB.
+System memory in use after: 191.5 MB.
 
-Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 2259.
-Total: 9.607100 ms (FindLiveObjects: 0.244700 ms CreateObjectMapping: 0.127500 ms MarkObjects: 8.970700 ms  DeleteObjects: 0.261700 ms)
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 2329.
+Total: 12.418300 ms (FindLiveObjects: 0.361400 ms CreateObjectMapping: 0.184600 ms MarkObjects: 11.280300 ms  DeleteObjects: 0.588200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Refreshing native plugins compatible for Editor in 6.20 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 10 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 191.4 MB.
+System memory in use after: 191.5 MB.
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 2329.
+Total: 7.980100 ms (FindLiveObjects: 0.297000 ms CreateObjectMapping: 0.138500 ms MarkObjects: 7.315000 ms  DeleteObjects: 0.226800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Refreshing native plugins compatible for Editor in 6.32 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 10 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 191.4 MB.
+System memory in use after: 191.5 MB.
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 2329.
+Total: 7.459200 ms (FindLiveObjects: 0.252500 ms CreateObjectMapping: 0.134600 ms MarkObjects: 6.866000 ms  DeleteObjects: 0.204400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 1611.742283 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Trees/PT_Pine_Tree_03_green_cut.prefab
+  artifactKey: Guid(20613689bafb4544cb770f64d1a03714) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Trees/PT_Pine_Tree_03_green_cut.prefab using Guid(20613689bafb4544cb770f64d1a03714) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da91f3fef48cd0082b038dcd41b45932') in 0.297361 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.001284 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Trees/PT_Pine_Tree_03_logs.prefab
+  artifactKey: Guid(a02abe99b557a624ca2316134bc4a270) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Trees/PT_Pine_Tree_03_logs.prefab using Guid(a02abe99b557a624ca2316134bc4a270) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b65aa28e5eca30afe6fda26fccaecb96') in 0.071692 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.528220 seconds.
+  path: Assets/Terrain/Poly/Environments/Sources
+  artifactKey: Guid(50084c0ced59c5243b289606ec1aaa1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Sources using Guid(50084c0ced59c5243b289606ec1aaa1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '067a22dd92717ecaf2b6bff7b2e82705') in 0.007917 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.443809 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Flowers
+  artifactKey: Guid(1090dcf46ca02864fb89494b948e45c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Flowers using Guid(1090dcf46ca02864fb89494b948e45c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '971ecaa8ab71dab94d056d12e04a4038') in 0.007507 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.901120 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Mushrooms/PT_Caesars_Mushroom_01.prefab
+  artifactKey: Guid(61982c2c99063e44e9e4646d763c0439) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Mushrooms/PT_Caesars_Mushroom_01.prefab using Guid(61982c2c99063e44e9e4646d763c0439) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3bb7a7428bd633ae8f51648b87d2569b') in 0.684376 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 17.383789 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_02.prefab
+  artifactKey: Guid(82b2c64f4e2d5264bbf0f909cadda2fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_02.prefab using Guid(82b2c64f4e2d5264bbf0f909cadda2fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8994348a0da0f07ae9ec2a9e4215c45f') in 0.034909 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 12.922152 seconds.
+  path: Assets/Terrain/Poly/Environments/Sources/Meshes/Plants/PT_Grass_02.fbx
+  artifactKey: Guid(8c71f03fcb0c13644a30696cafc5cda8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Sources/Meshes/Plants/PT_Grass_02.fbx using Guid(8c71f03fcb0c13644a30696cafc5cda8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e18a93130181f454acada8c8071e90b7') in 0.193199 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 14.815005 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_02.prefab
+  artifactKey: Guid(82b2c64f4e2d5264bbf0f909cadda2fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_02.prefab using Guid(82b2c64f4e2d5264bbf0f909cadda2fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aedf7579e0d4e44f5461dafb1b4b34d7') in 0.026262 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.356972 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_02.prefab
+  artifactKey: Guid(82b2c64f4e2d5264bbf0f909cadda2fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_02.prefab using Guid(82b2c64f4e2d5264bbf0f909cadda2fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f52c002313651972d4ed99fac18dd2d2') in 0.021359 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.963682 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_02 1.prefab
+  artifactKey: Guid(cb33873961c7930408d48fffed4365f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_02 1.prefab using Guid(cb33873961c7930408d48fffed4365f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fa3ccf8445de8f7bdadc01ab961cd339') in 0.025317 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.663699 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_.prefab
+  artifactKey: Guid(cb33873961c7930408d48fffed4365f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_.prefab using Guid(cb33873961c7930408d48fffed4365f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2707cdbca185f1a34aa6d568885b9f63') in 0.024732 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.644406 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_.prefab
+  artifactKey: Guid(cb33873961c7930408d48fffed4365f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_.prefab using Guid(cb33873961c7930408d48fffed4365f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '58e17e5997226a2a4a8da4a48e199702') in 0.024473 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 16.372965 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_.prefab
+  artifactKey: Guid(cb33873961c7930408d48fffed4365f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_.prefab using Guid(cb33873961c7930408d48fffed4365f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '78993d1caab6259f9dd8d351288098bb') in 0.011500 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.772826 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_.prefab
+  artifactKey: Guid(cb33873961c7930408d48fffed4365f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_.prefab using Guid(cb33873961c7930408d48fffed4365f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f56ea4e3f117bcae8f0f7210697c7536') in 0.026974 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 8.054692 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_.prefab
+  artifactKey: Guid(cb33873961c7930408d48fffed4365f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_.prefab using Guid(cb33873961c7930408d48fffed4365f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aae170e255d0d6112edc33887582f17a') in 0.023651 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.229566 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_.prefab
+  artifactKey: Guid(cb33873961c7930408d48fffed4365f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_.prefab using Guid(cb33873961c7930408d48fffed4365f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6fdcd0d10a729c115656fa34565fbcd2') in 0.025205 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 11.733969 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_.prefab
+  artifactKey: Guid(cb33873961c7930408d48fffed4365f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_.prefab using Guid(cb33873961c7930408d48fffed4365f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '47a13786bcf399bf3ae58545290129ee') in 0.023393 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.885725 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_02_LOD0 (1).prefab
+  artifactKey: Guid(8f5c26435582dce4ba8299f37b2e769e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_02_LOD0 (1).prefab using Guid(8f5c26435582dce4ba8299f37b2e769e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c866136c7aeb5de09b83c0e312b4c53') in 0.025323 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.136834 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_.prefab
+  artifactKey: Guid(cb33873961c7930408d48fffed4365f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_.prefab using Guid(cb33873961c7930408d48fffed4365f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e03c4095bad93c38a8856474157d3fbb') in 0.022051 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.348508 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_02_LOD1 (1).prefab
+  artifactKey: Guid(933159267a7ee6d45b16880b60e68765) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_02_LOD1 (1).prefab using Guid(933159267a7ee6d45b16880b60e68765) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5db7b97f13e35e12e2bc12788b1c70dd') in 0.026576 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.117183 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_.prefab
+  artifactKey: Guid(cb33873961c7930408d48fffed4365f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_.prefab using Guid(cb33873961c7930408d48fffed4365f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '07484069ab36fbb12847de607f55ebd4') in 0.024436 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.472709 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_.prefab
+  artifactKey: Guid(cb33873961c7930408d48fffed4365f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_.prefab using Guid(cb33873961c7930408d48fffed4365f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43b881f5518952b238ec6c84e49f6c56') in 0.024356 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000575 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_02_LOD2 (1).prefab
+  artifactKey: Guid(d28fec00ed8048c4bbb422ec1dc30df2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass_02_LOD2 (1).prefab using Guid(d28fec00ed8048c4bbb422ec1dc30df2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33b097eb2496845b6e799bc55759fb20') in 0.024799 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 58.050291 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass.prefab
+  artifactKey: Guid(cb33873961c7930408d48fffed4365f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Plants/PT_Grass.prefab using Guid(cb33873961c7930408d48fffed4365f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '730da96979899059d647d739234f8528') in 0.025593 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 10.391386 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Plants/PT.prefab
+  artifactKey: Guid(8f5c26435582dce4ba8299f37b2e769e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Plants/PT.prefab using Guid(8f5c26435582dce4ba8299f37b2e769e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da3741a37754e7d3facfcd4f88c6437d') in 0.022200 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 25.587593 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Plants/PT (1).prefab
+  artifactKey: Guid(933159267a7ee6d45b16880b60e68765) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Plants/PT (1).prefab using Guid(933159267a7ee6d45b16880b60e68765) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f9ea83425167f428881180a55f11a556') in 0.023263 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.412505 seconds.
+  path: Assets/Terrain/Poly/Environments/Prefabs/Plants/PT (2).prefab
+  artifactKey: Guid(d28fec00ed8048c4bbb422ec1dc30df2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Terrain/Poly/Environments/Prefabs/Plants/PT (2).prefab using Guid(d28fec00ed8048c4bbb422ec1dc30df2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5802d1d2b133cf4195226ec762717bcf') in 0.022751 seconds 
+========================================================================
+Received Prepare
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Refreshing native plugins compatible for Editor in 8.83 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 10 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 191.9 MB.
+System memory in use after: 192.0 MB.
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 2333.
+Total: 8.022700 ms (FindLiveObjects: 0.313700 ms CreateObjectMapping: 0.155500 ms MarkObjects: 7.341300 ms  DeleteObjects: 0.209300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Refreshing native plugins compatible for Editor in 5.94 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 10 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 191.9 MB.
+System memory in use after: 192.0 MB.
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 2333.
+Total: 6.253200 ms (FindLiveObjects: 0.296700 ms CreateObjectMapping: 0.126400 ms MarkObjects: 5.624700 ms  DeleteObjects: 0.203800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.008166 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.76 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.341 seconds
+Domain Reload Profiling:
+	ReloadAssembly (3358ms)
+		BeginReloadAssembly (1034ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (173ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (455ms)
+		EndReloadAssembly (2140ms)
+			LoadAssemblies (357ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (661ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (134ms)
+			SetupLoadedEditorAssemblies (793ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (15ms)
+				SetLoadedEditorAssemblies (2ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (193ms)
+				ProcessInitializeOnLoadAttributes (534ms)
+				ProcessInitializeOnLoadMethodAttributes (43ms)
+				AfterProcessingInitializeOnLoad (4ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
+Platform modules already initialized, skipping
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Refreshing native plugins compatible for Editor in 1.18 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1763 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 226.5 MB.
+System memory in use after: 226.6 MB.
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 2336.
+Total: 120.205700 ms (FindLiveObjects: 0.652300 ms CreateObjectMapping: 0.218500 ms MarkObjects: 118.729900 ms  DeleteObjects: 0.598900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007744 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.73 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.900 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2901ms)
+		BeginReloadAssembly (293ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (15ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (69ms)
+		EndReloadAssembly (2357ms)
+			LoadAssemblies (290ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (864ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (137ms)
+			SetupLoadedEditorAssemblies (892ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (15ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (203ms)
+				ProcessInitializeOnLoadAttributes (615ms)
+				ProcessInitializeOnLoadMethodAttributes (52ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
+Platform modules already initialized, skipping
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Refreshing native plugins compatible for Editor in 1.15 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1763 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 226.5 MB.
+System memory in use after: 226.6 MB.
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 2339.
+Total: 7.080000 ms (FindLiveObjects: 0.254700 ms CreateObjectMapping: 0.121600 ms MarkObjects: 6.103700 ms  DeleteObjects: 0.597400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006814 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.74 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.419 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2420ms)
+		BeginReloadAssembly (306ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (15ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (70ms)
+		EndReloadAssembly (1986ms)
+			LoadAssemblies (296ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (621ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (113ms)
+			SetupLoadedEditorAssemblies (830ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (12ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (179ms)
+				ProcessInitializeOnLoadAttributes (574ms)
+				ProcessInitializeOnLoadMethodAttributes (54ms)
+				AfterProcessingInitializeOnLoad (8ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Refreshing native plugins compatible for Editor in 0.78 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1763 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 226.5 MB.
+System memory in use after: 226.6 MB.
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 2342.
+Total: 5.997000 ms (FindLiveObjects: 0.381500 ms CreateObjectMapping: 0.146900 ms MarkObjects: 5.229800 ms  DeleteObjects: 0.236600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Refreshing native plugins compatible for Editor in 5.28 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 10 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 191.5 MB.
+System memory in use after: 191.6 MB.
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 2342.
+Total: 5.824000 ms (FindLiveObjects: 0.289000 ms CreateObjectMapping: 0.132700 ms MarkObjects: 5.199600 ms  DeleteObjects: 0.201200 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 

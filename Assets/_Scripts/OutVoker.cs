@@ -122,7 +122,10 @@ public class OutVoker : MonoBehaviour
         Vector3 transformPositionXZ = new Vector3(transform.position.x, 0f, transform.position.z);
         Vector3 targetPositionXZ = new Vector3(targetPosition.x, 0f, targetPosition.z);
 
-        if (transformPositionXZ != targetPositionXZ)
+        // Distance from player to taget position (mouse position)
+        float distance = Vector3.Distance(transformPositionXZ, targetPositionXZ);
+
+        if (distance >= 0.5f)
         {
             // Rotating to target position
             transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
