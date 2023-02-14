@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
     private NavMeshAgent navMeshAgent;
     private Animator animator;
     private Transform player;
-    private OutVoker playerScript;
+    private Skills playerScript;
     private Rigidbody rb;
 
     public Transform backLandmark;
@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         player = GameObject.FindWithTag("Player").transform;
-        playerScript = player.GetComponent<OutVoker>();
+        playerScript = player.GetComponent<Skills>();
 
         material = GetComponentInChildren<Renderer>().material;
         int randomElement = Random.Range(0, 4);
@@ -169,11 +169,15 @@ public class Enemy : MonoBehaviour
 
         }
 
+        #region UI set
+
         Vector3 cameraPosition = Camera.main.transform.position;
         healthBackground.transform.LookAt(cameraPosition);
         healthImage.transform.LookAt(cameraPosition);
         elementText.transform.LookAt(cameraPosition);
         healthImage.fillAmount = health / 100;
+
+        #endregion
 
         animator.SetBool("isAttacking", isAttacking);
 
@@ -187,11 +191,12 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject, 4f);
             GetComponent<Enemy>().enabled = false;
         }
+
     }
 
     public void TakeDamageToHero()
     {
-        player.GetComponent<OutVoker>().TakeDamage(damage);
+        player.GetComponent<Skills>().TakeDamage(damage);
     }
 
     private void LookAtTarget(GameObject target)
@@ -278,6 +283,34 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    // Instantiate Marker in true position
+    private void PlaceMarker()
+    {
+        // Instantiate marker on random position near by player radius (markerPlacementRadius)
+        Vector3 randomDirection = Random.insideUnitSphere * markerPlacementRadius;
+        Vector3 markerPosition = player.position + randomDirection;
+
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(markerPosition, out hit, markerPlacementRadius, NavMesh.AllAreas))
+        {
+            marker = Instantiate(markerPrefab, hit.position, Quaternion.identity);
+            Destroy(marker, 2f);
+        }
+
+    }
+
+    // Using only in animations
+    private void AttackMarker()
+    {
+        if (marker != null)
+        {
+            damageCollider = Instantiate(damageColliderPrefab, marker.transform.position, Quaternion.identity);
+            Destroy(marker, 0.1f);
+            animator.SetBool("isAttacking", false);
+        }
+    }
+
+    // Coroutines .
     private IEnumerator Raise()
     {
         animator.SetFloat("Speed", 0);
@@ -314,31 +347,6 @@ public class Enemy : MonoBehaviour
         {
             yield return new WaitForSeconds(.5f);
             TakeDamage(3);
-        }
-    }
-
-    private void PlaceMarker()
-    {
-        // Instantiate marker on random position near by player radius (markerPlacementRadius)
-        Vector3 randomDirection = Random.insideUnitSphere * markerPlacementRadius;
-        Vector3 markerPosition = player.position + randomDirection;
-
-        NavMeshHit hit;
-        if (NavMesh.SamplePosition(markerPosition, out hit, markerPlacementRadius, NavMesh.AllAreas))
-        {
-            marker = Instantiate(markerPrefab, hit.position, Quaternion.identity);
-            Destroy(marker, 2f);
-        }
-
-    }
-
-    private void AttackMarker()
-    {
-        if (marker != null)
-        {
-            damageCollider = Instantiate(damageColliderPrefab, marker.transform.position, Quaternion.identity);
-            Destroy(marker, 0.1f);
-            animator.SetBool("isAttacking", false);
         }
     }
 
