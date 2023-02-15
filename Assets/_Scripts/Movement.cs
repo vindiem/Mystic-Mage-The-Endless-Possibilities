@@ -35,7 +35,8 @@ public class Movement : MonoBehaviour
 
     // Mobile
     [Header("Mobile movement")]
-    public Joystick joystick;
+    public Joystick movementJoystick;
+    public Joystick rotationJoystick;
     [SerializeField] private Button jumpButton;
 
     private void Start()
@@ -46,12 +47,12 @@ public class Movement : MonoBehaviour
         switch (movementType)
         {
             default:
-                joystick.gameObject.SetActive(false);
+                movementJoystick.gameObject.SetActive(false);
                 jumpButton.gameObject.SetActive(false);
                 break;
 
             case MovementType.Mobile:
-                joystick.gameObject.SetActive(true);
+                movementJoystick.gameObject.SetActive(true);
                 jumpButton.gameObject.SetActive(true);
                 break;
         }
@@ -77,6 +78,17 @@ public class Movement : MonoBehaviour
             Jump();
         }
 
+        #region Get current mouse position
+
+        Ray mouseWorldPosition = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(mouseWorldPosition, out RaycastHit raycastHit, CastLayer))
+        {
+            currentMousePosition = raycastHit.point;
+        }
+
+        #endregion
+
     }
 
     private void KeyboardMovement()
@@ -98,23 +110,13 @@ public class Movement : MonoBehaviour
         #endregion
 
         Vector3 direction = new Vector3(Horizontal, 0f, Vertical).normalized;
+        RotateToMouse(currentMousePosition, false);
         transform.Translate(direction * movementSpeed * Time.deltaTime);
 
     }
 
     private void MouseMovement()
     {
-        #region Get current mouse position
-
-        Ray mouseWorldPosition = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        if (Physics.Raycast(mouseWorldPosition, out RaycastHit raycastHit, CastLayer))
-        {
-            currentMousePosition = raycastHit.point;
-        }
-
-        #endregion
-
         #region Set target position
 
         // ... & set target position (if right mouse button has pressed)
@@ -166,8 +168,9 @@ public class Movement : MonoBehaviour
 
     private void MobileMovement()
     {
-        float Horizontal = joystick.Horizontal;
-        float Vertical = joystick.Vertical;
+        // Movement by movement joystick
+        float Horizontal = movementJoystick.Horizontal;
+        float Vertical = movementJoystick.Vertical;
 
         #region Animations
 
@@ -185,6 +188,16 @@ public class Movement : MonoBehaviour
         Vector3 direction = new Vector3(Horizontal, 0f, Vertical).normalized;
         transform.Translate(direction * movementSpeed * Time.deltaTime);
 
+        // Rotation by rotation joystick
+        float horizontalRotation = rotationJoystick.Horizontal;
+        float verticalRotation = rotationJoystick.Vertical;
+
+        if (horizontalRotation != 0 || verticalRotation != 0)
+        {
+            Vector3 rotateDirection = new Vector3(horizontalRotation, 0, verticalRotation);
+            transform.rotation = Quaternion.Slerp(transform.rotation, 
+                Quaternion.LookRotation(rotateDirection), rotationSpeed * Time.deltaTime);
+        }
     }
 
     // Jump [SHIFT]
@@ -199,14 +212,17 @@ public class Movement : MonoBehaviour
     }
 
     // {F}
-    public void RotateToMouse(Vector3 mousePosition)
+    public void RotateToMouse(Vector3 mousePosition, bool S)
     {
         // Look At transform main character with his own axis (y) and target position (x, z)
         // In 2D (x, z) = (x, y)
         transform.LookAt(new Vector3(mousePosition.x, transform.position.y, mousePosition.z));
 
         // Set target position to player position to stop character
-        targetPosition = transform.position;
+        if (S == true)
+        {
+            targetPosition = transform.position;
+        }
     }
 
 }

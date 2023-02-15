@@ -134,7 +134,7 @@ public class Skills : MonoBehaviour
         // look to mouse position
         if (Input.GetKey(KeyCode.F) == true)
         {
-            movementScript.RotateToMouse(currentMousePosition);
+            movementScript.RotateToMouse(currentMousePosition, true);
         }
 
         else if (Input.GetKeyDown(KeyCode.Z))
@@ -178,29 +178,13 @@ public class Skills : MonoBehaviour
 
         #region Get current mouse (touch) position
 
-        // Mobile
-        if (movementScript.movementType == Movement.MovementType.Mouse)
+        Ray mouseWorldPosition = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(mouseWorldPosition, out RaycastHit raycastHit, CastLayer))
         {
-            Ray mouseWorldPosition = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-            
-            if (Physics.Raycast(mouseWorldPosition, out RaycastHit raycastHit, CastLayer))
-            {
-                currentMousePosition = raycastHit.point;
-                Debug.Log(currentMousePosition);
-            }
+            currentMousePosition = raycastHit.point;
         }
 
-        // PC
-        else
-        {
-            Ray mouseWorldPosition = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(mouseWorldPosition, out RaycastHit raycastHit, CastLayer))
-            {
-                currentMousePosition = raycastHit.point;
-            }
-        }
-        
         #endregion
 
     }
@@ -266,7 +250,7 @@ public class Skills : MonoBehaviour
             // Wait until left mouse button will be pressed (Trigger)
             yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
 
-            movementScript.RotateToMouse(currentMousePosition);
+            movementScript.RotateToMouse(currentMousePosition, true);
             GameObject t = Instantiate(tornado, transform.position, Quaternion.LookRotation(Vector3.up));
 
             Vector3 direction = (t.transform.position - currentMousePosition).normalized;
@@ -301,7 +285,7 @@ public class Skills : MonoBehaviour
             // Wait until left mouse button (touch) will be pressed (Trigger)
             yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
 
-            movementScript.RotateToMouse(currentMousePosition);
+            movementScript.RotateToMouse(currentMousePosition, true);
             GameObject m = Instantiate(meteor, meteorLandmark.position, Quaternion.identity);
 
             float distance = Vector3.Distance(transform.position, currentMousePosition);
