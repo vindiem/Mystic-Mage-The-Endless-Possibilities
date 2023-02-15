@@ -9,6 +9,7 @@ public class Skills : MonoBehaviour
     [SerializeField] private Enemy enemy;
     [HideInInspector] public Movement movementScript;
 
+    // Kills counter
     public Text killsCounter;
     [HideInInspector] public int killsCounterInt;
 
@@ -17,6 +18,8 @@ public class Skills : MonoBehaviour
 
     // Charavter variables
     private float health = 100;
+
+    public LayerMask CastLayer;
 
     [Header("Items")]
     public Transform fireLandmark;
@@ -40,9 +43,6 @@ public class Skills : MonoBehaviour
     public int ultimateLevel = 4;
     public Transform[] directions;
 
-    [Header("SkillsButtons")]
-    public Image[] iconButtons;
-
     // Skills k/d's
     private List<float> kds = new List<float>();
     private float[] ckds = new float[5];
@@ -58,9 +58,43 @@ public class Skills : MonoBehaviour
     // UI Elements
     public Image healthImage;
 
+    [Header("SkillsButtons")]
+    // PC
+    [SerializeField] private Image[] iconButtons;
+    [SerializeField] private GameObject PCSkills;
+    [SerializeField] private RawImage[] bgsP;
+
+    // Mobile
+    [SerializeField] private Image[] iconButtonsMobile;
+    [SerializeField] private GameObject MobileSkills;
+    [SerializeField] private RawImage[] bgsM; 
+
     private void Start()
     {
         movementScript = GetComponent<Movement>();
+
+        switch (movementScript.movementType)
+        {
+            default:
+                for (int i = 0; i < iconButtonsMobile.Length; i++)
+                {
+                    iconButtons[i].gameObject.SetActive(true);
+                    iconButtonsMobile[i].gameObject.SetActive(false);
+                }
+                PCSkills.SetActive(true);
+                MobileSkills.SetActive(false);
+                break;
+
+            case Movement.MovementType.Mobile:
+                for (int i = 0; i < iconButtonsMobile.Length; i++)
+                {
+                    iconButtons[i].gameObject.SetActive(false);
+                    iconButtonsMobile[i].gameObject.SetActive(true);
+                }
+                PCSkills.SetActive(false);
+                MobileSkills.SetActive(true);
+                break;
+        }
 
         // Make KDs array full
         for (int i = 0; i <= 4; i++)
@@ -68,6 +102,13 @@ public class Skills : MonoBehaviour
             kds.Add(0);
         }
 
+        for (int i = 0; i < kds.Count; i++)
+        {
+            bgsP[i].color = Color.grey;
+            bgsM[i].color = Color.grey;
+        }
+
+        // Game speed
         Time.timeScale = 1f;
     }
 
@@ -81,6 +122,7 @@ public class Skills : MonoBehaviour
             {
                 float fill = kds[i] * 100 / ckds[i] / 100;
                 iconButtons[i].fillAmount = 1 - fill;
+                iconButtonsMobile[i].fillAmount = 1 - fill;
                 kds[i] -= Time.deltaTime;
             }
         }
@@ -92,7 +134,7 @@ public class Skills : MonoBehaviour
         // look to mouse position
         if (Input.GetKey(KeyCode.F) == true)
         {
-            movementScript.RotateToMouse();
+            movementScript.RotateToMouse(currentMousePosition);
         }
 
         else if (Input.GetKeyDown(KeyCode.Z))
@@ -107,12 +149,12 @@ public class Skills : MonoBehaviour
 
         else if (Input.GetKeyDown(KeyCode.C))
         {
-            Tornado();
+            TornadoInvoke();
         }
 
         else if (Input.GetKeyDown(KeyCode.V))
         {
-            Meteor();
+            MeteorInvoke();
         }
 
         else if (Input.GetKeyDown(KeyCode.Space))
@@ -125,13 +167,40 @@ public class Skills : MonoBehaviour
         #region UI
 
         healthImage.fillAmount = health / 100;
-        killsCounter.text = killsCounterInt.ToString();
+        killsCounter.text = killsCounterInt.ToString("000");
 
         if (health <= 0)
         {
             Destroy(gameObject);
         }
 
+        #endregion
+
+        #region Get current mouse (touch) position
+
+        // Mobile
+        if (movementScript.movementType == Movement.MovementType.Mouse)
+        {
+            Ray mouseWorldPosition = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+            
+            if (Physics.Raycast(mouseWorldPosition, out RaycastHit raycastHit, CastLayer))
+            {
+                currentMousePosition = raycastHit.point;
+                Debug.Log(currentMousePosition);
+            }
+        }
+
+        // PC
+        else
+        {
+            Ray mouseWorldPosition = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(mouseWorldPosition, out RaycastHit raycastHit, CastLayer))
+            {
+                currentMousePosition = raycastHit.point;
+            }
+        }
+        
         #endregion
 
     }
@@ -181,31 +250,58 @@ public class Skills : MonoBehaviour
     }
 
     // [C] Tornato / Invoker ;
-    public void Tornado()
+    public void TornadoInvoke()
+    {
+        StartCoroutine(Tornado());
+    }
+    public IEnumerator Tornado()
     {
         if (kds[2] <= 0)
         {
+            #region Visual
+            bgsM[2].color = Color.green;
+            bgsP[2].color = Color.green;
+            #endregion
+
+            // Wait until left mouse button will be pressed (Trigger)
+            yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+
+            movementScript.RotateToMouse(currentMousePosition);
             GameObject t = Instantiate(tornado, transform.position, Quaternion.LookRotation(Vector3.up));
 
             Vector3 direction = (t.transform.position - currentMousePosition).normalized;
             t.GetComponent<Rigidbody>().AddForce(-direction * tornadoLevel * 16);
 
-            Destroy(t, tornadoLevel / 7.5f);
+            Destroy(t, tornadoLevel / 3.5f);
 
             kds[2] = 7;
             SetCkds(kds[2], 2);
+
+            #region Visual
+            bgsM[2].color = Color.grey;
+            bgsP[2].color = Color.grey;
+            #endregion
         }
     }
 
     // [V] Chaos Meteor / Invoker ;
-    public void Meteor()
+    public void MeteorInvoke()
+    {
+        StartCoroutine(Meteor());
+    }
+    public IEnumerator Meteor()
     {
         if (kds[3] <= 0)
         {
-            /*GameObject m = Instantiate(meteor, new Vector3(transform.position.x,
-                transform.position.y + 8f, transform.position.z), Quaternion.identity);*/
+            #region Visual
+            bgsM[3].color = Color.green;
+            bgsP[3].color = Color.green;
+            #endregion
 
-            movementScript.RotateToMouse();
+            // Wait until left mouse button (touch) will be pressed (Trigger)
+            yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+
+            movementScript.RotateToMouse(currentMousePosition);
             GameObject m = Instantiate(meteor, meteorLandmark.position, Quaternion.identity);
 
             float distance = Vector3.Distance(transform.position, currentMousePosition);
@@ -218,6 +314,11 @@ public class Skills : MonoBehaviour
 
             kds[3] = 3.5f;
             SetCkds(kds[3], 3);
+
+            #region Visual
+            bgsM[3].color = Color.grey;
+            bgsP[3].color = Color.grey;
+            #endregion
         }
     }
 

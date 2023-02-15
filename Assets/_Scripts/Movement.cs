@@ -1,16 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Movement : MonoBehaviour
 {
-    public enum MovemntType
+    public enum MovementType
     {
         Keyboard,
         Mouse,
         Mobile
-    }
-    [SerializeField] private MovemntType movementType;
+    };
+    public MovementType movementType;
 
     public LayerMask CastLayer;
     private Animator animator;
@@ -32,36 +33,49 @@ public class Movement : MonoBehaviour
 
     public GameObject mouseEffect;
 
+    // Mobile
+    [Header("Mobile movement")]
+    public Joystick joystick;
+    [SerializeField] private Button jumpButton;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+
+        switch (movementType)
+        {
+            default:
+                joystick.gameObject.SetActive(false);
+                jumpButton.gameObject.SetActive(false);
+                break;
+
+            case MovementType.Mobile:
+                joystick.gameObject.SetActive(true);
+                jumpButton.gameObject.SetActive(true);
+                break;
+        }
     }
 
     private void Update()
     {
         switch (movementType)
         {
-            case MovemntType.Keyboard:
+            case MovementType.Keyboard:
                 KeyboardMovement();
                 break;
-            case MovemntType.Mouse:
+            case MovementType.Mouse:
                 MouseMovement();
                 break;
-            case MovemntType.Mobile:
+            case MovementType.Mobile:
+                MobileMovement();
                 break;
         }
 
-        #region Jump
-
-        onGround = Physics.Raycast(transform.position, Vector3.down, distanceToGround);
-
-        if (Input.GetKeyDown(KeyCode.LeftShift) && onGround == true)
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            rb.velocity = Vector3.up * jumpForce;
+            Jump();
         }
-
-        #endregion
 
     }
 
@@ -70,6 +84,8 @@ public class Movement : MonoBehaviour
         float Horizontal = Input.GetAxis("Horizontal");
         float Vertical = Input.GetAxis("Vertical");
 
+        #region Animations
+        
         if (Horizontal != 0f || Vertical != 0f)
         {
             animator.SetBool("isRunning", true);
@@ -79,10 +95,11 @@ public class Movement : MonoBehaviour
             animator.SetBool("isRunning", false);
         }
 
-        Vector3 direction = new Vector3(Horizontal, 0f, Vertical).normalized;
-        Vector3 velocity = direction * movementSpeed;
+        #endregion
 
-        transform.Translate(velocity * Time.deltaTime);
+        Vector3 direction = new Vector3(Horizontal, 0f, Vertical).normalized;
+        transform.Translate(direction * movementSpeed * Time.deltaTime);
+
     }
 
     private void MouseMovement()
@@ -144,14 +161,49 @@ public class Movement : MonoBehaviour
         }
 
         #endregion
+
+    }
+
+    private void MobileMovement()
+    {
+        float Horizontal = joystick.Horizontal;
+        float Vertical = joystick.Vertical;
+
+        #region Animations
+
+        if (Horizontal != 0f || Vertical != 0f)
+        {
+            animator.SetBool("isRunning", true);
+        }
+        else
+        {
+            animator.SetBool("isRunning", false);
+        }
+
+        #endregion
+
+        Vector3 direction = new Vector3(Horizontal, 0f, Vertical).normalized;
+        transform.Translate(direction * movementSpeed * Time.deltaTime);
+
+    }
+
+    // Jump [SHIFT]
+    public void Jump()
+    {
+        onGround = Physics.Raycast(transform.position, Vector3.down, distanceToGround);
+
+        if (onGround == true)
+        {
+            rb.velocity = Vector3.up * jumpForce;
+        }
     }
 
     // {F}
-    public void RotateToMouse()
+    public void RotateToMouse(Vector3 mousePosition)
     {
         // Look At transform main character with his own axis (y) and target position (x, z)
         // In 2D (x, z) = (x, y)
-        transform.LookAt(new Vector3(currentMousePosition.x, transform.position.y, currentMousePosition.z));
+        transform.LookAt(new Vector3(mousePosition.x, transform.position.y, mousePosition.z));
 
         // Set target position to player position to stop character
         targetPosition = transform.position;

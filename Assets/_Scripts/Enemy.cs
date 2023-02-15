@@ -150,7 +150,14 @@ public class Enemy : MonoBehaviour
                 PlaceMarker();
 
                 // Set target position to marker
-                navMeshAgent.SetDestination(marker.transform.position);
+                if (marker != null)
+                {
+                    navMeshAgent.SetDestination(marker.transform.position);
+                }
+                else
+                {
+                    isAttacking = false;
+                }
 
                 nextAttackTime = Time.time + attackRate;
             }
