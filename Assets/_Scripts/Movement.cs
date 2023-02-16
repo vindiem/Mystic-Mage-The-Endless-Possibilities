@@ -36,7 +36,7 @@ public class Movement : MonoBehaviour
     // Mobile
     [Header("Mobile movement")]
     public Joystick movementJoystick;
-    public Joystick rotationJoystick;
+    public Joystick attackJoystick;
     [SerializeField] private Button jumpButton;
 
     private void Start()
@@ -48,14 +48,17 @@ public class Movement : MonoBehaviour
         {
             default:
                 movementJoystick.gameObject.SetActive(false);
+                attackJoystick.gameObject.SetActive(false);
                 jumpButton.gameObject.SetActive(false);
                 break;
 
             case MovementType.Mobile:
                 movementJoystick.gameObject.SetActive(true);
+                attackJoystick.gameObject.SetActive(true);
                 jumpButton.gameObject.SetActive(true);
                 break;
         }
+
     }
 
     private void Update()
@@ -93,25 +96,15 @@ public class Movement : MonoBehaviour
 
     private void KeyboardMovement()
     {
-        float Horizontal = Input.GetAxis("Horizontal");
-        float Vertical = Input.GetAxis("Vertical");
-
-        #region Animations
-        
-        if (Horizontal != 0f || Vertical != 0f)
+        if (Input.GetKey(KeyCode.W))
         {
             animator.SetBool("isRunning", true);
+            transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
         }
-        else
+        else if (Input.GetKeyUp(KeyCode.W))
         {
             animator.SetBool("isRunning", false);
         }
-
-        #endregion
-
-        Vector3 direction = new Vector3(Horizontal, 0f, Vertical).normalized;
-        RotateToMouse(currentMousePosition, false);
-        transform.Translate(direction * movementSpeed * Time.deltaTime);
 
     }
 
@@ -168,14 +161,19 @@ public class Movement : MonoBehaviour
 
     private void MobileMovement()
     {
-        // Movement by movement joystick
-        float Horizontal = movementJoystick.Horizontal;
-        float Vertical = movementJoystick.Vertical;
+        // Get joystick axises
+        float HorizontalAxis = movementJoystick.Horizontal;
+        float VerticalAxis = movementJoystick.Vertical;
 
-        #region Animations
-
-        if (Horizontal != 0f || Vertical != 0f)
+        if (HorizontalAxis != 0 || VerticalAxis != 0)
         {
+            Vector3 rotateDirection = new Vector3(HorizontalAxis, 0, VerticalAxis);
+
+            transform.rotation = Quaternion.Slerp(transform.rotation, 
+                Quaternion.LookRotation(rotateDirection), rotationSpeed * Time.deltaTime);
+
+            // Move forward
+            transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
             animator.SetBool("isRunning", true);
         }
         else
@@ -183,21 +181,6 @@ public class Movement : MonoBehaviour
             animator.SetBool("isRunning", false);
         }
 
-        #endregion
-
-        Vector3 direction = new Vector3(Horizontal, 0f, Vertical).normalized;
-        transform.Translate(direction * movementSpeed * Time.deltaTime);
-
-        // Rotation by rotation joystick
-        float horizontalRotation = rotationJoystick.Horizontal;
-        float verticalRotation = rotationJoystick.Vertical;
-
-        if (horizontalRotation != 0 || verticalRotation != 0)
-        {
-            Vector3 rotateDirection = new Vector3(horizontalRotation, 0, verticalRotation);
-            transform.rotation = Quaternion.Slerp(transform.rotation, 
-                Quaternion.LookRotation(rotateDirection), rotationSpeed * Time.deltaTime);
-        }
     }
 
     // Jump [SHIFT]

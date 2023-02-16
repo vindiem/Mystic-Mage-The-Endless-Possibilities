@@ -27,10 +27,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -38,6 +36,7 @@ ScriptsOnlyBuild:
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.EventSystems.EventTrigger
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
@@ -123,6 +122,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 3488}
     - Class: 114
       Script: {instanceID: 3862}
+    - Class: 114
+      Script: {instanceID: 3904}
     - Class: 114
       Script: {instanceID: 4254}
     - Class: 114
@@ -502,7 +503,7 @@ ScriptsOnlyBuild:
     className: CinemachineHardLookAt
   - hash:
       serializedVersion: 2
-      Hash: 0efb244a5d1da203cf811913386da5ce
+      Hash: f2c6eb5c943eeb6ac0eb0118760e19ec
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Movement
@@ -1043,4 +1044,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/mechanic.unity
-  playerPath: D:/Work()/.projects/git_Mystic_Mage/Mobile build/Mystic Mage.apk
+  playerPath: D:/Work()/.projects/git_Mystic_Mage/Andriod build/Mystic Mage build.apk

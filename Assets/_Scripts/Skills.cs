@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Skills : MonoBehaviour
 {
+    // Scripts
     [SerializeField] private Enemy enemy;
     [HideInInspector] public Movement movementScript;
 
@@ -20,12 +21,15 @@ public class Skills : MonoBehaviour
     private float health = 100;
 
     public LayerMask CastLayer;
+    private Joystick attackJoystick;
 
     [Header("Items")]
+    // Landmarks
     public Transform fireLandmark;
     public Transform meteorLandmark;
     public Transform waveLandmark;
 
+    // Objects || Prefabs
     public GameObject fire;
     public int fireLevel = 2;
 
@@ -35,9 +39,11 @@ public class Skills : MonoBehaviour
     public GameObject tornado;
     public GameObject visualTornado;
     public int tornadoLevel = 5;
+    private bool canTornadoInvoke = true;
 
     public GameObject meteor;
     public int meteorLevel = 4;
+    private bool canMeteorInvoke = true;
 
     public GameObject ultimate;
     public int ultimateLevel = 4;
@@ -110,12 +116,97 @@ public class Skills : MonoBehaviour
 
         // Game speed
         Time.timeScale = 1f;
+
+        attackJoystick = movementScript.attackJoystick;
+
     }
 
     private void Update()
     {
-        #region KD & Buttons images fill
 
+        #region Skills using
+
+        // Mobile skills using
+        if (movementScript.movementType == Movement.MovementType.Mobile)
+        {
+            float HorizontalAxis = attackJoystick.Horizontal;
+            float VecrticalAxis = attackJoystick.Vertical;
+
+            if (VecrticalAxis > 0.4f && HorizontalAxis < -0.4f)
+            {
+                Fire();
+            }
+            else if (HorizontalAxis < -0.8f)
+            {
+                TornadoInvoke();
+            }
+            else if (VecrticalAxis > 0.4f && HorizontalAxis > 0.4f)
+            {
+                Wave();
+            }
+            else if (HorizontalAxis > 0.8f)
+            {
+                MeteorInvoke();
+            }
+            else if (VecrticalAxis < -0.8f)
+            {
+                Ultimate();
+            }
+
+            // Make skills icond visible
+            if (HorizontalAxis > 0.1f || VecrticalAxis > 0.1f ||
+                HorizontalAxis < -0.1f || VecrticalAxis < -0.1f)
+            {
+                MobileSkills.gameObject.SetActive(true);
+            }
+            else
+            {
+                MobileSkills.gameObject.SetActive(false);
+            }
+
+        }
+
+        // PC skills using
+        else
+        {
+            // look to mouse position
+            if (Input.GetKey(KeyCode.F) == true)
+            {
+                movementScript.RotateToMouse(currentMousePosition, true);
+            }
+
+            else if (Input.GetKeyDown(KeyCode.Z))
+            {
+                Fire();
+            }
+
+            else if (Input.GetKeyDown(KeyCode.X))
+            {
+                Wave();
+            }
+
+            else if (Input.GetKeyDown(KeyCode.C))
+            {
+                TornadoInvoke();
+            }
+
+            else if (Input.GetKeyDown(KeyCode.V))
+            {
+                MeteorInvoke();
+            }
+
+            else if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Ultimate();
+            }
+
+        }
+
+        #endregion
+
+        #region UI
+
+        // KD & Buttons images fill
         for (int i = 0; i < kds.Count; i++)
         {
             if (kds[i] > 0)
@@ -127,49 +218,11 @@ public class Skills : MonoBehaviour
             }
         }
 
-        #endregion
-
-        #region Skills using
-
-        // look to mouse position
-        if (Input.GetKey(KeyCode.F) == true)
-        {
-            movementScript.RotateToMouse(currentMousePosition, true);
-        }
-
-        else if (Input.GetKeyDown(KeyCode.Z))
-        {
-            Fire();
-        }
-
-        else if (Input.GetKeyDown(KeyCode.X))
-        {
-            Wave();
-        }
-
-        else if (Input.GetKeyDown(KeyCode.C))
-        {
-            TornadoInvoke();
-        }
-
-        else if (Input.GetKeyDown(KeyCode.V))
-        {
-            MeteorInvoke();
-        }
-
-        else if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Ultimate();
-        }
-
-        #endregion
-
-        #region UI
-
+        // Health
         healthImage.fillAmount = health / 100;
         killsCounter.text = killsCounterInt.ToString("000");
 
-        if (health <= 0)
+        if (health <= 0 || transform.position.y <= -10f)
         {
             Destroy(gameObject);
         }
@@ -236,7 +289,10 @@ public class Skills : MonoBehaviour
     // [C] Tornato / Invoker ;
     public void TornadoInvoke()
     {
-        StartCoroutine(Tornado());
+        if (canTornadoInvoke == true)
+        {
+            StartCoroutine(Tornado());
+        }
     }
     public IEnumerator Tornado()
     {
@@ -245,6 +301,7 @@ public class Skills : MonoBehaviour
             #region Visual
             bgsM[2].color = Color.green;
             bgsP[2].color = Color.green;
+            canTornadoInvoke = false;
             #endregion
 
             // Wait until left mouse button will be pressed (Trigger)
@@ -264,6 +321,7 @@ public class Skills : MonoBehaviour
             #region Visual
             bgsM[2].color = Color.grey;
             bgsP[2].color = Color.grey;
+            canTornadoInvoke = true;
             #endregion
         }
     }
@@ -271,7 +329,10 @@ public class Skills : MonoBehaviour
     // [V] Chaos Meteor / Invoker ;
     public void MeteorInvoke()
     {
-        StartCoroutine(Meteor());
+        if (canMeteorInvoke == true)
+        {
+            StartCoroutine(Meteor());
+        }
     }
     public IEnumerator Meteor()
     {
@@ -280,6 +341,7 @@ public class Skills : MonoBehaviour
             #region Visual
             bgsM[3].color = Color.green;
             bgsP[3].color = Color.green;
+            canMeteorInvoke = false;
             #endregion
 
             // Wait until left mouse button (touch) will be pressed (Trigger)
@@ -302,6 +364,7 @@ public class Skills : MonoBehaviour
             #region Visual
             bgsM[3].color = Color.grey;
             bgsP[3].color = Color.grey;
+            canMeteorInvoke = true;
             #endregion
         }
     }
