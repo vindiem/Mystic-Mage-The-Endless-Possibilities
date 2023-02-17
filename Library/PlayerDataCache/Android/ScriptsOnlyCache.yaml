@@ -36,13 +36,13 @@ ScriptsOnlyBuild:
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
-    - UnityEngine.EventSystems.EventTrigger
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
     - UnityEngine.UI.RawImage
+    - UnityEngine.UI.Scrollbar
     - UnityEngine.UI.Text
   sceneClasses:
     Assets/Scenes/mechanic.unity:
@@ -117,13 +117,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3200}
     - Class: 114
+      Script: {instanceID: 3210}
+    - Class: 114
       Script: {instanceID: 3302}
     - Class: 114
       Script: {instanceID: 3488}
     - Class: 114
       Script: {instanceID: 3862}
-    - Class: 114
-      Script: {instanceID: 3904}
     - Class: 114
       Script: {instanceID: 4254}
     - Class: 114
@@ -503,7 +503,7 @@ ScriptsOnlyBuild:
     className: CinemachineHardLookAt
   - hash:
       serializedVersion: 2
-      Hash: f2c6eb5c943eeb6ac0eb0118760e19ec
+      Hash: bc5ea5b40a09e6344a13268e0ae67a85
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Movement
@@ -851,7 +851,7 @@ ScriptsOnlyBuild:
     className: ControlTrack
   - hash:
       serializedVersion: 2
-      Hash: 0f1bf0ff545ebec215b76775c3bccb34
+      Hash: 9be204691ef138b7cac5524e23877bec
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemyGeneration

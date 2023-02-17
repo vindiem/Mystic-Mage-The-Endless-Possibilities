@@ -7,9 +7,9 @@ public class EnemyGeneration : MonoBehaviour
 {
     public GameObject zombiePrefab;
     public float spawnInterval = 10f;
-    [SerializeField] private float heightAboveGround;
+    private float heightAboveGround;
 
-    public float time;
+    private float time;
     public Text timerText;
 
     public GameObject Cross;

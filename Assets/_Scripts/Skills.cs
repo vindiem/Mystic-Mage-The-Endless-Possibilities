@@ -108,6 +108,7 @@ public class Skills : MonoBehaviour
             kds.Add(0);
         }
 
+        // Visual
         for (int i = 0; i < kds.Count; i++)
         {
             bgsP[i].color = Color.grey;
@@ -130,9 +131,9 @@ public class Skills : MonoBehaviour
         if (movementScript.movementType == Movement.MovementType.Mobile)
         {
             float HorizontalAxis = attackJoystick.Horizontal;
-            float VecrticalAxis = attackJoystick.Vertical;
+            float VerticalAxis = attackJoystick.Vertical;
 
-            if (VecrticalAxis > 0.4f && HorizontalAxis < -0.4f)
+            if (VerticalAxis > 0.4f && HorizontalAxis < -0.4f)
             {
                 Fire();
             }
@@ -140,7 +141,7 @@ public class Skills : MonoBehaviour
             {
                 TornadoInvoke();
             }
-            else if (VecrticalAxis > 0.4f && HorizontalAxis > 0.4f)
+            else if (VerticalAxis > 0.4f && HorizontalAxis > 0.4f)
             {
                 Wave();
             }
@@ -148,14 +149,14 @@ public class Skills : MonoBehaviour
             {
                 MeteorInvoke();
             }
-            else if (VecrticalAxis < -0.8f)
+            else if (VerticalAxis < -0.8f)
             {
                 Ultimate();
             }
 
             // Make skills icond visible
-            if (HorizontalAxis > 0.1f || VecrticalAxis > 0.1f ||
-                HorizontalAxis < -0.1f || VecrticalAxis < -0.1f)
+            if (HorizontalAxis > 0.1f || VerticalAxis > 0.1f ||
+                HorizontalAxis < -0.1f || VerticalAxis < -0.1f)
             {
                 MobileSkills.gameObject.SetActive(true);
             }
@@ -174,32 +175,26 @@ public class Skills : MonoBehaviour
             {
                 movementScript.RotateToMouse(currentMousePosition, true);
             }
-
             else if (Input.GetKeyDown(KeyCode.Z))
             {
                 Fire();
             }
-
             else if (Input.GetKeyDown(KeyCode.X))
             {
                 Wave();
             }
-
             else if (Input.GetKeyDown(KeyCode.C))
             {
                 TornadoInvoke();
             }
-
             else if (Input.GetKeyDown(KeyCode.V))
             {
                 MeteorInvoke();
             }
-
             else if (Input.GetKeyDown(KeyCode.Space))
             {
                 Ultimate();
             }
-
         }
 
         #endregion
