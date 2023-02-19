@@ -116,7 +116,7 @@ public class Skills : MonoBehaviour
         }
 
         // Game speed
-        Time.timeScale = 1f;
+        Time.timeScale = 1.25f;
 
         attackJoystick = movementScript.attackJoystick;
 

@@ -353,7 +353,7 @@ public class Enemy : MonoBehaviour
         for (int i = 0; i < playerScript.fireLevel / 5; i++)
         {
             yield return new WaitForSeconds(.5f);
-            TakeDamage(3);
+            TakeDamage(playerScript.fireLevel / 7);
         }
     }
 

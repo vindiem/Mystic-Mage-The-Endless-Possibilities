@@ -30,8 +30,12 @@ public class EnemyGeneration : MonoBehaviour
         // Generate loop
         while (true)
         {
-            float randomX = Random.Range(-50 / 2, 50 / 2);
-            float randomZ = Random.Range(-50 / 2, 50 / 2);
+            // Generate random position in sphere 
+            float radius = 40f;
+            Vector3 randomPosition = Random.insideUnitSphere * radius;
+
+            float randomX = randomPosition.x;
+            float randomZ = randomPosition.z;
 
             RaycastHit hit;
             if (Physics.Raycast(new Vector3(randomX, 64f, randomZ), Vector3.down, out hit))
