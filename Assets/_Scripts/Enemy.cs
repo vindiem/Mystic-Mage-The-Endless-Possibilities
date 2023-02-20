@@ -196,6 +196,7 @@ public class Enemy : MonoBehaviour
             animator.SetTrigger("Death");
             transform.GetComponent<Collider>().enabled = false;
             navMeshAgent.isStopped = true;
+            rb.isKinematic = true;
             Destroy(gameObject, 4f);
             GetComponent<Enemy>().enabled = false;
         }

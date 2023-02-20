@@ -6,16 +6,25 @@ using UnityEngine.SceneManagement;
 
 public class LoadScenes : MonoBehaviour
 {
-    public Text bestScoreText;
-    private float bestScore;
+    public Text bestScoreTimeText;
+    private float bestScoreTime;
+
+    public Text bestScoreKillsText;
+    private int bestScoreKills;
+
     public GameObject StartGame;
 
     private void Update()
     {
-        if (bestScoreText != null)
+        if (bestScoreTimeText != null)
         {
-            bestScore = PlayerPrefs.GetFloat("BestScore");
-            bestScoreText.text = $"your best score (secs): " + bestScore;
+            bestScoreTime = PlayerPrefs.GetFloat("BestScore");
+            bestScoreTimeText.text = $"best score: " + bestScoreTime.ToString("0") + "seconds";
+        }
+        if (bestScoreKillsText != null)
+        {
+            bestScoreKills = PlayerPrefs.GetInt("BestScoreKills");
+            bestScoreKillsText.text = $"kills: " + bestScoreKills.ToString("0");
         }
     }
 

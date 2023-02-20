@@ -23,9 +23,9 @@ public class Movement : MonoBehaviour
     private Quaternion lookRotation;
 
     // Jump variables
-    private bool onGround = false;
-    private float distanceToGround = 0.5f;
-    private float jumpForce = 7.6f;
+    //private bool onGround = false;
+    //private float distanceToGround = 0.5f;
+    //private float jumpForce = 7.6f;
 
     // Charavter variables
     private int movementSpeed = 6;
@@ -37,7 +37,7 @@ public class Movement : MonoBehaviour
     [Header("Mobile movement")]
     public Joystick movementJoystick;
     public Joystick attackJoystick;
-    [SerializeField] private Button jumpButton;
+    //[SerializeField] private Button jumpButton;
     [SerializeField] private Scrollbar scrollbar;
 
     private void Start()
@@ -50,14 +50,14 @@ public class Movement : MonoBehaviour
             default:
                 movementJoystick.gameObject.SetActive(false);
                 attackJoystick.gameObject.SetActive(false);
-                jumpButton.gameObject.SetActive(false);
+                //jumpButton.gameObject.SetActive(false);
                 scrollbar.gameObject.SetActive(false);
                 break;
 
             case MovementType.Mobile:
                 movementJoystick.gameObject.SetActive(true);
                 attackJoystick.gameObject.SetActive(true);
-                jumpButton.gameObject.SetActive(true);
+                //jumpButton.gameObject.SetActive(true);
                 scrollbar.gameObject.SetActive(true);
                 break;
         }
@@ -79,10 +79,10 @@ public class Movement : MonoBehaviour
                 break;
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        /*if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             Jump();
-        }
+        }*/
 
         #region Get current mouse position
 
@@ -187,7 +187,7 @@ public class Movement : MonoBehaviour
     }
 
     // Jump [SHIFT]
-    public void Jump()
+    /*public void Jump()
     {
         onGround = Physics.Raycast(transform.position, Vector3.down, distanceToGround);
 
@@ -195,7 +195,7 @@ public class Movement : MonoBehaviour
         {
             rb.velocity = Vector3.up * jumpForce;
         }
-    }
+    }*/
 
     // {F}
     public void RotateToMouse(Vector3 mousePosition, bool S)

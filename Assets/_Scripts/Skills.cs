@@ -64,6 +64,7 @@ public class Skills : MonoBehaviour
 
     // UI Elements
     public Image healthImage;
+    public Text healthText;
 
     [Header("SkillsButtons")]
     // PC
@@ -117,7 +118,7 @@ public class Skills : MonoBehaviour
         }
 
         // Game speed
-        Time.timeScale = 1.25f;
+        Time.timeScale = gameSpeed;
 
         attackJoystick = movementScript.attackJoystick;
 
@@ -217,6 +218,7 @@ public class Skills : MonoBehaviour
         // Health
         healthImage.fillAmount = health / 100;
         killsCounter.text = killsCounterInt.ToString("000");
+        healthText.text = $"{health} / 100".ToString();
 
         if (health <= 0 || transform.position.y <= -10f)
         {

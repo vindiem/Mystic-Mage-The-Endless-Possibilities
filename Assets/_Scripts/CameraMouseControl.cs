@@ -40,13 +40,10 @@ public class CameraMouseControl : MonoBehaviour
         // 0 - +1
         scroll -= 0.5f;
         scroll *= 2f;
-
-        currentZoom -= scroll * zoomSpeed;
-        currentZoom = Mathf.Clamp(currentZoom, -10f, 10f);
-        transform.position += transform.forward * currentZoom;
+        // -1 - +1
 
         virtualCamera.m_Lens.FieldOfView = Mathf.Clamp(virtualCamera.m_Lens.FieldOfView - 
-            scroll * zoomSpeed, minFOV, maxFOV);
+            scroll * minFOV / 25, minFOV, maxFOV);
     }
 
 }
