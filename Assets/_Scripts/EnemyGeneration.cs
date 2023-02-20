@@ -1,31 +1,70 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class EnemyGeneration : MonoBehaviour
 {
     public GameObject zombiePrefab;
     public float spawnInterval = 10f;
+    private float minSpawnInterval = 1.5f;
     private float heightAboveGround;
 
-    private float time;
+    private float gameSpeed;
+    private Skills playerScript;
+    private GameObject player;
+
+    private float timeScore;
     public Text timerText;
 
     public GameObject Cross;
+    public GameObject EndGame;
 
-    void Start()
+    private void Start()
     {
+        playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Skills>();
+        gameSpeed = playerScript.gameSpeed;
         StartCoroutine(SpawnZombies());
+
     }
 
     private void Update()
     {
-        time += Time.deltaTime;
-        timerText.text = time.ToString("000");
+        player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            timeScore += Time.deltaTime * gameSpeed;
+            timerText.text = timeScore.ToString("000");
+        }
+        else
+        {
+            float previousBestScore = PlayerPrefs.GetFloat("BestScore");
+            if (previousBestScore < timeScore)
+            {
+                PlayerPrefs.SetFloat("BestScore", timeScore);
+            }
+            EndGame.GetComponent<Animator>().SetTrigger("End");
+            StartCoroutine(LoadMenu());
+
+        }
     }
 
-    IEnumerator SpawnZombies()
+    private void FixedUpdate()
+    {
+        if (spawnInterval >= minSpawnInterval)
+        {
+            spawnInterval -= 0.0001f;
+        }
+    }
+
+    private IEnumerator LoadMenu()
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("Menu");
+    }
+
+    private IEnumerator SpawnZombies()
     {
         // Generate loop
         while (true)
@@ -50,6 +89,15 @@ public class EnemyGeneration : MonoBehaviour
             Destroy(cross);
             Instantiate(zombiePrefab, spawnPos, Quaternion.identity, transform);
             yield return new WaitForSeconds(spawnInterval / 2);
+        }
+    }
+
+    private void OnApplicationQuit()
+    {
+        float previousBestScore = PlayerPrefs.GetFloat("BestScore");
+        if (previousBestScore < timeScore)
+        {
+            PlayerPrefs.SetFloat("BestScore", timeScore);
         }
     }
 

@@ -6,6 +6,7 @@ ScriptsOnlyBuild:
     - Enemy
     - EnemyGeneration
     - FixedJoystick
+    - LoadScenes
     - Movement
     - Skills
     Cinemachine.dll:
@@ -29,8 +30,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -68,6 +71,9 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.SpriteState
   methodsToPreserve:
   - assembly: Assembly-CSharp
+    fullTypeName: LoadScenes
+    methodName: LoadScene
+  - assembly: Assembly-CSharp
     fullTypeName: Skills
     methodName: Fire
   - assembly: Assembly-CSharp
@@ -104,7 +110,7 @@ ScriptsOnlyBuild:
     fullTypeName: Skills
     methodName: TornadoInvoke
   sceneClasses:
-    Assets/Scenes/mechanic.unity:
+    Assets/Scenes/Game.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -191,6 +197,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 4156}
     - Class: 114
       Script: {instanceID: 4462}
+    - Class: 114
+      Script: {instanceID: 119192}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -220,6 +228,67 @@ ScriptsOnlyBuild:
     - Class: 224
       Script: {instanceID: 0}
     - Class: 238
+      Script: {instanceID: 0}
+    Assets/Scenes/Menu.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1712}
+    - Class: 114
+      Script: {instanceID: 2288}
+    - Class: 114
+      Script: {instanceID: 2418}
+    - Class: 114
+      Script: {instanceID: 2612}
+    - Class: 114
+      Script: {instanceID: 2738}
+    - Class: 114
+      Script: {instanceID: 2910}
+    - Class: 114
+      Script: {instanceID: 3100}
+    - Class: 114
+      Script: {instanceID: 3194}
+    - Class: 114
+      Script: {instanceID: 119192}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -458,7 +527,7 @@ ScriptsOnlyBuild:
     className: CinemachineOrbitalTransposer
   - hash:
       serializedVersion: 2
-      Hash: 939e674e850327ab2c2bfaa2b71bbaeb
+      Hash: af7a002506ea381ec336ea4a3d0b424a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Skills
@@ -914,7 +983,7 @@ ScriptsOnlyBuild:
     className: ControlTrack
   - hash:
       serializedVersion: 2
-      Hash: 9be204691ef138b7cac5524e23877bec
+      Hash: 863972c4fba23838f880d8eeda1d300f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemyGeneration
@@ -1110,8 +1179,15 @@ ScriptsOnlyBuild:
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachineBlendListCamera
+  - hash:
+      serializedVersion: 2
+      Hash: e2f6a1a1cebcf3fb3e53eded903be030
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: LoadScenes
   platform: 19
   scenePathNames:
-  - Assets/Scenes/mechanic.unity
+  - Assets/Scenes/Menu.unity
+  - Assets/Scenes/Game.unity
   playerPath: D:/Work()/.projects/git_Mystic_Mage/PC build/Mystic Mage The Endless
     Possibilities.exe

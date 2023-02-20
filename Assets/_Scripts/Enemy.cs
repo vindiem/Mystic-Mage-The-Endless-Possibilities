@@ -53,6 +53,7 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+
         player = GameObject.FindWithTag("Player").transform;
         playerScript = player.GetComponent<Skills>();
 

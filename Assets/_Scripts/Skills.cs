@@ -19,6 +19,7 @@ public class Skills : MonoBehaviour
 
     // Charavter variables
     private float health = 100;
+    public float gameSpeed = 1.25f;
 
     public LayerMask CastLayer;
     private Joystick attackJoystick;

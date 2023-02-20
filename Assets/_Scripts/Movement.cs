@@ -18,8 +18,8 @@ public class Movement : MonoBehaviour
     private Rigidbody rb;
 
     // Vectors
-    private Vector3 currentMousePosition = new Vector3();
-    private Vector3 targetPosition = new Vector3();
+    private Vector3 currentMousePosition = new Vector3(0, 0, 0);
+    private Vector3 targetPosition = new Vector3(0, 0, 0);
     private Quaternion lookRotation;
 
     // Jump variables
