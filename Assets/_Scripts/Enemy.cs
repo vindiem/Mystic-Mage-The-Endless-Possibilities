@@ -9,11 +9,11 @@ public class Enemy : MonoBehaviour
     public float health = 100;
     public int damage = 10;
 
-    private float minAttackRange = 3.75f;
+    //private float minAttackRange = 3.75f;
     private float maxAttackRange = 4.25f;
-    private float seeRange = 14.5f;
+    private float seeRange = 15f;
 
-    private float attackRate = 2.85f;
+    private float attackRate = 3.5f;
     private float nextAttackTime;
 
     private float distance;
@@ -28,9 +28,9 @@ public class Enemy : MonoBehaviour
     public Text elementText;
 
     public float markerPlacementRadius = 5f;
+
     private GameObject marker;
     public GameObject markerPrefab;
-    private bool isAttacking = false;
     public GameObject damageColliderPrefab;
     private GameObject damageCollider;
 
@@ -131,48 +131,30 @@ public class Enemy : MonoBehaviour
             {
                 navMeshAgent.SetDestination(player.position);
 
-                Destroy(damageCollider, 0.15f);
+                Destroy(damageCollider);
+                animator.SetBool("isAttacking", false);
             }
 
-            if (Time.time >= nextAttackTime && distance <= maxAttackRange)
+            if (Time.time >= nextAttackTime && distance < maxAttackRange)
             {
+                PlaceMarker();
+
                 #region Difference attack animations
 
-                isAttacking = true;
-
-                animator.SetBool("isAttacking", isAttacking);
                 navMeshAgent.isStopped = true;
 
                 int rand = Random.Range(1, 5);
-                animator.SetInteger("AttackInt", rand);
 
                 #endregion
-
-                PlaceMarker();
-
-                // Set target position to marker
-                if (marker != null)
-                {
-                    navMeshAgent.SetDestination(marker.transform.position);
-                }
-                else
-                {
-                    isAttacking = false;
-                }
+                navMeshAgent.isStopped = true;
+                animator.SetBool("isAttacking", true);
 
                 nextAttackTime = Time.time + attackRate;
             }
-
-            else if (distance <= minAttackRange)
-            {
-                navMeshAgent.isStopped = true;
-                isAttacking = true;
-            }
-
             else if (distance >= maxAttackRange)
             {
                 navMeshAgent.isStopped = false;
-                isAttacking = false;
+                animator.SetBool("isAttacking", false);
             }
 
         }
@@ -186,8 +168,6 @@ public class Enemy : MonoBehaviour
         healthImage.fillAmount = health / 100;
 
         #endregion
-
-        animator.SetBool("isAttacking", isAttacking);
 
         // Death
         if (health <= 0 || transform.position.y <= -10f)
@@ -306,6 +286,9 @@ public class Enemy : MonoBehaviour
             Destroy(marker, 2f);
         }
 
+        // Set target position to marker
+        navMeshAgent.SetDestination(marker.transform.position);
+
     }
 
     // Using only in animations
@@ -315,10 +298,9 @@ public class Enemy : MonoBehaviour
         {
             damageCollider = Instantiate(damageColliderPrefab, marker.transform.position, Quaternion.identity);
             Destroy(marker, 0.1f);
-            animator.SetBool("isAttacking", false);
         }
     }
-
+    
     // Coroutines .
     private IEnumerator Raise()
     {
