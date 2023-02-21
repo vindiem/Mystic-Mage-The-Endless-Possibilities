@@ -19,7 +19,7 @@ public class LoadScenes : MonoBehaviour
         if (bestScoreTimeText != null)
         {
             bestScoreTime = PlayerPrefs.GetFloat("BestScore");
-            bestScoreTimeText.text = $"best score: " + bestScoreTime.ToString("0") + "seconds";
+            bestScoreTimeText.text = $"best score: " + bestScoreTime.ToString("0") + " seconds";
         }
         if (bestScoreKillsText != null)
         {

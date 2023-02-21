@@ -27,7 +27,6 @@ public class EnemyGeneration : MonoBehaviour
     {
         playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Skills>();
         gameSpeed = playerScript.gameSpeed;
-        killsCounter = playerScript.killsCounterInt;
 
         StartCoroutine(SpawnZombies());
 
@@ -36,6 +35,8 @@ public class EnemyGeneration : MonoBehaviour
     private void Update()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        killsCounter = playerScript.killsCounterInt;
+
         if (player != null)
         {
             timeScore += Time.deltaTime * gameSpeed;
@@ -47,12 +48,7 @@ public class EnemyGeneration : MonoBehaviour
             if (previousBestScore < timeScore)
             {
                 PlayerPrefs.SetFloat("BestScore", timeScore);
-
-                float previousBestKillsScore = PlayerPrefs.GetInt("BestScoreKills");
-                if (previousBestKillsScore < killsCounter)
-                {
-                    PlayerPrefs.SetInt("BestScoreKills", killsCounter);
-                }
+                PlayerPrefs.SetInt("BestScoreKills", killsCounter);
             }
             
             EndGame.GetComponent<Animator>().SetTrigger("End");
@@ -109,12 +105,7 @@ public class EnemyGeneration : MonoBehaviour
         if (previousBestScore < timeScore)
         {
             PlayerPrefs.SetFloat("BestScore", timeScore);
-
-            float previousBestKillsScore = PlayerPrefs.GetInt("BestScoreKills");
-            if (previousBestKillsScore < killsCounter)
-            {
-                PlayerPrefs.SetInt("BestScoreKills", killsCounter);
-            }
+            PlayerPrefs.SetInt("BestScoreKills", killsCounter);
         }
     }
 
