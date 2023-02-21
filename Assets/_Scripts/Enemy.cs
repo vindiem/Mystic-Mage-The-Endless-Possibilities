@@ -169,18 +169,6 @@ public class Enemy : MonoBehaviour
 
         #endregion
 
-        // Death
-        if (health <= 0 || transform.position.y <= -10f)
-        {
-            playerScript.killsCounterInt++;
-            animator.SetTrigger("Death");
-            transform.GetComponent<Collider>().enabled = false;
-            navMeshAgent.isStopped = true;
-            rb.isKinematic = true;
-            Destroy(gameObject, 4f);
-            GetComponent<Enemy>().enabled = false;
-        }
-
     }
 
     public void TakeDamageToHero()
@@ -193,11 +181,56 @@ public class Enemy : MonoBehaviour
         transform.LookAt(new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z));
     }
 
-    private void TakeDamage(int damage)
+    private void TakeDamage(float damage)
     {
         health -= damage;
     }
 
+    private void DeathE(string skillName)
+    {
+        // Death
+        if (health <= 0 || transform.position.y <= -10f)
+        {
+            switch (skillName)
+            {
+                case "Meteor":
+                    int MRP = PlayerPrefs.GetInt("Meteor relic progress");
+                    MRP++;
+                    PlayerPrefs.SetInt("Meteor relic progress", MRP);
+                    break;
+                case "Tornado":
+                    int TRP = PlayerPrefs.GetInt("Tornado relic progress");
+                    TRP++;
+                    PlayerPrefs.SetInt("Tornado relic progress", TRP);
+                    break;
+                case "Fire":
+                    int FRP = PlayerPrefs.GetInt("Fire relic progress");
+                    FRP++;
+                    PlayerPrefs.SetInt("Fire relic progress", FRP);
+                    break;
+                case "Wave":
+                    int WRP = PlayerPrefs.GetInt("Wave relic progress");
+                    WRP++;
+                    PlayerPrefs.SetInt("Wave relic progress", WRP);
+                    break;
+                case "Ultimate":
+                    int URP = PlayerPrefs.GetInt("Ultimate relic progress");
+                    URP++;
+                    PlayerPrefs.SetInt("Ultimate relic progress", URP);
+                    break;
+            }
+
+            playerScript.killsCounterInt++;
+            animator.SetTrigger("Death");
+            transform.GetComponent<Collider>().enabled = false;
+            navMeshAgent.isStopped = true;
+            rb.isKinematic = true;
+            GetComponent<Enemy>().enabled = false;
+            Destroy(gameObject, 4f);
+        }
+    }
+
+    // Damage taken
     private void OnTriggerEnter(Collider other)
     {
         // ; element - zombie >> elements that match
@@ -206,23 +239,29 @@ public class Enemy : MonoBehaviour
         {
             if (element == Element.Water)
             {
-                TakeDamage(playerScript.meteorLevel * 2);
+                float randomDamage = Random.Range(2, 2.5f);
+                TakeDamage(playerScript.meteorLevel * randomDamage);
             }
             else if (element != Element.Water)
             {
-                TakeDamage(playerScript.meteorLevel / 3 * 2);
+                float randomDamage = Random.Range(1.25f, 1.75f);
+                TakeDamage(playerScript.meteorLevel * randomDamage);
             }
+
+            DeathE("Meteor");
         }
 
         else if (other.CompareTag("Tornado") == true)
         {
             if (element == Element.Fire)
             {
-                TakeDamage(playerScript.tornadoLevel);
+                float randomDamage = Random.Range(2, 2.5f);
+                TakeDamage(playerScript.tornadoLevel * randomDamage);
             }
             else if (element != Element.Fire)
             {
-                TakeDamage(playerScript.tornadoLevel / 3 * 2);
+                float randomDamage = Random.Range(1.25f, 1.75f);
+                TakeDamage(playerScript.tornadoLevel * randomDamage);
             }
 
             GameObject t = Instantiate(playerScript.visualTornado, transform.position, 
@@ -231,35 +270,42 @@ public class Enemy : MonoBehaviour
             Destroy(t, 1.5f);
 
             StartCoroutine(Raise());
+            DeathE("Tornado");
         }
 
         else if (other.CompareTag("Wave") == true)
         {
             if (element == Element.Earth)
             {
-                TakeDamage(playerScript.waveLevel * 2);
+                float randomDamage = Random.Range(2, 2.5f);
+                TakeDamage(playerScript.waveLevel * randomDamage);
             }
             else if (element != Element.Earth)
             {
-                TakeDamage(playerScript.waveLevel / 3 * 2);
+                float randomDamage = Random.Range(1.25f, 1.75f);
+                TakeDamage(playerScript.waveLevel * randomDamage);
             }
 
             Vector3 backDirection = (transform.position - backLandmark.position).normalized;
             rb.AddForce(-backDirection * playerScript.waveLevel * 16);
             StartCoroutine(Freez(playerScript.waveLevel / 12));
+            DeathE("Wave");
         }
 
         else if (other.CompareTag("Fire") == true)
         {
             if (element == Element.Air)
             {
-                TakeDamage(playerScript.fireLevel * 2);
+                float randomDamage = Random.Range(2, 2.5f);
+                TakeDamage(playerScript.fireLevel * randomDamage);
             }
             else if (element != Element.Air)
             {
-                TakeDamage(playerScript.fireLevel / 3 * 2);
+                float randomDamage = Random.Range(1.25f, 1.75f);
+                TakeDamage(playerScript.fireLevel * randomDamage);
             }
             StartCoroutine(AfterFireDamage());
+            DeathE("Fire");
         }
 
         // Ultimate damage
@@ -269,6 +315,7 @@ public class Enemy : MonoBehaviour
 
             Vector3 backDirection = (transform.position - backLandmark.position).normalized;
             rb.AddForce(-backDirection * playerScript.waveLevel * 4);
+            DeathE("Ultimate");
         }
     }
 

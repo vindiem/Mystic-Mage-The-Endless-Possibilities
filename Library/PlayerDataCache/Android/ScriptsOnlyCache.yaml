@@ -8,6 +8,7 @@ ScriptsOnlyBuild:
     - FixedJoystick
     - LoadScenes
     - Movement
+    - Relics
     - Skills
     Cinemachine.dll:
     - Cinemachine.CinemachineBrain
@@ -30,8 +31,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -256,8 +259,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2282}
     - Class: 114
-      Script: {instanceID: 2412}
-    - Class: 114
       Script: {instanceID: 2606}
     - Class: 114
       Script: {instanceID: 2732}
@@ -269,6 +270,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 3188}
     - Class: 114
       Script: {instanceID: 3698}
+    - Class: 114
+      Script: {instanceID: 249128}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1180,6 +1183,12 @@ ScriptsOnlyBuild:
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachineBlendListCamera
+  - hash:
+      serializedVersion: 2
+      Hash: 61a2989c6ccdec25383bececb8c096c1
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Relics
   platform: 13
   scenePathNames:
   - Assets/Scenes/Menu.unity
