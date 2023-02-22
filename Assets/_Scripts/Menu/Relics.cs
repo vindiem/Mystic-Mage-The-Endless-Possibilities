@@ -64,6 +64,12 @@ public class Relics : MonoBehaviour
         WRP = PlayerPrefs.GetInt("Wave relic progress");
         URP = PlayerPrefs.GetInt("Ultimate relic progress");
 
+        PlayerPrefs.SetFloat("mMRP", mMRP);
+        PlayerPrefs.SetFloat("mTRP", mTRP);
+        PlayerPrefs.SetFloat("mFRP", mFRP);
+        PlayerPrefs.SetFloat("mWRP", mWRP);
+        PlayerPrefs.SetFloat("mURP", mURP);
+
         if (MRP > mMRP && MRP <= 100)
         {
             mMRP *= 2;

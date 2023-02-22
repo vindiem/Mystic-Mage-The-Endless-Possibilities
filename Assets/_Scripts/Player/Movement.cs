@@ -38,7 +38,7 @@ public class Movement : MonoBehaviour
     public Joystick movementJoystick;
     public Joystick attackJoystick;
     //[SerializeField] private Button jumpButton;
-    [SerializeField] private Scrollbar scrollbar;
+    //[SerializeField] private Scrollbar scrollbar;
 
     private void Start()
     {
@@ -51,14 +51,14 @@ public class Movement : MonoBehaviour
                 movementJoystick.gameObject.SetActive(false);
                 attackJoystick.gameObject.SetActive(false);
                 //jumpButton.gameObject.SetActive(false);
-                scrollbar.gameObject.SetActive(false);
+                //scrollbar.gameObject.SetActive(false);
                 break;
 
             case MovementType.Mobile:
                 movementJoystick.gameObject.SetActive(true);
                 attackJoystick.gameObject.SetActive(true);
                 //jumpButton.gameObject.SetActive(true);
-                scrollbar.gameObject.SetActive(true);
+                //scrollbar.gameObject.SetActive(true);
                 break;
         }
 

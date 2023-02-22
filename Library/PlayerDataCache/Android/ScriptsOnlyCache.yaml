@@ -31,8 +31,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -108,6 +110,9 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: Skills
     methodName: TornadoInvoke
+  - assembly: Assembly-CSharp
+    fullTypeName: LoadScenes
+    methodName: LoadScene
   sceneClasses:
     Assets/Scenes/Game.unity:
     - Class: 1
@@ -157,47 +162,47 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1706}
     - Class: 114
-      Script: {instanceID: 2198}
+      Script: {instanceID: 2192}
     - Class: 114
-      Script: {instanceID: 2282}
+      Script: {instanceID: 2276}
     - Class: 114
-      Script: {instanceID: 2412}
+      Script: {instanceID: 2404}
     - Class: 114
-      Script: {instanceID: 2534}
+      Script: {instanceID: 2526}
     - Class: 114
-      Script: {instanceID: 2572}
+      Script: {instanceID: 2564}
     - Class: 114
-      Script: {instanceID: 2606}
+      Script: {instanceID: 2598}
     - Class: 114
-      Script: {instanceID: 2672}
+      Script: {instanceID: 2664}
     - Class: 114
-      Script: {instanceID: 2732}
+      Script: {instanceID: 2724}
     - Class: 114
-      Script: {instanceID: 2798}
+      Script: {instanceID: 2790}
     - Class: 114
-      Script: {instanceID: 2828}
+      Script: {instanceID: 2820}
     - Class: 114
-      Script: {instanceID: 2860}
+      Script: {instanceID: 2852}
     - Class: 114
-      Script: {instanceID: 2904}
+      Script: {instanceID: 2896}
     - Class: 114
-      Script: {instanceID: 3094}
+      Script: {instanceID: 3082}
     - Class: 114
-      Script: {instanceID: 3102}
+      Script: {instanceID: 3090}
     - Class: 114
-      Script: {instanceID: 3188}
+      Script: {instanceID: 3176}
     - Class: 114
-      Script: {instanceID: 3362}
+      Script: {instanceID: 3350}
     - Class: 114
-      Script: {instanceID: 3688}
+      Script: {instanceID: 3674}
     - Class: 114
-      Script: {instanceID: 3700}
+      Script: {instanceID: 3686}
     - Class: 114
-      Script: {instanceID: 4052}
+      Script: {instanceID: 4034}
     - Class: 114
-      Script: {instanceID: 4154}
+      Script: {instanceID: 4136}
     - Class: 114
-      Script: {instanceID: 4460}
+      Script: {instanceID: 4442}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -258,21 +263,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1706}
     - Class: 114
-      Script: {instanceID: 2282}
+      Script: {instanceID: 2276}
     - Class: 114
-      Script: {instanceID: 2606}
+      Script: {instanceID: 2598}
     - Class: 114
-      Script: {instanceID: 2732}
+      Script: {instanceID: 2724}
     - Class: 114
-      Script: {instanceID: 2904}
+      Script: {instanceID: 2896}
     - Class: 114
-      Script: {instanceID: 3094}
+      Script: {instanceID: 3082}
     - Class: 114
-      Script: {instanceID: 3188}
+      Script: {instanceID: 3176}
     - Class: 114
-      Script: {instanceID: 3236}
+      Script: {instanceID: 3224}
     - Class: 114
-      Script: {instanceID: 3700}
+      Script: {instanceID: 3686}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -302,17 +307,51 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
     - Class: 89
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
       Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1706}
+    - Class: 114
+      Script: {instanceID: 2276}
+    - Class: 114
+      Script: {instanceID: 2598}
+    - Class: 114
+      Script: {instanceID: 2724}
+    - Class: 114
+      Script: {instanceID: 2896}
+    - Class: 114
+      Script: {instanceID: 3082}
+    - Class: 114
+      Script: {instanceID: 3176}
+    - Class: 114
+      Script: {instanceID: 3686}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -357,12 +396,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_InputField
-  - hash:
-      serializedVersion: 2
-      Hash: 20c9a74d659b6895cfdb5f4624ba8daa
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: WFX_Demo_DeleteAfterDelay
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -429,18 +462,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Shadow
-  - hash:
-      serializedVersion: 2
-      Hash: 3f5031037e63abe5dcf87c278e01a4de
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CFX_Demo_RotateCamera
-  - hash:
-      serializedVersion: 2
-      Hash: 4aac268d7e435f7a65add91aaba819a4
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: WFX_Demo_RandomDir
   - hash:
       serializedVersion: 2
       Hash: 660deb0ce569359218f0ba85b7ce0e3a
@@ -519,12 +540,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner
     className: PlaymodeTestsController
-  - hash:
-      serializedVersion: 2
-      Hash: 8b2d4e06e046ec1dc0a99d91bec0c17a
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: WFX_Demo
   - hash:
       serializedVersion: 2
       Hash: c1d728126ff1918728036c59106d32b2
@@ -659,7 +674,7 @@ ScriptsOnlyBuild:
     className: CinemachineHardLookAt
   - hash:
       serializedVersion: 2
-      Hash: 71c7083ff77c86fd7a10619227c1fe88
+      Hash: fda6c2533ca1813ef6511ecec29e070b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Movement
@@ -695,12 +710,6 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAnimator
   - hash:
       serializedVersion: 2
-      Hash: 1d0beb1a2d4edee4c06b6835632e83a3
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CFX_AutoStopLoopedEffect
-  - hash:
-      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
@@ -723,12 +732,6 @@ ScriptsOnlyBuild:
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: Cinemachine3rdPersonFollow
-  - hash:
-      serializedVersion: 2
-      Hash: 4d82bda03a5eca423825059e15f5eb92
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SpikeTrapDemo
   - hash:
       serializedVersion: 2
       Hash: e09e8bebc0fcd32bb8af1287a6b44816
@@ -869,12 +872,6 @@ ScriptsOnlyBuild:
     className: CinemachineFixedSignal
   - hash:
       serializedVersion: 2
-      Hash: 4aac268d7e435f7a65add91aaba819a4
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CFX_Demo_RandomDir
-  - hash:
-      serializedVersion: 2
       Hash: 611bc970ee9dc090779a3fac6a18fac6
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
@@ -959,12 +956,6 @@ ScriptsOnlyBuild:
     className: CinemachineShot
   - hash:
       serializedVersion: 2
-      Hash: 671420ad2c33f1ddaf6d076461adf15a
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CFX_Demo_Translate
-  - hash:
-      serializedVersion: 2
       Hash: a81d4c2c1cf3ad164d277d927a193679
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -993,12 +984,6 @@ ScriptsOnlyBuild:
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachineTrackedDolly
-  - hash:
-      serializedVersion: 2
-      Hash: dd7780efe480b95c7be3094f9d1d4270
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: WFX_Demo_Wall
   - hash:
       serializedVersion: 2
       Hash: aba7b2852ef61d175dd9602e7723d5e5
@@ -1133,12 +1118,6 @@ ScriptsOnlyBuild:
     className: CFX_AutoDestructShuriken
   - hash:
       serializedVersion: 2
-      Hash: c37b1a2676ee93f48d4ca17f8273c4f1
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: TrapDoorDemo
-  - hash:
-      serializedVersion: 2
       Hash: e7a73f5f78ba6445195ec23b74a1ce2d
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -1173,12 +1152,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: SignalEmitter
-  - hash:
-      serializedVersion: 2
-      Hash: 7d37d09af363b70d55d9408e5fb34050
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: WFX_Demo_New
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
