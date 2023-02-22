@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     private float maxAttackRange = 4.25f;
     private float seeRange = 15f;
 
-    private float attackRate = 3.5f;
+    private float attackRate = 4f;
     private float nextAttackTime;
 
     private float distance;
@@ -169,6 +169,17 @@ public class Enemy : MonoBehaviour
 
         #endregion
 
+        if (health <= 0 || transform.position.y <= -10f)
+        {
+            playerScript.killsCounterInt++;
+            animator.SetTrigger("Death");
+            transform.GetComponent<Collider>().enabled = false;
+            navMeshAgent.isStopped = true;
+            rb.isKinematic = true;
+            Destroy(gameObject, 4f);
+            GetComponent<Enemy>().enabled = false;
+        }
+
     }
 
     public void TakeDamageToHero()
@@ -220,13 +231,6 @@ public class Enemy : MonoBehaviour
                     break;
             }
 
-            playerScript.killsCounterInt++;
-            animator.SetTrigger("Death");
-            transform.GetComponent<Collider>().enabled = false;
-            navMeshAgent.isStopped = true;
-            rb.isKinematic = true;
-            GetComponent<Enemy>().enabled = false;
-            Destroy(gameObject, 4f);
         }
     }
 

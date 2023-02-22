@@ -11,13 +11,17 @@ public class Relics : MonoBehaviour
     public Text MRPText, TRPText, FRPText, WRPText, URPText;
     public Image MRPImage, TRPImage, FRPImage, WRPImage, URPImage;
 
-    private void Start()
-    {
-        GetRelicsValues();
-    }
+    public Text bestScoreTimeText;
+    private float bestScoreTime;
+
+    public Text bestScoreKillsText;
+    private int bestScoreKills;
+
 
     private void Update()
     {
+        GetRelicsValues();
+
         // Meteor relic progress
         MRPText.text = $"Metor relic: {MRP} / {mMRP}";
         MRPImage.fillAmount = MRP / mMRP;
@@ -37,6 +41,19 @@ public class Relics : MonoBehaviour
         // Ultimate relic progress
         URPText.text = $"Ultimate relic: {URP} / {mURP}";
         URPImage.fillAmount = URP / mURP;
+
+
+        if (bestScoreTimeText != null)
+        {
+            bestScoreTime = PlayerPrefs.GetFloat("BestScore");
+            bestScoreTimeText.text = $"best score: " + bestScoreTime.ToString("0") + " seconds";
+        }
+        if (bestScoreKillsText != null)
+        {
+            bestScoreKills = PlayerPrefs.GetInt("BestScoreKills");
+            bestScoreKillsText.text = $"kills: " + bestScoreKills.ToString("0");
+        }
+
     }
 
     private void GetRelicsValues()
@@ -47,25 +64,49 @@ public class Relics : MonoBehaviour
         WRP = PlayerPrefs.GetInt("Wave relic progress");
         URP = PlayerPrefs.GetInt("Ultimate relic progress");
 
-        if (MRP > 5 && MRP <= 10)
+        if (MRP > mMRP && MRP <= 100)
         {
-            mMRP = 10;
+            mMRP *= 2;
         }
-        if (TRP > 5 && TRP <= 10)
+        else if (MRP > 100)
         {
-            mTRP = 10;
+            mMRP = 1;
         }
-        if (FRP > 5 && FRP <= 10)
+
+        if (TRP > mTRP && TRP <= 100)
         {
-            mFRP = 10;
+            mTRP *= 2;
         }
-        if (WRP > 5 && WRP <= 10)
+        else if (TRP > 100)
         {
-            mWRP = 10;
+            mTRP = 1;
         }
-        if (5 < URP && URP <= 10)
+
+        if (FRP > mFRP && FRP <= 100)
         {
-            mURP = 10;
+            mFRP *= 2;
+        }
+        else if (FRP > 100)
+        {
+            mFRP = 1;
+        }
+
+        if (WRP > mWRP && WRP <= 100)
+        {
+            mWRP *= 2;
+        }
+        else if (WRP > 100)
+        {
+            mWRP = 1;
+        }
+
+        if (URP > mURP && URP <= 100)
+        {
+            mURP *= 2;
+        }
+        else if (URP > 100)
+        {
+            mURP = 1;
         }
 
     }

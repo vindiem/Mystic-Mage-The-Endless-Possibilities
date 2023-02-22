@@ -31,10 +31,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -71,6 +69,9 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Scrollbar/ScrollEvent
     - UnityEngine.UI.SpriteState
   methodsToPreserve:
+  - assembly: Assembly-CSharp
+    fullTypeName: LoadScenes
+    methodName: LoadScene
   - assembly: Assembly-CSharp
     fullTypeName: LoadScenes
     methodName: LoadScene
@@ -186,17 +187,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3188}
     - Class: 114
-      Script: {instanceID: 3360}
+      Script: {instanceID: 3362}
     - Class: 114
-      Script: {instanceID: 3686}
+      Script: {instanceID: 3688}
     - Class: 114
-      Script: {instanceID: 3698}
+      Script: {instanceID: 3700}
     - Class: 114
-      Script: {instanceID: 4050}
+      Script: {instanceID: 4052}
     - Class: 114
-      Script: {instanceID: 4152}
+      Script: {instanceID: 4154}
     - Class: 114
-      Script: {instanceID: 4458}
+      Script: {instanceID: 4460}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -269,9 +270,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3188}
     - Class: 114
-      Script: {instanceID: 3698}
+      Script: {instanceID: 3236}
     - Class: 114
-      Script: {instanceID: 249128}
+      Script: {instanceID: 3700}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -287,6 +288,31 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/Settings.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -765,6 +791,12 @@ ScriptsOnlyBuild:
     className: Button
   - hash:
       serializedVersion: 2
+      Hash: 0a4a70cedf3e26a12611558e35665099
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Relics
+  - hash:
+      serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -897,7 +929,7 @@ ScriptsOnlyBuild:
     className: CinemachineTransposer
   - hash:
       serializedVersion: 2
-      Hash: bfc673b4d38637e5a0136625f3518fd2
+      Hash: e85131b870b80cb44f15ee8dcb45c497
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: LoadScenes
@@ -1183,14 +1215,9 @@ ScriptsOnlyBuild:
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachineBlendListCamera
-  - hash:
-      serializedVersion: 2
-      Hash: 61a2989c6ccdec25383bececb8c096c1
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Relics
   platform: 13
   scenePathNames:
   - Assets/Scenes/Menu.unity
   - Assets/Scenes/Game.unity
+  - Assets/Scenes/Settings.unity
   playerPath: D:/Work()/.projects/git_Mystic_Mage/Andriod build/Mystic Mage build.apk
