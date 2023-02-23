@@ -9,13 +9,14 @@ public class Movement : MonoBehaviour
     {
         Keyboard,
         Mouse,
-        Mobile
+        Mobile,
+        MobileV2
     };
     public MovementType movementType;
 
     public LayerMask CastLayer;
     private Animator animator;
-    private Rigidbody rb;
+    //private Rigidbody rb;
 
     // Vectors
     private Vector3 currentMousePosition = new Vector3(0, 0, 0);
@@ -28,7 +29,7 @@ public class Movement : MonoBehaviour
     //private float jumpForce = 7.6f;
 
     // Charavter variables
-    private int movementSpeed = 6;
+    private int movementSpeed = 4;
     private int rotationSpeed = 10;
 
     public GameObject mouseEffect;
@@ -36,6 +37,7 @@ public class Movement : MonoBehaviour
     // Mobile
     [Header("Mobile movement")]
     public Joystick movementJoystick;
+    public Joystick movementJoystickV2;
     public Joystick attackJoystick;
     //[SerializeField] private Button jumpButton;
     //[SerializeField] private Scrollbar scrollbar;
@@ -43,12 +45,13 @@ public class Movement : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody>();
+        //rb = GetComponent<Rigidbody>();
 
         switch (movementType)
         {
             default:
                 movementJoystick.gameObject.SetActive(false);
+                movementJoystickV2.gameObject.SetActive(false);
                 attackJoystick.gameObject.SetActive(false);
                 //jumpButton.gameObject.SetActive(false);
                 //scrollbar.gameObject.SetActive(false);
@@ -56,9 +59,16 @@ public class Movement : MonoBehaviour
 
             case MovementType.Mobile:
                 movementJoystick.gameObject.SetActive(true);
+                movementJoystickV2.gameObject.SetActive(false);
                 attackJoystick.gameObject.SetActive(true);
                 //jumpButton.gameObject.SetActive(true);
                 //scrollbar.gameObject.SetActive(true);
+                break;
+
+            case MovementType.MobileV2:
+                movementJoystick.gameObject.SetActive(false);
+                movementJoystickV2.gameObject.SetActive(true);
+                attackJoystick.gameObject.SetActive(false);
                 break;
         }
 
@@ -75,7 +85,10 @@ public class Movement : MonoBehaviour
                 MouseMovement();
                 break;
             case MovementType.Mobile:
-                MobileMovement();
+                MobileMovement(movementJoystick);
+                break;
+            case MovementType.MobileV2:
+                MobileMovement(movementJoystickV2);
                 break;
         }
 
@@ -162,11 +175,11 @@ public class Movement : MonoBehaviour
 
     }
 
-    private void MobileMovement()
+    private void MobileMovement(Joystick joystick)
     {
         // Get joystick axises
-        float HorizontalAxis = movementJoystick.Horizontal;
-        float VerticalAxis = movementJoystick.Vertical;
+        float HorizontalAxis = joystick.Horizontal;
+        float VerticalAxis = joystick.Vertical;
 
         if (HorizontalAxis != 0 || VerticalAxis != 0)
         {

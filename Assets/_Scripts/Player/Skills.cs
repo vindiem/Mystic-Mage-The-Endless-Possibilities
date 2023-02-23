@@ -68,14 +68,19 @@ public class Skills : MonoBehaviour
 
     [Header("SkillsButtons")]
     // PC
-    [SerializeField] private Image[] iconButtons;
+    [SerializeField] private Image[] iconButtonsPC;
     [SerializeField] private GameObject PCSkills;
     [SerializeField] private RawImage[] bgsP;
 
     // Mobile
     [SerializeField] private Image[] iconButtonsMobile;
     [SerializeField] private GameObject MobileSkills;
-    [SerializeField] private RawImage[] bgsM; 
+    [SerializeField] private RawImage[] bgsM;
+    
+    // Mobile v2
+    [SerializeField] private Image[] iconButtonsMobileV2;
+    [SerializeField] private GameObject MobileSkillsV2;
+    [SerializeField] private RawImage[] bgsMV2;
 
     private void Start()
     {
@@ -86,21 +91,38 @@ public class Skills : MonoBehaviour
             default:
                 for (int i = 0; i < iconButtonsMobile.Length; i++)
                 {
-                    iconButtons[i].gameObject.SetActive(true);
+                    iconButtonsPC[i].gameObject.SetActive(true);
                     iconButtonsMobile[i].gameObject.SetActive(false);
+                    iconButtonsMobileV2[i].gameObject.SetActive(false);
                 }
                 PCSkills.SetActive(true);
                 MobileSkills.SetActive(false);
+                MobileSkillsV2.SetActive(false);
                 break;
 
             case Movement.MovementType.Mobile:
                 for (int i = 0; i < iconButtonsMobile.Length; i++)
                 {
-                    iconButtons[i].gameObject.SetActive(false);
+                    iconButtonsPC[i].gameObject.SetActive(false);
                     iconButtonsMobile[i].gameObject.SetActive(true);
+                    iconButtonsMobileV2[i].gameObject.SetActive(false);
                 }
                 PCSkills.SetActive(false);
                 MobileSkills.SetActive(true);
+                MobileSkillsV2.SetActive(false);
+                attackJoystick = movementScript.attackJoystick;
+                break;
+
+            case Movement.MovementType.MobileV2:
+                for (int i = 0; i < iconButtonsMobile.Length; i++)
+                {
+                    iconButtonsPC[i].gameObject.SetActive(false);
+                    iconButtonsMobile[i].gameObject.SetActive(false);
+                    iconButtonsMobileV2[i].gameObject.SetActive(true);
+                }
+                PCSkills.SetActive(false);
+                MobileSkills.SetActive(false);
+                MobileSkillsV2.SetActive(true);
                 break;
         }
 
@@ -115,12 +137,11 @@ public class Skills : MonoBehaviour
         {
             bgsP[i].color = Color.grey;
             bgsM[i].color = Color.grey;
+            bgsMV2[i].color = Color.grey;
         }
 
         // Game speed
         Time.timeScale = gameSpeed;
-
-        attackJoystick = movementScript.attackJoystick;
 
     }
 
@@ -135,30 +156,30 @@ public class Skills : MonoBehaviour
             float HorizontalAxis = attackJoystick.Horizontal;
             float VerticalAxis = attackJoystick.Vertical;
 
-            if (VerticalAxis > 0.4f && HorizontalAxis < -0.4f)
+            if (VerticalAxis >= 0.49f && HorizontalAxis <= -0.49f)
             {
                 Fire();
             }
-            else if (HorizontalAxis < -0.8f)
+            else if (HorizontalAxis <= -0.98f)
             {
                 TornadoInvoke();
             }
-            else if (VerticalAxis > 0.4f && HorizontalAxis > 0.4f)
+            else if (VerticalAxis >= 0.49f && HorizontalAxis >= 0.49f)
             {
                 Wave();
             }
-            else if (HorizontalAxis > 0.8f)
+            else if (HorizontalAxis >= 0.98f)
             {
                 MeteorInvoke();
             }
-            else if (VerticalAxis < -0.8f)
+            else if (VerticalAxis <= -0.98f)
             {
                 Ultimate();
             }
 
             // Make skills icond visible
-            if (HorizontalAxis > 0.1f || VerticalAxis > 0.1f ||
-                HorizontalAxis < -0.1f || VerticalAxis < -0.1f)
+            if (HorizontalAxis > 0.05f || VerticalAxis > 0.05f ||
+                HorizontalAxis < -0.05f || VerticalAxis < -0.05f)
             {
                 MobileSkills.gameObject.SetActive(true);
             }
@@ -166,6 +187,12 @@ public class Skills : MonoBehaviour
             {
                 MobileSkills.gameObject.SetActive(false);
             }
+
+        }
+
+        // Mobile skills using v2
+        else if (movementScript.movementType == Movement.MovementType.MobileV2)
+        {
 
         }
 
@@ -209,8 +236,9 @@ public class Skills : MonoBehaviour
             if (kds[i] > 0)
             {
                 float fill = kds[i] * 100 / ckds[i] / 100;
-                iconButtons[i].fillAmount = 1 - fill;
+                iconButtonsPC[i].fillAmount = 1 - fill;
                 iconButtonsMobile[i].fillAmount = 1 - fill;
+                iconButtonsMobileV2[i].fillAmount = 1 - fill;
                 kds[i] -= Time.deltaTime;
             }
         }
@@ -299,6 +327,7 @@ public class Skills : MonoBehaviour
             #region Visual
             bgsM[2].color = Color.green;
             bgsP[2].color = Color.green;
+            bgsMV2[2].color = Color.green;
             canTornadoInvoke = false;
             #endregion
 
@@ -319,6 +348,7 @@ public class Skills : MonoBehaviour
             #region Visual
             bgsM[2].color = Color.grey;
             bgsP[2].color = Color.grey;
+            bgsMV2[2].color = Color.grey;
             canTornadoInvoke = true;
             #endregion
         }
@@ -339,6 +369,7 @@ public class Skills : MonoBehaviour
             #region Visual
             bgsM[3].color = Color.green;
             bgsP[3].color = Color.green;
+            bgsMV2[3].color = Color.green;
             canMeteorInvoke = false;
             #endregion
 
@@ -362,6 +393,7 @@ public class Skills : MonoBehaviour
             #region Visual
             bgsM[3].color = Color.grey;
             bgsP[3].color = Color.grey;
+            bgsMV2[3].color = Color.grey;
             canMeteorInvoke = true;
             #endregion
         }
