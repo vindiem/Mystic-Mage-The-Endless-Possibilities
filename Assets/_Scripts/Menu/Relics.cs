@@ -64,57 +64,99 @@ public class Relics : MonoBehaviour
         WRP = PlayerPrefs.GetInt("Wave relic progress");
         URP = PlayerPrefs.GetInt("Ultimate relic progress");
 
-        PlayerPrefs.SetFloat("mMRP", mMRP);
-        PlayerPrefs.SetFloat("mTRP", mTRP);
-        PlayerPrefs.SetFloat("mFRP", mFRP);
-        PlayerPrefs.SetFloat("mWRP", mWRP);
-        PlayerPrefs.SetFloat("mURP", mURP);
-
-        if (MRP > mMRP && MRP <= 100)
+        if (PlayerPrefs.GetFloat("mMRP") > 5)
         {
-            mMRP *= 2;
+            mMRP = PlayerPrefs.GetFloat("mMRP");
         }
-        else if (MRP > 100)
+        else
         {
-            mMRP = 1;
+            PlayerPrefs.SetFloat("mMRP", 5);
         }
-
-        if (TRP > mTRP && TRP <= 100)
+        if (PlayerPrefs.GetFloat("mTRP") > 5)
         {
-            mTRP *= 2;
+            mTRP = PlayerPrefs.GetFloat("mTRP");
         }
-        else if (TRP > 100)
+        else
         {
-            mTRP = 1;
+            PlayerPrefs.SetFloat("mTRP", 5);
         }
-
-        if (FRP > mFRP && FRP <= 100)
+        if (PlayerPrefs.GetFloat("mFRP") > 5)
         {
-            mFRP *= 2;
+            mFRP = PlayerPrefs.GetFloat("mFRP");
         }
-        else if (FRP > 100)
+        else
         {
-            mFRP = 1;
+            PlayerPrefs.SetFloat("mFRP", 5);
         }
-
-        if (WRP > mWRP && WRP <= 100)
+        if (PlayerPrefs.GetFloat("mWRP") > 5)
         {
-            mWRP *= 2;
+            mWRP = PlayerPrefs.GetFloat("mWRP");
         }
-        else if (WRP > 100)
+        else
         {
-            mWRP = 1;
+            PlayerPrefs.SetFloat("mWRP", 5);
         }
-
-        if (URP > mURP && URP <= 100)
+        if (PlayerPrefs.GetFloat("mURP") > 5)
         {
-            mURP *= 2;
+            mURP = PlayerPrefs.GetFloat("mURP");
         }
-        else if (URP > 100)
+        else
         {
-            mURP = 1;
+            PlayerPrefs.SetFloat("mURP", 5);
         }
 
+        /*
+                PlayerPrefs.SetFloat("mMRP", mMRP);
+                PlayerPrefs.SetFloat("mTRP", mTRP);
+                PlayerPrefs.SetFloat("mFRP", mFRP);
+                PlayerPrefs.SetFloat("mWRP", mWRP);
+                PlayerPrefs.SetFloat("mURP", mURP);
+
+                if (MRP > mMRP && MRP <= 100)
+                {
+                    mMRP *= 2;
+                }
+                else if (MRP > 100)
+                {
+                    mMRP = 1;
+                }
+
+                if (TRP > mTRP && TRP <= 100)
+                {
+                    mTRP *= 2;
+                }
+                else if (TRP > 100)
+                {
+                    mTRP = 1;
+                }
+
+                if (FRP > mFRP && FRP <= 100)
+                {
+                    mFRP *= 2;
+                }
+                else if (FRP > 100)
+                {
+                    mFRP = 1;
+                }
+
+                if (WRP > mWRP && WRP <= 100)
+                {
+                    mWRP *= 2;
+                }
+                else if (WRP > 100)
+                {
+                    mWRP = 1;
+                }
+
+                if (URP > mURP && URP <= 100)
+                {
+                    mURP *= 2;
+                }
+                else if (URP > 100)
+                {
+                    mURP = 1;
+                }
+        */
     }
 
 }
