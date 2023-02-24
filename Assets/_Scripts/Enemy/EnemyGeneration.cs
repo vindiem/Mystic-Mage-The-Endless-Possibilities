@@ -11,8 +11,13 @@ public class EnemyGeneration : MonoBehaviour
     private float minSpawnInterval = 1.5f;
     private float heightAboveGround;
 
+    private float maxPlayerSpeed = 12f;
+    private float maxMutantSpeed = 11f;
+
     private float gameSpeed;
     private Skills playerScript;
+    private Movement playerScriptMovement;
+    //private Enemy enemyScript;
     private GameObject player;
 
     private float timeScore;
@@ -27,6 +32,8 @@ public class EnemyGeneration : MonoBehaviour
     {
         playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Skills>();
         gameSpeed = playerScript.gameSpeed;
+
+        playerScriptMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
 
         StartCoroutine(SpawnZombies());
 
@@ -62,6 +69,23 @@ public class EnemyGeneration : MonoBehaviour
         if (spawnInterval >= minSpawnInterval)
         {
             spawnInterval -= 0.0001f;
+        }
+        if (playerScriptMovement.movementSpeed <= maxPlayerSpeed)
+        {
+            playerScriptMovement.movementSpeed += 0.0001f;
+        }
+
+        GameObject[] enemyObjects = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemyObject in enemyObjects)
+        {
+            Enemy enemyComponent = enemyObject.GetComponent<Enemy>();
+            if (enemyComponent != null)
+            {
+                if (enemyComponent.navMeshAgent.velocity.magnitude <= maxMutantSpeed)
+                {
+                    enemyComponent.navMeshAgent.speed += 0.0001f;
+                }
+            }
         }
     }
 

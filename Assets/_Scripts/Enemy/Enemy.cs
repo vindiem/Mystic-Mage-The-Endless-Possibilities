@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
 
     private float distance;
 
-    private NavMeshAgent navMeshAgent;
+    [HideInInspector] public NavMeshAgent navMeshAgent;
     private Animator animator;
     private Transform player;
     private Skills playerScript;

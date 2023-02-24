@@ -29,7 +29,7 @@ public class Movement : MonoBehaviour
     //private float jumpForce = 7.6f;
 
     // Charavter variables
-    private int movementSpeed = 4;
+    public float movementSpeed = 4;
     private int rotationSpeed = 10;
 
     public GameObject mouseEffect;
