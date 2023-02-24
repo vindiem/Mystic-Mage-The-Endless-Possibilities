@@ -32,8 +32,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -44,11 +46,16 @@ ScriptsOnlyBuild:
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.Dropdown
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.Mask
     - UnityEngine.UI.RawImage
+    - UnityEngine.UI.ScrollRect
     - UnityEngine.UI.Scrollbar
+    - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
+    - UnityEngine.UI.Toggle
   serializedClasses:
     Cinemachine:
     - Cinemachine.CinemachineBlendDefinition
@@ -64,11 +71,17 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.AnimationTriggers
     - UnityEngine.UI.Button/ButtonClickedEvent
     - UnityEngine.UI.ColorBlock
+    - UnityEngine.UI.Dropdown/DropdownEvent
+    - UnityEngine.UI.Dropdown/OptionData
+    - UnityEngine.UI.Dropdown/OptionDataList
     - UnityEngine.UI.FontData
     - UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
     - UnityEngine.UI.Navigation
+    - UnityEngine.UI.ScrollRect/ScrollRectEvent
     - UnityEngine.UI.Scrollbar/ScrollEvent
+    - UnityEngine.UI.Slider/SliderEvent
     - UnityEngine.UI.SpriteState
+    - UnityEngine.UI.Toggle/ToggleEvent
   methodsToPreserve:
   - assembly: Assembly-CSharp
     fullTypeName: LoadScenes
@@ -128,11 +141,20 @@ ScriptsOnlyBuild:
     fullTypeName: MenuSettings
     methodName: MovementSet
   - assembly: Assembly-CSharp
+    fullTypeName: MenuSettings
+    methodName: QualitySet
+  - assembly: Assembly-CSharp
     fullTypeName: LoadScenes
     methodName: LoadScene
   - assembly: Assembly-CSharp
     fullTypeName: MenuSettings
     methodName: MovementSet
+  - assembly: Assembly-CSharp
+    fullTypeName: MenuSettings
+    methodName: VolumeSet
+  - assembly: Assembly-CSharp
+    fullTypeName: MenuSettings
+    methodName: SetResolution
   sceneClasses:
     Assets/Scenes/Game.unity:
     - Class: 1
@@ -344,6 +366,10 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1706}
     - Class: 114
+      Script: {instanceID: 1856}
+    - Class: 114
+      Script: {instanceID: 1916}
+    - Class: 114
       Script: {instanceID: 2276}
     - Class: 114
       Script: {instanceID: 2598}
@@ -354,9 +380,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3082}
     - Class: 114
+      Script: {instanceID: 3090}
+    - Class: 114
       Script: {instanceID: 3176}
     - Class: 114
       Script: {instanceID: 3686}
+    - Class: 114
+      Script: {instanceID: 3766}
+    - Class: 114
+      Script: {instanceID: 3914}
+    - Class: 114
+      Script: {instanceID: 4048}
     - Class: 114
       Script: {instanceID: 4578}
     - Class: 115
@@ -1164,7 +1198,7 @@ ScriptsOnlyBuild:
     className: CinemachineRecomposer
   - hash:
       serializedVersion: 2
-      Hash: edd90950b5957bcb305ee7e458fe39d3
+      Hash: 08794526b12a1753d4d0475692aa1620
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MenuSettings
