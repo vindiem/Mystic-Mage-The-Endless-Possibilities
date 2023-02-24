@@ -7,6 +7,7 @@ ScriptsOnlyBuild:
     - EnemyGeneration
     - FixedJoystick
     - LoadScenes
+    - MenuSettings
     - Movement
     - Relics
     - Skills
@@ -82,6 +83,9 @@ ScriptsOnlyBuild:
     methodName: Fire
   - assembly: Assembly-CSharp
     fullTypeName: Skills
+    methodName: Ultimate
+  - assembly: Assembly-CSharp
+    fullTypeName: Skills
     methodName: Wave
   - assembly: Assembly-CSharp
     fullTypeName: Skills
@@ -91,7 +95,13 @@ ScriptsOnlyBuild:
     methodName: Ultimate
   - assembly: Assembly-CSharp
     fullTypeName: Skills
+    methodName: Fire
+  - assembly: Assembly-CSharp
+    fullTypeName: Skills
     methodName: MeteorInvoke
+  - assembly: Assembly-CSharp
+    fullTypeName: Skills
+    methodName: TornadoInvoke
   - assembly: Assembly-CSharp
     fullTypeName: Skills
     methodName: MeteorInvoke
@@ -111,8 +121,20 @@ ScriptsOnlyBuild:
     fullTypeName: Skills
     methodName: TornadoInvoke
   - assembly: Assembly-CSharp
+    fullTypeName: Skills
+    methodName: Wave
+  - assembly: Assembly-CSharp
+    fullTypeName: Skills
+    methodName: MeteorInvoke
+  - assembly: Assembly-CSharp
+    fullTypeName: MenuSettings
+    methodName: MovementSet
+  - assembly: Assembly-CSharp
     fullTypeName: LoadScenes
     methodName: LoadScene
+  - assembly: Assembly-CSharp
+    fullTypeName: MenuSettings
+    methodName: MovementSet
   sceneClasses:
     Assets/Scenes/Game.unity:
     - Class: 1
@@ -337,6 +359,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 3176}
     - Class: 114
       Script: {instanceID: 3686}
+    - Class: 114
+      Script: {instanceID: 4578}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -566,7 +590,7 @@ ScriptsOnlyBuild:
     className: CinemachineOrbitalTransposer
   - hash:
       serializedVersion: 2
-      Hash: 00918a4630241bd52cfab3d86d1fb5a4
+      Hash: 57594a262dd2fcd9e6f9a3a880b3cb6d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Skills
@@ -674,7 +698,7 @@ ScriptsOnlyBuild:
     className: CinemachineHardLookAt
   - hash:
       serializedVersion: 2
-      Hash: fda6c2533ca1813ef6511ecec29e070b
+      Hash: 1dfbc4f592d2fca5eca9b2863153fcaa
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Movement
@@ -1140,6 +1164,12 @@ ScriptsOnlyBuild:
     assemblyName: Cinemachine.dll
     namespaceName: 
     className: CinemachineRecomposer
+  - hash:
+      serializedVersion: 2
+      Hash: edd90950b5957bcb305ee7e458fe39d3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MenuSettings
   - hash:
       serializedVersion: 2
       Hash: b5c3dbcb94925c8b595ad16a62b44788

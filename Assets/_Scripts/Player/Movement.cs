@@ -42,6 +42,19 @@ public class Movement : MonoBehaviour
     //[SerializeField] private Button jumpButton;
     //[SerializeField] private Scrollbar scrollbar;
 
+    private void Awake()
+    {
+        string mt = PlayerPrefs.GetString("MovementType");
+        if (mt == "buttons")
+        {
+            movementType = MovementType.MobileV2;
+        }
+        else if (mt == "joystick")
+        {
+            movementType = MovementType.Mobile;
+        }
+    }
+
     private void Start()
     {
         animator = GetComponent<Animator>();
