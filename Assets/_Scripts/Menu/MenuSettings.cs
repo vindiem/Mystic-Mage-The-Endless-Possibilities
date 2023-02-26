@@ -13,23 +13,10 @@ public class MenuSettings : MonoBehaviour
     public Slider volumeSlider;
     public Slider qualitySlider;
 
-    public Dropdown resolutionsDropdown;
-    private Resolution[] resolutions;
-
     private void Start()
     {
         volumeSlider.value = PlayerPrefs.GetFloat("Volume");
         qualitySlider.value = PlayerPrefs.GetInt("Quality");
-
-        Resolution[] resolutions = Screen.resolutions;
-        resolutions = resolutions.Distinct().ToArray();
-        string[] strRes = new string[resolutions.Length];
-        for (int i = 0; i < resolutions.Length; i++)
-        {
-            strRes[i] = resolutions[i].ToString();
-        }
-        resolutionsDropdown.ClearOptions();
-        resolutionsDropdown.AddOptions(strRes.ToList());
 
     }
 
@@ -81,12 +68,6 @@ public class MenuSettings : MonoBehaviour
         int qualityValue = (int)qualitySlider.value;
         PlayerPrefs.SetInt("Quality", qualityValue);
         QualitySettings.SetQualityLevel(qualityValue, true);
-    }
-
-    public void SetResolution()
-    {
-        Screen.SetResolution(resolutions[resolutionsDropdown.value].width, 
-            resolutions[resolutionsDropdown.value].height, true);
     }
 
 }

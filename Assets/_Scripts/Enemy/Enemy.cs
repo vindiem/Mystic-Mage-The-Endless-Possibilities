@@ -401,7 +401,7 @@ public class Enemy : MonoBehaviour
         animator.enabled = false;
         navMeshAgent.enabled = false;
 
-        rb.AddForce(Vector3.up * playerScript.tornadoLevel * 35);
+        rb.AddForce(Vector3.up * 650);
 
         yield return new WaitForSeconds(playerScript.tornadoLevel / 7.5f);
         animator.enabled = true;

@@ -13,13 +13,14 @@ public class Skills : MonoBehaviour
     // Kills counter
     public Text killsCounter;
     [HideInInspector] public int killsCounterInt;
+    public Text skillsLevel;
 
     // Vectors
     private Vector3 currentMousePosition = new Vector3();
 
     // Charavter variables
     private float health = 100;
-    public float gameSpeed = 1.25f;
+    [HideInInspector] public float gameSpeed = 1.25f;
 
     public LayerMask CastLayer;
     private Joystick attackJoystick;
@@ -252,6 +253,8 @@ public class Skills : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        skillsLevel.text = $"Skills level: {meteorLevel.ToString()}";
 
         #endregion
 

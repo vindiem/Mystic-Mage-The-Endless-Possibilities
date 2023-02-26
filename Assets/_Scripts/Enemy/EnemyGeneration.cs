@@ -16,7 +16,7 @@ public class EnemyGeneration : MonoBehaviour
 
     private float gameSpeed;
     private Skills playerScript;
-    private Movement playerScriptMovement;
+    private Movement playerScriptMovenment;
     //private Enemy enemyScript;
     private GameObject player;
 
@@ -33,7 +33,7 @@ public class EnemyGeneration : MonoBehaviour
         playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Skills>();
         gameSpeed = playerScript.gameSpeed;
 
-        playerScriptMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
+        playerScriptMovenment = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
 
         StartCoroutine(SpawnZombies());
 
@@ -70,9 +70,44 @@ public class EnemyGeneration : MonoBehaviour
         {
             spawnInterval -= 0.0001f;
         }
-        if (playerScriptMovement.movementSpeed <= maxPlayerSpeed)
+        if (playerScriptMovenment.movementSpeed <= maxPlayerSpeed)
         {
-            playerScriptMovement.movementSpeed += 0.0001f;
+            playerScriptMovenment.movementSpeed += 0.0001f;
+        }
+
+        float speed = playerScriptMovenment.movementSpeed;
+
+        if (speed > 5 && speed < 6)
+        {
+            playerScript.meteorLevel = 15;
+            playerScript.tornadoLevel = 15;
+            playerScript.waveLevel = 15;
+            playerScript.fireLevel = 15;
+            playerScript.ultimateLevel = 15;
+        }
+        else if (speed > 6 && speed < 7)
+        {
+            playerScript.meteorLevel = 20;
+            playerScript.tornadoLevel = 20;
+            playerScript.waveLevel = 20;
+            playerScript.fireLevel = 20;
+            playerScript.ultimateLevel = 20;
+        }
+        else if (speed > 7 && speed < 8)
+        {
+            playerScript.meteorLevel = 25;
+            playerScript.tornadoLevel = 25;
+            playerScript.waveLevel = 25;
+            playerScript.fireLevel = 25;
+            playerScript.ultimateLevel = 25;
+        }
+        else if (speed > 8 && speed < 9)
+        {
+            playerScript.meteorLevel = 30;
+            playerScript.tornadoLevel = 30;
+            playerScript.waveLevel = 30;
+            playerScript.fireLevel = 30;
+            playerScript.ultimateLevel = 30;
         }
 
         GameObject[] enemyObjects = GameObject.FindGameObjectsWithTag("Enemy");
@@ -101,11 +136,15 @@ public class EnemyGeneration : MonoBehaviour
         while (true)
         {
             // Generate random position in sphere 
-            float radius = 40f;
+            float radius = 30f;
             Vector3 randomPosition = Random.insideUnitSphere * radius;
 
             float randomX = randomPosition.x;
             float randomZ = randomPosition.z;
+
+            float rotationY = Random.Range(-180, 180);
+
+            Quaternion randomRotation = new Quaternion(0, rotationY, 0, 0);
 
             RaycastHit hit;
             if (Physics.Raycast(new Vector3(randomX, 64f, randomZ), Vector3.down, out hit))
@@ -115,10 +154,10 @@ public class EnemyGeneration : MonoBehaviour
 
             Vector3 spawnPos = new Vector3(randomX, 64 - heightAboveGround, randomZ);
 
-            GameObject cross = Instantiate(Cross, spawnPos, Quaternion.identity, transform);
+            GameObject cross = Instantiate(Cross, spawnPos, randomRotation, transform);
             yield return new WaitForSeconds(spawnInterval / 2);
             Destroy(cross);
-            Instantiate(zombiePrefab, spawnPos, Quaternion.identity, transform);
+            Instantiate(zombiePrefab, spawnPos, randomRotation, transform);
             yield return new WaitForSeconds(spawnInterval / 2);
         }
     }

@@ -4378,8 +4378,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72019065}
-  m_LocalRotation: {x: 0.36607417, y: -0.35136032, z: 0.15163289, w: 0.84825885}
-  m_LocalPosition: {x: 10, y: 19, z: -10}
+  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 19, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10276,7 +10276,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 221252806}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10284,9 +10284,10 @@ Transform:
   - {fileID: 1104164701}
   - {fileID: 853527324}
   - {fileID: 1874858468}
+  - {fileID: 2046710956}
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
 --- !u!1 &221830440
 GameObject:
   m_ObjectHideFlags: 0
@@ -13162,7 +13163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 10, y: 15, z: -10}
+  m_FollowOffset: {x: 0, y: 15, z: -15}
   m_XDamping: 2
   m_YDamping: 2
   m_ZDamping: 2
@@ -26094,6 +26095,7 @@ RectTransform:
   m_Children:
   - {fileID: 1462564265}
   - {fileID: 1195200408}
+  - {fileID: 1406965527}
   m_Father: {fileID: 298190751}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -44467,8 +44469,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1008212264}
-  m_LocalRotation: {x: 0.36607417, y: -0.35136032, z: 0.15163289, w: 0.84825885}
-  m_LocalPosition: {x: 10, y: 19, z: -10}
+  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 19, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -62276,6 +62278,43 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1403353586}
   m_Mesh: {fileID: 4300000, guid: 9785164cfb353eb4d9ae55cc30780781, type: 3}
+--- !u!1 &1406965526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1406965527}
+  m_Layer: 5
+  m_Name: Skills level
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1406965527
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406965526}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1825611630}
+  m_Father: {fileID: 605251551}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1407089732
 GameObject:
   m_ObjectHideFlags: 0
@@ -83189,6 +83228,86 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1825479790}
   m_Mesh: {fileID: 4300000, guid: 3141cea43c2a8484c8683d2d65a5d8d8, type: 3}
+--- !u!1 &1825611629
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1825611630}
+  - component: {fileID: 1825611632}
+  - component: {fileID: 1825611631}
+  m_Layer: 5
+  m_Name: Text (Legacy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1825611630
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825611629}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1406965527}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 200, y: -45}
+  m_SizeDelta: {x: 300, y: 90}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1825611631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825611629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: c2c157bf570101e458f13cf5b7df751f, type: 3}
+    m_FontSize: 43
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 45
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Skills level: 99'
+--- !u!222 &1825611632
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825611629}
+  m_CullTransparentMesh: 1
 --- !u!1 &1825925124
 GameObject:
   m_ObjectHideFlags: 0
@@ -97944,6 +98063,51 @@ Transform:
   m_Father: {fileID: 1725562112}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2046710955
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2046710956}
+  - component: {fileID: 2046710957}
+  m_Layer: 0
+  m_Name: Mark
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2046710956
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046710955}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 221252807}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &2046710957
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046710955}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 40
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2049743831
 GameObject:
   m_ObjectHideFlags: 0
@@ -104654,6 +104818,7 @@ MonoBehaviour:
   movementScript: {fileID: 0}
   killsCounter: {fileID: 1369948041}
   killsCounterInt: 0
+  skillsLevel: {fileID: 1825611631}
   gameSpeed: 1.25
   CastLayer:
     serializedVersion: 2
@@ -104662,16 +104827,16 @@ MonoBehaviour:
   meteorLandmark: {fileID: 382858443}
   waveLandmark: {fileID: 523656605}
   fire: {fileID: 100000, guid: 2fd3e0e1650e76349a75e786e48fbdad, type: 3}
-  fireLevel: 15
+  fireLevel: 10
   wave: {fileID: 3995328517914209508, guid: 480ad631899ff814ebef1e4f33308953, type: 3}
-  waveLevel: 15
+  waveLevel: 10
   tornado: {fileID: 1865603112017772757, guid: 3029665373d4d214e80deb15976d75e5, type: 3}
   visualTornado: {fileID: 1865603112017772757, guid: f27fd0a409cdb58429f0c4b0457b8768, type: 3}
-  tornadoLevel: 15
+  tornadoLevel: 10
   meteor: {fileID: 3022427677212493206, guid: b5e76533d8b972e4988bb762ac724f82, type: 3}
-  meteorLevel: 15
+  meteorLevel: 10
   ultimate: {fileID: 3995328517914209508, guid: 1b447169648a14043bf2dda6fa90b0a3, type: 3}
-  ultimateLevel: 15
+  ultimateLevel: 10
   directions:
   - {fileID: 265199305}
   - {fileID: 119567586}
@@ -104762,7 +104927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 848a500e07c484b40b814cc3cd8bfc34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementType: 3
+  movementType: 1
   CastLayer:
     serializedVersion: 2
     m_Bits: 256
