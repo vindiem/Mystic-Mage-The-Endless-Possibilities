@@ -105,6 +105,56 @@ public class Relics : MonoBehaviour
             PlayerPrefs.SetFloat("mURP", 5);
         }
 
+        float mmrp = PlayerPrefs.GetFloat("mMRP");
+        if (MRP > mmrp && MRP <= 320)
+        { 
+            mmrp *= 2;
+        }
+        else if (MRP > 320)
+        {
+            mmrp = 1;
+        }
+
+        float mtrp = PlayerPrefs.GetFloat("mTRP");
+        if (TRP > mtrp && TRP <= 320)
+        {
+            mtrp *= 2;
+        }
+        else if (MRP > 320)
+        {
+            mtrp = 1;
+        }
+
+        float mfrp = PlayerPrefs.GetFloat("mFRP");
+        if (TRP > mfrp && FRP <= 320)
+        {
+            mfrp *= 2;
+        }
+        else if (FRP > 320)
+        {
+            mfrp = 1;
+        }
+
+        float mwrp = PlayerPrefs.GetFloat("mWRP");
+        if (TRP > mwrp && WRP <= 320)
+        {
+            mwrp *= 2;
+        }
+        else if (WRP > 320)
+        {
+            mwrp = 1;
+        }
+
+        float murp = PlayerPrefs.GetFloat("mURP");
+        if (TRP > murp && URP <= 320)
+        {
+            murp *= 2;
+        }
+        else if (URP > 320)
+        {
+            murp = 1;
+        }
+
         /*
                 PlayerPrefs.SetFloat("mMRP", mMRP);
                 PlayerPrefs.SetFloat("mTRP", mTRP);
