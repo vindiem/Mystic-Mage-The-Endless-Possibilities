@@ -23,7 +23,7 @@ public class Relics : MonoBehaviour
         GetRelicsValues();
 
         // Meteor relic progress
-        MRPText.text = $"Metor relic: {MRP} / {mMRP}";
+        MRPText.text = $"Meteor relic: {MRP} / {mMRP}";
         MRPImage.fillAmount = MRP / mMRP;
 
         // Tornado relic progress
@@ -120,7 +120,7 @@ public class Relics : MonoBehaviour
         {
             mtrp *= 2;
         }
-        else if (MRP > 320)
+        else if (TRP > 320)
         {
             mtrp = 1;
         }

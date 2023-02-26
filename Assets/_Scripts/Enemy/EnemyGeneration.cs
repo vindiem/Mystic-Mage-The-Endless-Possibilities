@@ -46,8 +46,8 @@ public class EnemyGeneration : MonoBehaviour
 
         if (player != null)
         {
-            timeScore += Time.deltaTime * gameSpeed;
-            timerText.text = timeScore.ToString("000");
+            timeScore += Time.deltaTime / gameSpeed;
+            timerText.text = timeScore.ToString();
         }
         else
         {
@@ -136,7 +136,7 @@ public class EnemyGeneration : MonoBehaviour
         while (true)
         {
             // Generate random position in sphere 
-            float radius = 30f;
+            float radius = 35f;
             Vector3 randomPosition = Random.insideUnitSphere * radius;
 
             float randomX = randomPosition.x;

@@ -435,7 +435,7 @@ public class Enemy : MonoBehaviour
     {
         switch (nameOfRelic)
         {
-            case "Metor":
+            case "Meteor":
                 float mmrp = PlayerPrefs.GetFloat("mMRP");
                 if (relicLevel > mmrp && relicLevel <= 320)
                 {

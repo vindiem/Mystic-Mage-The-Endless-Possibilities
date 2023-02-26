@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: e8f2ac222fa91564db671db4c2eaaa57, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: dcaeb2b0dd0635c469b1f7c839c64290, type: 2}
 --- !u!1 &161413
 GameObject:
   m_ObjectHideFlags: 0
@@ -85864,6 +85864,7 @@ GameObject:
   - component: {fileID: 1878282680}
   - component: {fileID: 1877283832}
   - component: {fileID: 1878282681}
+  - component: {fileID: 1926798022}
   m_Layer: 0
   m_Name: Portal
   m_TagString: Untagged
@@ -90954,6 +90955,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1924530227}
   m_Mesh: {fileID: 4300000, guid: 9785164cfb353eb4d9ae55cc30780781, type: 3}
+--- !u!65 &1926798022
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875348922}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.32157, y: 3.5911775, z: 3.1229017}
+  m_Center: {x: -0.06666754, y: 1.4011903, z: 6.303042}
 --- !u!1 &1926928002
 GameObject:
   m_ObjectHideFlags: 0
@@ -93431,7 +93445,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -160, y: 0}
+  m_AnchoredPosition: {x: -160, y: 125}
   m_SizeDelta: {x: 320, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1980024437
@@ -104927,7 +104941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 848a500e07c484b40b814cc3cd8bfc34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementType: 1
+  movementType: 3
   CastLayer:
     serializedVersion: 2
     m_Bits: 256
