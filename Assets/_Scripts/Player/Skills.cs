@@ -83,6 +83,14 @@ public class Skills : MonoBehaviour
     [SerializeField] private GameObject MobileSkillsV2;
     [SerializeField] private RawImage[] bgsMV2;
 
+    [Header("Sounds")]
+    public AudioClip meteorSound;
+    public AudioClip torandoSound;
+    public AudioClip fireSound;
+    public AudioClip waveSound;
+    public AudioClip ultimateSound;
+    private AudioSource m_audioSource;
+
     private void Start()
     {
         movementScript = GetComponent<Movement>();
@@ -143,6 +151,9 @@ public class Skills : MonoBehaviour
 
         // Game speed
         Time.timeScale = gameSpeed;
+
+        // Audio source
+        m_audioSource = GameObject.FindGameObjectWithTag("Sounds").GetComponent<AudioSource>();
 
     }
 
@@ -274,11 +285,13 @@ public class Skills : MonoBehaviour
     // Z, X, C, V, SPACE
     // Jump [SHIFT]
 
-    // [Z] Fire / Dragon Knight ;
+    // [Z] Fire / ;
     public void Fire()
     {
         if (kds[0] <= 0)
         {
+            m_audioSource.PlayOneShot(fireSound);
+
             Vector3 direction = (fireLandmark.position - transform.position).normalized;
 
             GameObject f = Instantiate(fire, new Vector3(transform.position.x, transform.position.y + 3.5f, 
@@ -300,6 +313,8 @@ public class Skills : MonoBehaviour
     {
         if (kds[1] <= 0)
         {
+            m_audioSource.PlayOneShot(waveSound);
+
             Vector3 direction = (waveLandmark.position - transform.position).normalized;
 
             GameObject w = Instantiate(wave, new Vector3(transform.position.x,
@@ -315,7 +330,7 @@ public class Skills : MonoBehaviour
         }
     }
 
-    // [C] Tornato / Invoker ;
+    // [C] Tornato / ;
     public void TornadoInvoke()
     {
         if (canTornadoInvoke == true)
@@ -337,6 +352,8 @@ public class Skills : MonoBehaviour
             // Wait until left mouse button will be pressed (Trigger)
             yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
 
+            m_audioSource.PlayOneShot(torandoSound);
+
             movementScript.RotateToMouse(currentMousePosition, true);
             GameObject t = Instantiate(tornado, transform.position, Quaternion.LookRotation(Vector3.up));
 
@@ -357,7 +374,7 @@ public class Skills : MonoBehaviour
         }
     }
 
-    // [V] Chaos Meteor / Invoker ;
+    // [V] Chaos Meteor / ;
     public void MeteorInvoke()
     {
         if (canMeteorInvoke == true)
@@ -378,6 +395,8 @@ public class Skills : MonoBehaviour
 
             // Wait until left mouse button (touch) will be pressed (Trigger)
             yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+
+            m_audioSource.PlayOneShot(meteorSound);
 
             movementScript.RotateToMouse(currentMousePosition, true);
             GameObject m = Instantiate(meteor, meteorLandmark.position, Quaternion.identity);
@@ -402,11 +421,13 @@ public class Skills : MonoBehaviour
         }
     }
 
-    // [SPACE] Ultimate / Invoker ;
+    // [SPACE] Ultimate / ;
     public void Ultimate()
     {
         if (kds[4] <= 0)
         {
+            m_audioSource.PlayOneShot(ultimateSound);
+
             for (int i = 0; i < directions.Length; i++)
             {
                 Vector3 direction = (directions[i].position - transform.position).normalized;
