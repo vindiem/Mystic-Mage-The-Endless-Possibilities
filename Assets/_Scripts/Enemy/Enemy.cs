@@ -56,6 +56,10 @@ public class Enemy : MonoBehaviour
 
     private Animator relicPlate;
 
+    private AudioSource m_audioSource;
+    public AudioClip deathSound;
+    public AudioClip attackSound;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -100,6 +104,10 @@ public class Enemy : MonoBehaviour
         }
 
         relicPlate = GameObject.FindGameObjectWithTag("RelicPlate").GetComponent<Animator>();
+
+        // Audio source
+        m_audioSource = GameObject.FindGameObjectWithTag("Sounds").GetComponent<AudioSource>();
+
     }
 
     private void Update()
@@ -158,6 +166,9 @@ public class Enemy : MonoBehaviour
                 navMeshAgent.isStopped = true;
                 animator.SetBool("isAttacking", true);
 
+                // Attack sound play
+                m_audioSource.PlayOneShot(attackSound);
+
                 nextAttackTime = Time.time + attackRate;
             }
             else if (distance >= maxAttackRange)
@@ -186,10 +197,13 @@ public class Enemy : MonoBehaviour
         {
             playerScript.killsCounterInt++;
 
+            m_audioSource.PlayOneShot(deathSound);
             animator.SetTrigger("Death");
+
             transform.GetComponent<Collider>().enabled = false;
             navMeshAgent.isStopped = true;
             rb.isKinematic = true;
+
             Destroy(gameObject, 4f);
             GetComponent<Enemy>().enabled = false;
         }

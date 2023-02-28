@@ -33,8 +33,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -290,6 +292,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
     - Class: 91
@@ -310,6 +316,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 2724}
     - Class: 114
       Script: {instanceID: 2896}
+    - Class: 114
+      Script: {instanceID: 2972}
     - Class: 114
       Script: {instanceID: 3084}
     - Class: 114
@@ -351,6 +359,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
     - Class: 91
@@ -375,6 +387,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 2724}
     - Class: 114
       Script: {instanceID: 2896}
+    - Class: 114
+      Script: {instanceID: 2972}
     - Class: 114
       Script: {instanceID: 3084}
     - Class: 114
@@ -1112,7 +1126,7 @@ ScriptsOnlyBuild:
     className: ControlPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: ef4c52f12d975a28b326d54f674426b7
+      Hash: a0aef4ec46156574f33c99eb816d8876
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Enemy
