@@ -16,7 +16,7 @@ public class EnemyGeneration : MonoBehaviour
 
     private float maxPlayerSpeed = 12f;
     private float maxMutantSpeed = 11f;
-    private float currentMutantSpeed;
+    private float currentMutantSpeed = 3.5f;
 
     private float gameSpeed;
     private Skills playerScript;
@@ -40,7 +40,7 @@ public class EnemyGeneration : MonoBehaviour
         playerScriptMovenment = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
 
         StartCoroutine(SpawnZombies());
-
+        currentMutantSpeed = playerScriptMovenment.movementSpeed - 0.5f;
     }
 
     private void Update()

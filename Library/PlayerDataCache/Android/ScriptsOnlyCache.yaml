@@ -8,6 +8,7 @@ ScriptsOnlyBuild:
     - EnemyGeneration
     - FixedJoystick
     - LoadScenes
+    - Menager
     - MenuSettings
     - Movement
     - Relics
@@ -18,6 +19,16 @@ ScriptsOnlyBuild:
     - Cinemachine.CinemachinePipeline
     - Cinemachine.CinemachineTransposer
     - Cinemachine.CinemachineVirtualCamera
+    Mirror.Components.dll:
+    - Mirror.Experimental.NetworkRigidbody
+    - Mirror.NetworkAnimator
+    - Mirror.NetworkTransform
+    Mirror.Transports.dll:
+    - kcp2k.KcpTransport
+    Mirror.dll:
+    - Mirror.NetworkIdentity
+    - Mirror.NetworkManager
+    - Mirror.NetworkManagerHUD
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridBrush
     - UnityEditor.Tilemaps.GridPaintingState
@@ -91,6 +102,9 @@ ScriptsOnlyBuild:
     fullTypeName: LoadScenes
     methodName: LoadScene
   - assembly: Assembly-CSharp
+    fullTypeName: LoadScenes
+    methodName: LoadScene
+  - assembly: Assembly-CSharp
     fullTypeName: Skills
     methodName: Fire
   - assembly: Assembly-CSharp
@@ -153,6 +167,51 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: MenuSettings
     methodName: VolumeSet
+  - assembly: Assembly-CSharp
+    fullTypeName: Skills
+    methodName: Fire
+  - assembly: Assembly-CSharp
+    fullTypeName: Skills
+    methodName: Wave
+  - assembly: Assembly-CSharp
+    fullTypeName: Skills
+    methodName: TornadoInvoke
+  - assembly: Assembly-CSharp
+    fullTypeName: Skills
+    methodName: MeteorInvoke
+  - assembly: Assembly-CSharp
+    fullTypeName: Skills
+    methodName: Ultimate
+  - assembly: Assembly-CSharp
+    fullTypeName: Skills
+    methodName: Fire
+  - assembly: Assembly-CSharp
+    fullTypeName: Skills
+    methodName: Wave
+  - assembly: Assembly-CSharp
+    fullTypeName: Skills
+    methodName: TornadoInvoke
+  - assembly: Assembly-CSharp
+    fullTypeName: Skills
+    methodName: MeteorInvoke
+  - assembly: Assembly-CSharp
+    fullTypeName: Skills
+    methodName: Ultimate
+  - assembly: Assembly-CSharp
+    fullTypeName: Skills
+    methodName: Fire
+  - assembly: Assembly-CSharp
+    fullTypeName: Skills
+    methodName: Wave
+  - assembly: Assembly-CSharp
+    fullTypeName: Skills
+    methodName: TornadoInvoke
+  - assembly: Assembly-CSharp
+    fullTypeName: Skills
+    methodName: MeteorInvoke
+  - assembly: Assembly-CSharp
+    fullTypeName: Skills
+    methodName: Ultimate
   sceneClasses:
     Assets/Scenes/Game.unity:
     - Class: 1
@@ -341,6 +400,143 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/Multiplayer.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 54
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 90
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1706}
+    - Class: 114
+      Script: {instanceID: 2192}
+    - Class: 114
+      Script: {instanceID: 2276}
+    - Class: 114
+      Script: {instanceID: 2404}
+    - Class: 114
+      Script: {instanceID: 2526}
+    - Class: 114
+      Script: {instanceID: 2564}
+    - Class: 114
+      Script: {instanceID: 2598}
+    - Class: 114
+      Script: {instanceID: 2664}
+    - Class: 114
+      Script: {instanceID: 2724}
+    - Class: 114
+      Script: {instanceID: 2790}
+    - Class: 114
+      Script: {instanceID: 2820}
+    - Class: 114
+      Script: {instanceID: 2852}
+    - Class: 114
+      Script: {instanceID: 2896}
+    - Class: 114
+      Script: {instanceID: 2972}
+    - Class: 114
+      Script: {instanceID: 3084}
+    - Class: 114
+      Script: {instanceID: 3092}
+    - Class: 114
+      Script: {instanceID: 3178}
+    - Class: 114
+      Script: {instanceID: 3352}
+    - Class: 114
+      Script: {instanceID: 3676}
+    - Class: 114
+      Script: {instanceID: 3688}
+    - Class: 114
+      Script: {instanceID: 4036}
+    - Class: 114
+      Script: {instanceID: 4138}
+    - Class: 114
+      Script: {instanceID: 4444}
+    - Class: 114
+      Script: {instanceID: 33338}
+    - Class: 114
+      Script: {instanceID: 33476}
+    - Class: 114
+      Script: {instanceID: 33614}
+    - Class: 114
+      Script: {instanceID: 33712}
+    - Class: 114
+      Script: {instanceID: 33716}
+    - Class: 114
+      Script: {instanceID: 33740}
+    - Class: 114
+      Script: {instanceID: 33972}
+    - Class: 114
+      Script: {instanceID: 1118846}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 135
+      Script: {instanceID: 0}
+    - Class: 136
+      Script: {instanceID: 0}
+    - Class: 137
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 195
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    - Class: 238
       Script: {instanceID: 0}
     Assets/Scenes/Settings.unity:
     - Class: 1
@@ -1268,9 +1464,610 @@ ScriptsOnlyBuild:
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachineBlendListCamera
+  - hash:
+      serializedVersion: 2
+      Hash: e3ff266be754961097720da52d05ed74
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.AdditiveLevels
+    className: Portal
+  - hash:
+      serializedVersion: 2
+      Hash: 5ae981276cbe2dc3b258b13f10fd0c96
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Benchmark
+    className: BenchmarkNetworkManager
+  - hash:
+      serializedVersion: 2
+      Hash: 13a62479fee465b804da3b626bc61ba1
+    assemblyName: Mirror.Transports.dll
+    namespaceName: kcp2k
+    className: KcpTransport
+  - hash:
+      serializedVersion: 2
+      Hash: 7445a23a6ab32ef0fa3aab3b43a6c89f
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror
+    className: NetworkTeam
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.AdditiveLevels
+    className: PhysicsSimulator
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.AdditiveLevels
+    className: LookAtMainCamera
+  - hash:
+      serializedVersion: 2
+      Hash: 4132ee9a8b5c5571ec51e757b626830f
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.SyncDir
+    className: Player
+  - hash:
+      serializedVersion: 2
+      Hash: f84b810c764d5a270da7c7591f2be2f1
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.MultipleMatch
+    className: MatchGUI
+  - hash:
+      serializedVersion: 2
+      Hash: d95867ebef812a494b81a1c934f3bc15
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Pong
+    className: Ball
+  - hash:
+      serializedVersion: 2
+      Hash: 492bcb2d4cbb73afb9e618d49e4bdd82
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror
+    className: NetworkTransformChild
+  - hash:
+      serializedVersion: 2
+      Hash: 69501abcda51721514ce989f617b052f
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Basic
+    className: PlayerUI
+  - hash:
+      serializedVersion: 2
+      Hash: 681b5f9be6f57e5a7b20908e503986d3
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror.Discovery
+    className: NetworkDiscoveryHUD
+  - hash:
+      serializedVersion: 2
+      Hash: f5763415ffcb37f6278091eb8b77a954
+    assemblyName: SimpleWebTransport.dll
+    namespaceName: Mirror.SimpleWeb
+    className: SimpleWebTransport
+  - hash:
+      serializedVersion: 2
+      Hash: cca6d49f8ffda5dfcd3f682313db8fa0
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.SnapshotInterpolationDemo
+    className: ServerCube
+  - hash:
+      serializedVersion: 2
+      Hash: 5085c149ae898c11398927898b806b9c
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.NetworkRoom
+    className: PlayerCamera
+  - hash:
+      serializedVersion: 2
+      Hash: aa4e3303a7da9a51ec05475e937e5f7d
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.AdditiveLevels
+    className: PlayerController
+  - hash:
+      serializedVersion: 2
+      Hash: fa24b65e7a5295906a4cae6f29cdcbfe
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Tanks
+    className: Projectile
+  - hash:
+      serializedVersion: 2
+      Hash: 370cf85f41fdd57c170a6a0ea592489d
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.AdditiveLevels
+    className: AdditiveLevelsNetworkManager
+  - hash:
+      serializedVersion: 2
+      Hash: 0f247354951f04ddbeded0ae0027ee3f
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror
+    className: NetworkLobbyPlayer
+  - hash:
+      serializedVersion: 2
+      Hash: 492bcb2d4cbb73afb9e618d49e4bdd82
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror
+    className: NetworkTransform
+  - hash:
+      serializedVersion: 2
+      Hash: 5085c149ae898c11398927898b806b9c
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.AdditiveScenes
+    className: PlayerCamera
+  - hash:
+      serializedVersion: 2
+      Hash: 0f247354951f04ddbeded0ae0027ee3f
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror
+    className: NetworkRoomPlayer
+  - hash:
+      serializedVersion: 2
+      Hash: e43837876131416c89a3cfc1a05620ef
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.NetworkRoom
+    className: PlayerScore
+  - hash:
+      serializedVersion: 2
+      Hash: d3e9c223c0e0e2fa58c491dff2f04e72
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.NetworkRoom
+    className: Reward
+  - hash:
+      serializedVersion: 2
+      Hash: 6652c8e54211b35e724b7f0df716771a
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.MultipleMatch
+    className: MatchController
+  - hash:
+      serializedVersion: 2
+      Hash: c5bf757e45517373f48138682b6cc89f
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.AdditiveScenes
+    className: ZoneHandler
+  - hash:
+      serializedVersion: 2
+      Hash: 752ca111874f338077b8ced87df3f245
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.MultipleAdditiveScenes
+    className: PhysicsCollision
+  - hash:
+      serializedVersion: 2
+      Hash: 5085c149ae898c11398927898b806b9c
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror
+    className: NetworkMatch
+  - hash:
+      serializedVersion: 2
+      Hash: f7bbe0509e49b1c524a98dd32f8807a1
+    assemblyName: Mirror.Transports.dll
+    namespaceName: Mirror
+    className: LatencySimulation
+  - hash:
+      serializedVersion: 2
+      Hash: 3b799886e566bb0a66de22c215817901
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror
+    className: NetworkPingDisplay
+  - hash:
+      serializedVersion: 2
+      Hash: d95867ebef812a494b81a1c934f3bc15
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Pong
+    className: Player
+  - hash:
+      serializedVersion: 2
+      Hash: 9c284d05432de6344254221d45d14bf2
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Chat
+    className: ChatNetworkManager
+  - hash:
+      serializedVersion: 2
+      Hash: bf59c58c82fdaf3fa0615258d88242df
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.NetworkRoom
+    className: NetworkRoomManagerExt
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Mirror.dll
+    namespaceName: Mirror
+    className: NetworkStartPosition
+  - hash:
+      serializedVersion: 2
+      Hash: 89b09b5ffb25a6bef0ade2160bb9f2cf
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.CCU
+    className: CCUNetworkManager
+  - hash:
+      serializedVersion: 2
+      Hash: aa4e3303a7da9a51ec05475e937e5f7d
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.NetworkRoom
+    className: PlayerController
+  - hash:
+      serializedVersion: 2
+      Hash: 314e23eec67b8715d6e57ad385d05ba0
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.AdditiveLevels
+    className: RandomColor
+  - hash:
+      serializedVersion: 2
+      Hash: 6bca8cc8b24965398fd5f3eb56c0c867
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Chat
+    className: ChatAuthenticator
+  - hash:
+      serializedVersion: 2
+      Hash: 5071eedf7a18e3e85b41c0594ad2c036
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.MultipleMatch
+    className: MatchNetworkManager
+  - hash:
+      serializedVersion: 2
+      Hash: 8617aadb248da95f2695ca5669494400
+    assemblyName: Mirror.Transports.dll
+    namespaceName: Mirror
+    className: TelepathyTransport
+  - hash:
+      serializedVersion: 2
+      Hash: d54347e44f5f47daba3a817cf2d1fc54
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Basic
+    className: Player
+  - hash:
+      serializedVersion: 2
+      Hash: aa4e3303a7da9a51ec05475e937e5f7d
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.MultipleAdditiveScenes
+    className: PlayerController
+  - hash:
+      serializedVersion: 2
+      Hash: 9c284d05432de6344254221d45d14bf2
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Basic
+    className: BasicNetManager
+  - hash:
+      serializedVersion: 2
+      Hash: 35643f4001faea1b762b780d770b105e
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror.Experimental
+    className: NetworkRigidbody2D
+  - hash:
+      serializedVersion: 2
+      Hash: 5a03e8204c0117e95ab251326cd6bf74
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.AdditiveLevels
+    className: FadeInOut
+  - hash:
+      serializedVersion: 2
+      Hash: 2794388f422014fa80b187c00787d598
+    assemblyName: Mirror.dll
+    namespaceName: Mirror
+    className: NetworkIdentity
+  - hash:
+      serializedVersion: 2
+      Hash: 314e23eec67b8715d6e57ad385d05ba0
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.NetworkRoom
+    className: RandomColor
+  - hash:
+      serializedVersion: 2
+      Hash: 6e02cb84a046f7905b5c925b0b530326
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror
+    className: RemoteStatistics
+  - hash:
+      serializedVersion: 2
+      Hash: 996ab6f63c29d8bd7edbdf0f4d6c46a8
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror
+    className: NetworkStatistics
+  - hash:
+      serializedVersion: 2
+      Hash: 1c520ea290124f8419cda0944db9a8fc
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror.Experimental
+    className: NetworkLerpRigidbody
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror
+    className: TeamInterestManagement
+  - hash:
+      serializedVersion: 2
+      Hash: d3e9c223c0e0e2fa58c491dff2f04e72
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.MultipleAdditiveScenes
+    className: Reward
+  - hash:
+      serializedVersion: 2
+      Hash: 9f9957bfc0355d02a6d0f9fc427e3982
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Basic
+    className: CanvasUI
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror
+    className: SceneInterestManagement
+  - hash:
+      serializedVersion: 2
+      Hash: 3bf268d04ee1e5ba78927f3698dadf09
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror
+    className: NetworkLobbyManager
+  - hash:
+      serializedVersion: 2
+      Hash: 5085c149ae898c11398927898b806b9c
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.MultipleAdditiveScenes
+    className: PlayerCamera
+  - hash:
+      serializedVersion: 2
+      Hash: 3bf268d04ee1e5ba78927f3698dadf09
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror
+    className: NetworkRoomManager
+  - hash:
+      serializedVersion: 2
+      Hash: e684da0450fc879b2dc96948e058021d
+    assemblyName: Mirror.Authenticators.dll
+    namespaceName: Mirror.Authenticators
+    className: TimeoutAuthenticator
+  - hash:
+      serializedVersion: 2
+      Hash: 1fc15c1b2f64fedcdb0467558c4f748e
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.MultipleAdditiveScenes
+    className: MultiSceneNetManager
+  - hash:
+      serializedVersion: 2
+      Hash: e261274cc1b3eab9f65f3c57169c19fa
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror.Experimental
+    className: NetworkRigidbody
+  - hash:
+      serializedVersion: 2
+      Hash: 28f0b7dc4aa4a32304979bbc0342c3c3
+    assemblyName: Mirror.dll
+    namespaceName: Mirror
+    className: NetworkManagerHUD
+  - hash:
+      serializedVersion: 2
+      Hash: cd85cd0021d4c0ab017ad69b7f3332b5
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.MultipleMatch
+    className: CanvasController
+  - hash:
+      serializedVersion: 2
+      Hash: 67d6d53530634cd2e252f8b19d4f293f
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.RigidbodyPhysics
+    className: AddForce
+  - hash:
+      serializedVersion: 2
+      Hash: cf88009ab7db4b3ae90b7724325819b4
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror
+    className: NetworkAnimator
+  - hash:
+      serializedVersion: 2
+      Hash: f61c040f6d2615f5633257d6ead0921d
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror
+    className: DistanceInterestManagement
+  - hash:
+      serializedVersion: 2
+      Hash: e45a733ac31e080bd406e5dc6a8c314e
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Common
+    className: FPS
+  - hash:
+      serializedVersion: 2
+      Hash: 81d22489120c4601d856b95e31a946cf
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.SnapshotInterpolationDemo
+    className: ClientCube
+  - hash:
+      serializedVersion: 2
+      Hash: b4f5b310d99119533fe0861635f2f96f
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Chat
+    className: Player
+  - hash:
+      serializedVersion: 2
+      Hash: 671daf53b19ae871162ad5bc911bf756
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.AdditiveScenes
+    className: AdditiveNetworkManager
+  - hash:
+      serializedVersion: 2
+      Hash: 9c215ccf8a582b0adad8d45fa450d638
+    assemblyName: Mirror.Authenticators.dll
+    namespaceName: Mirror.Authenticators
+    className: DeviceAuthenticator
+  - hash:
+      serializedVersion: 2
+      Hash: 9eab75a62d67d5b85465dc48db648384
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.CCU
+    className: Player
+  - hash:
+      serializedVersion: 2
+      Hash: 7d0d8a6bda0270f7769bff191dd674bc
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Pong
+    className: NetworkManagerPong
+  - hash:
+      serializedVersion: 2
+      Hash: c9ae47897c093a4310842745f36de59c
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Tanks
+    className: Tank
+  - hash:
+      serializedVersion: 2
+      Hash: cf95add559be53ae8bfdfcea86c5a18f
+    assemblyName: MultiplexTransport.dll
+    namespaceName: Mirror
+    className: MultiplexTransport
+  - hash:
+      serializedVersion: 2
+      Hash: 26d5c4d3aa5e668e2a134fd27c936004
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.MultipleMatch
+    className: CellGUI
+  - hash:
+      serializedVersion: 2
+      Hash: e3b37e42e2adda0b92f4b82fefb00e71
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.MultipleAdditiveScenes
+    className: PlayerScore
+  - hash:
+      serializedVersion: 2
+      Hash: d17f8a6c5382f5422b60b87552ec75d1
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.AdditiveScenes
+    className: ShootingTankBehaviour
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.MultipleAdditiveScenes
+    className: PhysicsSimulator
+  - hash:
+      serializedVersion: 2
+      Hash: 3618c1889fab43585d63e0ee59c37c96
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Chat
+    className: ChatUI
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror
+    className: MatchInterestManagement
+  - hash:
+      serializedVersion: 2
+      Hash: 314e23eec67b8715d6e57ad385d05ba0
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.AdditiveScenes
+    className: RandomColor
+  - hash:
+      serializedVersion: 2
+      Hash: 19979dcd2d56dc5da71c441ddd5e73a0
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.CCU
+    className: Monster
+  - hash:
+      serializedVersion: 2
+      Hash: aa4e3303a7da9a51ec05475e937e5f7d
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.AdditiveScenes
+    className: PlayerController
+  - hash:
+      serializedVersion: 2
+      Hash: cea76a9cbe8908be837cd602cf56693c
+    assemblyName: Mirror.Authenticators.dll
+    namespaceName: Mirror.Authenticators
+    className: BasicAuthenticator
+  - hash:
+      serializedVersion: 2
+      Hash: 19979dcd2d56dc5da71c441ddd5e73a0
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Benchmark
+    className: MonsterMovement
+  - hash:
+      serializedVersion: 2
+      Hash: e1cb065387a91d0d5f04a24ea55a3cf5
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror
+    className: NetworkTransformReliable
+  - hash:
+      serializedVersion: 2
+      Hash: 5085c149ae898c11398927898b806b9c
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.AdditiveLevels
+    className: PlayerCamera
+  - hash:
+      serializedVersion: 2
+      Hash: 9e00133549897857ed7ddb30342642ba
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror
+    className: DistanceInterestManagementCustomRange
+  - hash:
+      serializedVersion: 2
+      Hash: e229ce2ca02b83e9b7958612aeff667f
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror.Discovery
+    className: NetworkDiscovery
+  - hash:
+      serializedVersion: 2
+      Hash: 306f6c6830d6725abf0598650905dcd4
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror
+    className: GUIConsole
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Tanks
+    className: FaceCamera
+  - hash:
+      serializedVersion: 2
+      Hash: 3fe74dd3b211760c4ed03510eafabc55
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.MultipleMatch
+    className: RoomGUI
+  - hash:
+      serializedVersion: 2
+      Hash: 0e68c7511d0bb7746e68316200e21bb0
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror
+    className: SpatialHashingInterestManagement
+  - hash:
+      serializedVersion: 2
+      Hash: 314e23eec67b8715d6e57ad385d05ba0
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.MultipleAdditiveScenes
+    className: RandomColor
+  - hash:
+      serializedVersion: 2
+      Hash: bb22e14052321c02d95d52f52ec9586f
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Benchmark
+    className: PlayerMovement
+  - hash:
+      serializedVersion: 2
+      Hash: 0f247354951f04ddbeded0ae0027ee3f
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.NetworkRoom
+    className: NetworkRoomPlayerExt
+  - hash:
+      serializedVersion: 2
+      Hash: fc67f14ea89c506f4f65b0b93f858139
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.MultipleMatch
+    className: PlayerGUI
+  - hash:
+      serializedVersion: 2
+      Hash: 9c284d05432de6344254221d45d14bf2
+    assemblyName: Mirror.dll
+    namespaceName: Mirror
+    className: NetworkManager
+  - hash:
+      serializedVersion: 2
+      Hash: 800d5232127e2d4db254cbcd9eaad793
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Chat
+    className: LoginUI
+  - hash:
+      serializedVersion: 2
+      Hash: 5085c149ae898c11398927898b806b9c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Menager
   platform: 13
   scenePathNames:
   - Assets/Scenes/Menu.unity
   - Assets/Scenes/Game.unity
   - Assets/Scenes/Settings.unity
+  - Assets/Scenes/Multiplayer.unity
   playerPath: D:/Work()/.projects/git_Mystic_Mage/Andriod build/Mystic Mage build.apk
