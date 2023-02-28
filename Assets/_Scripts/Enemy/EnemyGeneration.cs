@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System;
+
+using Random = UnityEngine.Random;
 
 public class EnemyGeneration : MonoBehaviour
 {
@@ -13,6 +16,7 @@ public class EnemyGeneration : MonoBehaviour
 
     private float maxPlayerSpeed = 12f;
     private float maxMutantSpeed = 11f;
+    private float currentMutantSpeed;
 
     private float gameSpeed;
     private Skills playerScript;
@@ -47,7 +51,8 @@ public class EnemyGeneration : MonoBehaviour
         if (player != null)
         {
             timeScore += Time.deltaTime / gameSpeed;
-            timerText.text = timeScore.ToString();
+            string formatStr = $"Time alive: {Format(timeScore)}";
+            timerText.text = formatStr;
         }
         else
         {
@@ -110,6 +115,8 @@ public class EnemyGeneration : MonoBehaviour
             playerScript.ultimateLevel = 30;
         }
 
+        currentMutantSpeed += 0.0001f;
+
         GameObject[] enemyObjects = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemyObject in enemyObjects)
         {
@@ -118,7 +125,7 @@ public class EnemyGeneration : MonoBehaviour
             {
                 if (enemyComponent.navMeshAgent.velocity.magnitude <= maxMutantSpeed)
                 {
-                    enemyComponent.navMeshAgent.speed += 0.0001f;
+                    enemyComponent.navMeshAgent.speed = currentMutantSpeed;
                 }
             }
         }
@@ -160,6 +167,21 @@ public class EnemyGeneration : MonoBehaviour
             Instantiate(zombiePrefab, spawnPos, randomRotation, transform);
             yield return new WaitForSeconds(spawnInterval / 2);
         }
+    }
+
+    private static string Format(float seconds)
+    {
+        TimeSpan ts = TimeSpan.FromSeconds(seconds);
+
+        if (ts.Hours != 0) return $"{ts.Hours} d, {ts.Minutes} m, {ts.Seconds} s";
+        else if (ts.Minutes != 0) return $"0 d, {ts.Minutes} m, {ts.Seconds} s";
+        else if (ts.Seconds != 0) return $"0 d, 0 m, {ts.Seconds} s";
+        else
+        {
+            Debug.LogWarning("Err in formationg time");
+        }
+
+        return "";
     }
 
     private void OnApplicationQuit()

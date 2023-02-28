@@ -257,15 +257,15 @@ public class Skills : MonoBehaviour
 
         // Health
         healthImage.fillAmount = health / 100;
-        killsCounter.text = killsCounterInt.ToString("000");
-        healthText.text = $"{health} / 100".ToString();
+        killsCounter.text = $"Kills: {killsCounterInt}";
+        healthText.text = $"{health} / 100";
 
         if (health <= 0 || transform.position.y <= -10f)
         {
             Destroy(gameObject);
         }
 
-        skillsLevel.text = $"Skills level: {meteorLevel.ToString()}";
+        skillsLevel.text = $"Level: {meteorLevel}";
 
         #endregion
 
