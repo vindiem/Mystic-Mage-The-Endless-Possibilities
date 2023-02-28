@@ -173,15 +173,15 @@ public class EnemyGeneration : MonoBehaviour
     {
         TimeSpan ts = TimeSpan.FromSeconds(seconds);
 
-        if (ts.Hours != 0) return $"{ts.Hours} d, {ts.Minutes} m, {ts.Seconds} s";
-        else if (ts.Minutes != 0) return $"0 d, {ts.Minutes} m, {ts.Seconds} s";
-        else if (ts.Seconds != 0) return $"0 d, 0 m, {ts.Seconds} s";
+        if (ts.Hours != 0) return $"{ts.Hours} h, {ts.Minutes} m, {ts.Seconds} s";
+        else if (ts.Minutes != 0) return $"0 h, {ts.Minutes} m, {ts.Seconds} s";
+        else if (ts.Seconds != 0) return $"0 h, 0 m, {ts.Seconds} s";
         else
         {
-            Debug.LogWarning("Err in formationg time");
+            Debug.LogWarning("Err in formating time");
         }
 
-        return "";
+        return "0 h, 0 m, 0 s";
     }
 
     private void OnApplicationQuit()

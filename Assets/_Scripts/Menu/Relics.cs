@@ -1,4 +1,5 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -46,12 +47,12 @@ public class Relics : MonoBehaviour
         if (bestScoreTimeText != null)
         {
             bestScoreTime = PlayerPrefs.GetFloat("BestScore");
-            bestScoreTimeText.text = $"best score: " + bestScoreTime.ToString("0") + " seconds";
+            bestScoreTimeText.text = $"Best score: " + Format(bestScoreTime);
         }
         if (bestScoreKillsText != null)
         {
             bestScoreKills = PlayerPrefs.GetInt("BestScoreKills");
-            bestScoreKillsText.text = $"kills: " + bestScoreKills.ToString("0");
+            bestScoreKillsText.text = $"Best score kills: " + bestScoreKills;
         }
 
     }
@@ -155,58 +156,21 @@ public class Relics : MonoBehaviour
             murp = 1;
         }
 
-        /*
-                PlayerPrefs.SetFloat("mMRP", mMRP);
-                PlayerPrefs.SetFloat("mTRP", mTRP);
-                PlayerPrefs.SetFloat("mFRP", mFRP);
-                PlayerPrefs.SetFloat("mWRP", mWRP);
-                PlayerPrefs.SetFloat("mURP", mURP);
+    }
 
-                if (MRP > mMRP && MRP <= 100)
-                {
-                    mMRP *= 2;
-                }
-                else if (MRP > 100)
-                {
-                    mMRP = 1;
-                }
+    private static string Format(float seconds)
+    {
+        TimeSpan ts = TimeSpan.FromSeconds(seconds);
 
-                if (TRP > mTRP && TRP <= 100)
-                {
-                    mTRP *= 2;
-                }
-                else if (TRP > 100)
-                {
-                    mTRP = 1;
-                }
+        if (ts.Hours != 0) return $"{ts.Hours} h, {ts.Minutes} m, {ts.Seconds} s";
+        else if (ts.Minutes != 0) return $"0 h, {ts.Minutes} m, {ts.Seconds} s";
+        else if (ts.Seconds != 0) return $"0 h, 0 m, {ts.Seconds} s";
+        else
+        {
+            Debug.LogWarning("Err in formating time");
+        }
 
-                if (FRP > mFRP && FRP <= 100)
-                {
-                    mFRP *= 2;
-                }
-                else if (FRP > 100)
-                {
-                    mFRP = 1;
-                }
-
-                if (WRP > mWRP && WRP <= 100)
-                {
-                    mWRP *= 2;
-                }
-                else if (WRP > 100)
-                {
-                    mWRP = 1;
-                }
-
-                if (URP > mURP && URP <= 100)
-                {
-                    mURP *= 2;
-                }
-                else if (URP > 100)
-                {
-                    mURP = 1;
-                }
-        */
+        return "0 h, 0 m, 0 s";
     }
 
 }
