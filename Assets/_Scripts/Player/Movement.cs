@@ -42,6 +42,10 @@ public class Movement : MonoBehaviour
     //[SerializeField] private Button jumpButton;
     //[SerializeField] private Scrollbar scrollbar;
 
+    [Header("Sounds")]
+    public AudioSource runningSound;
+    public AudioSource breathingSound;
+
     private void Awake()
     {
         string mt = PlayerPrefs.GetString("MovementType");
@@ -84,6 +88,8 @@ public class Movement : MonoBehaviour
                 attackJoystick.gameObject.SetActive(false);
                 break;
         }
+
+        runningSound.mute = true;
 
     }
 
@@ -196,6 +202,9 @@ public class Movement : MonoBehaviour
 
         if (HorizontalAxis != 0 || VerticalAxis != 0)
         {
+            runningSound.mute = false;
+            breathingSound.mute = true;
+
             Vector3 rotateDirection = new Vector3(HorizontalAxis, 0, VerticalAxis);
 
             transform.rotation = Quaternion.Slerp(transform.rotation, 
@@ -207,6 +216,8 @@ public class Movement : MonoBehaviour
         }
         else
         {
+            runningSound.mute = true;
+            breathingSound.mute = false;
             animator.SetBool("isRunning", false);
         }
 

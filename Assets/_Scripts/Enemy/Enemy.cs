@@ -56,9 +56,11 @@ public class Enemy : MonoBehaviour
 
     private Animator relicPlate;
 
+    [Header("Sounds")]
     private AudioSource m_audioSource;
     public AudioClip deathSound;
     public AudioClip attackSound;
+    private AudioSource runningSource;
 
     private void Start()
     {
@@ -107,6 +109,9 @@ public class Enemy : MonoBehaviour
 
         // Audio source
         m_audioSource = GameObject.FindGameObjectWithTag("Sounds").GetComponent<AudioSource>();
+        runningSource = GameObject.FindGameObjectWithTag("Zombie running").GetComponent<AudioSource>();
+
+        runningSource.mute = true;
 
     }
 
@@ -147,6 +152,7 @@ public class Enemy : MonoBehaviour
             if (marker == null)
             {
                 navMeshAgent.SetDestination(player.position);
+                runningSource.mute = false;
 
                 Destroy(damageCollider);
                 animator.SetBool("isAttacking", false);
@@ -154,6 +160,8 @@ public class Enemy : MonoBehaviour
 
             if (Time.time >= nextAttackTime && distance < maxAttackRange)
             {
+                runningSource.mute = true;
+
                 PlaceMarker();
 
                 #region Difference attack animations
