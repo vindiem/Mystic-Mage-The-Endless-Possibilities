@@ -11,7 +11,7 @@ public class MenuSettings : MonoBehaviour
     private string movementType;
 
     public Slider volumeSlider;
-    public Slider qualitySlider;
+    public Slider shadowSlider;
     public Slider masterTextureLimitSlider;
     public Slider AntiAliasingSlider;
     public Slider LodBiasSlider;
@@ -20,7 +20,7 @@ public class MenuSettings : MonoBehaviour
     private void Start()
     {
         volumeSlider.value = PlayerPrefs.GetFloat("Volume");
-        qualitySlider.value = PlayerPrefs.GetInt("Quality");
+        shadowSlider.value = PlayerPrefs.GetInt("Shadows");
         masterTextureLimitSlider.value = PlayerPrefs.GetInt("MasterTextureLimit");
         AntiAliasingSlider.value = PlayerPrefs.GetInt("AntiAliasing");
         VSyncSlider.value = PlayerPrefs.GetInt("VSync");
@@ -70,11 +70,22 @@ public class MenuSettings : MonoBehaviour
         PlayerPrefs.SetFloat("Volume", volumeValue);
     }
 
-    public void QualitySet()
+    public void ShadowsSet()
     {
-        int qualityValue = (int)qualitySlider.value;
-        PlayerPrefs.SetInt("Quality", qualityValue);
-        QualitySettings.SetQualityLevel(qualityValue, true);
+        int shadowValue = (int)shadowSlider.value;
+        PlayerPrefs.SetInt("Shadows", shadowValue);
+        if (shadowValue == 0)
+        {
+            QualitySettings.shadows = ShadowQuality.Disable;
+        }
+        else if (shadowValue == 1)
+        {
+            QualitySettings.shadows = ShadowQuality.HardOnly;
+        }
+        else if (shadowValue == 2)
+        {
+            QualitySettings.shadows = ShadowQuality.All;
+        }
     }
 
     public void MasterTextureLimitSet()

@@ -1363,16 +1363,16 @@ MonoBehaviour:
   m_FillRect: {fileID: 69043920}
   m_HandleRect: {fileID: 648895163}
   m_Direction: 0
-  m_MinValue: 1
-  m_MaxValue: 5
+  m_MinValue: 0
+  m_MaxValue: 2
   m_WholeNumbers: 1
-  m_Value: 4
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 969621769}
         m_TargetAssemblyTypeName: MenuSettings, Assembly-CSharp
-        m_MethodName: QualitySet
+        m_MethodName: ShadowsSet
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2818,7 +2818,7 @@ MonoBehaviour:
   selectIndicatorButton: {fileID: 1407464314}
   selectIndicatorJoystick: {fileID: 1357559421}
   volumeSlider: {fileID: 1458270487}
-  qualitySlider: {fileID: 423989499}
+  shadowSlider: {fileID: 423989499}
   masterTextureLimitSlider: {fileID: 1547876759}
   AntiAliasingSlider: {fileID: 728893653}
   LodBiasSlider: {fileID: 469744724}
