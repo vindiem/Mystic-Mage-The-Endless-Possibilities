@@ -1,15 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
-using Photon.Pun;
 
 public class Skills : MonoBehaviour
 {
-    private PhotonView photonView;
-
     // Scripts
     [SerializeField] private Enemy enemy;
     [HideInInspector] public Movement movementScript;
@@ -97,8 +93,6 @@ public class Skills : MonoBehaviour
 
     private void Start()
     {
-        photonView = GetComponent<PhotonView>();
-
         movementScript = GetComponent<Movement>();
 
         switch (movementScript.movementType)
@@ -165,10 +159,6 @@ public class Skills : MonoBehaviour
 
     private void Update()
     {
-        if (SceneManager.GetActiveScene().name != "Game")
-        {
-            if (!photonView.IsMine) return;
-        }
 
         #region Skills using
 

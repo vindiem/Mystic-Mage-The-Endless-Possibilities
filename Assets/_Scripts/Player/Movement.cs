@@ -1,14 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using Photon.Pun;
 
 public class Movement : MonoBehaviour
 {
-    private PhotonView photonView;
-
     public enum MovementType
     {
         Keyboard,
@@ -99,11 +95,6 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        if (SceneManager.GetActiveScene().name != "Game")
-        {
-            if (!photonView.IsMine) return;
-        }
-
         switch (movementType)
         {
             case MovementType.Keyboard:
