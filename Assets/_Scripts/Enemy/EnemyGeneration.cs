@@ -115,7 +115,7 @@ public class EnemyGeneration : MonoBehaviour
             playerScript.ultimateLevel = 30;
         }
 
-        currentMutantSpeed += 0.0001f;
+        currentMutantSpeed = playerScriptMovenment.movementSpeed - 0.35f;
 
         GameObject[] enemyObjects = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemyObject in enemyObjects)
@@ -129,6 +129,7 @@ public class EnemyGeneration : MonoBehaviour
                 }
             }
         }
+
     }
 
     private IEnumerator GameOver()
@@ -176,10 +177,6 @@ public class EnemyGeneration : MonoBehaviour
         if (ts.Hours != 0) return $"{ts.Hours} h, {ts.Minutes} m, {ts.Seconds} s";
         else if (ts.Minutes != 0) return $"0 h, {ts.Minutes} m, {ts.Seconds} s";
         else if (ts.Seconds != 0) return $"0 h, 0 m, {ts.Seconds} s";
-        else
-        {
-            Debug.LogWarning("Err in formating time");
-        }
 
         return "0 h, 0 m, 0 s";
     }
