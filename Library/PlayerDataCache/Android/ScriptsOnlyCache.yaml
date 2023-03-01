@@ -30,13 +30,14 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.TilemapEditorToolPreferences
     - UnityEditor.Tilemaps.TilemapPrefabStageHelper
     Unity.Rider.Editor.dll:
-    - Packages.Rider.Editor.RiderScriptEditorData
     - Packages.Rider.Editor.UnitTesting.CallbackData
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -160,14 +161,26 @@ ScriptsOnlyBuild:
     fullTypeName: MenuSettings
     methodName: QualitySet
   - assembly: Assembly-CSharp
+    fullTypeName: MenuSettings
+    methodName: LodBiasSet
+  - assembly: Assembly-CSharp
     fullTypeName: LoadScenes
     methodName: LoadScene
+  - assembly: Assembly-CSharp
+    fullTypeName: MenuSettings
+    methodName: AntiAliasingSet
   - assembly: Assembly-CSharp
     fullTypeName: MenuSettings
     methodName: MovementSet
   - assembly: Assembly-CSharp
     fullTypeName: MenuSettings
     methodName: VolumeSet
+  - assembly: Assembly-CSharp
+    fullTypeName: MenuSettings
+    methodName: MasterTextureLimitSet
+  - assembly: Assembly-CSharp
+    fullTypeName: MenuSettings
+    methodName: VSyncSet
   sceneClasses:
     Assets/Scenes/Game.unity:
     - Class: 1
@@ -1239,7 +1252,7 @@ ScriptsOnlyBuild:
     className: CinemachineRecomposer
   - hash:
       serializedVersion: 2
-      Hash: 074a499223fba8c38b8e19f2a4c2b578
+      Hash: 7fb2ad09c350a0a285063ef237920a4c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MenuSettings

@@ -12,12 +12,19 @@ public class MenuSettings : MonoBehaviour
 
     public Slider volumeSlider;
     public Slider qualitySlider;
+    public Slider masterTextureLimitSlider;
+    public Slider AntiAliasingSlider;
+    public Slider LodBiasSlider;
+    public Slider VSyncSlider;
 
     private void Start()
     {
         volumeSlider.value = PlayerPrefs.GetFloat("Volume");
         qualitySlider.value = PlayerPrefs.GetInt("Quality");
-
+        masterTextureLimitSlider.value = PlayerPrefs.GetInt("MasterTextureLimit");
+        AntiAliasingSlider.value = PlayerPrefs.GetInt("AntiAliasing");
+        VSyncSlider.value = PlayerPrefs.GetInt("VSync");
+        LodBiasSlider.value = PlayerPrefs.GetFloat("LodBias");
     }
 
     private void Update()
@@ -69,5 +76,34 @@ public class MenuSettings : MonoBehaviour
         PlayerPrefs.SetInt("Quality", qualityValue);
         QualitySettings.SetQualityLevel(qualityValue, true);
     }
+
+    public void MasterTextureLimitSet()
+    {
+        int masterTextureLimitValue = (int)masterTextureLimitSlider.value;
+        PlayerPrefs.SetInt("MasterTextureLimit", masterTextureLimitValue);
+        QualitySettings.masterTextureLimit = masterTextureLimitValue;
+    }
+
+    public void AntiAliasingSet()
+    {
+        int antiAliasingValue = (int)AntiAliasingSlider.value;
+        PlayerPrefs.SetInt("AntiAliasing", antiAliasingValue);
+        QualitySettings.antiAliasing = antiAliasingValue;
+    }
+    
+    public void VSyncSet()
+    {
+        int VSyncValue = (int)VSyncSlider.value;
+        PlayerPrefs.SetInt("VSync", VSyncValue);
+        QualitySettings.vSyncCount = VSyncValue;
+    }
+
+    public void LodBiasSet()
+    {
+        float LodBiasValue = LodBiasSlider.value;
+        PlayerPrefs.SetFloat("LodBias", LodBiasValue);
+        QualitySettings.lodBias = LodBiasValue;
+    }
+
 
 }
