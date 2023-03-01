@@ -122,7 +122,6 @@ public class Enemy : MonoBehaviour
             animator.SetBool("isAttacking", false);
             return;
         }
-
         if (navMeshAgent.enabled == false)
         {
             return;
