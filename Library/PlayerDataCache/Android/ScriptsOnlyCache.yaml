@@ -10,6 +10,7 @@ ScriptsOnlyBuild:
     - LoadScenes
     - MenuSettings
     - Movement
+    - Pause
     - Relics
     - Skills
     Cinemachine.dll:
@@ -29,14 +30,13 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.TilemapEditorToolPreferences
     - UnityEditor.Tilemaps.TilemapPrefabStageHelper
     Unity.Rider.Editor.dll:
+    - Packages.Rider.Editor.RiderScriptEditorData
     - Packages.Rider.Editor.UnitTesting.CallbackData
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -97,6 +97,9 @@ ScriptsOnlyBuild:
     fullTypeName: Skills
     methodName: Fire
   - assembly: Assembly-CSharp
+    fullTypeName: Pause
+    methodName: PauseSet
+  - assembly: Assembly-CSharp
     fullTypeName: Skills
     methodName: Ultimate
   - assembly: Assembly-CSharp
@@ -130,6 +133,9 @@ ScriptsOnlyBuild:
     fullTypeName: CameraMouseControl
     methodName: ScrollBarSetValue
   - assembly: Assembly-CSharp
+    fullTypeName: LoadScenes
+    methodName: LoadScene
+  - assembly: Assembly-CSharp
     fullTypeName: Skills
     methodName: Ultimate
   - assembly: Assembly-CSharp
@@ -141,6 +147,12 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: Skills
     methodName: MeteorInvoke
+  - assembly: Assembly-CSharp
+    fullTypeName: LoadScenes
+    methodName: LoadScene
+  - assembly: Assembly-CSharp
+    fullTypeName: LoadScenes
+    methodName: LoadScene
   - assembly: Assembly-CSharp
     fullTypeName: MenuSettings
     methodName: MovementSet
@@ -205,49 +217,51 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1706}
     - Class: 114
-      Script: {instanceID: 2196}
+      Script: {instanceID: 2192}
     - Class: 114
-      Script: {instanceID: 2280}
+      Script: {instanceID: 2276}
     - Class: 114
-      Script: {instanceID: 2408}
+      Script: {instanceID: 2404}
     - Class: 114
-      Script: {instanceID: 2530}
+      Script: {instanceID: 2500}
     - Class: 114
-      Script: {instanceID: 2568}
+      Script: {instanceID: 2528}
     - Class: 114
-      Script: {instanceID: 2602}
+      Script: {instanceID: 2566}
     - Class: 114
-      Script: {instanceID: 2668}
+      Script: {instanceID: 2600}
     - Class: 114
-      Script: {instanceID: 2728}
+      Script: {instanceID: 2666}
     - Class: 114
-      Script: {instanceID: 2794}
+      Script: {instanceID: 2726}
     - Class: 114
-      Script: {instanceID: 2824}
+      Script: {instanceID: 2792}
     - Class: 114
-      Script: {instanceID: 2856}
+      Script: {instanceID: 2822}
     - Class: 114
-      Script: {instanceID: 2900}
+      Script: {instanceID: 2854}
     - Class: 114
-      Script: {instanceID: 2976}
+      Script: {instanceID: 2898}
     - Class: 114
-      Script: {instanceID: 3088}
+      Script: {instanceID: 2974}
     - Class: 114
-      Script: {instanceID: 3096}
+      Script: {instanceID: 3086}
     - Class: 114
-      Script: {instanceID: 3182}
+      Script: {instanceID: 3094}
     - Class: 114
-      Script: {instanceID: 3356}
+      Script: {instanceID: 3180}
     - Class: 114
-      Script: {instanceID: 3680}
+      Script: {instanceID: 3354}
     - Class: 114
-      Script: {instanceID: 3692}
+      Script: {instanceID: 3678}
     - Class: 114
-      Script: {instanceID: 4040}
+      Script: {instanceID: 3690}
     - Class: 114
-      Script: {instanceID: 4142}
+      Script: {instanceID: 4038}
     - Class: 114
-      Script: {instanceID: 4448}
+      Script: {instanceID: 4140}
+    - Class: 114
+      Script: {instanceID: 4446}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -277,31 +291,6 @@ ScriptsOnlyBuild:
     - Class: 224
       Script: {instanceID: 0}
     - Class: 238
-      Script: {instanceID: 0}
-    Assets/Scenes/Lobby.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 21
-      Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 48
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 89
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 108
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
-    - Class: 196
       Script: {instanceID: 0}
     Assets/Scenes/Menu.unity:
     - Class: 1
@@ -337,23 +326,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1706}
     - Class: 114
-      Script: {instanceID: 2280}
+      Script: {instanceID: 2276}
     - Class: 114
-      Script: {instanceID: 2602}
+      Script: {instanceID: 2600}
     - Class: 114
-      Script: {instanceID: 2728}
+      Script: {instanceID: 2726}
     - Class: 114
-      Script: {instanceID: 2900}
+      Script: {instanceID: 2898}
     - Class: 114
-      Script: {instanceID: 2976}
+      Script: {instanceID: 2974}
     - Class: 114
-      Script: {instanceID: 3088}
+      Script: {instanceID: 3086}
     - Class: 114
-      Script: {instanceID: 3182}
+      Script: {instanceID: 3180}
     - Class: 114
-      Script: {instanceID: 3230}
+      Script: {instanceID: 3228}
     - Class: 114
-      Script: {instanceID: 3692}
+      Script: {instanceID: 3690}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -404,35 +393,35 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1706}
     - Class: 114
-      Script: {instanceID: 1860}
+      Script: {instanceID: 1856}
     - Class: 114
-      Script: {instanceID: 1920}
+      Script: {instanceID: 1916}
     - Class: 114
-      Script: {instanceID: 2280}
+      Script: {instanceID: 2276}
     - Class: 114
-      Script: {instanceID: 2602}
+      Script: {instanceID: 2600}
     - Class: 114
-      Script: {instanceID: 2728}
+      Script: {instanceID: 2726}
     - Class: 114
-      Script: {instanceID: 2900}
+      Script: {instanceID: 2898}
     - Class: 114
-      Script: {instanceID: 2976}
+      Script: {instanceID: 2974}
     - Class: 114
-      Script: {instanceID: 3088}
+      Script: {instanceID: 3086}
     - Class: 114
-      Script: {instanceID: 3096}
+      Script: {instanceID: 3094}
     - Class: 114
-      Script: {instanceID: 3182}
+      Script: {instanceID: 3180}
     - Class: 114
-      Script: {instanceID: 3692}
+      Script: {instanceID: 3690}
     - Class: 114
-      Script: {instanceID: 3772}
+      Script: {instanceID: 3770}
     - Class: 114
-      Script: {instanceID: 3920}
+      Script: {instanceID: 3918}
     - Class: 114
-      Script: {instanceID: 4054}
+      Script: {instanceID: 4052}
     - Class: 114
-      Script: {instanceID: 4584}
+      Script: {instanceID: 4582}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -660,6 +649,12 @@ ScriptsOnlyBuild:
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachineOrbitalTransposer
+  - hash:
+      serializedVersion: 2
+      Hash: 9a7f0507dfa0b7fc2acd6b1005c9eeba
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Pause
   - hash:
       serializedVersion: 2
       Hash: 1982d675a95a3c283e453835ca63a968
@@ -1301,5 +1296,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Menu.unity
   - Assets/Scenes/Game.unity
   - Assets/Scenes/Settings.unity
-  - Assets/Scenes/Lobby.unity
   playerPath: D:/Work()/.projects/git_Mystic_Mage/Andriod build/Mystic Mage build.apk
