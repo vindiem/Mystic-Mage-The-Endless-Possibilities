@@ -42,6 +42,7 @@ public class Enemy : MonoBehaviour
     private bool waveDeath = false;
 
     private LevelCoins lc;
+    public GameObject coinPrefab;
 
     public enum Element
     {
@@ -219,9 +220,9 @@ public class Enemy : MonoBehaviour
             int coinAddChance = Random.Range(0, 5);
             if (coinAddChance == 0)
             {
-                int coins = PlayerPrefs.GetInt("Coins");
-                coins++;
-                PlayerPrefs.SetInt("Coins", coins);
+                Vector3 spawnPosition = new Vector3(transform.position.x, 
+                    transform.position.y + 2f, transform.position.z);
+                Instantiate(coinPrefab, spawnPosition, Quaternion.identity);
             }
 
             playerScript.killsCounterInt++;

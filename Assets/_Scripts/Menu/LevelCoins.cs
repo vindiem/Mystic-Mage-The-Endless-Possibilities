@@ -25,7 +25,7 @@ public class LevelCoins : MonoBehaviour
 
     private void Update()
     {
-        //E();
+        E();
     }
 
     public void E()
@@ -38,7 +38,7 @@ public class LevelCoins : MonoBehaviour
         XPToNewLevelSet();
         coinsText.text = coins.ToString();
 
-        Debug.Log($"Level: {currentLevel}, xp {currentXP}, target xp {TargetXp}");
+        //Debug.Log($"Level: {currentLevel}, xp {currentXP}, target xp {TargetXp}");
     }
 
     private void XPToNewLevelSet()
