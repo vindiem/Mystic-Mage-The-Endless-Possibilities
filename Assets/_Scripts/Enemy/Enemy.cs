@@ -41,6 +41,8 @@ public class Enemy : MonoBehaviour
     private bool fireDeath = false;
     private bool waveDeath = false;
 
+    private LevelCoins lc;
+
     public enum Element
     {
         Earth,
@@ -63,11 +65,14 @@ public class Enemy : MonoBehaviour
     public AudioClip attackSound;
     private AudioSource runningSource;
 
+    private bool isDead = false;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        lc = GameObject.FindGameObjectWithTag("LevelCoins").GetComponent<LevelCoins>();
 
         player = GameObject.FindWithTag("Player").transform;
         playerScript = player.GetComponent<Skills>();
@@ -202,8 +207,10 @@ public class Enemy : MonoBehaviour
 
         #endregion
 
-        if (health <= 0 || transform.position.y <= -10f)
+        if ((health <= 0 && isDead == false) || (transform.position.y <= -10f && isDead == false))
         {
+            isDead = true;
+
             int randXP = Random.Range(40, 70);
             float currentXP = PlayerPrefs.GetFloat("Xp");
             currentXP += randXP;
@@ -218,6 +225,7 @@ public class Enemy : MonoBehaviour
             }
 
             playerScript.killsCounterInt++;
+            lc.E();
 
             m_audioSource.PlayOneShot(deathSound);
             animator.SetTrigger("Death");

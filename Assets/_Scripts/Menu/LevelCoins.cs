@@ -9,7 +9,7 @@ public class LevelCoins : MonoBehaviour
 {
     private int currentLevel;
     private float currentXP;
-    private float XPToNewLevel;
+    private float TargetXp;
 
     private int coins;
 
@@ -19,22 +19,26 @@ public class LevelCoins : MonoBehaviour
 
     private void Start()
     {
+        ImageXP.fillAmount = 0;
         E();
     }
 
     private void Update()
     {
-        E();
+        //E();
     }
 
-    private void E()
+    public void E()
     {
         currentLevel = PlayerPrefs.GetInt("Level");
         currentXP = PlayerPrefs.GetFloat("Xp");
         coins = PlayerPrefs.GetInt("Coins");
+        TargetXp = PlayerPrefs.GetFloat("TargetXp");
 
         XPToNewLevelSet();
         coinsText.text = coins.ToString();
+
+        Debug.Log($"Level: {currentLevel}, xp {currentXP}, target xp {TargetXp}");
     }
 
     private void XPToNewLevelSet()
@@ -45,44 +49,46 @@ public class LevelCoins : MonoBehaviour
             PlayerPrefs.SetInt("Level", currentLevel);
         }
 
-        if (currentLevel <= 30)
+        if (currentLevel < 30)
         {
-            XPToNewLevel = currentLevel * 25 * 1.5f;
-
-            if (currentXP / XPToNewLevel >= 1)
+            if (currentXP / TargetXp >= 1)
             {
+                currentLevel = PlayerPrefs.GetInt("Level");
                 currentLevel++;
                 PlayerPrefs.SetInt("Level", currentLevel);
-                currentXP -= XPToNewLevel;
+                currentXP -= TargetXp;
+                PlayerPrefs.SetFloat("Xp", currentXP);
             }
 
-            ImageXP.fillAmount = currentXP / XPToNewLevel;
+            ImageXP.fillAmount = currentXP / TargetXp;
             currentLevelText.text = currentLevel.ToString();
+            TargetXp = currentLevel * 25 * 1.5f;
+            PlayerPrefs.SetFloat("TargetXp", TargetXp);
         }
 
         /*
         switch (currentLevel)
         {
             case 10:
-                XPToNewLevel = 250;
+                TargetXp = 250;
                 break;
             case 11:
-                XPToNewLevel = 480;
+                TargetXp = 480;
                 break;
             case 12:
-                XPToNewLevel = 890;
+                TargetXp = 890;
                 break;
             case 13:
-                XPToNewLevel = 1100;
+                TargetXp = 1100;
                 break;
             case 14:
-                XPToNewLevel = 1290;
+                TargetXp = 1290;
                 break;
             case 15:
-                XPToNewLevel = 1460;
+                TargetXp = 1460;
                 break;
             case 16:
-                XPToNewLevel = 1690;
+                TargetXp = 1690;
                 break;
         }
         */
