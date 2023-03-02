@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -203,6 +204,19 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0 || transform.position.y <= -10f)
         {
+            int randXP = Random.Range(40, 70);
+            float currentXP = PlayerPrefs.GetFloat("Xp");
+            currentXP += randXP;
+            PlayerPrefs.SetFloat("Xp", currentXP);
+
+            int coinAddChance = Random.Range(0, 5);
+            if (coinAddChance == 0)
+            {
+                int coins = PlayerPrefs.GetInt("Coins");
+                coins++;
+                PlayerPrefs.SetInt("Coins", coins);
+            }
+
             playerScript.killsCounterInt++;
 
             m_audioSource.PlayOneShot(deathSound);

@@ -82,7 +82,14 @@ public class EnemyGeneration : MonoBehaviour
 
         float speed = playerScriptMovenment.movementSpeed;
 
-        if (speed > 5 && speed < 6)
+        int level = PlayerPrefs.GetInt("Level");
+        playerScript.meteorLevel = level;
+        playerScript.tornadoLevel = level;
+        playerScript.waveLevel = level;
+        playerScript.fireLevel = level;
+        playerScript.ultimateLevel = level;
+
+        /*if (speed > 5 && speed < 6)
         {
             playerScript.meteorLevel = 15;
             playerScript.tornadoLevel = 15;
@@ -113,7 +120,7 @@ public class EnemyGeneration : MonoBehaviour
             playerScript.waveLevel = 30;
             playerScript.fireLevel = 30;
             playerScript.ultimateLevel = 30;
-        }
+        }*/
 
         currentMutantSpeed = playerScriptMovenment.movementSpeed - 0.35f;
 

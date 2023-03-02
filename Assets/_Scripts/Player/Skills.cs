@@ -265,6 +265,7 @@ public class Skills : MonoBehaviour
             Destroy(gameObject);
         }
 
+        // Any level is correct because its same
         skillsLevel.text = $"Level: {meteorLevel}";
 
         #endregion
