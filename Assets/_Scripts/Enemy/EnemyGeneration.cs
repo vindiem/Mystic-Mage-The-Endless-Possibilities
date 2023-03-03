@@ -50,10 +50,15 @@ public class EnemyGeneration : MonoBehaviour
 
         int playerLevel = PlayerPrefs.GetInt("Level");
         float x = playerLevel;
-        float y = 10 - 0.35f * (x - 10);
+        float y = 10 - 0.4f * (x - 10);
 
         spawnInterval = y;
-        playerScriptMovenment.movementSpeed = playerLevel / 5;
+
+        float approximatePlayerSpeed = playerLevel / 5;
+        if (approximatePlayerSpeed >= 4)
+        {
+            playerScriptMovenment.movementSpeed = approximatePlayerSpeed;
+        }
 
         if (player != null)
         {
