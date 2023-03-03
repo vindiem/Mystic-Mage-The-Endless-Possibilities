@@ -19,7 +19,7 @@ public class Skills : MonoBehaviour
     private Vector3 currentMousePosition = new Vector3();
 
     // Charavter variables
-    private float health = 100;
+    private float health = 1000;
     [HideInInspector] public float gameSpeed = 1.25f;
 
     public LayerMask CastLayer;

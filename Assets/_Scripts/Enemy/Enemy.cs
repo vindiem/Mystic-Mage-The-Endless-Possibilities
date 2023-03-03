@@ -137,6 +137,9 @@ public class Enemy : MonoBehaviour
         float speed = navMeshAgent.velocity.magnitude;
         animator.SetFloat("Speed", speed);
 
+        // Randomize damage
+        int randDamage = Random.Range(damage - 5, damage + 5);
+
         #region Set float distance
 
         // if marker is instantiate -> target - marker
@@ -178,7 +181,9 @@ public class Enemy : MonoBehaviour
                 int rand = Random.Range(1, 5);
 
                 #endregion
+
                 navMeshAgent.isStopped = true;
+                animator.SetInteger("AttackInt", rand);
                 animator.SetBool("isAttacking", true);
 
                 // Attack sound play

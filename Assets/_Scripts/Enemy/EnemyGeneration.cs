@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 
 public class EnemyGeneration : MonoBehaviour
 {
-    public GameObject zombiePrefab;
+    public GameObject[] zombiePrefab;
     public float spawnInterval = 10f;
     private float heightAboveGround;
 
@@ -176,7 +176,8 @@ public class EnemyGeneration : MonoBehaviour
             GameObject cross = Instantiate(Cross, spawnPos, randomRotation, transform);
             yield return new WaitForSeconds(spawnInterval / 2);
             Destroy(cross);
-            Instantiate(zombiePrefab, spawnPos, randomRotation, transform);
+            int rand = Random.Range(0, zombiePrefab.Length);
+            Instantiate(zombiePrefab[rand], spawnPos, randomRotation, transform);
             yield return new WaitForSeconds(spawnInterval / 2);
         }
     }
