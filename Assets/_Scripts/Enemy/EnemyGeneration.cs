@@ -95,39 +95,6 @@ public class EnemyGeneration : MonoBehaviour
         playerScript.fireLevel = level;
         playerScript.ultimateLevel = level;
 
-        /*if (playerSpeed > 5 && playerSpeed < 6)
-        {
-            playerScript.meteorLevel = 15;
-            playerScript.tornadoLevel = 15;
-            playerScript.waveLevel = 15;
-            playerScript.fireLevel = 15;
-            playerScript.ultimateLevel = 15;
-        }
-        else if (playerSpeed > 6 && playerSpeed < 7)
-        {
-            playerScript.meteorLevel = 20;
-            playerScript.tornadoLevel = 20;
-            playerScript.waveLevel = 20;
-            playerScript.fireLevel = 20;
-            playerScript.ultimateLevel = 20;
-        }
-        else if (playerSpeed > 7 && playerSpeed < 8)
-        {
-            playerScript.meteorLevel = 25;
-            playerScript.tornadoLevel = 25;
-            playerScript.waveLevel = 25;
-            playerScript.fireLevel = 25;
-            playerScript.ultimateLevel = 25;
-        }
-        else if (playerSpeed > 8 && playerSpeed < 9)
-        {
-            playerScript.meteorLevel = 30;
-            playerScript.tornadoLevel = 30;
-            playerScript.waveLevel = 30;
-            playerScript.fireLevel = 30;
-            playerScript.ultimateLevel = 30;
-        }*/
-
         GameObject[] enemyObjects = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemyObject in enemyObjects)
         {
@@ -194,6 +161,11 @@ public class EnemyGeneration : MonoBehaviour
     }
 
     private void OnApplicationQuit()
+    {
+        Save();
+    }
+
+    private void Save()
     {
         float previousBestScore = PlayerPrefs.GetFloat("BestScore");
         if (previousBestScore < timeScore)

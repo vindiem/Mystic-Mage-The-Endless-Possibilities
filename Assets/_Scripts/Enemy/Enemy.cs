@@ -126,7 +126,7 @@ public class Enemy : MonoBehaviour
     {
         if (player == null)
         {
-            animator.SetBool("isAttacking", false);
+            //animator.SetBool("isAttacking", false);
             return;
         }
         if (navMeshAgent.enabled == false)
@@ -139,6 +139,7 @@ public class Enemy : MonoBehaviour
 
         // Randomize damage
         int randDamage = Random.Range(damage - 5, damage + 5);
+        damage = randDamage;
 
         #region Set float distance
 
@@ -165,7 +166,6 @@ public class Enemy : MonoBehaviour
                 runningSource.mute = false;
 
                 Destroy(damageCollider);
-                animator.SetBool("isAttacking", false);
             }
 
             if (Time.time >= nextAttackTime && distance < maxAttackRange)
@@ -185,16 +185,17 @@ public class Enemy : MonoBehaviour
                 navMeshAgent.isStopped = true;
                 animator.SetInteger("AttackInt", rand);
                 animator.SetBool("isAttacking", true);
+                StartCoroutine(AttackOff());
 
                 // Attack sound play
                 m_audioSource.PlayOneShot(attackSound);
 
                 nextAttackTime = Time.time + attackRate;
+
             }
             else if (distance >= maxAttackRange)
             {
                 navMeshAgent.isStopped = false;
-                animator.SetBool("isAttacking", false);
             }
             else if (distance <= 2f)
             {
@@ -213,6 +214,7 @@ public class Enemy : MonoBehaviour
 
         #endregion
 
+        // Death
         if ((health <= 0 && isDead == false) || (transform.position.y <= -10f && isDead == false))
         {
             isDead = true;
@@ -482,6 +484,12 @@ public class Enemy : MonoBehaviour
             yield return new WaitForSeconds(.5f);
             TakeDamage(playerScript.fireLevel / 7);
         }
+    }
+
+    private IEnumerator AttackOff()
+    {
+        yield return new WaitForSeconds(0.25f);
+        animator.SetBool("isAttacking", false);
     }
 
     private void RelicAchievement(int relicLevel, string nameOfRelic)
