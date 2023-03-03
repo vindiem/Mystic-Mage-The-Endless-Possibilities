@@ -49,10 +49,12 @@ public class EnemyGeneration : MonoBehaviour
         killsCounter = playerScript.killsCounterInt;
 
         int playerLevel = PlayerPrefs.GetInt("Level");
-        float x = playerLevel;
-        float y = 10 - 0.4f * (x - 10);
 
-        spawnInterval = y;
+        // 10 level = 6.0 interval
+        // 30 level = 2.0 interval
+
+        int x = playerLevel;
+        spawnInterval = GetDivisors(x);
 
         float approximatePlayerSpeed = playerLevel / 5;
         if (approximatePlayerSpeed >= 4)
@@ -198,6 +200,19 @@ public class EnemyGeneration : MonoBehaviour
             PlayerPrefs.SetFloat("BestScore", timeScore);
             PlayerPrefs.SetInt("BestScoreKills", killsCounter);
         }
+    }
+
+    public static float GetDivisors(int number)
+    {
+        float n;
+        // 10 - 30
+        n = number - 40;
+        // -30 - -10
+        n *= -1;
+        // 30 - 10;
+        n /= 5;
+
+        return n;
     }
 
 }
