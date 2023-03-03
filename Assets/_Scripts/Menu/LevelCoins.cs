@@ -65,6 +65,11 @@ public class LevelCoins : MonoBehaviour
             TargetXp = currentLevel * 25 * 1.5f;
             PlayerPrefs.SetFloat("TargetXp", TargetXp);
         }
+        else
+        {
+            ImageXP.fillAmount = currentXP / TargetXp;
+            currentLevelText.text = currentLevel.ToString();
+        }
 
         /*
         switch (currentLevel)

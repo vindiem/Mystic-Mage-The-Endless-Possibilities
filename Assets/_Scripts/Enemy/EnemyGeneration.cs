@@ -4,17 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System;
-
 using Random = UnityEngine.Random;
 
 public class EnemyGeneration : MonoBehaviour
 {
     public GameObject zombiePrefab;
     public float spawnInterval = 10f;
-    private float minSpawnInterval = 1.5f;
     private float heightAboveGround;
 
-    private float maxPlayerSpeed = 12f;
     private float maxMutantSpeed = 11f;
     private float currentMutantSpeed;
 
@@ -34,6 +31,9 @@ public class EnemyGeneration : MonoBehaviour
 
     private void Start()
     {
+        // Frames per second
+        Application.targetFrameRate = 60;
+
         playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Skills>();
         gameSpeed = playerScript.gameSpeed;
 
@@ -47,6 +47,13 @@ public class EnemyGeneration : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         killsCounter = playerScript.killsCounterInt;
+
+        int playerLevel = PlayerPrefs.GetInt("Level");
+        float x = playerLevel;
+        float y = 10 - 0.35f * (x - 10);
+
+        spawnInterval = y;
+        playerScriptMovenment.movementSpeed = playerLevel / 5;
 
         if (player != null)
         {
@@ -71,16 +78,8 @@ public class EnemyGeneration : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (spawnInterval >= minSpawnInterval)
-        {
-            spawnInterval -= 0.0001f;
-        }
-        if (playerScriptMovenment.movementSpeed <= maxPlayerSpeed)
-        {
-            playerScriptMovenment.movementSpeed += 0.0001f;
-        }
-
-        float speed = playerScriptMovenment.movementSpeed;
+        float playerSpeed = playerScriptMovenment.movementSpeed;
+        currentMutantSpeed = playerSpeed - 0.15f;
 
         int level = PlayerPrefs.GetInt("Level");
         playerScript.meteorLevel = level;
@@ -89,7 +88,7 @@ public class EnemyGeneration : MonoBehaviour
         playerScript.fireLevel = level;
         playerScript.ultimateLevel = level;
 
-        /*if (speed > 5 && speed < 6)
+        /*if (playerSpeed > 5 && playerSpeed < 6)
         {
             playerScript.meteorLevel = 15;
             playerScript.tornadoLevel = 15;
@@ -97,7 +96,7 @@ public class EnemyGeneration : MonoBehaviour
             playerScript.fireLevel = 15;
             playerScript.ultimateLevel = 15;
         }
-        else if (speed > 6 && speed < 7)
+        else if (playerSpeed > 6 && playerSpeed < 7)
         {
             playerScript.meteorLevel = 20;
             playerScript.tornadoLevel = 20;
@@ -105,7 +104,7 @@ public class EnemyGeneration : MonoBehaviour
             playerScript.fireLevel = 20;
             playerScript.ultimateLevel = 20;
         }
-        else if (speed > 7 && speed < 8)
+        else if (playerSpeed > 7 && playerSpeed < 8)
         {
             playerScript.meteorLevel = 25;
             playerScript.tornadoLevel = 25;
@@ -113,7 +112,7 @@ public class EnemyGeneration : MonoBehaviour
             playerScript.fireLevel = 25;
             playerScript.ultimateLevel = 25;
         }
-        else if (speed > 8 && speed < 9)
+        else if (playerSpeed > 8 && playerSpeed < 9)
         {
             playerScript.meteorLevel = 30;
             playerScript.tornadoLevel = 30;
@@ -121,8 +120,6 @@ public class EnemyGeneration : MonoBehaviour
             playerScript.fireLevel = 30;
             playerScript.ultimateLevel = 30;
         }*/
-
-        currentMutantSpeed = playerScriptMovenment.movementSpeed - 0.35f;
 
         GameObject[] enemyObjects = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemyObject in enemyObjects)
