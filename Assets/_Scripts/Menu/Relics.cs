@@ -18,30 +18,140 @@ public class Relics : MonoBehaviour
     public Text bestScoreKillsText;
     private int bestScoreKills;
 
+    private string MeteorBlock,
+                TornadoBlock,
+                FireBlock,
+                WaveBlock,
+                UltimateBlock;
+
+    public GameObject MeteorBlocker, 
+                    TornadoBlocker, 
+                    FireBlocker, 
+                    WaveBlocker, 
+                    UltimateBlocker;
+
+    private int relicPrice = 50;
+    public Text[] relicPriceTexts;
+
+    private void Start()
+    {
+        relicPrice = PlayerPrefs.GetInt("RelicPrice");
+        if (relicPrice < 50)
+        {
+            relicPrice = 50;
+        }
+
+        MeteorBlock = PlayerPrefs.GetString("MeteorBlock");
+        TornadoBlock = PlayerPrefs.GetString("TornadoBlock");
+        FireBlock = PlayerPrefs.GetString("FireBlock");
+        WaveBlock = PlayerPrefs.GetString("WaveBlock");
+        UltimateBlock = PlayerPrefs.GetString("UltimateBlock");
+
+        if (MeteorBlock == "true")
+        {
+            MeteorBlocker.gameObject.SetActive(true);
+        }
+        else if (MeteorBlock == "false")
+        {
+            MeteorBlocker.gameObject.SetActive(false);
+        }
+
+        if (TornadoBlock == "true")
+        {
+            TornadoBlocker.gameObject.SetActive(true);
+        }
+        else if (TornadoBlock == "false")
+        {
+            TornadoBlocker.gameObject.SetActive(false);
+        }
+
+        if (FireBlock == "true")
+        {
+            FireBlocker.gameObject.SetActive(true);
+        }
+        else if (FireBlock == "false")
+        {
+            FireBlocker.gameObject.SetActive(false);
+        }
+
+        if (WaveBlock == "true")
+        {
+            WaveBlocker.gameObject.SetActive(true);
+        }
+        else if (WaveBlock == "false")
+        {
+            WaveBlocker.gameObject.SetActive(false);
+        }
+
+        if (UltimateBlock == "true")
+        {
+            UltimateBlocker.gameObject.SetActive(true);
+        }
+        else if (UltimateBlock == "false")
+        {
+            UltimateBlocker.gameObject.SetActive(false);
+        }
+
+    }
 
     private void Update()
     {
         GetRelicsValues();
 
         // Meteor relic progress
-        MRPText.text = $"Meteor relic: {MRP} / {mMRP}";
-        MRPImage.fillAmount = MRP / mMRP;
+        if (PlayerPrefs.GetString("MeteorBlock") == "false")
+        {
+            MRPText.text = $"Meteor relic: {MRP} / {mMRP}";
+            MRPImage.fillAmount = MRP / mMRP;
+        }
+        else if (PlayerPrefs.GetString("MeteorBlock") == "true")
+        {
+            PlayerPrefs.SetFloat("Meteor relic progress", 0);
+        }
 
         // Tornado relic progress
-        TRPText.text = $"Tornado relic: {TRP} / {mTRP}";
-        TRPImage.fillAmount = TRP / mTRP;
+        if (PlayerPrefs.GetString("TornadoBlock") == "false")
+        {
+            TRPText.text = $"Tornado relic: {TRP} / {mTRP}";
+            TRPImage.fillAmount = TRP / mTRP;
+        }
+        else if (PlayerPrefs.GetString("TornadoBlock") == "true")
+        {
+            PlayerPrefs.SetFloat("Tornado relic progress", 0);
+        }
 
         // Fire relic progress
-        FRPText.text = $"Fire relic: {FRP} / {mFRP}";
-        FRPImage.fillAmount = FRP / mFRP;
+        if (PlayerPrefs.GetString("FireBlock") == "false")
+        {
+            FRPText.text = $"Fire relic: {FRP} / {mFRP}";
+            FRPImage.fillAmount = FRP / mFRP;
+        }
+        else if (PlayerPrefs.GetString("FireBlock") == "true")
+        {
+            PlayerPrefs.SetFloat("Fire relic progress", 0);
+        }
 
         // Wave relic progress
-        WRPText.text = $"Wave relic: {WRP} / {mWRP}";
-        WRPImage.fillAmount = WRP / mWRP;
+        if (PlayerPrefs.GetString("WaveBlock") == "false")
+        {
+            WRPText.text = $"Wave relic: {WRP} / {mWRP}";
+            WRPImage.fillAmount = WRP / mWRP;
+        }
+        else if (PlayerPrefs.GetString("WaveBlock") == "true")
+        {
+            PlayerPrefs.SetFloat("Wave relic progress", 0);
+        }
 
         // Ultimate relic progress
-        URPText.text = $"Ultimate relic: {URP} / {mURP}";
-        URPImage.fillAmount = URP / mURP;
+        if (PlayerPrefs.GetString("UltimateBlock") == "false")
+        {
+            URPText.text = $"Ultimate relic: {URP} / {mURP}";
+            URPImage.fillAmount = URP / mURP;
+        }
+        else if (PlayerPrefs.GetString("UltimateBlock") == "true")
+        {
+            PlayerPrefs.SetFloat("Ultimate relic progress", 0);
+        }
 
 
         if (bestScoreTimeText != null)
@@ -55,6 +165,11 @@ public class Relics : MonoBehaviour
             bestScoreKillsText.text = $"Best score kills: " + bestScoreKills;
         }
 
+        for (int i = 0; i < relicPriceTexts.Length; i++)
+        {
+            relicPriceTexts[i].text = $"Buy relic: {relicPrice} coins";
+        }
+
     }
 
     private void GetRelicsValues()
@@ -65,7 +180,7 @@ public class Relics : MonoBehaviour
         WRP = PlayerPrefs.GetInt("Wave relic progress");
         URP = PlayerPrefs.GetInt("Ultimate relic progress");
 
-        if (PlayerPrefs.GetFloat("mMRP") > 5)
+        if (PlayerPrefs.GetFloat("mMRP") > 0)
         {
             mMRP = PlayerPrefs.GetFloat("mMRP");
         }
@@ -73,7 +188,7 @@ public class Relics : MonoBehaviour
         {
             PlayerPrefs.SetFloat("mMRP", 5);
         }
-        if (PlayerPrefs.GetFloat("mTRP") > 5)
+        if (PlayerPrefs.GetFloat("mTRP") > 0)
         {
             mTRP = PlayerPrefs.GetFloat("mTRP");
         }
@@ -81,7 +196,7 @@ public class Relics : MonoBehaviour
         {
             PlayerPrefs.SetFloat("mTRP", 5);
         }
-        if (PlayerPrefs.GetFloat("mFRP") > 5)
+        if (PlayerPrefs.GetFloat("mFRP") > 0)
         {
             mFRP = PlayerPrefs.GetFloat("mFRP");
         }
@@ -89,7 +204,7 @@ public class Relics : MonoBehaviour
         {
             PlayerPrefs.SetFloat("mFRP", 5);
         }
-        if (PlayerPrefs.GetFloat("mWRP") > 5)
+        if (PlayerPrefs.GetFloat("mWRP") > 0)
         {
             mWRP = PlayerPrefs.GetFloat("mWRP");
         }
@@ -97,7 +212,7 @@ public class Relics : MonoBehaviour
         {
             PlayerPrefs.SetFloat("mWRP", 5);
         }
-        if (PlayerPrefs.GetFloat("mURP") > 5)
+        if (PlayerPrefs.GetFloat("mURP") > 0)
         {
             mURP = PlayerPrefs.GetFloat("mURP");
         }
@@ -107,51 +222,66 @@ public class Relics : MonoBehaviour
         }
 
         float mmrp = PlayerPrefs.GetFloat("mMRP");
-        if (MRP > mmrp && MRP <= 320)
-        { 
+        if (MRP > mmrp && MRP <= 1280)
+        {
+            int coinsCount = PlayerPrefs.GetInt("Coins");
+            coinsCount += (int)mmrp;
+            PlayerPrefs.SetInt("Coins", coinsCount);
             mmrp *= 2;
         }
-        else if (MRP > 320)
+        else if (MRP > 1280)
         {
             mmrp = 1;
         }
 
         float mtrp = PlayerPrefs.GetFloat("mTRP");
-        if (TRP > mtrp && TRP <= 320)
+        if (TRP > mtrp && TRP <= 1280)
         {
+            int coinsCount = PlayerPrefs.GetInt("Coins");
+            coinsCount += (int)mtrp;
+            PlayerPrefs.SetInt("Coins", coinsCount);
             mtrp *= 2;
         }
-        else if (TRP > 320)
+        else if (TRP > 1280)
         {
             mtrp = 1;
         }
 
         float mfrp = PlayerPrefs.GetFloat("mFRP");
-        if (TRP > mfrp && FRP <= 320)
+        if (TRP > mfrp && FRP <= 1280)
         {
+            int coinsCount = PlayerPrefs.GetInt("Coins");
+            coinsCount += (int)mfrp;
+            PlayerPrefs.SetInt("Coins", coinsCount);
             mfrp *= 2;
         }
-        else if (FRP > 320)
+        else if (FRP > 1280)
         {
             mfrp = 1;
         }
 
         float mwrp = PlayerPrefs.GetFloat("mWRP");
-        if (TRP > mwrp && WRP <= 320)
+        if (TRP > mwrp && WRP <= 1280)
         {
+            int coinsCount = PlayerPrefs.GetInt("Coins");
+            coinsCount += (int)mwrp;
+            PlayerPrefs.SetInt("Coins", coinsCount);
             mwrp *= 2;
         }
-        else if (WRP > 320)
+        else if (WRP > 1280)
         {
             mwrp = 1;
         }
 
         float murp = PlayerPrefs.GetFloat("mURP");
-        if (TRP > murp && URP <= 320)
+        if (TRP > murp && URP <= 1280)
         {
+            int coinsCount = PlayerPrefs.GetInt("Coins");
+            coinsCount += (int)murp;
+            PlayerPrefs.SetInt("Coins", coinsCount);
             murp *= 2;
         }
-        else if (URP > 320)
+        else if (URP > 1280)
         {
             murp = 1;
         }
@@ -167,6 +297,60 @@ public class Relics : MonoBehaviour
         else if (ts.Seconds != 0) return $"{ts.Seconds} s";
 
         return "0 s";
+    }
+
+    public void BuyRelic(string relicName)
+    {
+        int coinsCount = PlayerPrefs.GetInt("Coins");
+        if (coinsCount >= relicPrice)
+        {
+            switch (relicName)
+            {
+                case "Meteor":
+                    coinsCount -= relicPrice;
+                    PlayerPrefs.SetInt("Coins", coinsCount);
+
+                    MeteorBlocker.SetActive(false);
+                    MeteorBlock = "false";
+                    PlayerPrefs.SetString("MeteorBlock", "false");
+                    break;
+                case "Tornado":
+                    coinsCount -= relicPrice;
+                    PlayerPrefs.SetInt("Coins", coinsCount);
+
+                    TornadoBlocker.SetActive(false);
+                    TornadoBlock = "false";
+                    PlayerPrefs.SetString("TornadoBlock", "false");
+                    break;
+                case "Fire":
+                    coinsCount -= relicPrice;
+                    PlayerPrefs.SetInt("Coins", coinsCount);
+
+                    FireBlocker.SetActive(false);
+                    FireBlock = "false";
+                    PlayerPrefs.SetString("FireBlock", "false");
+                    break;
+                case "Wave":
+                    coinsCount -= relicPrice;
+                    PlayerPrefs.SetInt("Coins", coinsCount);
+
+                    WaveBlocker.SetActive(false);
+                    WaveBlock = "false";
+                    PlayerPrefs.SetString("WaveBlock", "false");
+                    break;
+                case "Ultimate":
+                    coinsCount -= relicPrice;
+                    PlayerPrefs.SetInt("Coins", coinsCount);
+
+                    UltimateBlocker.SetActive(false);
+                    UltimateBlock = "false";
+                    PlayerPrefs.SetString("UltimateBlock", "false");
+                    break;
+            }
+            relicPrice *= 5;
+            PlayerPrefs.SetInt("RelicPrice", relicPrice);
+        }
+
     }
 
 }
