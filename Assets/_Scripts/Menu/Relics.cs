@@ -12,6 +12,7 @@ public class Relics : MonoBehaviour
     public Text MRPText, TRPText, FRPText, WRPText, URPText;
     public Image MRPImage, TRPImage, FRPImage, WRPImage, URPImage;
 
+    // Best score
     public Text bestScoreTimeText;
     private float bestScoreTime;
 
@@ -96,59 +97,73 @@ public class Relics : MonoBehaviour
 
     private void Update()
     {
-        GetRelicsValues();
+        MeteorBlock = PlayerPrefs.GetString("MeteorBlock");
+        TornadoBlock = PlayerPrefs.GetString("TornadoBlock");
+        FireBlock = PlayerPrefs.GetString("FireBlock");
+        WaveBlock = PlayerPrefs.GetString("WaveBlock");
+        UltimateBlock = PlayerPrefs.GetString("UltimateBlock");
 
         // Meteor relic progress
-        if (PlayerPrefs.GetString("MeteorBlock") == "false")
+        if (MeteorBlock == "false")
         {
+            GetRelicsValues();
+
             MRPText.text = $"Meteor relic: {MRP} / {mMRP}";
             MRPImage.fillAmount = MRP / mMRP;
         }
-        else if (PlayerPrefs.GetString("MeteorBlock") == "true")
+        else if (MeteorBlock == "true")
         {
             PlayerPrefs.SetFloat("Meteor relic progress", 0);
         }
 
         // Tornado relic progress
-        if (PlayerPrefs.GetString("TornadoBlock") == "false")
+        if (TornadoBlock == "false")
         {
+            GetRelicsValues();
+
             TRPText.text = $"Tornado relic: {TRP} / {mTRP}";
             TRPImage.fillAmount = TRP / mTRP;
         }
-        else if (PlayerPrefs.GetString("TornadoBlock") == "true")
+        else if (TornadoBlock == "true")
         {
             PlayerPrefs.SetFloat("Tornado relic progress", 0);
         }
 
         // Fire relic progress
-        if (PlayerPrefs.GetString("FireBlock") == "false")
+        if (FireBlock == "false")
         {
+            GetRelicsValues();
+
             FRPText.text = $"Fire relic: {FRP} / {mFRP}";
             FRPImage.fillAmount = FRP / mFRP;
         }
-        else if (PlayerPrefs.GetString("FireBlock") == "true")
+        else if (FireBlock == "true")
         {
             PlayerPrefs.SetFloat("Fire relic progress", 0);
         }
 
         // Wave relic progress
-        if (PlayerPrefs.GetString("WaveBlock") == "false")
+        if (WaveBlock == "false")
         {
+            GetRelicsValues();
+
             WRPText.text = $"Wave relic: {WRP} / {mWRP}";
             WRPImage.fillAmount = WRP / mWRP;
         }
-        else if (PlayerPrefs.GetString("WaveBlock") == "true")
+        else if (WaveBlock == "true")
         {
             PlayerPrefs.SetFloat("Wave relic progress", 0);
         }
 
         // Ultimate relic progress
-        if (PlayerPrefs.GetString("UltimateBlock") == "false")
+        if (UltimateBlock == "false")
         {
+            GetRelicsValues();
+
             URPText.text = $"Ultimate relic: {URP} / {mURP}";
             URPImage.fillAmount = URP / mURP;
         }
-        else if (PlayerPrefs.GetString("UltimateBlock") == "true")
+        else if (UltimateBlock == "true")
         {
             PlayerPrefs.SetFloat("Ultimate relic progress", 0);
         }

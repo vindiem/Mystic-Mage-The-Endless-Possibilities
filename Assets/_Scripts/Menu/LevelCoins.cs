@@ -70,33 +70,6 @@ public class LevelCoins : MonoBehaviour
             currentLevelText.text = currentLevel.ToString();
         }
 
-        /*
-        switch (currentLevel)
-        {
-            case 10:
-                TargetXp = 250;
-                break;
-            case 11:
-                TargetXp = 480;
-                break;
-            case 12:
-                TargetXp = 890;
-                break;
-            case 13:
-                TargetXp = 1100;
-                break;
-            case 14:
-                TargetXp = 1290;
-                break;
-            case 15:
-                TargetXp = 1460;
-                break;
-            case 16:
-                TargetXp = 1690;
-                break;
-        }
-        */
-
     }
 
 }

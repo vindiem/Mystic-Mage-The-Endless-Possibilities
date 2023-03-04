@@ -39,7 +39,11 @@ public class EnemyGeneration : MonoBehaviour
 
         playerScriptMovenment = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
 
-        StartCoroutine(SpawnZombies());
+        // Spawn a couple (10) of zombies by start
+        for (int i = 0; i < 2; i++)
+        {
+            StartCoroutine(SpawnZombies());
+        }
 
     }
 

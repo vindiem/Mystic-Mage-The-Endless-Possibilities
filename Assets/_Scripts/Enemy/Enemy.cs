@@ -8,7 +8,9 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
     public float health = 100;
-    public int damage = 10;
+    private int standartDamage;
+    public int currentDamage = 10;
+    private int editedDamage;
 
     //private float minAttackRange = 3.75f;
     private float maxAttackRange = 4.25f;
@@ -70,6 +72,8 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
+        standartDamage = currentDamage;
+
         rb = GetComponent<Rigidbody>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
@@ -112,6 +116,7 @@ public class Enemy : MonoBehaviour
                 break;
         }
 
+        // Relic A
         relicPlate = GameObject.FindGameObjectWithTag("RelicPlate").GetComponent<Animator>();
 
         // Audio source
@@ -137,9 +142,9 @@ public class Enemy : MonoBehaviour
         float speed = navMeshAgent.velocity.magnitude;
         animator.SetFloat("Speed", speed);
 
-        // Randomize damage
-        int randDamage = Random.Range(damage - 5, damage + 5);
-        damage = randDamage;
+        // Randomize currentDamage
+        editedDamage= Random.Range(currentDamage - 5, currentDamage + 5);
+        currentDamage = editedDamage;
 
         #region Set float distance
 
@@ -246,11 +251,13 @@ public class Enemy : MonoBehaviour
             GetComponent<Enemy>().enabled = false;
         }
 
+        currentDamage = standartDamage;
+
     }
 
     public void TakeDamageToHero()
     {
-        player.GetComponent<Skills>().TakeDamage(damage);
+        player.GetComponent<Skills>().TakeDamage(currentDamage);
     }
 
     private void LookAtTarget(GameObject target)
@@ -268,10 +275,22 @@ public class Enemy : MonoBehaviour
         // Death
         if (health <= 0 || transform.position.y <= -10f)
         {
+            string MeteorBlock,
+                TornadoBlock,
+                FireBlock,
+                WaveBlock,
+                UltimateBlock;
+
+            MeteorBlock = PlayerPrefs.GetString("MeteorBlock");
+            TornadoBlock = PlayerPrefs.GetString("TornadoBlock");
+            FireBlock = PlayerPrefs.GetString("FireBlock");
+            WaveBlock = PlayerPrefs.GetString("WaveBlock");
+            UltimateBlock = PlayerPrefs.GetString("UltimateBlock");
+
             switch (skillName)
             {
                 case "Meteor":
-                    if (meteorDeath == false)
+                    if (meteorDeath == false && MeteorBlock == "false")
                     {
                         meteorDeath = true;
                         int MRP = PlayerPrefs.GetInt("Meteor relic progress");
@@ -281,7 +300,7 @@ public class Enemy : MonoBehaviour
                     }
                     break;
                 case "Tornado":
-                    if (tornadoDeath == false)
+                    if (tornadoDeath == false && TornadoBlock == "false")
                     {
                         tornadoDeath = true;
                         int TRP = PlayerPrefs.GetInt("Tornado relic progress");
@@ -291,7 +310,7 @@ public class Enemy : MonoBehaviour
                     }
                     break;
                 case "Fire":
-                    if (fireDeath == false)
+                    if (fireDeath == false && FireBlock == "false")
                     {
                         fireDeath = true;
                         int FRP = PlayerPrefs.GetInt("Fire relic progress");
@@ -301,7 +320,7 @@ public class Enemy : MonoBehaviour
                     }
                     break;
                 case "Wave":
-                    if (waveDeath == false)
+                    if (waveDeath == false && WaveBlock == "false")
                     {
                         waveDeath = true;
                         int WRP = PlayerPrefs.GetInt("Wave relic progress");
@@ -311,7 +330,7 @@ public class Enemy : MonoBehaviour
                     }
                     break;
                 case "Ultimate":
-                    if (ultimateDeath == false)
+                    if (ultimateDeath == false && UltimateBlock == "false")
                     {
                         ultimateDeath = true;
                         int URP = PlayerPrefs.GetInt("Ultimate relic progress");
@@ -403,7 +422,7 @@ public class Enemy : MonoBehaviour
             DeathE("Fire");
         }
 
-        // Ultimate damage
+        // Ultimate currentDamage
         else if (other.CompareTag("Ultimate") == true)
         {
             TakeDamage(playerScript.ultimateLevel * 2);
@@ -494,82 +513,110 @@ public class Enemy : MonoBehaviour
 
     private void RelicAchievement(int relicLevel, string nameOfRelic)
     {
+        string MeteorBlock,
+            TornadoBlock,
+            FireBlock,
+            WaveBlock,
+            UltimateBlock;
+
+        MeteorBlock = PlayerPrefs.GetString("MeteorBlock");
+        TornadoBlock = PlayerPrefs.GetString("TornadoBlock");
+        FireBlock = PlayerPrefs.GetString("FireBlock");
+        WaveBlock = PlayerPrefs.GetString("WaveBlock");
+        UltimateBlock = PlayerPrefs.GetString("UltimateBlock");
+
         switch (nameOfRelic)
         {
             case "Meteor":
-                float mmrp = PlayerPrefs.GetFloat("mMRP");
-                if (relicLevel > mmrp && relicLevel <= 320)
+                if (MeteorBlock == "false")
                 {
-                    Text relicPlateText = relicPlate.GetComponentInChildren<Text>();
-                    relicPlateText.text = "New meteor relic reached";
-                    relicPlate.SetTrigger("On");
-                    mmrp *= 2;
+                    float mmrp = PlayerPrefs.GetFloat("mMRP");
+                    if (relicLevel > mmrp && relicLevel <= 1280)
+                    {
+                        Text relicPlateText = relicPlate.GetComponentInChildren<Text>();
+                        relicPlateText.text = "New meteor relic reached";
+                        relicPlate.SetTrigger("On");
+                        mmrp *= 2;
+                    }
+                    else if (relicLevel > 1280)
+                    {
+                        mmrp = 1;
+                    }
+
+                    PlayerPrefs.SetFloat("mMRP", mmrp);
                 }
-                else if (relicLevel > 320)
-                {
-                    mmrp = 1;
-                }
-                PlayerPrefs.SetFloat("mMRP", mmrp);
                 break;
             case "Tornado":
-                float tmrp = PlayerPrefs.GetFloat("mTRP");
-                if (relicLevel > tmrp && relicLevel <= 320)
+                if (TornadoBlock == "false")
                 {
-                    Text relicPlateText = relicPlate.GetComponentInChildren<Text>();
-                    relicPlateText.text = "New tornado relic reached";
-                    relicPlate.SetTrigger("On");
-                    tmrp *= 2;
+                    float tmrp = PlayerPrefs.GetFloat("mTRP");
+                    if (relicLevel > tmrp && relicLevel <= 1280)
+                    {
+                        Text relicPlateText = relicPlate.GetComponentInChildren<Text>();
+                        relicPlateText.text = "New tornado relic reached";
+                        relicPlate.SetTrigger("On");
+                        tmrp *= 2;
+                    }
+                    else if (relicLevel > 1280)
+                    {
+                        tmrp = 1;
+                    }
+                    PlayerPrefs.SetFloat("mTRP", tmrp);
                 }
-                else if (relicLevel > 320)
-                {
-                    tmrp = 1;
-                }
-                PlayerPrefs.SetFloat("mTRP", tmrp);
                 break;
             case "Fire":
-                float fmrp = PlayerPrefs.GetFloat("mFRP");
-                if (relicLevel > fmrp && relicLevel <= 320)
+                if (FireBlock == "false")
                 {
-                    Text relicPlateText = relicPlate.GetComponentInChildren<Text>();
-                    relicPlateText.text = "New fire relic reached";
-                    relicPlate.SetTrigger("On");
-                    fmrp *= 2;
+                    float fmrp = PlayerPrefs.GetFloat("mFRP");
+                    if (relicLevel > fmrp && relicLevel <= 1280)
+                    {
+                        Text relicPlateText = relicPlate.GetComponentInChildren<Text>();
+                        relicPlateText.text = "New fire relic reached";
+                        relicPlate.SetTrigger("On");
+                        fmrp *= 2;
+                    }
+                    else if (relicLevel > 1280)
+                    {
+                        fmrp = 1;
+                    }
+                    PlayerPrefs.SetFloat("mFRP", fmrp);
                 }
-                else if (relicLevel > 320)
-                {
-                    fmrp = 1;
-                }
-                PlayerPrefs.SetFloat("mFRP", fmrp);
                 break;
             case "Wave":
-                float wmrp = PlayerPrefs.GetFloat("mWRP");
-                if (relicLevel > wmrp && relicLevel <= 320)
+                if (WaveBlock == "false")
                 {
-                    Text relicPlateText = relicPlate.GetComponentInChildren<Text>();
-                    relicPlateText.text = "New wave relic reached";
-                    relicPlate.SetTrigger("On");
-                    wmrp *= 2;
+                    float wmrp = PlayerPrefs.GetFloat("mWRP");
+                    if (relicLevel > wmrp && relicLevel <= 1280)
+                    {
+                        Text relicPlateText = relicPlate.GetComponentInChildren<Text>();
+                        relicPlateText.text = "New wave relic reached";
+                        relicPlate.SetTrigger("On");
+                        wmrp *= 2;
+                    }
+                    else if (relicLevel > 1280)
+                    {
+                        wmrp = 1;
+                    }
+                    PlayerPrefs.SetFloat("mWRP", wmrp);
                 }
-                else if (relicLevel > 320)
-                {
-                    wmrp = 1;
-                }
-                PlayerPrefs.SetFloat("mWRP", wmrp);
                 break;
             case "Ultimate":
-                float umrp = PlayerPrefs.GetFloat("mURP");
-                if (relicLevel > umrp && relicLevel <= 320)
+                if (UltimateBlock == "false")
                 {
-                    Text relicPlateText = relicPlate.GetComponentInChildren<Text>();
-                    relicPlateText.text = "New ULTIMATE relic reached";
-                    relicPlate.SetTrigger("On");
-                    umrp *= 2;
+                    float umrp = PlayerPrefs.GetFloat("mURP");
+                    if (relicLevel > umrp && relicLevel <= 1280)
+                    {
+                        Text relicPlateText = relicPlate.GetComponentInChildren<Text>();
+                        relicPlateText.text = "New ULTIMATE relic reached";
+                        relicPlate.SetTrigger("On");
+                        umrp *= 2;
+                    }
+                    else if (relicLevel > 1280)
+                    {
+                        umrp = 1;
+                    }
+                    PlayerPrefs.SetFloat("mURP", umrp);
                 }
-                else if (relicLevel > 320)
-                {
-                    umrp = 1;
-                }
-                PlayerPrefs.SetFloat("mURP", umrp);
                 break;
         }
     }

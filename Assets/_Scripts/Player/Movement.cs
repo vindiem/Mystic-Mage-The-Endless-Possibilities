@@ -234,7 +234,7 @@ public class Movement : MonoBehaviour
         }
     }*/
 
-    // {F}
+    // Rotate to mouse position{F}
     public void RotateToMouse(Vector3 mousePosition, bool S)
     {
         // Look At transform main character with his own axis (y) and target position (x, z)

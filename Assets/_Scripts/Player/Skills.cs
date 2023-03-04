@@ -19,7 +19,7 @@ public class Skills : MonoBehaviour
     private Vector3 currentMousePosition = new Vector3();
 
     // Charavter variables
-    private float health = 1000;
+    private float health = 100;
     [HideInInspector] public float gameSpeed = 1.25f;
 
     public LayerMask CastLayer;
@@ -463,7 +463,7 @@ public class Skills : MonoBehaviour
     {
         if (other.CompareTag("ZombieHit") == true)
         {
-            TakeDamage(enemy.damage);
+            TakeDamage(enemy.currentDamage);
         }
     }
 
