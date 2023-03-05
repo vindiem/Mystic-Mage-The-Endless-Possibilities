@@ -36,6 +36,12 @@ public class Relics : MonoBehaviour
 
     private void Start()
     {
+        MeteorBlocker.gameObject.SetActive(true);
+        TornadoBlocker.gameObject.SetActive(true);
+        FireBlocker.gameObject.SetActive(true);
+        WaveBlocker.gameObject.SetActive(true);
+        UltimateBlocker.gameObject.SetActive(true);
+
         relicPrice = PlayerPrefs.GetInt("RelicPrice");
         if (relicPrice < 50)
         {
@@ -113,6 +119,7 @@ public class Relics : MonoBehaviour
         }
         else if (MeteorBlock == "true")
         {
+            MeteorBlocker.gameObject.SetActive(true);
             PlayerPrefs.SetFloat("Meteor relic progress", 0);
         }
 
@@ -126,6 +133,7 @@ public class Relics : MonoBehaviour
         }
         else if (TornadoBlock == "true")
         {
+            TornadoBlocker.gameObject.SetActive(true);
             PlayerPrefs.SetFloat("Tornado relic progress", 0);
         }
 
@@ -139,6 +147,7 @@ public class Relics : MonoBehaviour
         }
         else if (FireBlock == "true")
         {
+            FireBlocker.gameObject.SetActive(true);
             PlayerPrefs.SetFloat("Fire relic progress", 0);
         }
 
@@ -152,6 +161,7 @@ public class Relics : MonoBehaviour
         }
         else if (WaveBlock == "true")
         {
+            WaveBlocker.gameObject.SetActive(true);
             PlayerPrefs.SetFloat("Wave relic progress", 0);
         }
 
@@ -165,6 +175,7 @@ public class Relics : MonoBehaviour
         }
         else if (UltimateBlock == "true")
         {
+            UltimateBlocker.gameObject.SetActive(true);
             PlayerPrefs.SetFloat("Ultimate relic progress", 0);
         }
 
@@ -234,71 +245,6 @@ public class Relics : MonoBehaviour
         else
         {
             PlayerPrefs.SetFloat("mURP", 5);
-        }
-
-        float mmrp = PlayerPrefs.GetFloat("mMRP");
-        if (MRP > mmrp && MRP <= 1280)
-        {
-            int coinsCount = PlayerPrefs.GetInt("Coins");
-            coinsCount += (int)mmrp;
-            PlayerPrefs.SetInt("Coins", coinsCount);
-            mmrp *= 2;
-        }
-        else if (MRP > 1280)
-        {
-            mmrp = 1;
-        }
-
-        float mtrp = PlayerPrefs.GetFloat("mTRP");
-        if (TRP > mtrp && TRP <= 1280)
-        {
-            int coinsCount = PlayerPrefs.GetInt("Coins");
-            coinsCount += (int)mtrp;
-            PlayerPrefs.SetInt("Coins", coinsCount);
-            mtrp *= 2;
-        }
-        else if (TRP > 1280)
-        {
-            mtrp = 1;
-        }
-
-        float mfrp = PlayerPrefs.GetFloat("mFRP");
-        if (TRP > mfrp && FRP <= 1280)
-        {
-            int coinsCount = PlayerPrefs.GetInt("Coins");
-            coinsCount += (int)mfrp;
-            PlayerPrefs.SetInt("Coins", coinsCount);
-            mfrp *= 2;
-        }
-        else if (FRP > 1280)
-        {
-            mfrp = 1;
-        }
-
-        float mwrp = PlayerPrefs.GetFloat("mWRP");
-        if (TRP > mwrp && WRP <= 1280)
-        {
-            int coinsCount = PlayerPrefs.GetInt("Coins");
-            coinsCount += (int)mwrp;
-            PlayerPrefs.SetInt("Coins", coinsCount);
-            mwrp *= 2;
-        }
-        else if (WRP > 1280)
-        {
-            mwrp = 1;
-        }
-
-        float murp = PlayerPrefs.GetFloat("mURP");
-        if (TRP > murp && URP <= 1280)
-        {
-            int coinsCount = PlayerPrefs.GetInt("Coins");
-            coinsCount += (int)murp;
-            PlayerPrefs.SetInt("Coins", coinsCount);
-            murp *= 2;
-        }
-        else if (URP > 1280)
-        {
-            murp = 1;
         }
 
     }

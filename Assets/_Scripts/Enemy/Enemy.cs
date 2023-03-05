@@ -531,11 +531,17 @@ public class Enemy : MonoBehaviour
                 if (MeteorBlock == "false")
                 {
                     float mmrp = PlayerPrefs.GetFloat("mMRP");
+
                     if (relicLevel > mmrp && relicLevel <= 1280)
                     {
                         Text relicPlateText = relicPlate.GetComponentInChildren<Text>();
                         relicPlateText.text = "New meteor relic reached";
                         relicPlate.SetTrigger("On");
+
+                        int coinsCount = PlayerPrefs.GetInt("Coins");
+                        coinsCount += (int)mmrp;
+                        PlayerPrefs.SetInt("Coins", coinsCount);
+
                         mmrp *= 2;
                     }
                     else if (relicLevel > 1280)
@@ -555,6 +561,11 @@ public class Enemy : MonoBehaviour
                         Text relicPlateText = relicPlate.GetComponentInChildren<Text>();
                         relicPlateText.text = "New tornado relic reached";
                         relicPlate.SetTrigger("On");
+
+                        int coinsCount = PlayerPrefs.GetInt("Coins");
+                        coinsCount += (int)tmrp;
+                        PlayerPrefs.SetInt("Coins", coinsCount);
+
                         tmrp *= 2;
                     }
                     else if (relicLevel > 1280)
@@ -573,6 +584,11 @@ public class Enemy : MonoBehaviour
                         Text relicPlateText = relicPlate.GetComponentInChildren<Text>();
                         relicPlateText.text = "New fire relic reached";
                         relicPlate.SetTrigger("On");
+
+                        int coinsCount = PlayerPrefs.GetInt("Coins");
+                        coinsCount += (int)fmrp;
+                        PlayerPrefs.SetInt("Coins", coinsCount);
+
                         fmrp *= 2;
                     }
                     else if (relicLevel > 1280)
@@ -591,6 +607,11 @@ public class Enemy : MonoBehaviour
                         Text relicPlateText = relicPlate.GetComponentInChildren<Text>();
                         relicPlateText.text = "New wave relic reached";
                         relicPlate.SetTrigger("On");
+
+                        int coinsCount = PlayerPrefs.GetInt("Coins");
+                        coinsCount += (int)wmrp;
+                        PlayerPrefs.SetInt("Coins", coinsCount);
+
                         wmrp *= 2;
                     }
                     else if (relicLevel > 1280)
@@ -609,6 +630,11 @@ public class Enemy : MonoBehaviour
                         Text relicPlateText = relicPlate.GetComponentInChildren<Text>();
                         relicPlateText.text = "New ULTIMATE relic reached";
                         relicPlate.SetTrigger("On");
+
+                        int coinsCount = PlayerPrefs.GetInt("Coins");
+                        coinsCount += (int)umrp;
+                        PlayerPrefs.SetInt("Coins", coinsCount);
+
                         umrp *= 2;
                     }
                     else if (relicLevel > 1280)
