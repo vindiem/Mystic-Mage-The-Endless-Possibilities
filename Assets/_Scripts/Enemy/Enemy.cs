@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
     public float health = 100;
+    private float maxHealth;
+
     private int EditedDamage = 10;
     public int Damage = 10;
 
@@ -58,6 +60,7 @@ public class Enemy : MonoBehaviour
 
     public Image healthBackground;
     public Image healthImage;
+    public Text healthText;
 
     private Animator relicPlate;
 
@@ -122,10 +125,24 @@ public class Enemy : MonoBehaviour
 
         runningSource.mute = true;
 
+        #region Health set based on player level
+
+        int playerLevel = PlayerPrefs.GetInt("Level");
+        float playerLevelFloat = Random.Range(playerLevel - 0.5f, playerLevel + 0.5f);
+        health *= playerLevelFloat / 10;
+
+        #endregion
+
+        maxHealth = health;
+
     }
 
     private void Update()
     {
+        if (health < 0)
+        {   
+            health = 0;
+        }
         if (player == null)
         {
             //animator.SetBool("isAttacking", false);
@@ -208,10 +225,14 @@ public class Enemy : MonoBehaviour
         #region UI set
 
         Vector3 cameraPosition = Camera.main.transform.position;
+
         healthBackground.transform.LookAt(cameraPosition);
         healthImage.transform.LookAt(cameraPosition);
         elementText.transform.LookAt(cameraPosition);
-        healthImage.fillAmount = health / 100;
+        healthText.transform.LookAt(cameraPosition);
+
+        healthImage.fillAmount = health / maxHealth;
+        healthText.text = $"{(int)health} / {(int)maxHealth}";
 
         #endregion
 
