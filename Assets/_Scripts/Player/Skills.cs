@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class Skills : MonoBehaviour
 {
     // Scripts
-    [SerializeField] private Enemy enemy;
     [HideInInspector] public Movement movementScript;
 
     // Kills counter
@@ -91,13 +91,28 @@ public class Skills : MonoBehaviour
     public AudioClip ultimateSound;
     private AudioSource m_audioSource;
 
+    [Header("Effects")]
+    public GameObject meteorExplosion;
+
     private void Start()
     {
         movementScript = GetComponent<Movement>();
 
         switch (movementScript.movementType)
         {
-            default:
+            case 0:
+                for (int i = 0; i < iconButtonsMobile.Length; i++)
+                {
+                    iconButtonsPC[i].gameObject.SetActive(false);
+                    iconButtonsMobile[i].gameObject.SetActive(false);
+                    iconButtonsMobileV2[i].gameObject.SetActive(false);
+                }
+                PCSkills.SetActive(false);
+                MobileSkills.SetActive(false);
+                MobileSkillsV2.SetActive(false);
+                break;
+
+            case Movement.MovementType.Mouse:
                 for (int i = 0; i < iconButtonsMobile.Length; i++)
                 {
                     iconButtonsPC[i].gameObject.SetActive(true);
@@ -298,9 +313,11 @@ public class Skills : MonoBehaviour
             GameObject f = Instantiate(fire, new Vector3(transform.position.x, transform.position.y + 3.5f, 
                 transform.position.z), Quaternion.LookRotation(direction));
 
+            /*
             ParticleSystem.MainModule fireParticleSystem = f.GetComponent<ParticleSystem>().main;
             float lifetime = fireLevel / 10;
             fireParticleSystem.startLifetime = (float)lifetime;
+            */
 
             Destroy(f, fireLevel / 3);
 
@@ -408,7 +425,13 @@ public class Skills : MonoBehaviour
             Vector3 direction = (transform.position - currentMousePosition).normalized;
             m.GetComponent<Rigidbody>().AddForce(-direction * modifiedForce, ForceMode.Impulse);
 
+            Vector3 meteorPosition = m.transform.position;
+            Instantiate(meteorExplosion, meteorPosition, Quaternion.identity);
+
             Destroy(m, meteorLevel / 2);
+            // Meteor explotion will be destroyed be himself
+            // (in particle system Stop Action -> Destroy)
+            // Destroy(meteorExplosion, meteorLevel / 2);
 
             kds[3] = 3.5f;
             SetCkds(kds[3], 3);
@@ -459,11 +482,25 @@ public class Skills : MonoBehaviour
         health -= damage;
     }
 
+    // Take damage if on collider
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("ZombieHit") == true)
         {
-            TakeDamage(enemy.currentDamage);
+            GameObject[] enemiesArray = GameObject.FindGameObjectsWithTag("Enemy");
+            List<GameObject> enemiesList = new List<GameObject>();
+
+            Enemy[] enemiesScripts = new Enemy[enemiesArray.Length];
+
+            // Convert array to list
+            for (int i = 0; i < enemiesArray.Length; i++)
+            {
+                enemiesList.Add(enemiesArray[i]);
+                enemiesScripts[i] = enemiesList[i].GetComponent<Enemy>();
+            }
+
+            int randomEnemyDamage = Random.Range(0, enemiesList.Count);
+            TakeDamage(enemiesScripts[randomEnemyDamage].Damage);
         }
     }
 

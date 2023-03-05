@@ -8,9 +8,8 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
     public float health = 100;
-    private int standartDamage;
-    public int currentDamage = 10;
-    private int editedDamage;
+    private int EditedDamage = 10;
+    public int Damage = 10;
 
     //private float minAttackRange = 3.75f;
     private float maxAttackRange = 4.25f;
@@ -72,8 +71,6 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        standartDamage = currentDamage;
-
         rb = GetComponent<Rigidbody>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
@@ -142,10 +139,9 @@ public class Enemy : MonoBehaviour
         float speed = navMeshAgent.velocity.magnitude;
         animator.SetFloat("Speed", speed);
 
-        // Randomize currentDamage
-        editedDamage= Random.Range(currentDamage - 5, currentDamage + 5);
-        currentDamage = editedDamage;
-
+        // Randomize Damage
+        Damage = Random.Range(EditedDamage - 4, EditedDamage + 3);
+        
         #region Set float distance
 
         // if marker is instantiate -> target - marker
@@ -251,14 +247,14 @@ public class Enemy : MonoBehaviour
             GetComponent<Enemy>().enabled = false;
         }
 
-        currentDamage = standartDamage;
-
     }
 
+    /*
     public void TakeDamageToHero()
     {
-        player.GetComponent<Skills>().TakeDamage(currentDamage);
+        player.GetComponent<Skills>().TakeDamage(Damage);
     }
+    */
 
     private void LookAtTarget(GameObject target)
     {
@@ -422,7 +418,7 @@ public class Enemy : MonoBehaviour
             DeathE("Fire");
         }
 
-        // Ultimate currentDamage
+        // Ultimate EditedDamage
         else if (other.CompareTag("Ultimate") == true)
         {
             TakeDamage(playerScript.ultimateLevel * 2);
