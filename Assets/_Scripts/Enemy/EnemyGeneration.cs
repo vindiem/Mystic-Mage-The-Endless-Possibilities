@@ -31,7 +31,7 @@ public class EnemyGeneration : MonoBehaviour
 
     private void Start()
     {
-        // Frames per second
+        // Target frames per second
         Application.targetFrameRate = 60;
 
         playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Skills>();
@@ -39,7 +39,7 @@ public class EnemyGeneration : MonoBehaviour
 
         playerScriptMovenment = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
 
-        // Spawn a couple (10) of zombies by start
+        // Spawn a couple (2) of zombies by start
         for (int i = 0; i < 2; i++)
         {
             StartCoroutine(SpawnZombies());
@@ -169,7 +169,8 @@ public class EnemyGeneration : MonoBehaviour
         Save();
     }
 
-    private void Save()
+    // Best score save
+    public void Save()
     {
         float previousBestScore = PlayerPrefs.GetFloat("BestScore");
         if (previousBestScore < timeScore)

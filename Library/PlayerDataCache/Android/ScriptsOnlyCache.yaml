@@ -36,10 +36,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -154,6 +152,9 @@ ScriptsOnlyBuild:
     fullTypeName: LoadScenes
     methodName: LoadScene
   - assembly: Assembly-CSharp
+    fullTypeName: EnemyGeneration
+    methodName: Save
+  - assembly: Assembly-CSharp
     fullTypeName: Skills
     methodName: Ultimate
   - assembly: Assembly-CSharp
@@ -169,8 +170,14 @@ ScriptsOnlyBuild:
     fullTypeName: LoadScenes
     methodName: LoadScene
   - assembly: Assembly-CSharp
+    fullTypeName: EnemyGeneration
+    methodName: Save
+  - assembly: Assembly-CSharp
     fullTypeName: LoadScenes
     methodName: LoadScene
+  - assembly: Assembly-CSharp
+    fullTypeName: EnemyGeneration
+    methodName: Save
   - assembly: Assembly-CSharp
     fullTypeName: MenuSettings
     methodName: MovementSet
@@ -247,55 +254,55 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1706}
     - Class: 114
-      Script: {instanceID: 2194}
+      Script: {instanceID: 2192}
     - Class: 114
-      Script: {instanceID: 2278}
+      Script: {instanceID: 2276}
     - Class: 114
-      Script: {instanceID: 2406}
+      Script: {instanceID: 2404}
     - Class: 114
-      Script: {instanceID: 2502}
+      Script: {instanceID: 2500}
     - Class: 114
-      Script: {instanceID: 2530}
+      Script: {instanceID: 2528}
     - Class: 114
-      Script: {instanceID: 2538}
+      Script: {instanceID: 2536}
     - Class: 114
-      Script: {instanceID: 2570}
+      Script: {instanceID: 2568}
     - Class: 114
-      Script: {instanceID: 2604}
+      Script: {instanceID: 2602}
     - Class: 114
-      Script: {instanceID: 2670}
+      Script: {instanceID: 2668}
     - Class: 114
-      Script: {instanceID: 2730}
+      Script: {instanceID: 2728}
     - Class: 114
-      Script: {instanceID: 2796}
+      Script: {instanceID: 2794}
     - Class: 114
-      Script: {instanceID: 2826}
+      Script: {instanceID: 2824}
     - Class: 114
-      Script: {instanceID: 2858}
+      Script: {instanceID: 2856}
     - Class: 114
-      Script: {instanceID: 2902}
+      Script: {instanceID: 2900}
     - Class: 114
-      Script: {instanceID: 2978}
+      Script: {instanceID: 2976}
     - Class: 114
-      Script: {instanceID: 3090}
+      Script: {instanceID: 3088}
     - Class: 114
-      Script: {instanceID: 3098}
+      Script: {instanceID: 3096}
     - Class: 114
-      Script: {instanceID: 3184}
+      Script: {instanceID: 3182}
     - Class: 114
-      Script: {instanceID: 3358}
+      Script: {instanceID: 3356}
     - Class: 114
-      Script: {instanceID: 3682}
+      Script: {instanceID: 3680}
     - Class: 114
-      Script: {instanceID: 3694}
+      Script: {instanceID: 3692}
     - Class: 114
-      Script: {instanceID: 4042}
+      Script: {instanceID: 4040}
     - Class: 114
-      Script: {instanceID: 4144}
+      Script: {instanceID: 4142}
     - Class: 114
-      Script: {instanceID: 4450}
+      Script: {instanceID: 4448}
     - Class: 114
-      Script: {instanceID: 4728}
+      Script: {instanceID: 4726}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -360,25 +367,25 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1706}
     - Class: 114
-      Script: {instanceID: 2278}
+      Script: {instanceID: 2276}
     - Class: 114
-      Script: {instanceID: 2538}
+      Script: {instanceID: 2536}
     - Class: 114
-      Script: {instanceID: 2604}
+      Script: {instanceID: 2602}
     - Class: 114
-      Script: {instanceID: 2730}
+      Script: {instanceID: 2728}
     - Class: 114
-      Script: {instanceID: 2902}
+      Script: {instanceID: 2900}
     - Class: 114
-      Script: {instanceID: 2978}
+      Script: {instanceID: 2976}
     - Class: 114
-      Script: {instanceID: 3090}
+      Script: {instanceID: 3088}
     - Class: 114
-      Script: {instanceID: 3184}
+      Script: {instanceID: 3182}
     - Class: 114
-      Script: {instanceID: 3232}
+      Script: {instanceID: 3230}
     - Class: 114
-      Script: {instanceID: 3694}
+      Script: {instanceID: 3692}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -429,35 +436,35 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1706}
     - Class: 114
-      Script: {instanceID: 1858}
+      Script: {instanceID: 1856}
     - Class: 114
-      Script: {instanceID: 1918}
+      Script: {instanceID: 1916}
     - Class: 114
-      Script: {instanceID: 2278}
+      Script: {instanceID: 2276}
     - Class: 114
-      Script: {instanceID: 2604}
+      Script: {instanceID: 2602}
     - Class: 114
-      Script: {instanceID: 2730}
+      Script: {instanceID: 2728}
     - Class: 114
-      Script: {instanceID: 2902}
+      Script: {instanceID: 2900}
     - Class: 114
-      Script: {instanceID: 2978}
+      Script: {instanceID: 2976}
     - Class: 114
-      Script: {instanceID: 3090}
+      Script: {instanceID: 3088}
     - Class: 114
-      Script: {instanceID: 3098}
+      Script: {instanceID: 3096}
     - Class: 114
-      Script: {instanceID: 3184}
+      Script: {instanceID: 3182}
     - Class: 114
-      Script: {instanceID: 3694}
+      Script: {instanceID: 3692}
     - Class: 114
-      Script: {instanceID: 3774}
+      Script: {instanceID: 3772}
     - Class: 114
-      Script: {instanceID: 3922}
+      Script: {instanceID: 3920}
     - Class: 114
-      Script: {instanceID: 4056}
+      Script: {instanceID: 4054}
     - Class: 114
-      Script: {instanceID: 4586}
+      Script: {instanceID: 4584}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -693,7 +700,7 @@ ScriptsOnlyBuild:
     className: Pause
   - hash:
       serializedVersion: 2
-      Hash: 787638ede4fcc7d3b0bc65b2133bbb29
+      Hash: 43e4f2b78b4237216cd07ed07fe3e2b5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Skills

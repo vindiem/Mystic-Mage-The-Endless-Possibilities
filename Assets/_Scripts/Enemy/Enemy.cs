@@ -67,7 +67,7 @@ public class Enemy : MonoBehaviour
     public AudioClip attackSound;
     private AudioSource runningSource;
 
-    private bool isDead = false;
+    private bool hasDead = false;
 
     private void Start()
     {
@@ -216,9 +216,9 @@ public class Enemy : MonoBehaviour
         #endregion
 
         // Death
-        if ((health <= 0 && isDead == false) || (transform.position.y <= -10f && isDead == false))
+        if ((health <= 0 && hasDead == false) || (transform.position.y <= -10f && hasDead == false))
         {
-            isDead = true;
+            hasDead = true;
 
             int randXP = Random.Range(40, 70);
             float currentXP = PlayerPrefs.GetFloat("Xp");
@@ -497,7 +497,7 @@ public class Enemy : MonoBehaviour
         for (int i = 0; i < playerScript.fireLevel / 5; i++)
         {
             yield return new WaitForSeconds(.5f);
-            TakeDamage(playerScript.fireLevel / 7);
+            TakeDamage(playerScript.fireLevel / 8);
         }
     }
 
