@@ -257,8 +257,8 @@ public class Skills : MonoBehaviour
             }
             
             else if (Input.GetKeyDown(KeyCode.Space))
-            { 
-                MeteorInvoke(); 
+            {
+                Ultimate();
             }
 
         }
