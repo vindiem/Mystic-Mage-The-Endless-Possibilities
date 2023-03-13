@@ -43,10 +43,7 @@ public class Relics : MonoBehaviour
         UltimateBlocker.gameObject.SetActive(true);
 
         relicPrice = PlayerPrefs.GetInt("RelicPrice");
-        if (relicPrice < 50)
-        {
-            relicPrice = 50;
-        }
+        if (relicPrice < 50) relicPrice = 50;
 
         MeteorBlock = PlayerPrefs.GetString("MeteorBlock");
         TornadoBlock = PlayerPrefs.GetString("TornadoBlock");
@@ -54,50 +51,30 @@ public class Relics : MonoBehaviour
         WaveBlock = PlayerPrefs.GetString("WaveBlock");
         UltimateBlock = PlayerPrefs.GetString("UltimateBlock");
 
-        if (MeteorBlock == "true")
-        {
+        if (MeteorBlock == "true") 
             MeteorBlocker.gameObject.SetActive(true);
-        }
-        else if (MeteorBlock == "false")
-        {
+        else if (MeteorBlock == "false") 
             MeteorBlocker.gameObject.SetActive(false);
-        }
 
-        if (TornadoBlock == "true")
-        {
+        if (TornadoBlock == "true") 
             TornadoBlocker.gameObject.SetActive(true);
-        }
-        else if (TornadoBlock == "false")
-        {
+        else if (TornadoBlock == "false") 
             TornadoBlocker.gameObject.SetActive(false);
-        }
 
-        if (FireBlock == "true")
-        {
+        if (FireBlock == "true") 
             FireBlocker.gameObject.SetActive(true);
-        }
-        else if (FireBlock == "false")
-        {
+        else if (FireBlock == "false") 
             FireBlocker.gameObject.SetActive(false);
-        }
 
-        if (WaveBlock == "true")
-        {
+        if (WaveBlock == "true") 
             WaveBlocker.gameObject.SetActive(true);
-        }
-        else if (WaveBlock == "false")
-        {
+        else if (WaveBlock == "false") 
             WaveBlocker.gameObject.SetActive(false);
-        }
 
-        if (UltimateBlock == "true")
-        {
+        if (UltimateBlock == "true") 
             UltimateBlocker.gameObject.SetActive(true);
-        }
-        else if (UltimateBlock == "false")
-        {
+        else if (UltimateBlock == "false") 
             UltimateBlocker.gameObject.SetActive(false);
-        }
 
     }
 
@@ -179,7 +156,7 @@ public class Relics : MonoBehaviour
             PlayerPrefs.SetFloat("Ultimate relic progress", 0);
         }
 
-
+        // Best score value set
         if (bestScoreTimeText != null)
         {
             bestScoreTime = PlayerPrefs.GetFloat("BestScore");
@@ -191,6 +168,7 @@ public class Relics : MonoBehaviour
             bestScoreKillsText.text = $"Best score kills: " + bestScoreKills;
         }
 
+        // Relic price set
         for (int i = 0; i < relicPriceTexts.Length; i++)
         {
             relicPriceTexts[i].text = $"Buy relic: {relicPrice} coins";

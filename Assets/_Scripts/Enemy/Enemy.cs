@@ -7,11 +7,11 @@ public class Enemy : MonoBehaviour
 {
     public float health = 100;
     private float maxHealth;
+    private bool hasDead = false;
 
     private int EditedDamage = 10;
     public int Damage = 10;
 
-    //private float minAttackRange = 3.75f;
     private float maxAttackRange = 4.25f;
     private float seeRange = 15f;
 
@@ -19,7 +19,6 @@ public class Enemy : MonoBehaviour
     private float nextAttackTime;
 
     private float distance;
-
     [HideInInspector] public NavMeshAgent navMeshAgent;
     private Animator animator;
     private Transform player;
@@ -30,19 +29,19 @@ public class Enemy : MonoBehaviour
     public Text elementText;
 
     public float markerPlacementRadius = 5f;
-
     private GameObject marker;
     public GameObject markerPrefab;
     public GameObject damageColliderPrefab;
     private GameObject damageCollider;
 
+    // What element did the zombie die from
     private bool ultimateDeath = false;
     private bool meteorDeath = false;
     private bool tornadoDeath = false;
     private bool fireDeath = false;
     private bool waveDeath = false;
 
-    private LevelCoins lc;
+    private LevelCoins levelCoins;
     public GameObject coinPrefab;
 
     public enum Element
@@ -52,14 +51,15 @@ public class Enemy : MonoBehaviour
         Fire,
         Water
     };
-
     private Element element;
     private Material material;
 
+    // Health imagine
     public Image healthBackground;
     public Image healthImage;
     public Text healthText;
 
+    // Relics
     private Animator relicPlate;
 
     [Header("Sounds")]
@@ -68,14 +68,12 @@ public class Enemy : MonoBehaviour
     public AudioClip attackSound;
     private AudioSource runningSource;
 
-    private bool hasDead = false;
-
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-        lc = GameObject.FindGameObjectWithTag("LevelCoins").GetComponent<LevelCoins>();
+        levelCoins = GameObject.FindGameObjectWithTag("LevelCoins").GetComponent<LevelCoins>();
 
         player = GameObject.FindWithTag("Player").transform;
         playerScript = player.GetComponent<Skills>();
@@ -120,7 +118,6 @@ public class Enemy : MonoBehaviour
         // Audio source
         m_audioSource = GameObject.FindGameObjectWithTag("Sounds").GetComponent<AudioSource>();
         runningSource = GameObject.FindGameObjectWithTag("Zombie running").GetComponent<AudioSource>();
-
         runningSource.mute = true;
 
         #region Health set based on player level
@@ -128,24 +125,16 @@ public class Enemy : MonoBehaviour
         int playerLevel = PlayerPrefs.GetInt("Level");
         float playerLevelFloat = Random.Range(playerLevel - 0.5f, playerLevel + 0.5f);
         health *= playerLevelFloat / 10;
+        maxHealth = health;
 
         #endregion
-
-        maxHealth = health;
 
     }
 
     private void Update()
     {
-        if (player == null)
-        {
-            //animator.SetBool("isAttacking", false);
-            return;
-        }
-        if (navMeshAgent.enabled == false)
-        {
-            return;
-        }
+        // Do nothing if player destroyed or havn't spawned or when navMeshAgent isActive -> false
+        if (player == null || navMeshAgent.enabled == false) return;
 
         float speed = navMeshAgent.velocity.magnitude;
         animator.SetFloat("Speed", speed);
@@ -164,7 +153,6 @@ public class Enemy : MonoBehaviour
         else if (marker != null)
         {
             distance = Vector3.Distance(transform.position, marker.transform.position);
-
             LookAtTarget(marker);
         }
 
@@ -175,15 +163,15 @@ public class Enemy : MonoBehaviour
             if (marker == null)
             {
                 navMeshAgent.SetDestination(player.position);
-                runningSource.mute = false;
-
                 Destroy(damageCollider);
             }
 
             if (Time.time >= nextAttackTime && distance < maxAttackRange)
             {
+                // Running sound
                 runningSource.mute = true;
 
+                // Instantiate marker
                 PlaceMarker();
 
                 #region Difference attack animations
@@ -191,27 +179,25 @@ public class Enemy : MonoBehaviour
                 navMeshAgent.isStopped = true;
 
                 int rand = Random.Range(1, 5);
-
-                #endregion
-
-                navMeshAgent.isStopped = true;
                 animator.SetInteger("AttackInt", rand);
                 animator.SetBool("isAttacking", true);
                 StartCoroutine(AttackOff());
 
+                #endregion
+
                 // Attack sound play
                 m_audioSource.PlayOneShot(attackSound);
 
+                // Sey next time attack, so that the zombie doesn't hit the player every time
                 nextAttackTime = Time.time + attackRate;
 
             }
-            else if (distance >= maxAttackRange)
+            else if (distance > maxAttackRange)
             {
                 navMeshAgent.isStopped = false;
-            }
-            else if (distance <= 2f)
-            {
-                navMeshAgent.isStopped = true;
+
+                // Running sound
+                runningSource.mute = false;
             }
 
         }
@@ -231,15 +217,17 @@ public class Enemy : MonoBehaviour
         #endregion
 
         // Death
-        if ((health <= 0 && hasDead == false) || (transform.position.y <= -10f && hasDead == false))
+        if ((health <= 0 && hasDead == false) || transform.position.y < -10f)
         {
             hasDead = true;
 
-            int randXP = Random.Range(40, 70);
+            // Experience
+            int randomXP = Random.Range(40, 80);
             float currentXP = PlayerPrefs.GetFloat("Xp");
-            currentXP += randXP;
+            currentXP += randomXP;
             PlayerPrefs.SetFloat("Xp", currentXP);
 
+            // Coin instantiate by chance 20%
             int coinAddChance = Random.Range(0, 5);
             if (coinAddChance == 0)
             {
@@ -249,110 +237,33 @@ public class Enemy : MonoBehaviour
             }
 
             playerScript.killsCounterInt++;
-            lc.E();
-
+            levelCoins.CheckLevel();
             m_audioSource.PlayOneShot(deathSound);
             animator.SetTrigger("Death");
 
+            // Visual death
             transform.GetComponent<Collider>().enabled = false;
             navMeshAgent.isStopped = true;
             rb.isKinematic = true;
 
             Destroy(gameObject, 4f);
-            GetComponent<Enemy>().enabled = false;
+            transform.GetComponent<Enemy>().enabled = false;
+
         }
 
     }
 
-    /*
-    public void TakeDamageToHero()
-    {
-        player.GetComponent<Skills>().TakeDamage(Damage);
-    }
-    */
-
     private void LookAtTarget(GameObject target)
     {
-        transform.LookAt(new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z));
+        transform.LookAt(new Vector3(target.transform.position.x, 
+            transform.position.y, target.transform.position.z));
     }
 
     private void TakeDamage(float damage)
     {
         health -= damage;
-    }
-
-    private void DeathE(string skillName)
-    {
-        // Death
-        if (health <= 0 || transform.position.y <= -10f)
-        {
-            string MeteorBlock,
-                TornadoBlock,
-                FireBlock,
-                WaveBlock,
-                UltimateBlock;
-
-            MeteorBlock = PlayerPrefs.GetString("MeteorBlock");
-            TornadoBlock = PlayerPrefs.GetString("TornadoBlock");
-            FireBlock = PlayerPrefs.GetString("FireBlock");
-            WaveBlock = PlayerPrefs.GetString("WaveBlock");
-            UltimateBlock = PlayerPrefs.GetString("UltimateBlock");
-
-            switch (skillName)
-            {
-                case "Meteor":
-                    if (meteorDeath == false && MeteorBlock == "false")
-                    {
-                        meteorDeath = true;
-                        int MRP = PlayerPrefs.GetInt("Meteor relic progress");
-                        MRP++;
-                        RelicAchievement(MRP, "Meteor");
-                        PlayerPrefs.SetInt("Meteor relic progress", MRP);
-                    }
-                    break;
-                case "Tornado":
-                    if (tornadoDeath == false && TornadoBlock == "false")
-                    {
-                        tornadoDeath = true;
-                        int TRP = PlayerPrefs.GetInt("Tornado relic progress");
-                        TRP++;
-                        RelicAchievement(TRP, "Tornado");
-                        PlayerPrefs.SetInt("Tornado relic progress", TRP);
-                    }
-                    break;
-                case "Fire":
-                    if (fireDeath == false && FireBlock == "false")
-                    {
-                        fireDeath = true;
-                        int FRP = PlayerPrefs.GetInt("Fire relic progress");
-                        FRP++;
-                        RelicAchievement(FRP, "Fire");
-                        PlayerPrefs.SetInt("Fire relic progress", FRP);
-                    }
-                    break;
-                case "Wave":
-                    if (waveDeath == false && WaveBlock == "false")
-                    {
-                        waveDeath = true;
-                        int WRP = PlayerPrefs.GetInt("Wave relic progress");
-                        WRP++;
-                        RelicAchievement(WRP, "Wave");
-                        PlayerPrefs.SetInt("Wave relic progress", WRP);
-                    }
-                    break;
-                case "Ultimate":
-                    if (ultimateDeath == false && UltimateBlock == "false")
-                    {
-                        ultimateDeath = true;
-                        int URP = PlayerPrefs.GetInt("Ultimate relic progress");
-                        URP++;
-                        RelicAchievement(URP, "Ultimate");
-                        PlayerPrefs.SetInt("Ultimate relic progress", URP);
-                    }
-                    break;
-            }
-
-        }
+        // If in the future there will be something that can be done after causing damage to zombies,
+        // then it will be possible to register it here
     }
 
     // Damage taken
@@ -360,6 +271,7 @@ public class Enemy : MonoBehaviour
     {
         // ; element - zombie >> elements that match
 
+        // Meteor > Water
         if (other.CompareTag("Meteor") == true)
         {
             if (element == Element.Water)
@@ -373,9 +285,10 @@ public class Enemy : MonoBehaviour
                 TakeDamage(playerScript.meteorLevel * randomDamage);
             }
 
-            DeathE("Meteor");
+            RelicKillUpdate("Meteor");
         }
 
+        // Tornado > Fire
         else if (other.CompareTag("Tornado") == true)
         {
             if (element == Element.Fire)
@@ -395,9 +308,10 @@ public class Enemy : MonoBehaviour
             Destroy(t, 1.5f);
 
             StartCoroutine(Raise());
-            DeathE("Tornado");
+            RelicKillUpdate("Tornado");
         }
 
+        // Wave > Earth
         else if (other.CompareTag("Wave") == true)
         {
             if (element == Element.Earth)
@@ -414,9 +328,10 @@ public class Enemy : MonoBehaviour
             Vector3 backDirection = (transform.position - backLandmark.position).normalized;
             rb.AddForce(-backDirection * playerScript.waveLevel * 16);
             StartCoroutine(Freez(playerScript.waveLevel / 12));
-            DeathE("Wave");
+            RelicKillUpdate("Wave");
         }
 
+        // Fire > Air
         else if (other.CompareTag("Fire") == true)
         {
             if (element == Element.Air)
@@ -430,17 +345,17 @@ public class Enemy : MonoBehaviour
                 TakeDamage(playerScript.fireLevel * randomDamage);
             }
             StartCoroutine(AfterFireDamage());
-            DeathE("Fire");
+            RelicKillUpdate("Fire");
         }
 
-        // Ultimate EditedDamage
+        // Ultimate damage
         else if (other.CompareTag("Ultimate") == true)
         {
             TakeDamage(playerScript.ultimateLevel * 2);
 
             Vector3 backDirection = (transform.position - backLandmark.position).normalized;
             rb.AddForce(-backDirection * playerScript.waveLevel * 4);
-            DeathE("Ultimate");
+            RelicKillUpdate("Ultimate");
         }
     }
 
@@ -455,6 +370,8 @@ public class Enemy : MonoBehaviour
         if (NavMesh.SamplePosition(markerPosition, out hit, markerPlacementRadius, NavMesh.AllAreas))
         {
             marker = Instantiate(markerPrefab, hit.position, Quaternion.identity);
+
+            // Destroy marker if zombie was killed before he attacked player
             Destroy(marker, 2f);
         }
 
@@ -473,10 +390,11 @@ public class Enemy : MonoBehaviour
         {
             damageCollider = Instantiate(damageColliderPrefab, marker.transform.position, Quaternion.identity);
             Destroy(marker, 0.1f);
+            Destroy(damageCollider, 0.25f);
         }
     }
     
-    // Coroutines .
+    // Coroutines
     private IEnumerator Raise()
     {
         animator.SetFloat("Speed", 0);
@@ -522,6 +440,7 @@ public class Enemy : MonoBehaviour
         animator.SetBool("isAttacking", false);
     }
 
+    // Relics
     private void RelicAchievement(int relicLevel, string nameOfRelic)
     {
         string MeteorBlock,
@@ -655,6 +574,80 @@ public class Enemy : MonoBehaviour
                     PlayerPrefs.SetFloat("mURP", umrp);
                 }
                 break;
+        }
+    }
+
+    private void RelicKillUpdate(string skillName)
+    {
+        // If death check if relic has been reached
+        if (health <= 0 || transform.position.y <= -10f)
+        {
+            string MeteorBlock,
+                TornadoBlock,
+                FireBlock,
+                WaveBlock,
+                UltimateBlock;
+
+            MeteorBlock = PlayerPrefs.GetString("MeteorBlock");
+            TornadoBlock = PlayerPrefs.GetString("TornadoBlock");
+            FireBlock = PlayerPrefs.GetString("FireBlock");
+            WaveBlock = PlayerPrefs.GetString("WaveBlock");
+            UltimateBlock = PlayerPrefs.GetString("UltimateBlock");
+
+            switch (skillName)
+            {
+                case "Meteor":
+                    if (meteorDeath == false && MeteorBlock == "false")
+                    {
+                        meteorDeath = true;
+                        int MRP = PlayerPrefs.GetInt("Meteor relic progress");
+                        MRP++;
+                        RelicAchievement(MRP, "Meteor");
+                        PlayerPrefs.SetInt("Meteor relic progress", MRP);
+                    }
+                    break;
+                case "Tornado":
+                    if (tornadoDeath == false && TornadoBlock == "false")
+                    {
+                        tornadoDeath = true;
+                        int TRP = PlayerPrefs.GetInt("Tornado relic progress");
+                        TRP++;
+                        RelicAchievement(TRP, "Tornado");
+                        PlayerPrefs.SetInt("Tornado relic progress", TRP);
+                    }
+                    break;
+                case "Fire":
+                    if (fireDeath == false && FireBlock == "false")
+                    {
+                        fireDeath = true;
+                        int FRP = PlayerPrefs.GetInt("Fire relic progress");
+                        FRP++;
+                        RelicAchievement(FRP, "Fire");
+                        PlayerPrefs.SetInt("Fire relic progress", FRP);
+                    }
+                    break;
+                case "Wave":
+                    if (waveDeath == false && WaveBlock == "false")
+                    {
+                        waveDeath = true;
+                        int WRP = PlayerPrefs.GetInt("Wave relic progress");
+                        WRP++;
+                        RelicAchievement(WRP, "Wave");
+                        PlayerPrefs.SetInt("Wave relic progress", WRP);
+                    }
+                    break;
+                case "Ultimate":
+                    if (ultimateDeath == false && UltimateBlock == "false")
+                    {
+                        ultimateDeath = true;
+                        int URP = PlayerPrefs.GetInt("Ultimate relic progress");
+                        URP++;
+                        RelicAchievement(URP, "Ultimate");
+                        PlayerPrefs.SetInt("Ultimate relic progress", URP);
+                    }
+                    break;
+            }
+
         }
     }
 

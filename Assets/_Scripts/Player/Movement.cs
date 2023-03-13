@@ -16,7 +16,6 @@ public class Movement : MonoBehaviour
 
     public LayerMask CastLayer;
     private Animator animator;
-    //private Rigidbody rb;
 
     // Vectors
     private Vector3 currentMousePosition = new Vector3(0, 0, 0);
@@ -27,6 +26,7 @@ public class Movement : MonoBehaviour
     //private bool onGround = false;
     //private float distanceToGround = 0.5f;
     //private float jumpForce = 7.6f;
+    //private Rigidbody rb;
 
     // Charavter variables
     public float movementSpeed = 4;
@@ -49,14 +49,9 @@ public class Movement : MonoBehaviour
     private void Awake()
     {
         string mt = PlayerPrefs.GetString("MovementType");
-        if (mt == "buttons")
-        {
-            movementType = MovementType.MobileV2;
-        }
-        else if (mt == "joystick")
-        {
-            movementType = MovementType.Mobile;
-        }
+        if (mt == "buttons") movementType = MovementType.MobileV2;
+        else if (mt == "joystick") movementType = MovementType.Mobile;
+
     }
 
     private void Start()
@@ -89,6 +84,7 @@ public class Movement : MonoBehaviour
                 break;
         }
 
+        // Sound
         runningSound.mute = true;
 
     }
@@ -111,10 +107,7 @@ public class Movement : MonoBehaviour
                 break;
         }
 
-        /*if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            Jump();
-        }*/
+        /*if (Input.GetKeyDown(KeyCode.LeftShift)) Jump();*/
 
         #region Get current mouse position
 
@@ -234,7 +227,7 @@ public class Movement : MonoBehaviour
         }
     }*/
 
-    // Rotate to mouse position{F}
+    // Rotate to mouse position {F}
     public void RotateToMouse(Vector3 mousePosition, bool S)
     {
         // Look At transform main character with his own axis (y) and target position (x, z)

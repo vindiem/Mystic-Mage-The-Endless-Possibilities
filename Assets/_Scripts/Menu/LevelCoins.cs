@@ -19,28 +19,27 @@ public class LevelCoins : MonoBehaviour
     private void Start()
     {
         ImageXP.fillAmount = 0;
-        E();
+        CheckLevel();
     }
 
     private void Update()
     {
-        E();
+        CheckLevel();
     }
 
-    public void E()
+    // Checking for a new level
+    public void CheckLevel()
     {
         currentLevel = PlayerPrefs.GetInt("Level");
         currentXP = PlayerPrefs.GetFloat("Xp");
         coins = PlayerPrefs.GetInt("Coins");
         TargetXp = PlayerPrefs.GetFloat("TargetXp");
 
-        XPToNewLevelSet();
+        TargetLevelXP();
         coinsText.text = coins.ToString();
-
-        //Debug.Log($"Level: {currentLevel}, xp {currentXP}, target xp {TargetXp}");
     }
 
-    private void XPToNewLevelSet()
+    private void TargetLevelXP()
     {
         if (currentLevel == 0)
         {
