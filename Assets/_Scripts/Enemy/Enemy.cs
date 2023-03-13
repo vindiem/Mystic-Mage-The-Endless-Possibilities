@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -139,10 +137,6 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        if (health < 0)
-        {   
-            health = 0;
-        }
         if (player == null)
         {
             //animator.SetBool("isAttacking", false);
