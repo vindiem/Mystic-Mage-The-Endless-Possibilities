@@ -184,19 +184,29 @@ public class Skills : MonoBehaviour
             float VerticalAxis = attackJoystick.Vertical;
 
             if (VerticalAxis >= 0.49f && HorizontalAxis <= -0.49f)
+            {
                 Fire();
+            }
 
             else if (HorizontalAxis <= -0.98f)
+            {
                 TornadoInvoke();
+            }
 
             else if (VerticalAxis >= 0.49f && HorizontalAxis >= 0.49f)
+            {
                 Wave();
+            }
 
             else if (HorizontalAxis >= 0.98f)
+            {
                 MeteorInvoke();
+            }
 
             else if (VerticalAxis <= -0.98f)
+            {
                 Ultimate();
+            }
 
             // Make skills icond visible
             if (HorizontalAxis > 0.05f || VerticalAxis > 0.05f ||
@@ -204,7 +214,10 @@ public class Skills : MonoBehaviour
             {
                 MobileSkills.gameObject.SetActive(true);
             }
-            else MobileSkills.gameObject.SetActive(false);
+            else
+            {
+                MobileSkills.gameObject.SetActive(false);
+            }
 
         }
 
@@ -219,18 +232,34 @@ public class Skills : MonoBehaviour
         {
             // look to mouse position
             if (Input.GetKey(KeyCode.F) == true)
+            {
                 movementScript.RotateToMouse(currentMousePosition, true);
+            }
 
             else if (Input.GetKeyDown(KeyCode.Z))
+            {
                 Fire();
+            }
+            
             else if (Input.GetKeyDown(KeyCode.X))
+            {
                 Wave();
+            }
+
             else if (Input.GetKeyDown(KeyCode.C))
+            {
                 TornadoInvoke();
+            }
+
             else if (Input.GetKeyDown(KeyCode.V))
+            {
                 MeteorInvoke();
+            }
+            
             else if (Input.GetKeyDown(KeyCode.Space))
-                Ultimate();
+            { 
+                MeteorInvoke(); 
+            }
 
         }
 
