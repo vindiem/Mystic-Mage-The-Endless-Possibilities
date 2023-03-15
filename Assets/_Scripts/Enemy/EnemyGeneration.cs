@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System;
+
 using Random = UnityEngine.Random;
 
 public class EnemyGeneration : MonoBehaviour
@@ -102,7 +103,7 @@ public class EnemyGeneration : MonoBehaviour
         GameObject[] enemyObjects = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemyObject in enemyObjects)
         {
-            Enemy enemyComponent = enemyObject.GetComponent<Enemy>();
+            EnemyMovement enemyComponent = enemyObject.GetComponent<EnemyMovement>();
             if (enemyComponent != null)
             {
                 if (enemyComponent.navMeshAgent.velocity.magnitude <= maxMutantSpeed)

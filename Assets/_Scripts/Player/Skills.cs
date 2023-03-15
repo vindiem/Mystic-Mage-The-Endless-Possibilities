@@ -311,7 +311,7 @@ public class Skills : MonoBehaviour
     // Z, X, C, V, SPACE
     // Jump [SHIFT]
 
-    // [Z] Fire / ;
+    // [Z] Fire / Dragon Knight;
     public void Fire()
     {
         if (kds[0] <= 0)
@@ -499,13 +499,13 @@ public class Skills : MonoBehaviour
             GameObject[] enemiesArray = GameObject.FindGameObjectsWithTag("Enemy");
             List<GameObject> enemiesList = new List<GameObject>();
 
-            Enemy[] enemiesScripts = new Enemy[enemiesArray.Length];
+            EnemyAttackSystem[] enemiesScripts = new EnemyAttackSystem[enemiesArray.Length];
 
             // Convert array to list
             for (int i = 0; i < enemiesArray.Length; i++)
             {
                 enemiesList.Add(enemiesArray[i]);
-                enemiesScripts[i] = enemiesList[i].GetComponent<Enemy>();
+                enemiesScripts[i] = enemiesList[i].GetComponent<EnemyAttackSystem>();
             }
 
             int randomEnemyDamage = Random.Range(0, enemiesList.Count);
