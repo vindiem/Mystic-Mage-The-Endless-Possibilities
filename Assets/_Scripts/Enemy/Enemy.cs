@@ -133,7 +133,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        // Do nothing if player destroyed or havn't spawned or when navMeshAgent isActive -> false
+        // Do nothing if player destroyed or haven't spawned or when navMeshAgent isActive -> false
         if (player == null || navMeshAgent.enabled == false) return;
 
         float speed = navMeshAgent.velocity.magnitude;
@@ -203,6 +203,8 @@ public class Enemy : MonoBehaviour
         }
 
         #region UI set
+
+        if (health < 0) health = 0;
 
         Vector3 cameraPosition = Camera.main.transform.position;
 
