@@ -167,8 +167,11 @@ public class EnemyMovement : MonoBehaviour
 
             Destroy(gameObject, 4f);
             transform.GetComponent<EnemyMovement>().enabled = false;
-            transform.GetComponent<EnemyAttackSystem>().enabled = false;
-            transform.GetComponent<EnemyUI>().enabled = false;
+            if (enemyAttackSystem != null && enemyUI != null)
+            {
+                transform.GetComponent<EnemyAttackSystem>().enabled = false;
+                transform.GetComponent<EnemyUI>().enabled = false;
+            }
 
         }
 
