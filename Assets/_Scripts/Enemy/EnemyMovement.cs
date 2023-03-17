@@ -121,16 +121,23 @@ public class EnemyMovement : MonoBehaviour
 
         #region Set float distance
 
-        // if marker is instantiate -> target - marker
-        // if marker isn't instantiate -> target - player
-        if (enemyAttackSystem.marker == null)
+        if (enemyAttackSystem != null)
+        {
+            // if marker is instantiate -> target - marker
+            // if marker isn't instantiate -> target - player
+            if (enemyAttackSystem.marker == null)
+            {
+                distance = Vector3.Distance(transform.position, player.position);
+            }
+            else if (enemyAttackSystem.marker != null)
+            {
+                distance = Vector3.Distance(transform.position, enemyAttackSystem.marker.transform.position);
+                LookAtTarget(enemyAttackSystem.marker);
+            }
+        }
+        else
         {
             distance = Vector3.Distance(transform.position, player.position);
-        }
-        else if (enemyAttackSystem.marker != null)
-        {
-            distance = Vector3.Distance(transform.position, enemyAttackSystem.marker.transform.position);
-            LookAtTarget(enemyAttackSystem.marker);
         }
 
         #endregion
@@ -268,6 +275,7 @@ public class EnemyMovement : MonoBehaviour
             rb.AddForce(-backDirection * playerScript.waveLevel * 4);
             enemyUI.RelicKillUpdate("Ultimate");
         }
+
     }
 
     private void LookAtTarget(GameObject target)
