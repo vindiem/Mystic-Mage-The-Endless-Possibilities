@@ -42,7 +42,7 @@ public class EnemyAttackSystem : MonoBehaviour
         // Attack
         if (enemyMovement.distance <= seeRange && enemyMovement.navMeshAgent.enabled == true)
         {
-            if (marker == null)
+            if (marker == null && player != null)
             {
                 enemyMovement.navMeshAgent.SetDestination(player.position);
                 Destroy(damageCollider);

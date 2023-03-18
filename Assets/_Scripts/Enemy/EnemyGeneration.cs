@@ -13,8 +13,8 @@ public class EnemyGeneration : MonoBehaviour
     public float spawnInterval = 10f;
     private float heightAboveGround;
 
-    private float maxMutantSpeed = 11.5f;
-    private float currentMutantSpeed;
+    private float maxEnemySpeed = 11.5f;
+    private float currentEnemySpeed;
 
     private float gameSpeed;
     private Skills playerScript;
@@ -91,7 +91,7 @@ public class EnemyGeneration : MonoBehaviour
     private void FixedUpdate()
     {
         float playerSpeed = playerScriptMovenment.movementSpeed;
-        currentMutantSpeed = playerSpeed - 0.15f;
+        currentEnemySpeed = playerSpeed - 0.15f;
 
         int level = PlayerPrefs.GetInt("Level");
         playerScript.meteorLevel = level;
@@ -106,9 +106,9 @@ public class EnemyGeneration : MonoBehaviour
             EnemyMovement enemyComponent = enemyObject.GetComponent<EnemyMovement>();
             if (enemyComponent != null)
             {
-                if (enemyComponent.navMeshAgent.velocity.magnitude <= maxMutantSpeed)
+                if (enemyComponent.navMeshAgent.velocity.magnitude <= maxEnemySpeed)
                 {
-                    enemyComponent.navMeshAgent.speed = currentMutantSpeed;
+                    enemyComponent.navMeshAgent.speed = currentEnemySpeed;
                 }
             }
         }

@@ -510,6 +510,7 @@ public class Skills : MonoBehaviour
 
             int randomEnemyDamage = Random.Range(0, enemiesList.Count);
             TakeDamage(enemiesScripts[randomEnemyDamage].Damage);
+
         }
     }
 
