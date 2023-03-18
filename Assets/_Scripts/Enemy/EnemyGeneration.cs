@@ -101,9 +101,9 @@ public class EnemyGeneration : MonoBehaviour
         playerScript.ultimateLevel = level;
 
         GameObject[] enemyObjects = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (GameObject enemyObject in enemyObjects)
+        foreach (GameObject enemy in enemyObjects)
         {
-            EnemyMovement enemyComponent = enemyObject.GetComponent<EnemyMovement>();
+            EnemyMovement enemyComponent = enemy.GetComponent<EnemyMovement>();
             if (enemyComponent != null)
             {
                 if (enemyComponent.navMeshAgent.velocity.magnitude <= maxEnemySpeed)

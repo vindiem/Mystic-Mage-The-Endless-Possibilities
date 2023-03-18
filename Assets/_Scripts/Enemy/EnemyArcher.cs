@@ -28,25 +28,23 @@ public class EnemyArcher : MonoBehaviour
     {
         if (player == null) return;
 
-        // Run to player 
-        // if 10 (see range) < distance to player > 15 (running range) 
-        if (enemyMovement.distance > runningRange && enemyMovement.distance < seeRange &&
-            enemyMovement.navMeshAgent.enabled == true)
+        enemyMovement.navMeshAgent.SetDestination(player.position);
+
+        #region Rotation 
+
+        if (enemyMovement.navMeshAgent.velocity.magnitude > 2)
         {
-            enemyMovement.navMeshAgent.Resume();
-            enemyMovement.navMeshAgent.SetDestination(player.position);
+            ArcherRotation(false);
         }
-        else if (enemyMovement.navMeshAgent.enabled == true)
+        else if (enemyMovement.navMeshAgent.velocity.magnitude < 1)
         {
-            enemyMovement.navMeshAgent.Stop();
-            Vector3 directionToPlayer = player.position - transform.position;
-            Quaternion offsetRotation = Quaternion.Euler(0f, 90f, 0f);
-            Quaternion lookRotation = Quaternion.LookRotation(directionToPlayer);
-            Quaternion finalRotation = lookRotation * offsetRotation;
-            transform.rotation = finalRotation;
+            ArcherRotation(true);
         }
 
-        // Shooting logic
+        #endregion
+
+        #region Shooting logic
+
         if (Time.time >= nextFireTime && enemyMovement.distance <= maxShootDistance)
         {
             enemyMovement.animator.SetBool("isAttacking", true);
@@ -56,6 +54,8 @@ public class EnemyArcher : MonoBehaviour
         {
             enemyMovement.animator.SetBool("isAttacking", false);
         }
+
+        #endregion
 
     }
 
@@ -73,6 +73,27 @@ public class EnemyArcher : MonoBehaviour
 
         Vector3 directionToPlayer = futurePlayerPosition - firePoint.position;
         arrowRb.velocity = directionToPlayer.normalized * 25;
+    }
+
+    private void ArcherRotation(bool isAttacking)
+    {
+        // Cool rotation (using offset) (using while archer is aiming)
+        if (isAttacking == true)
+        {
+            float offset = 90f;
+
+            Vector3 directionToPlayer = player.position - transform.position;
+            Quaternion offsetRotation = Quaternion.Euler(0f, offset, 0f);
+            Quaternion lookRotation = Quaternion.LookRotation(directionToPlayer);
+            Quaternion finalRotation = lookRotation * offsetRotation;
+            transform.rotation = finalRotation;
+        }
+
+        // Simple rotation (using while arhcer is moving)
+        else if (isAttacking == false)
+        {
+            transform.LookAt(player.position);
+        }
     }
 
 }
