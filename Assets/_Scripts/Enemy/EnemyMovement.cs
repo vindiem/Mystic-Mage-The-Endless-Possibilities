@@ -61,34 +61,35 @@ public class EnemyMovement : MonoBehaviour
         player = GameObject.FindWithTag("Player").transform;
         playerScript = player.GetComponent<Skills>();
 
+        // Element indicator set
         material = GetComponentInChildren<Renderer>().material;
         int randomElement = Random.Range(0, 4);
         switch (randomElement)
         {
             case 0:
                 element = Element.Air;
-                material.SetColor("_EmissionColor", new Color(32, 32, 32) * 0.014f);
+                material.SetColor("_EmissionColor", new Color(32, 32, 32) * 0.01f);
                 enemyUI.elementText.text = "Air".ToString();
                 enemyUI.elementText.color = Color.white;
                 enemyUI.healthImage.color = Color.white;
                 break;
             case 1:
                 element = Element.Earth;
-                material.SetColor("_EmissionColor", new Color(32, 27, 11) * 0.014f);
+                material.SetColor("_EmissionColor", new Color(32, 27, 11) * 0.01f);
                 enemyUI.elementText.text = "Earth".ToString();
                 enemyUI.elementText.color = Color.gray;
                 enemyUI.healthImage.color = Color.gray;
                 break;
             case 2:
                 element = Element.Fire;
-                material.SetColor("_EmissionColor", new Color(32, 13, 11) * 0.014f);
+                material.SetColor("_EmissionColor", new Color(32, 13, 11) * 0.01f);
                 enemyUI.elementText.text = "Fire".ToString();
                 enemyUI.elementText.color = Color.red;
                 enemyUI.healthImage.color = Color.red;
                 break;
             case 3:
                 element = Element.Water;
-                material.SetColor("_EmissionColor", new Color(11, 30, 32) * 0.014f);
+                material.SetColor("_EmissionColor", new Color(11, 27, 32) * 0.01f);
                 enemyUI.elementText.text = "Water".ToString();
                 enemyUI.elementText.color = Color.cyan;
                 enemyUI.healthImage.color = Color.cyan;

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -16,6 +17,8 @@ public class EnemyArcher : MonoBehaviour
     public int runningRange = 0;
     public int maxShootDistance = 0;
 
+    private bool hasShooted = true;
+
     private void Start()
     {
         enemyMovement = GetComponent<EnemyMovement>();
@@ -28,7 +31,11 @@ public class EnemyArcher : MonoBehaviour
     {
         if (player == null) return;
 
-        enemyMovement.navMeshAgent.SetDestination(player.position);
+        // is archer has shooted -> archer will going to player
+        if (hasShooted == true)
+        {
+            enemyMovement.navMeshAgent.SetDestination(player.position);
+        }
 
         #region Rotation 
 
@@ -73,6 +80,9 @@ public class EnemyArcher : MonoBehaviour
 
         Vector3 directionToPlayer = futurePlayerPosition - firePoint.position;
         arrowRb.velocity = directionToPlayer.normalized * 25;
+
+        StartCoroutine(SetTargetActive());
+
     }
 
     private void ArcherRotation(bool isAttacking)
@@ -80,6 +90,7 @@ public class EnemyArcher : MonoBehaviour
         // Cool rotation (using offset) (using while archer is aiming)
         if (isAttacking == true)
         {
+            hasShooted = false;
             float offset = 90f;
 
             Vector3 directionToPlayer = player.position - transform.position;
@@ -94,6 +105,12 @@ public class EnemyArcher : MonoBehaviour
         {
             transform.LookAt(player.position);
         }
+    }
+
+    private IEnumerator SetTargetActive()
+    {
+        yield return new WaitForSeconds(0.75f);
+        hasShooted = true;
     }
 
 }

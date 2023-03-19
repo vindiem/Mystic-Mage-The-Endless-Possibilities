@@ -13,7 +13,7 @@ public class EnemyGeneration : MonoBehaviour
     public float spawnInterval = 10f;
     private float heightAboveGround;
 
-    private float maxEnemySpeed = 11.5f;
+    private float maxEnemySpeed = 11f;
     private float currentEnemySpeed;
 
     private float gameSpeed;

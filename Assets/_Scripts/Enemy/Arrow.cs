@@ -10,7 +10,20 @@ public class Arrow : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        transform.LookAt(player.position);
+        transform.LookAt(new Vector3(player.position.x, 0, player.position.z));
+
+        // Randomize damage using mutants on scene
+        GameObject[] enemyObjects = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemyObjects)
+        {
+            EnemyAttackSystem enemyComponent = enemy.GetComponent<EnemyAttackSystem>();
+            if (enemyComponent != null)
+            {
+                damage = enemyComponent.Damage; 
+                break;
+            }
+        }
+
     }
 
     private void OnCollisionEnter(Collision collision)
