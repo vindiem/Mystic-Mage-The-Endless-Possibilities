@@ -40,7 +40,6 @@ public class EnemyMovement : MonoBehaviour
         Water
     };
     private Element element;
-    private Material material;
 
     [Header("Sounds")]
     [HideInInspector] public AudioSource m_audioSource;
@@ -48,10 +47,15 @@ public class EnemyMovement : MonoBehaviour
     public AudioClip attackSound;
     [HideInInspector] public AudioSource runningSource;
 
+    [Header("Outline")]
+    private Outline outline;
+
     private void Start()
     {
         enemyAttackSystem = GetComponent<EnemyAttackSystem>();
         enemyUI = GetComponent<EnemyUI>();
+
+        outline = GetComponent<Outline>();
 
         rb = GetComponent<Rigidbody>();
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -61,35 +65,30 @@ public class EnemyMovement : MonoBehaviour
         player = GameObject.FindWithTag("Player").transform;
         playerScript = player.GetComponent<Skills>();
 
-        // Element indicator set
-        material = GetComponentInChildren<Renderer>().material;
+        // Element outline set
         int randomElement = Random.Range(0, 4);
         switch (randomElement)
         {
             case 0:
-                element = Element.Air;
-                material.SetColor("_EmissionColor", new Color(32, 32, 32) * 0.01f);
+                outline.OutlineColor = Color.white;
                 enemyUI.elementText.text = "Air".ToString();
                 enemyUI.elementText.color = Color.white;
                 enemyUI.healthImage.color = Color.white;
                 break;
-            case 1:
-                element = Element.Earth;
-                material.SetColor("_EmissionColor", new Color(32, 27, 11) * 0.01f);
+            case 1:                
+                outline.OutlineColor = Color.gray;
                 enemyUI.elementText.text = "Earth".ToString();
                 enemyUI.elementText.color = Color.gray;
                 enemyUI.healthImage.color = Color.gray;
                 break;
             case 2:
-                element = Element.Fire;
-                material.SetColor("_EmissionColor", new Color(32, 13, 11) * 0.01f);
+                outline.OutlineColor = Color.red;
                 enemyUI.elementText.text = "Fire".ToString();
                 enemyUI.elementText.color = Color.red;
                 enemyUI.healthImage.color = Color.red;
                 break;
             case 3:
-                element = Element.Water;
-                material.SetColor("_EmissionColor", new Color(11, 27, 32) * 0.01f);
+                outline.OutlineColor = Color.cyan;
                 enemyUI.elementText.text = "Water".ToString();
                 enemyUI.elementText.color = Color.cyan;
                 enemyUI.healthImage.color = Color.cyan;
