@@ -9,8 +9,9 @@ using Random = UnityEngine.Random;
 
 public class EnemyGeneration : MonoBehaviour
 {
+    // Enemy generating
     public GameObject[] zombiePrefab;
-    public float spawnInterval = 10f;
+    public float enemySpawnInterval = 10f;
     private float heightAboveGround;
 
     private float maxEnemySpeed = 11f;
@@ -22,13 +23,18 @@ public class EnemyGeneration : MonoBehaviour
     //private Enemy enemyScript;
     private GameObject player;
 
+    public GameObject Cross;
+    public GameObject EndGame;
+
+    // UI
     private float timeScore;
     public Text timerText;
 
     private int killsCounter;
 
-    public GameObject Cross;
-    public GameObject EndGame;
+    // Buffs generating
+    public GameObject buff;
+    public float buffsSpawnInterval = 35f;
 
     private void Start()
     {
@@ -46,6 +52,8 @@ public class EnemyGeneration : MonoBehaviour
             StartCoroutine(SpawnZombies());
         }
 
+        StartCoroutine(SpawnBuffs());
+
     }
 
     private void Update()
@@ -59,7 +67,7 @@ public class EnemyGeneration : MonoBehaviour
         // 30 level = 2.0 interval
 
         int x = playerLevel;
-        spawnInterval = GetDivisors(x);
+        enemySpawnInterval = GetDivisors(x);
 
         float approximatePlayerSpeed = playerLevel / 5;
         if (approximatePlayerSpeed >= 4)
@@ -146,7 +154,7 @@ public class EnemyGeneration : MonoBehaviour
             Vector3 spawnPos = new Vector3(randomX, 64 - heightAboveGround, randomZ);
 
             GameObject cross = Instantiate(Cross, spawnPos, randomRotation, transform);
-            yield return new WaitForSeconds(spawnInterval / 2);
+            yield return new WaitForSeconds(enemySpawnInterval / 2);
             Destroy(cross);
 
             // Generate random zombie by chance
@@ -156,7 +164,42 @@ public class EnemyGeneration : MonoBehaviour
             else if (rand >= 80 && rand < 100) rand = 2;
 
             Instantiate(zombiePrefab[rand], spawnPos, randomRotation, transform);
-            yield return new WaitForSeconds(spawnInterval / 2);
+            yield return new WaitForSeconds(enemySpawnInterval / 2);
+        }
+    }
+
+    private IEnumerator SpawnBuffs()
+    {
+        // Generate loop
+        while (true)
+        {
+            // Generate random position in sphere 
+            float radius = 35f;
+            Vector3 randomPosition = Random.insideUnitSphere * radius;
+
+            float randomX = randomPosition.x;
+            float randomZ = randomPosition.z;
+
+            float rotationY = Random.Range(-180, 180);
+
+            Quaternion randomRotation = new Quaternion(0, rotationY, 0, 0);
+
+            RaycastHit hit;
+            if (Physics.Raycast(new Vector3(randomX, 64f, randomZ), Vector3.down, out hit))
+            {
+                heightAboveGround = hit.distance;
+            }
+
+            Vector3 spawnPos = new Vector3(randomX, 64 - heightAboveGround, randomZ);
+
+            GameObject cross = Instantiate(Cross, spawnPos, randomRotation, transform);
+            cross.transform.localScale /= 1.5f;
+            yield return new WaitForSeconds(buffsSpawnInterval / 2);
+            Destroy(cross);
+
+            Instantiate(buff, spawnPos, randomRotation, transform);
+            yield return new WaitForSeconds(buffsSpawnInterval / 2);
+
         }
     }
 
@@ -189,14 +232,20 @@ public class EnemyGeneration : MonoBehaviour
 
     public static float GetDivisors(int number)
     {
-        float n;
+        float n = 0;
+
         // 10 - 30
         n = number - 40;
+
         // -30 - -10
         n *= -1;
+
         // 30 - 10;
         n /= 5;
-
+        /*
+        // 60 - 20
+        n *= 2;
+        */
         return n;
     }
 

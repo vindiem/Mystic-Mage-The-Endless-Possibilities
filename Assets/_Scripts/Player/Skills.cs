@@ -462,6 +462,9 @@ public class Skills : MonoBehaviour
         {
             m_audioSource.PlayOneShot(ultimateSound);
 
+            // Throw player a little up
+            GetComponent<Rigidbody>().AddForce(Vector3.up * 10, ForceMode.Impulse);
+
             for (int i = 0; i < directions.Length; i++)
             {
                 Vector3 direction = (directions[i].position - transform.position).normalized;
@@ -489,6 +492,11 @@ public class Skills : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+    }
+
+    public void ChangeHealth(int hp)
+    {
+        health += hp;
     }
 
     // Take damage if on collider

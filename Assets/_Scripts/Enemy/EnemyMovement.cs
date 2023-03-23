@@ -297,6 +297,11 @@ public class EnemyMovement : MonoBehaviour
         // then it will be possible to register it here
     }
 
+    public void ChangeHealth(float hp)
+    {
+        health += hp;
+    }
+
     // Coroutines
     private IEnumerator Raise()
     {

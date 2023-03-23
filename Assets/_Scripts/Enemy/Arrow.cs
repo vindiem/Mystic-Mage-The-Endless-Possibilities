@@ -44,7 +44,7 @@ public class Arrow : MonoBehaviour
         }
 
         // Explotion by chance
-        int rand = Random.Range(0, 1);
+        int rand = Random.Range(0, 2);
         if (rand == 0)
         {
             Explode();
