@@ -11,6 +11,7 @@ public class EnemyMovement : MonoBehaviour
     public float health = 100;
     [HideInInspector] public float maxHealth;
     private bool hasDead = false;
+    [HideInInspector] public float speed;
 
     [HideInInspector] public float distance;
     [HideInInspector] public NavMeshAgent navMeshAgent;
@@ -76,10 +77,10 @@ public class EnemyMovement : MonoBehaviour
                 enemyUI.healthImage.color = Color.white;
                 break;
             case 1:                
-                outline.OutlineColor = Color.gray;
+                outline.OutlineColor = Color.green;
                 enemyUI.elementText.text = "Earth".ToString();
-                enemyUI.elementText.color = Color.gray;
-                enemyUI.healthImage.color = Color.gray;
+                enemyUI.elementText.color = Color.green;
+                enemyUI.healthImage.color = Color.green;
                 break;
             case 2:
                 outline.OutlineColor = Color.red;
@@ -116,7 +117,7 @@ public class EnemyMovement : MonoBehaviour
         // Do nothing if player destroyed or haven't spawned or when navMeshAgent isActive -> false
         if (player == null || navMeshAgent.enabled == false) return;
 
-        float speed = navMeshAgent.velocity.magnitude;
+        speed = navMeshAgent.velocity.magnitude;
         animator.SetFloat("Speed", speed);
 
         #region Set float distance
@@ -172,12 +173,17 @@ public class EnemyMovement : MonoBehaviour
             navMeshAgent.isStopped = true;
             rb.isKinematic = true;
 
+            // Show if health <= 0
+            enemyUI.UISet();
+
             Destroy(gameObject, 4f);
+            
+            // Make enemy weak
             transform.GetComponent<EnemyMovement>().enabled = false;
             if (enemyAttackSystem != null && enemyUI != null)
             {
-                transform.GetComponent<EnemyAttackSystem>().enabled = false;
-                transform.GetComponent<EnemyUI>().enabled = false;
+                enemyAttackSystem.enabled = false;
+                enemyUI.enabled = false;
             }
 
         }

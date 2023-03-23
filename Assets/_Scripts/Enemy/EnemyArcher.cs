@@ -14,10 +14,6 @@ public class EnemyArcher : MonoBehaviour
 
     private float nextFireTime = 0f;
     public int seeRange = 0;
-    public int runningRange = 0;
-    public int maxShootDistance = 0;
-
-    private bool hasShooted = true;
 
     private void Start()
     {
@@ -31,19 +27,16 @@ public class EnemyArcher : MonoBehaviour
     {
         if (player == null) return;
 
-        // is archer has shooted -> archer will going to player
-        if (hasShooted == true)
-        {
-            enemyMovement.navMeshAgent.SetDestination(player.position);
-        }
+        // is archer has shooted -> archer going to player
+        enemyMovement.navMeshAgent.SetDestination(player.position);
 
         #region Rotation 
 
-        if (enemyMovement.navMeshAgent.velocity.magnitude > 2)
+        if (enemyMovement.speed > 2f)
         {
             ArcherRotation(false);
         }
-        else if (enemyMovement.navMeshAgent.velocity.magnitude < 1)
+        else if (enemyMovement.speed < 1f)
         {
             ArcherRotation(true);
         }
@@ -52,7 +45,8 @@ public class EnemyArcher : MonoBehaviour
 
         #region Shooting logic
 
-        if (Time.time >= nextFireTime && enemyMovement.distance <= maxShootDistance)
+        if (Time.time >= nextFireTime && 
+            enemyMovement.distance <= enemyMovement.navMeshAgent.stoppingDistance + 1)
         {
             enemyMovement.animator.SetBool("isAttacking", true);
             nextFireTime = Time.time + fireRate;
@@ -81,8 +75,6 @@ public class EnemyArcher : MonoBehaviour
         Vector3 directionToPlayer = futurePlayerPosition - firePoint.position;
         arrowRb.velocity = directionToPlayer.normalized * 25;
 
-        StartCoroutine(SetTargetActive());
-
     }
 
     private void ArcherRotation(bool isAttacking)
@@ -90,7 +82,6 @@ public class EnemyArcher : MonoBehaviour
         // Cool rotation (using offset) (using while archer is aiming)
         if (isAttacking == true)
         {
-            hasShooted = false;
             float offset = 90f;
 
             Vector3 directionToPlayer = player.position - transform.position;
@@ -103,14 +94,8 @@ public class EnemyArcher : MonoBehaviour
         // Simple rotation (using while arhcer is moving)
         else if (isAttacking == false)
         {
-            transform.LookAt(player.position);
+            transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
         }
-    }
-
-    private IEnumerator SetTargetActive()
-    {
-        yield return new WaitForSeconds(0.75f);
-        hasShooted = true;
     }
 
 }

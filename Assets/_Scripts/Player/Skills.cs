@@ -33,22 +33,22 @@ public class Skills : MonoBehaviour
 
     // Objects || Prefabs
     public GameObject fire;
-    public int fireLevel = 2;
+    public int fireLevel = 10;
 
     public GameObject wave;
-    public int waveLevel = 3;
+    public int waveLevel = 10;
 
     public GameObject tornado;
     public GameObject visualTornado;
-    public int tornadoLevel = 5;
+    public int tornadoLevel = 10;
     private bool canTornadoInvoke = true;
 
     public GameObject meteor;
-    public int meteorLevel = 4;
+    public int meteorLevel = 10;
     private bool canMeteorInvoke = true;
 
     public GameObject ultimate;
-    public int ultimateLevel = 4;
+    public int ultimateLevel = 10;
     public Transform[] directions;
 
     // Skills k/d's

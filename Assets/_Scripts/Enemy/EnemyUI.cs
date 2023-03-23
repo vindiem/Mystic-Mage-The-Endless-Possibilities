@@ -30,6 +30,12 @@ public class EnemyUI : MonoBehaviour
 
     private void Update()
     {
+        UISet();
+    }
+
+    // Scripts main func
+    public void UISet()
+    {
         #region UI set
 
         if (enemyMovement.health < 0) enemyMovement.health = 0;

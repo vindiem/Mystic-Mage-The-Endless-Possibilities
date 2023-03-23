@@ -91,7 +91,7 @@ public class EnemyGeneration : MonoBehaviour
     private void FixedUpdate()
     {
         float playerSpeed = playerScriptMovenment.movementSpeed;
-        currentEnemySpeed = playerSpeed - 0.15f;
+        currentEnemySpeed = playerSpeed - 0.35f;
 
         int level = PlayerPrefs.GetInt("Level");
         playerScript.meteorLevel = level;
@@ -148,7 +148,13 @@ public class EnemyGeneration : MonoBehaviour
             GameObject cross = Instantiate(Cross, spawnPos, randomRotation, transform);
             yield return new WaitForSeconds(spawnInterval / 2);
             Destroy(cross);
-            int rand = Random.Range(0, zombiePrefab.Length);
+
+            // Generate random zombie by chance
+            int rand = Random.Range(0, 100);
+            if (rand >= 0 && rand < 40) rand = 0;
+            else if (rand >= 40 && rand < 80) rand = 1;
+            else if (rand >= 80 && rand < 100) rand = 2;
+
             Instantiate(zombiePrefab[rand], spawnPos, randomRotation, transform);
             yield return new WaitForSeconds(spawnInterval / 2);
         }

@@ -107729,8 +107729,9 @@ GameObject:
   - component: {fileID: 919132147725123740}
   - component: {fileID: 919132147725123741}
   - component: {fileID: 919132147725123743}
+  - component: {fileID: 919132147725123744}
   m_Layer: 2
-  m_Name: OutVoker
+  m_Name: Mystic Mage
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107907,6 +107908,24 @@ MonoBehaviour:
   attackJoystick: {fileID: 1472567880}
   runningSound: {fileID: 1072313599}
   breathingSound: {fileID: 1114463285}
+--- !u!114 &919132147725123744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132147725123738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 0.9166666, b: 0, a: 1}
+  outlineWidth: 1
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!4 &1031632035713860924
 Transform:
   m_ObjectHideFlags: 0
