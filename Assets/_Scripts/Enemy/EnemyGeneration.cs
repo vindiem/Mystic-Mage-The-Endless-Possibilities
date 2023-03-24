@@ -83,12 +83,7 @@ public class EnemyGeneration : MonoBehaviour
         }
         else
         {
-            float previousBestScore = PlayerPrefs.GetFloat("BestScore");
-            if (previousBestScore < timeScore)
-            {
-                PlayerPrefs.SetFloat("BestScore", timeScore);
-                PlayerPrefs.SetInt("BestScoreKills", killsCounter);
-            }
+            Save();
             
             EndGame.GetComponent<Animator>().SetTrigger("End");
             StartCoroutine(GameOver());

@@ -285,13 +285,15 @@ public class Skills : MonoBehaviour
         killsCounter.text = $"Kills: {killsCounterInt}";
         healthText.text = $"{health} / 100";
 
-        if (health <= 0 || transform.position.y <= -10f)
-        {
-            Destroy(gameObject);
-        }
-
         // Any level is correct because its same
         skillsLevel.text = $"Level: {meteorLevel}";
+
+        // if death
+        if (health <= 0)
+        {
+            health = 0;
+            Destroy(gameObject);
+        }
 
         #endregion
 
