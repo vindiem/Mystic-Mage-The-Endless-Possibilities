@@ -29,4 +29,9 @@ public class LoadScenes : MonoBehaviour
         SceneManager.LoadScene(sceneName: SceneName);
     }
 
+    public void SetTexture(string textureName)
+    {
+        PlayerPrefs.SetString("TextureName", textureName);
+    }
+
 }

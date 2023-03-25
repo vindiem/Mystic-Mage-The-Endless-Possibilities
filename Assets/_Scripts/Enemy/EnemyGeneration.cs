@@ -9,6 +9,9 @@ using Random = UnityEngine.Random;
 
 public class EnemyGeneration : MonoBehaviour
 {
+    private int maxEnemiesCount = 50;
+    private int currentEnemyCount = 0;
+
     // Enemy generating
     public GameObject[] zombiePrefab;
     public float enemySpawnInterval = 10f;
@@ -36,8 +39,35 @@ public class EnemyGeneration : MonoBehaviour
     public GameObject buff;
     public float buffsSpawnInterval = 35f;
 
+    // Floor texture generating
+    public List<Texture> floorTextures = new List<Texture>();
+    // Game - default (0)
+    // Level 2 - (1)
+    // Level 3 - (2)
+    // Level 4 - (3)
+    public Renderer Floor;
+
     private void Start()
     {
+        // Set floor texture
+        string levelDetector = "";
+        levelDetector = PlayerPrefs.GetString("TextureName");
+        switch (levelDetector)
+        {
+            case "Game":
+                Floor.material.mainTexture = floorTextures[0];
+                break;
+            case "Level 2":
+                Floor.material.mainTexture = floorTextures[1];
+                break;
+            case "Level 3":
+                Floor.material.mainTexture = floorTextures[2];
+                break;
+            case "Level 4":
+                Floor.material.mainTexture = floorTextures[3];
+                break;
+        }
+
         // Target frames per second
         Application.targetFrameRate = 60;
 
@@ -166,7 +196,7 @@ public class EnemyGeneration : MonoBehaviour
     private IEnumerator SpawnBuffs()
     {
         // Generate loop
-        while (true)
+        while (true && currentEnemyCount < maxEnemiesCount)
         {
             // Generate random position in sphere 
             float radius = 35f;
@@ -194,6 +224,8 @@ public class EnemyGeneration : MonoBehaviour
 
             Instantiate(buff, spawnPos, randomRotation, transform);
             yield return new WaitForSeconds(buffsSpawnInterval / 2);
+
+            currentEnemyCount++;
 
         }
     }
