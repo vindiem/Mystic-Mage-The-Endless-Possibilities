@@ -28,7 +28,10 @@ public class EnemyArcher : MonoBehaviour
         if (player == null) return;
 
         // is archer has shooted -> archer going to player
-        enemyMovement.navMeshAgent.SetDestination(player.position);
+        if (enemyMovement.distance <= seeRange)
+        {
+            enemyMovement.navMeshAgent.SetDestination(player.position);
+        }
 
         #region Rotation 
 

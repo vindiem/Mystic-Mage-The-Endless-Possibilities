@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 
 public class EnemyGeneration : MonoBehaviour
 {
-    private int maxEnemiesCount = 50;
+    private int maxEnemiesCount = 24; // 24 + 2
     private int currentEnemyCount = 0;
 
     // Enemy generating
@@ -46,6 +46,11 @@ public class EnemyGeneration : MonoBehaviour
     // Level 3 - (2)
     // Level 4 - (3)
     public Renderer Floor;
+
+    // Ads
+    public InterAd interAd;
+    private int triesCount = 0;
+    private bool haveAddedTries = false;
 
     private void Start()
     {
@@ -114,6 +119,7 @@ public class EnemyGeneration : MonoBehaviour
         else
         {
             Save();
+            haveAddedTries = true;
             
             EndGame.GetComponent<Animator>().SetTrigger("End");
             StartCoroutine(GameOver());
@@ -157,7 +163,7 @@ public class EnemyGeneration : MonoBehaviour
     private IEnumerator SpawnZombies()
     {
         // Generate loop
-        while (true)
+        while (currentEnemyCount < maxEnemiesCount)
         {
             // Generate random position in sphere 
             float radius = 35f;
@@ -190,13 +196,16 @@ public class EnemyGeneration : MonoBehaviour
 
             Instantiate(zombiePrefab[rand], spawnPos, randomRotation, transform);
             yield return new WaitForSeconds(enemySpawnInterval / 2);
+
+            currentEnemyCount++;
+
         }
     }
 
     private IEnumerator SpawnBuffs()
     {
         // Generate loop
-        while (true && currentEnemyCount < maxEnemiesCount)
+        while (true)
         {
             // Generate random position in sphere 
             float radius = 35f;
@@ -224,9 +233,6 @@ public class EnemyGeneration : MonoBehaviour
 
             Instantiate(buff, spawnPos, randomRotation, transform);
             yield return new WaitForSeconds(buffsSpawnInterval / 2);
-
-            currentEnemyCount++;
-
         }
     }
 
@@ -246,9 +252,23 @@ public class EnemyGeneration : MonoBehaviour
         Save();
     }
 
-    // Best score save
+    // Best score save & set tries count
     public void Save()
     {
+        if (haveAddedTries == false)
+        {
+            // Get and set tries count
+            triesCount = PlayerPrefs.GetInt("triesCount");
+            triesCount++;
+            PlayerPrefs.SetInt("triesCount", triesCount);
+
+            // Show ad if the player died every 3 times
+            if (triesCount % 3 == 0)
+            {
+                interAd.ShowAd();
+            }
+        }
+
         float previousBestScore = PlayerPrefs.GetFloat("BestScore");
         if (previousBestScore < timeScore)
         {
