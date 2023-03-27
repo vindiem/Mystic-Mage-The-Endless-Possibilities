@@ -6,7 +6,7 @@ using System;
 
 public class RewAd : MonoBehaviour
 {
-    private string UnitId = "ca-app-pub-3940256099942544/5224354917";
+    private string UnitId = "";
     private RewardedAd rewardedAd;
 
     private void OnEnable()
