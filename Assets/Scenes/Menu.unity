@@ -832,7 +832,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 179635036}
-  - component: {fileID: 179635037}
   m_Layer: 5
   m_Name: Bonus (Ad reward)
   m_TagString: Untagged
@@ -863,18 +862,6 @@ RectTransform:
   m_AnchoredPosition: {x: 125, y: 125}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &179635037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 179635035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9500b92bfbde4e41ac320be19f8ce4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &199120103
 GameObject:
   m_ObjectHideFlags: 0
@@ -4101,9 +4088,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1317513301}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e95678813f25a634e80f0a4edf5d96dd, type: 3}
+  m_Script: {fileID: 11500000, guid: 783caa8774acecf4ebee4035bdd21f43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameId: 5224018
 --- !u!1 &1357868750
 GameObject:
   m_ObjectHideFlags: 0
@@ -5496,9 +5484,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 179635037}
-        m_TargetAssemblyTypeName: RewAd, Assembly-CSharp
-        m_MethodName: ShowAd
+      - m_Target: {fileID: 1317513303}
+        m_TargetAssemblyTypeName: AdsHelper, Assembly-CSharp
+        m_MethodName: RewardedVideoAd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

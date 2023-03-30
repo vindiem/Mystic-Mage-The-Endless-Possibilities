@@ -6,6 +6,9 @@ using UnityEngine.UI;
 using System;
 
 using Random = UnityEngine.Random;
+using System.Linq;
+using UnityEngine.Advertisements;
+using Helpers;
 
 public class EnemyGeneration : MonoBehaviour
 {
@@ -48,7 +51,6 @@ public class EnemyGeneration : MonoBehaviour
     public Renderer Floor;
 
     // Ads
-    public InterAd interAd;
     private int triesCount = 0;
     private bool haveAddedTries = false;
 
@@ -125,6 +127,10 @@ public class EnemyGeneration : MonoBehaviour
             StartCoroutine(GameOver());
 
         }
+
+        GameObject[] enemiesOnScene = GameObject.FindGameObjectsWithTag("Enemy");
+        currentEnemyCount = enemiesOnScene.Length;
+
     }
 
     private void FixedUpdate()
@@ -163,41 +169,47 @@ public class EnemyGeneration : MonoBehaviour
     private IEnumerator SpawnZombies()
     {
         // Generate loop
-        while (currentEnemyCount < maxEnemiesCount)
+        while (true)
         {
-            // Generate random position in sphere 
-            float radius = 35f;
-            Vector3 randomPosition = Random.insideUnitSphere * radius;
-
-            float randomX = randomPosition.x;
-            float randomZ = randomPosition.z;
-
-            float rotationY = Random.Range(-180, 180);
-
-            Quaternion randomRotation = new Quaternion(0, rotationY, 0, 0);
-
-            RaycastHit hit;
-            if (Physics.Raycast(new Vector3(randomX, 64f, randomZ), Vector3.down, out hit))
+            if (currentEnemyCount < maxEnemiesCount)
             {
-                heightAboveGround = hit.distance;
+                // Generate random position in sphere 
+                float radius = 35f;
+                Vector3 randomPosition = Random.insideUnitSphere * radius;
+
+                float randomX = randomPosition.x;
+                float randomZ = randomPosition.z;
+
+                float rotationY = Random.Range(-180, 180);
+
+                Quaternion randomRotation = new Quaternion(0, rotationY, 0, 0);
+
+                RaycastHit hit;
+                if (Physics.Raycast(new Vector3(randomX, 64f, randomZ), Vector3.down, out hit))
+                {
+                    heightAboveGround = hit.distance;
+                }
+
+                Vector3 spawnPos = new Vector3(randomX, 64 - heightAboveGround, randomZ);
+
+                GameObject cross = Instantiate(Cross, spawnPos, randomRotation, transform);
+                yield return new WaitForSeconds(enemySpawnInterval / 2);
+                Destroy(cross);
+
+                // Generate random zombie by chance
+                int rand = Random.Range(0, 100);
+                if (rand >= 0 && rand < 40) rand = 0;
+                else if (rand >= 40 && rand < 80) rand = 1;
+                else if (rand >= 80 && rand < 100) rand = 2;
+
+                Instantiate(zombiePrefab[rand], spawnPos, randomRotation, transform);
+                yield return new WaitForSeconds(enemySpawnInterval / 2);
+
             }
-
-            Vector3 spawnPos = new Vector3(randomX, 64 - heightAboveGround, randomZ);
-
-            GameObject cross = Instantiate(Cross, spawnPos, randomRotation, transform);
-            yield return new WaitForSeconds(enemySpawnInterval / 2);
-            Destroy(cross);
-
-            // Generate random zombie by chance
-            int rand = Random.Range(0, 100);
-            if (rand >= 0 && rand < 40) rand = 0;
-            else if (rand >= 40 && rand < 80) rand = 1;
-            else if (rand >= 80 && rand < 100) rand = 2;
-
-            Instantiate(zombiePrefab[rand], spawnPos, randomRotation, transform);
-            yield return new WaitForSeconds(enemySpawnInterval / 2);
-
-            currentEnemyCount++;
+            else
+            {
+                yield return new WaitUntil(() => currentEnemyCount < maxEnemiesCount);
+            }
 
         }
     }
@@ -265,7 +277,8 @@ public class EnemyGeneration : MonoBehaviour
             // Show ad if the player died every 3 times
             if (triesCount % 3 == 0)
             {
-                interAd.ShowAd();
+                // Show ad
+                AdsVideoHelper.Show();
             }
         }
 

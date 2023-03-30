@@ -4,24 +4,25 @@ using UnityEngine;
 
 public class Buff : MonoBehaviour
 {
-    private ParticleSystem particleSystem;
+    private ParticleSystem particles;
 
     private static int health = 30;
     private static int posion = 20;
     private int randomBuffType = 0;
 
+    [System.Obsolete]
     private void Start()
     {
-        particleSystem = GetComponentInChildren<ParticleSystem>();
+        particles = GetComponentInChildren<ParticleSystem>();
         randomBuffType = Random.Range(0, 2);
 
         switch (randomBuffType)
         {
             case 0:
-                particleSystem.startColor = Color.green;
+                particles.startColor = Color.green;
                 break;
             case 1:
-                particleSystem.startColor = Color.red;
+                particles.startColor = Color.red;
                 break;
         }
     }
