@@ -832,6 +832,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 179635036}
+  - component: {fileID: 179635037}
   m_Layer: 5
   m_Name: Bonus (Ad reward)
   m_TagString: Untagged
@@ -862,6 +863,21 @@ RectTransform:
   m_AnchoredPosition: {x: 125, y: 125}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &179635037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179635035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9562d61c283b0214d9267e9b54ee1f1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showAdButton: {fileID: 1863936066}
+  androidAdID: Rewarded_Android
+  iOSAdID: Rewarded_iOS
 --- !u!1 &199120103
 GameObject:
   m_ObjectHideFlags: 0
@@ -4088,10 +4104,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1317513301}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 783caa8774acecf4ebee4035bdd21f43, type: 3}
+  m_Script: {fileID: 11500000, guid: a9f7fd3d37879b04ebd9840ca2b511ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameId: 5224018
+  androidGameID: 5224018
+  iOSGameID: 5224019
+  testMode: 1
 --- !u!1 &1357868750
 GameObject:
   m_ObjectHideFlags: 0
@@ -5484,9 +5502,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1317513303}
-        m_TargetAssemblyTypeName: AdsHelper, Assembly-CSharp
-        m_MethodName: RewardedVideoAd
+      - m_Target: {fileID: 179635037}
+        m_TargetAssemblyTypeName: RewardedAds, Assembly-CSharp
+        m_MethodName: ShowAd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

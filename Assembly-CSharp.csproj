@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\QuickOutline\Scripts\Outline.cs" />
     <Compile Include="Assets\Models\WarFX\Scripts\CFX_LightIntensityFade.cs" />
+    <Compile Include="Assets\_Scripts\Ads\RewardedAds.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FixedJoystick.cs" />
     <Compile Include="Assets\_Scripts\Enemy\EnemyUI.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
@@ -72,44 +73,34 @@
     <Compile Include="Assets\_Scripts\Enemy\EnemyArcher.cs" />
     <Compile Include="Assets\_Scripts\Camera\CameraMouseControl.cs" />
     <Compile Include="Assets\Models\WarFX\Scripts\WFX_BulletHoleDecal.cs" />
-    <Compile Include="Assets\_Scripts\Ads\AdsRewardedHelper.cs" />
+    <Compile Include="Assets\_Scripts\Ads\InterstitialAds.cs" />
     <Compile Include="Assets\_Scripts\Enemy\EnemyGeneration.cs" />
     <Compile Include="Assets\Models\WarFX\Scripts\CFX_AutoDestructShuriken.cs" />
     <Compile Include="Assets\_Scripts\Enemy\EnemyMovement.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\DynamicJoystick.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Base\Joystick.cs" />
-    <Compile Include="Assets\_Scripts\Ads\AdsVideoHelper.cs" />
     <Compile Include="Assets\Models\WarFX\Scripts\WFX_LightFlicker.cs" />
     <Compile Include="Assets\_Scripts\Enemy\Arrow.cs" />
     <Compile Include="Assets\_Scripts\Menu\AudioController.cs" />
     <Compile Include="Assets\_Scripts\Menu\Relics.cs" />
     <Compile Include="Assets\_Scripts\Menu\LoadScenes.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
-    <Compile Include="Assets\_Scripts\Ads\AdsHelper.cs" />
     <Compile Include="Assets\_Scripts\Menu\MenuSettings.cs" />
     <Compile Include="Assets\_Scripts\Coin &amp; buffs\Coin.cs" />
+    <Compile Include="Assets\_Scripts\Ads\AdsInitializer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Models\WarFX\Shaders\WFX_S Multiply Soft.shader" />
     <None Include="Assets\Models\WarFX\Shaders\WFX_S Multiply Soft Scroll.shader" />
-    <None Include="Assets\UnityAds\UnityEngine.Advertisements.Unsupported.dll" />
     <None Include="Assets\Models\WarFX\_Effects\MuzzleFlashes\!MuzzleFlash Differences.txt" />
     <None Include="Assets\Models\WarFX\Shaders\WFX_S Alpha-Specular TintColor.shader" />
     <None Include="Assets\QuickOutline\Resources\Shaders\OutlineMask.shader" />
     <None Include="Assets\Models\WarFX\Shaders\WFX_S Add Scroll.shader" />
-    <None Include="Assets\UnityAds\UnityEngine.Monetization.Editor.dll" />
     <None Include="Assets\Models\WarFX\_Effects (Mobile)\MuzzleFlashes\!MuzzleFlash Differences.txt" />
-    <None Include="Assets\UnityAds\UnityEngine.Advertisements.Editor.dll" />
     <None Include="Assets\Models\WarFX\Shaders\WFX_S Particle Add A8.shader" />
-    <None Include="Assets\UnityAds\UnityEngine.Advertisements.iOS.dll" />
-    <None Include="Assets\UnityAds\UnityEngine.Monetization.iOS.dll" />
     <None Include="Assets\Models\WarFX\Shaders\WFX_S Smoke Scroll.shader" />
     <None Include="Assets\Models\WarFX\Shaders\WFX_S Particle Multiply A8.shader" />
-    <None Include="Assets\UnityAds\link.xml" />
     <None Include="Assets\Models\WarFX\Shaders\WFX_S AlphaBlend Scroll.shader" />
-    <None Include="Assets\UnityAds\UnityEngine.Monetization.Unsupported.dll" />
-    <None Include="Assets\UnityAds\UnityEngine.Advertisements.Android.dll" />
-    <None Include="Assets\UnityAds\UnityEngine.Monetization.Android.dll" />
     <None Include="Assets\Models\WarFX\Shaders\WFX_S Particle AddSoft A8.shader" />
     <None Include="Assets\LICENSE.txt" />
     <None Include="Assets\Models\WarFX\!WarFX Readme.txt" />
@@ -355,14 +346,11 @@
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.21f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Monetization.Editor">
-      <HintPath>Assets\UnityAds\UnityEngine.Monetization.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Advertisements.Editor">
-      <HintPath>Assets\UnityAds\UnityEngine.Advertisements.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Android.Types">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.21f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
@@ -739,26 +727,14 @@
     <Reference Include="Unity.VisualScripting.Flow.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Cinemachine">
-      <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.cinemachine.editor">
-      <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Shared.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
@@ -775,8 +751,8 @@
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Flow">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
+    <Reference Include="Unity.Mediation">
+      <HintPath>Library\ScriptAssemblies\Unity.Mediation.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
@@ -787,14 +763,38 @@
     <Reference Include="Unity.Rider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.VisualScripting.Flow">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.State">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
+    <Reference Include="Unity.Services.Core">
+      <HintPath>Library\ScriptAssemblies\Unity.Services.Core.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Core">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Services.Core.Analytics">
+      <HintPath>Library\ScriptAssemblies\Unity.Services.Core.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Shared.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Services.Core.Environments">
+      <HintPath>Library\ScriptAssemblies\Unity.Services.Core.Environments.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.State">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

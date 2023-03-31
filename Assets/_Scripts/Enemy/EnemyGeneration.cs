@@ -7,8 +7,6 @@ using System;
 
 using Random = UnityEngine.Random;
 using System.Linq;
-using UnityEngine.Advertisements;
-using Helpers;
 
 public class EnemyGeneration : MonoBehaviour
 {
@@ -53,9 +51,13 @@ public class EnemyGeneration : MonoBehaviour
     // Ads
     private int triesCount = 0;
     private bool haveAddedTries = false;
+    public InterstitialAds interstitialAds;
 
     private void Start()
     {
+        // Load ad
+        interstitialAds.LoadAd();
+
         // Set floor texture
         string levelDetector = "";
         levelDetector = PlayerPrefs.GetString("TextureName");
@@ -278,7 +280,7 @@ public class EnemyGeneration : MonoBehaviour
             if (triesCount % 3 == 0)
             {
                 // Show ad
-                AdsVideoHelper.Show();
+                interstitialAds.ShowAd();
             }
         }
 
