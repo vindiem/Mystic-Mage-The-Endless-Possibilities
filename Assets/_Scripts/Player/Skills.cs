@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Cinemachine;
+
 using Random = UnityEngine.Random;
 
 public class Skills : MonoBehaviour
@@ -261,6 +263,11 @@ public class Skills : MonoBehaviour
                 Ultimate();
             }
 
+            else if (Input.GetKeyDown(KeyCode.R))
+            {
+                RotateCamera();
+            }
+
         }
 
         #endregion
@@ -485,6 +492,18 @@ public class Skills : MonoBehaviour
         }
     }
 
+    // [R] Camera rotate / ;
+    public void RotateCamera()
+    {
+        CinemachineVirtualCamera camera = FindAnyObjectByType<CinemachineVirtualCamera>();
+        CinemachineTransposer cameraTransposer = camera.GetCinemachineComponent<CinemachineTransposer>();
+
+        float zOffset = cameraTransposer.m_FollowOffset.z;
+        zOffset *= -1;
+        cameraTransposer.m_FollowOffset.z = zOffset;
+
+    }
+
     // const kds
     private void SetCkds(float kdi, int i)
     {
@@ -520,6 +539,10 @@ public class Skills : MonoBehaviour
 
             int randomEnemyDamage = Random.Range(0, enemiesList.Count);
             TakeDamage(enemiesScripts[randomEnemyDamage].Damage);
+
+        }
+        else if (other.CompareTag("BossZobmieHit"))
+        {
 
         }
     }
