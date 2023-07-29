@@ -238,32 +238,32 @@ public class Skills : MonoBehaviour
                 movementScript.RotateToMouse(currentMousePosition, true);
             }
 
-            else if (Input.GetKeyDown(KeyCode.Z))
+            else if (Input.GetKeyDown(KeyCode.Z) == true)
             {
                 Fire();
             }
             
-            else if (Input.GetKeyDown(KeyCode.X))
+            else if (Input.GetKeyDown(KeyCode.X) == true)
             {
                 Wave();
             }
 
-            else if (Input.GetKeyDown(KeyCode.C))
+            else if (Input.GetKeyDown(KeyCode.C) == true)
             {
                 TornadoInvoke();
             }
 
-            else if (Input.GetKeyDown(KeyCode.V))
+            else if (Input.GetKeyDown(KeyCode.V) == true)
             {
                 MeteorInvoke();
             }
             
-            else if (Input.GetKeyDown(KeyCode.Space))
+            else if (Input.GetKeyDown(KeyCode.Space) == true)
             {
                 Ultimate();
             }
 
-            else if (Input.GetKeyDown(KeyCode.R))
+            else if (Input.GetKeyDown(KeyCode.R) == true)
             {
                 RotateCamera();
             }
@@ -541,7 +541,7 @@ public class Skills : MonoBehaviour
             TakeDamage(enemiesScripts[randomEnemyDamage].Damage);
 
         }
-        else if (other.CompareTag("BossZobmieHit"))
+        else if (other.CompareTag("BossZobmieHit") == true)
         {
 
         }

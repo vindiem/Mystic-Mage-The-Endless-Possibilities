@@ -6,7 +6,6 @@ using UnityEngine.UI;
 using System;
 
 using Random = UnityEngine.Random;
-using System.Linq;
 
 public class EnemyGeneration : MonoBehaviour
 {
@@ -61,6 +60,7 @@ public class EnemyGeneration : MonoBehaviour
         // Set floor texture
         string levelDetector = "";
         levelDetector = PlayerPrefs.GetString("TextureName");
+
         switch (levelDetector)
         {
             case "Game":
