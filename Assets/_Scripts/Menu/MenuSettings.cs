@@ -92,7 +92,7 @@ public class MenuSettings : MonoBehaviour
     {
         int masterTextureLimitValue = (int)masterTextureLimitSlider.value;
         PlayerPrefs.SetInt("MasterTextureLimit", masterTextureLimitValue);
-        QualitySettings.masterTextureLimit = masterTextureLimitValue;
+        QualitySettings.globalTextureMipmapLimit = masterTextureLimitValue;
     }
 
     public void AntiAliasingSet()
